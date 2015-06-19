@@ -1,8 +1,6 @@
 package com.epam.connectionpool.connectionfactory;
 
 import com.epam.connectionpool.exception.ConnectionPoolException;
-import com.epam.connectionpool.proxyconnection.ProxyConnection;
-
 import oracle.jdbc.driver.OracleDriver;
 
 import org.apache.log4j.Logger;
@@ -14,9 +12,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 /**
- * ProxyConnectionFactory need to create ProxyConnection
+ * ConnectionFactory need to create Connection
  */
-public class ProxyConnectionFactory {
+public class ConnectionFactory {
 	static {
 			try {
 				DriverManager.registerDriver(new OracleDriver());
@@ -26,15 +24,15 @@ public class ProxyConnectionFactory {
 		
 
 	}
-	private static final Logger LOG = Logger.getLogger(ProxyConnectionFactory.class);
+	private static final Logger LOG = Logger.getLogger(ConnectionFactory.class);
 	private static final String DB_PROPERTIES = "src/main/resources/property/database.properties";
 
 	/**
-	 * @return ProxyConnection
+	 * @return Connection
 	 * @throws ConnectionPoolException
-	 * @see ProxyConnection
+	 * @see Connection
 	 */
-	public static ProxyConnection getInstance() throws ConnectionPoolException {
+	public static Connection getInstance() throws ConnectionPoolException {
 		Properties properties = new Properties();
 		Connection connection = null;
 		try {
@@ -44,6 +42,6 @@ public class ProxyConnectionFactory {
 		} catch (IOException | SQLException e) {
 			throw new ConnectionPoolException(e);
 		}
-		return new ProxyConnection(connection);
+		return connection;
 	}
 }

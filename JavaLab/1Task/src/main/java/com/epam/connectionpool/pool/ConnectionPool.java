@@ -2,19 +2,19 @@ package com.epam.connectionpool.pool;
 
 import org.apache.log4j.Logger;
 
-import com.epam.connectionpool.connectionfactory.ProxyConnectionFactory;
+import com.epam.connectionpool.connectionfactory.ConnectionFactory;
 import com.epam.connectionpool.exception.ConnectionPoolException;
-import com.epam.connectionpool.proxyconnection.ProxyConnection;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * ConnectionPool is safe connection pool
- * @see ProxyConnection
+ * @see Connection
  *
  */
 public class ConnectionPool {
@@ -22,7 +22,7 @@ public class ConnectionPool {
 
     private final static Logger LOG = Logger.getLogger(ConnectionPool.class);
     private static final String DB_PROPERTIES = "src/main/resources/property/database.properties";
-    private ArrayBlockingQueue<ProxyConnection> connectionQueue;
+    private ArrayBlockingQueue<Connection> connectionQueue;
 
     private ConnectionPool() throws ConnectionPoolException {
         Properties properties = new Properties();
@@ -31,7 +31,7 @@ public class ConnectionPool {
             int poolSize = Integer.valueOf(properties.getProperty("pool_size"));
             connectionQueue = new ArrayBlockingQueue<>(poolSize);
             for (int i = 0; i < poolSize; i++) {
-                ProxyConnection connection = ProxyConnectionFactory.getInstance();
+                Connection connection = ConnectionFactory.getInstance();
                 connectionQueue.offer(connection);
             }
             LOG.info("Connection Pool is created");
@@ -41,16 +41,15 @@ public class ConnectionPool {
     }
 
     /**
-     * close all ProxyConnection in ConnectionPool
+     * close all Connection in ConnectionPool
      * @throws ConnectionPoolException
      */
     public void closeConnections() throws ConnectionPoolException {
-        for (ProxyConnection connection : connectionQueue) {
+        for (Connection connection : connectionQueue) {
             try {
                 connection.close();
-
             } catch (SQLException e) {
-                throw new ConnectionPoolException();
+            	LOG.error("Close connection trouble");
             }
         }
         LOG.info("Connection pool is closed");
@@ -75,12 +74,12 @@ public class ConnectionPool {
 
 
     /**
-     * @return ProxyConnection
+     * @return Connection
      * @throws ConnectionPoolException
-     * @see ProxyConnection
+     * 
      */
-    public ProxyConnection takeConnection() throws ConnectionPoolException {
-        ProxyConnection connection = null;
+    public Connection takeConnection() throws ConnectionPoolException {
+        Connection connection = null;
         try {
             connection = connectionQueue.take();
         } catch (InterruptedException e) {
@@ -91,11 +90,11 @@ public class ConnectionPool {
 
 
     /**
-     * return ProxyConnection to Connection Pool
-     * @param proxyConnection is ProxyConnection
-     * @return true if ProxyConnection is offer to ConnectionPool
+     * return Connection to Connection Pool
+     * @param Connection
+     * @return true if Connection is offer to ConnectionPool
      */
-    public boolean offerConnection(ProxyConnection proxyConnection) {
-        return connectionQueue.offer(proxyConnection);
+    public boolean offerConnection(Connection Connection) {
+        return connectionQueue.offer(Connection);
     }
 }
