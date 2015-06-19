@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clients xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://www.bsu.by/bankaccount"
+          xsi:schemaLocation="http://www.bsu.by/bankaccount Clients.xsd">
+    <client client-id="c113323">
+        <first-name>Иван</first-name>
+        <last-name>Иванов</last-name>
+        <personal-account account-id="p13467709">
+            <currency>usd</currency>
+            <is-blocked>false</is-blocked>
+            <update-date>2014-10-06</update-date>
+            <balance>2500</balance>
+        </personal-account>
+        <deposit-account account-id="d12432553">
+            <currency>usd</currency>
+            <is-blocked>false</is-blocked>
+            <update-date>2015-01-26</update-date>
+            <balance>13.50</balance>
+            <interest-rate>3</interest-rate>
+        </deposit-account>
+        <credit-account account-id="a07899876">
+            <currency>blr</currency>
+            <is-blocked>false</is-blocked>
+            <update-date>2013-10-16</update-date>
+            <balance>20000000</balance>
+            <lending-rate>60</lending-rate>
+            <month>18</month>
+        </credit-account>
+    </client>
+    <client client-id="c243253">
+        <first-name>John</first-name>
+        <last-name>Wick</last-name>
+        <personal-account account-id="f07222279">
+            <currency>usd</currency>
+            <is-blocked>false</is-blocked>
+            <update-date>2012-11-18</update-date>
+            <balance>250</balance>
+        </personal-account>
+        <deposit-account account-id="f07123214">
+            <currency>usd</currency>
+            <is-blocked>true</is-blocked>
+            <update-date>1992-06-14</update-date>
+            <balance>240.56</balance>
+            <interest-rate>5</interest-rate>
+        </deposit-account>
+        <credit-account account-id="f07232111">
+            <currency>usd</currency>
+            <is-blocked>false</is-blocked>
+            <update-date>2014-10-26</update-date>
+            <balance>105.50</balance>
+            <lending-rate>50</lending-rate>
+            <month>15</month>
+        </credit-account>
+    </client>
+</clients>

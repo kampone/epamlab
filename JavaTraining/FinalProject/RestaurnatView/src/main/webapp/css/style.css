@@ -1,0 +1,116 @@
+*{
+    padding:0;
+    margin: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background: url(../jpg/bg.jpg) no-repeat fixed;
+    background-size: cover;
+}
+.general_table {
+    width: 50%;
+    margin: 100px auto;
+    background: #f8f8f8;
+    border: 1px solid #255;
+    border-collapse: collapse;
+}
+.minor_table {
+    bottom: 10%;
+    right: 5%;
+    background: #f8f8f8;
+    position: fixed;
+}
+
+#price {
+    font-family: Tahoma, sans-serif;
+    font-size: x-large;
+}
+
+header {
+    width: 20%;
+    height: 27px;
+    position: fixed;
+    background-color: #f8f8f8;
+    top: 0;
+    left: 0;
+
+}
+
+footer {
+    background-color: #f8f8f8;
+    position: fixed;
+    width: 100%;
+    height: 20px;
+    left: 0;
+    bottom: 0;
+
+}
+
+th {
+    font-family: Tahoma, sans-serif;
+    background: #E1E6FF;
+    padding: 20px;
+}
+td {
+    font-family: Tahoma, sans-serif;
+    padding: 10px;
+    border: 1px solid #255;
+}
+
+#td-centre{
+    align-content: center;
+    font-size: medium;
+}
+
+input[type=submit]{
+    width: 15em;
+    height: 2em;
+}
+.wrong{
+    color: red;
+}
+
+.errormessage{
+    font-family: Tahoma, sans-serif;
+    font-size: x-large;
+    color: red;
+}
+#change_language{
+    position: fixed;
+    top: 5%;
+    left: 1%;
+}
+#change_language_button{
+    position: fixed;
+    width: 7em;
+    height: 2em;
+
+}
+
+#back_button{
+    position: fixed;
+    width: 15em;
+    height: 2em;
+    bottom: 5%;
+    left: 1%
+}
+button[type=submit]{
+    width: 15em;
+    height: 2em;
+}
+.info_message {
+    color: black ;
+    font-size: x-large;
+}
+
+.line_with_id{
+    background-color: cornflowerblue;
+}
+
+
+
+
+
+
+

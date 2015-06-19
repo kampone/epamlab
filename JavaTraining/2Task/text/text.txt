@@ -1,0 +1,65 @@
+    The alternative to modeling the machine is to model the problem you're trying to solve.
+Early languages such as LISP and APL chose particular views of the world. All problems are
+ultimately lists' or all problems are algorithmic, respectively. Prolog casts all problems
+into chains of decisions. Languages have been created for constraint-based programming and
+for programming exclusively by manipulating graphical symbols. The latter proved to be too
+restrictive. Each of these approaches may be a good solution to the particular class of
+problem they're designed to solve, but when you step outside of that domain they become
+awkward.
+
+
+//: arrays/IceCream.java
+// Returning arrays from methods.
+import java.util.*;
+public class IceCream {
+ private static Random rand = new Random(47);
+ static final String[] FLAVORS = {
+ "Chocolate", "Strawberry", "Vanilla Fudge Swirl",
+ "Mint Chip", "Mocha Almond Fudge", "Rum Raisin",
+ "Praline Cream", "Mud Pie"
+ };
+ public static String[] flavorSet(int n) {
+ if(n > FLAVORS.length)
+ throw new IllegalArgumentException("Set too big");
+ String[] results = new String[n];
+ boolean[] picked = new boolean[FLAVORS.length];
+ for(int i = 0; i < n; i++) {
+ int t;
+ do
+ t = rand.nextInt(FLAVORS.length);
+ while(picked[t]);
+ results[i] = FLAVORS[t];
+ picked[t] = true;
+ }
+ return results;
+ }
+ public static void main(String[] args) {
+ for(int i = 0; i < 7; i++)
+ System.out.println(Arrays.toString(flavorSet(3)));
+ }
+} /* Output:
+[Rum Raisin, Mint Chip, Mocha Almond Fudge]
+[Chocolate, Strawberry, Mocha Almond Fudge]
+[Strawberry, Mint Chip, Mocha Almond Fudge]
+[Rum Raisin, Vanilla Fudge Swirl, Mud Pie]
+[Vanilla Fudge Swirl, Chocolate, Mocha Almond Fudge]
+[Praline Cream, Strawberry, Mocha Almond Fudge]
+[Mocha Almond Fudge, Strawberry, Mint Chip]
+*///:~
+
+
+    The object-oriented approach goes a step further by providing tools for the programmer to
+represent elements in the problem space. This representation is general enough that the
+programmer is not constrained to any particular type of problem. We refer to the elements in
+the problem space and their representations in the solution space as objects. You will also
+need other objects that don't have problem-space analogs. The idea is that the program is
+allowed to adapt itself to the lingo of the problem by adding new types of objects, so when
+you read the code describing the solution, you're reading words that also express the
+problem. This is a more flexible and powerful language abstraction than what we've had
+before. Thus, OOP allows you to describe the problem in terms of the problem, rather than
+in terms of the computer where the solution will run. There's still a connection back to the
+computer: Each object looks quite a bit like a little computer it has a state, and it has
+operations that you can ask it to perform. However, this doesn't seem like such a bad analogy
+to objects in the real world they all have characteristics and behaviors.
+Alan Kay summarized five basic characteristics of Smalltalk, the first successful objectoriented
+language and one of the languages upon which Java is based.
