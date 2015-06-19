@@ -81,6 +81,7 @@ public class ConnectionPool {
     public Connection takeConnection() throws ConnectionPoolException {
         Connection connection = null;
         try {
+        	
             connection = connectionQueue.take();
         } catch (InterruptedException e) {
             throw new ConnectionPoolException(e);
