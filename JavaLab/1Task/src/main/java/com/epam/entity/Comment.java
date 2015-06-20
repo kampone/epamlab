@@ -13,7 +13,7 @@ public class Comment extends NewsManagementEntity {
 	private long id;
 	private String text;
 	private Timestamp creationDate;
-	
+
 	public Comment() {
 		// TODO Auto-generated constructor stub
 	}
@@ -26,7 +26,8 @@ public class Comment extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(long id) {
 		this.id = id;
@@ -40,7 +41,8 @@ public class Comment extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param text the text to set
+	 * @param text
+	 *            the text to set
 	 */
 	public void setText(String text) {
 		this.text = text;
@@ -54,13 +56,16 @@ public class Comment extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param creationDate the creationDate to set
+	 * @param creationDate
+	 *            the creationDate to set
 	 */
 	public void setCreationDate(Timestamp creationDate) {
 		this.creationDate = creationDate;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -74,7 +79,9 @@ public class Comment extends NewsManagementEntity {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -100,7 +107,5 @@ public class Comment extends NewsManagementEntity {
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }

@@ -8,5 +8,5 @@ package com.epam.entity;
  *
  */
 public enum Entities {
-	NEWS, AUTHOR, COMMENT, TAG 
+	NEWS, AUTHOR, COMMENT, TAG
 }

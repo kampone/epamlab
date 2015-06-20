@@ -8,8 +8,7 @@ import com.epam.entity.Tag;
 
 /**
  * @author Uladzislau_Kaminski
- *
  */
 public interface TagDAO extends NewsManagementDAO<Tag> {
-	
+
 }

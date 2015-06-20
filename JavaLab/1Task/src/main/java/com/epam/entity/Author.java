@@ -6,7 +6,7 @@ public class Author extends NewsManagementEntity {
 	private long id;
 	private String name;
 	private Timestamp expired;
-	
+
 	public Author() {
 	}
 
@@ -18,7 +18,8 @@ public class Author extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(long id) {
 		this.id = id;
@@ -32,7 +33,8 @@ public class Author extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -46,13 +48,16 @@ public class Author extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param expired the expired to set
+	 * @param expired
+	 *            the expired to set
 	 */
 	public void setExpired(Timestamp expired) {
 		this.expired = expired;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -65,7 +70,9 @@ public class Author extends NewsManagementEntity {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -91,7 +98,5 @@ public class Author extends NewsManagementEntity {
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }

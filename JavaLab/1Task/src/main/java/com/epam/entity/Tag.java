@@ -1,6 +1,7 @@
 package com.epam.entity;
 
 import java.io.Serializable;
+
 /**
  * @author Uladzislau_Kaminski
  *
@@ -8,31 +9,40 @@ import java.io.Serializable;
 public class Tag extends NewsManagementEntity {
 	private long id;
 	private String name;
+
 	/**
 	 * @return the id
 	 */
 	public long getId() {
 		return id;
 	}
+
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	/**
 	 * @return the name
 	 */
 	public String getName() {
 		return name;
 	}
+
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -43,7 +53,10 @@ public class Tag extends NewsManagementEntity {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -64,5 +77,5 @@ public class Tag extends NewsManagementEntity {
 			return false;
 		return true;
 	}
-	
+
 }

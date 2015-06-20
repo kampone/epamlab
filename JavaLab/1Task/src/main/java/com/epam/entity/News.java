@@ -1,6 +1,7 @@
 package com.epam.entity;
 
 import java.sql.Timestamp;
+
 /**
  * @author Uladzislau_Kaminski
  *
@@ -12,7 +13,7 @@ public class News extends NewsManagementEntity {
 	private String fullText;
 	private Timestamp creationDate;
 	private String modidcationDate;
-	
+
 	public News() {
 		// TODO Auto-generated constructor stub
 	}
@@ -25,7 +26,8 @@ public class News extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(long id) {
 		this.id = id;
@@ -39,7 +41,8 @@ public class News extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param title the title to set
+	 * @param title
+	 *            the title to set
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -53,7 +56,8 @@ public class News extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param shortText the shortText to set
+	 * @param shortText
+	 *            the shortText to set
 	 */
 	public void setShortText(String shortText) {
 		this.shortText = shortText;
@@ -67,7 +71,8 @@ public class News extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param fullText the fullText to set
+	 * @param fullText
+	 *            the fullText to set
 	 */
 	public void setFullText(String fullText) {
 		this.fullText = fullText;
@@ -81,7 +86,8 @@ public class News extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param creationDate the creationDate to set
+	 * @param creationDate
+	 *            the creationDate to set
 	 */
 	public void setCreationDate(Timestamp creationDate) {
 		this.creationDate = creationDate;
@@ -95,13 +101,16 @@ public class News extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param modidcationDate the modidcationDate to set
+	 * @param modidcationDate
+	 *            the modidcationDate to set
 	 */
 	public void setModidcationDate(String modidcationDate) {
 		this.modidcationDate = modidcationDate;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -121,7 +130,9 @@ public class News extends NewsManagementEntity {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -162,6 +173,5 @@ public class News extends NewsManagementEntity {
 			return false;
 		return true;
 	}
-	
-	
+
 }
