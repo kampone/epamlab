@@ -3,6 +3,11 @@
  */
 package com.epam.dao;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import com.epam.dao.exception.DAOException;
 import com.epam.entity.NewsManagementEntity;
 
@@ -18,5 +23,33 @@ public interface NewsManagementDAO<T extends NewsManagementEntity> {
 	public void update(T entity) throws DAOException;
 
 	public void delete(T entity) throws DAOException;
-
+	
+	default void closeConnection(Connection connection, Statement statement) throws DAOException {
+		if(connection != null) {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				throw new DAOException("Problem during close connection");
+			}
+		}
+		
+		if(statement != null) {
+			try {
+				statement.close();
+			} catch (SQLException e) {
+				throw new DAOException("Problem during close connection");
+			}
+		}
+	}
+	
+	default void closeConnection(Connection connection, Statement statement, ResultSet resultSet) throws DAOException{
+		this.closeConnection(connection, statement);
+		if(resultSet != null) {
+			try {
+				resultSet.close();
+			} catch (SQLException e) {
+				throw new DAOException("Problem during close ResultSet");
+			}
+		}
+	}
 }
