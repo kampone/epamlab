@@ -20,7 +20,7 @@ import com.epam.entity.Tag;
  *
  */
 public class TagDAOImpl implements TagDAO {
-	private static final String CREATE_NEW_TAG = "INSERT INTO tags(TAG_NAME) VALUES (?)";
+	private static final String CREATE_NEW_TAG = "INSERT INTO tags(TAG_NAME, TAG_ID) VALUES (?, TAGS_TAG_ID_SEQ.nextval)";
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -52,7 +52,7 @@ public class TagDAOImpl implements TagDAO {
 			try {
 				statement = connection.prepareStatement(CREATE_NEW_TAG);
 				String name = entity.getName();
-				statement.setString(2, name);
+				statement.setString(1, name);
 				statement.executeUpdate();
 			} catch (SQLException e) {
 				throw new DAOException("Problem during preparing statement" + e);
@@ -65,6 +65,7 @@ public class TagDAOImpl implements TagDAO {
 			} catch (SQLException e) {
 				throw new DAOException("Problem during getting id" + e);
 			}
+			closeConnection(connection, statement, resultSet);
 		}
 		return id;
 	}

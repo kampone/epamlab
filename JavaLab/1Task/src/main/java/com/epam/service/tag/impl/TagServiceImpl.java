@@ -38,7 +38,6 @@ public class TagServiceImpl implements TagService {
 	 */
 	@Override
 	public long create(Tag entity) throws ServiceException {
-		long id = -1;
 		try {
 			id = tagDAO.create(entity);
 		} catch (DAOException e) {

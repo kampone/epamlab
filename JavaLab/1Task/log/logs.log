@@ -27,3 +27,59 @@
 [main] INFO 20/Jun/2015 16:17:15  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7bfcd12c: startup date [Sat Jun 20 16:17:15 MSK 2015]; root of context hierarchy
 [main] INFO 20/Jun/2015 16:17:15  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
 [main] INFO 20/Jun/2015 16:17:16  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3a82f6ef: defining beans [tagDAOImpl,tagService]; root of factory hierarchy
+[main] INFO 22/Jun/2015 14:07:37  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Mon Jun 22 14:07:37 MSK 2015]; root of context hierarchy
+[main] INFO 22/Jun/2015 14:07:37  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 22/Jun/2015 14:08:05  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Mon Jun 22 14:08:05 MSK 2015]; root of context hierarchy
+[main] INFO 22/Jun/2015 14:08:05  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 22/Jun/2015 15:34:50  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Mon Jun 22 15:34:50 MSK 2015]; root of context hierarchy
+[main] INFO 22/Jun/2015 15:34:50  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 22/Jun/2015 15:54:53  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Mon Jun 22 15:54:53 MSK 2015]; root of context hierarchy
+[main] INFO 22/Jun/2015 15:54:53  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] WARN 22/Jun/2015 15:54:53  factory.xml.XmlBeanDefinitionReader: Ignored XML validation warning
+org.xml.sax.SAXParseException; lineNumber: 5; columnNumber: 69; SchemaLocation: schemaLocation value = 'http://www.springframework.org/schema/beans  http://www.springframework.org/schema/aop  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd' must have even number of URI's.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.warning(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$XSIErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.storeLocations(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.handleStartElement(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator.startElement(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl$NSContentDriver.scanRootElementHook(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at org.springframework.beans.factory.xml.DefaultDocumentLoader.loadDocument(DefaultDocumentLoader.java:75)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.doLoadBeanDefinitions(XmlBeanDefinitionReader.java:388)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:334)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:143)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:178)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:149)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:212)
+	at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:126)
+	at org.springframework.context.support.AbstractXmlApplicationContext.loadBeanDefinitions(AbstractXmlApplicationContext.java:92)
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:130)
+	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:467)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:397)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:83)
+	at com.epam.main.Main.main(Main.java:14)
+[main] INFO 22/Jun/2015 15:55:33  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Mon Jun 22 15:55:33 MSK 2015]; root of context hierarchy
+[main] INFO 22/Jun/2015 15:55:33  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 22/Jun/2015 15:55:34  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@35851384: defining beans [dataSource,transactionManager]; root of factory hierarchy
+[main] INFO 22/Jun/2015 16:00:30  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Mon Jun 22 16:00:29 MSK 2015]; root of context hierarchy
+[main] INFO 22/Jun/2015 16:00:30  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 22/Jun/2015 16:00:30  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@35851384: defining beans [dataSource,transactionManager]; root of factory hierarchy
+[main] INFO 22/Jun/2015 16:00:42  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Mon Jun 22 16:00:42 MSK 2015]; root of context hierarchy
+[main] INFO 22/Jun/2015 16:00:42  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 22/Jun/2015 16:00:43  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@35851384: defining beans [dataSource,transactionManager]; root of factory hierarchy

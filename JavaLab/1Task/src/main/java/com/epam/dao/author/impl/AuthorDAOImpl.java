@@ -19,6 +19,7 @@ import com.epam.entity.Author;
  *
  */
 public class AuthorDAOImpl implements AuthorDAO {
+	private static final String CREATE_NEW_AUTHOR = "INSERT INTO authors(AUTHOR_NAME) VALUES (?)";
 	private DataSource dataSource;
 	
 	
@@ -63,6 +64,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 			} catch (SQLException e) {
 				throw new DAOException("Problem during getting id" + e);
 			}
+			closeConnection(connection, statement, resultSet);
 		}
 		return id;
 	}

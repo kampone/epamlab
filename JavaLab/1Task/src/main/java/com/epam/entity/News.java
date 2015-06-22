@@ -12,7 +12,7 @@ public class News extends NewsManagementEntity {
 	private String shortText;
 	private String fullText;
 	private Timestamp creationDate;
-	private String modidcationDate;
+	private String modificationDate;
 
 	public News() {
 		// TODO Auto-generated constructor stub
@@ -94,18 +94,18 @@ public class News extends NewsManagementEntity {
 	}
 
 	/**
-	 * @return the modidcationDate
+	 * @return the modificationDate
 	 */
-	public String getModidcationDate() {
-		return modidcationDate;
+	public String getModificationDate() {
+		return modificationDate;
 	}
 
 	/**
-	 * @param modidcationDate
-	 *            the modidcationDate to set
+	 * @param modificationDate
+	 *            the modificationDate to set
 	 */
-	public void setModidcationDate(String modidcationDate) {
-		this.modidcationDate = modidcationDate;
+	public void setModificationDate(String modificationDate) {
+		this.modificationDate = modificationDate;
 	}
 
 	/*
@@ -123,7 +123,7 @@ public class News extends NewsManagementEntity {
 				+ ((fullText == null) ? 0 : fullText.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result
-				+ ((modidcationDate == null) ? 0 : modidcationDate.hashCode());
+				+ ((modificationDate == null) ? 0 : modificationDate.hashCode());
 		result = prime * result
 				+ ((shortText == null) ? 0 : shortText.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
@@ -156,10 +156,10 @@ public class News extends NewsManagementEntity {
 			return false;
 		if (id != other.id)
 			return false;
-		if (modidcationDate == null) {
-			if (other.modidcationDate != null)
+		if (modificationDate == null) {
+			if (other.modificationDate != null)
 				return false;
-		} else if (!modidcationDate.equals(other.modidcationDate))
+		} else if (!modificationDate.equals(other.modificationDate))
 			return false;
 		if (shortText == null) {
 			if (other.shortText != null)
