@@ -1,28 +1,27 @@
 /**
  * 
  */
-package com.epam.dao.tag.impl;
+package com.epam.dao.author.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import javax.sql.DataSource;
 
+import com.epam.dao.author.AuthorDAO;
 import com.epam.dao.exception.DAOException;
-import com.epam.dao.tag.TagDAO;
-import com.epam.entity.Tag;
+import com.epam.entity.Author;
 
 /**
  * @author Uladzislau_Kaminski
  *
  */
-public class TagDAOImpl implements TagDAO {
-	private static final String CREATE_NEW_TAG = "INSERT INTO tags(TAG_NAME) VALUES (?)";
+public class AuthorDAOImpl implements AuthorDAO {
 	private DataSource dataSource;
-
+	
+	
 	public DataSource getDataSource() {
 		return dataSource;
 	}
@@ -31,12 +30,11 @@ public class TagDAOImpl implements TagDAO {
 		this.dataSource = dataSource;
 	}
 
-	/**
-	 * @return  return tag id if it is created
+	/* (non-Javadoc)
 	 * @see com.epam.dao.NewsManagementDAO#create(com.epam.entity.NewsManagementEntity)
 	 */
 	@Override
-	public long create(Tag entity) throws DAOException {
+	public long create(Author entity) throws DAOException {
 		long id = 0;
 		if(entity != null) {
 			Connection connection = null;
@@ -50,9 +48,9 @@ public class TagDAOImpl implements TagDAO {
 			}
 			
 			try {
-				statement = connection.prepareStatement(CREATE_NEW_TAG);
+				statement = connection.prepareStatement(CREATE_NEW_AUTHOR);
 				String name = entity.getName();
-				statement.setString(2, name);
+				statement.setString(1, name);
 				statement.executeUpdate();
 			} catch (SQLException e) {
 				throw new DAOException("Problem during preparing statement" + e);
@@ -73,7 +71,7 @@ public class TagDAOImpl implements TagDAO {
 	 * @see com.epam.dao.NewsManagementDAO#read(long)
 	 */
 	@Override
-	public Tag read(long id) throws DAOException {
+	public Author read(long id) throws DAOException {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -82,7 +80,7 @@ public class TagDAOImpl implements TagDAO {
 	 * @see com.epam.dao.NewsManagementDAO#update(com.epam.entity.NewsManagementEntity)
 	 */
 	@Override
-	public void update(Tag entity) throws DAOException {
+	public void update(Author entity) throws DAOException {
 		// TODO Auto-generated method stub
 
 	}
@@ -91,7 +89,7 @@ public class TagDAOImpl implements TagDAO {
 	 * @see com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity)
 	 */
 	@Override
-	public void delete(Tag entity) throws DAOException {
+	public void delete(Author entity) throws DAOException {
 		// TODO Auto-generated method stub
 
 	}
