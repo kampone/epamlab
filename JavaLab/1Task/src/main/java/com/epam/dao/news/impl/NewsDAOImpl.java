@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 
 import javax.sql.DataSource;
@@ -33,54 +34,63 @@ public class NewsDAOImpl implements NewsDAO {
 	}
 
 	/**
-	 * @return  return tag id if it is created
+	 * @return return tag id if it is created
 	 * @see com.epam.dao.NewsManagementDAO#create(com.epam.entity.NewsManagementEntity)
 	 */
 	@Override
 	public long create(News entity) throws DAOException {
 		long id = 0;
-		if(entity != null) {
+		if (entity != null) {
 			Connection connection = null;
 			PreparedStatement statement = null;
 			ResultSet resultSet = null;
-			
 			try {
-				connection = dataSource.getConnection();
-			} catch (SQLException e) {
-				throw new DAOException("Problem during getting Connection" + e);
-			}
-			
-			try {
-				statement = connection.prepareStatement(CREATE_NEW_NEWS);
-				String title = entity.getTitle();
-				String shortText = entity.getShortText();
-				String fullText = entity.getFullText();
-				Timestamp creationDate = entity.getCreationDate();
-				String modificationDate = entity.getModificationDate();
-				statement.setString(1, title);
-				statement.setString(2, shortText);
-				statement.setString(3, fullText);
-				statement.setTimestamp(4, creationDate);
-				statement.setString(5, modificationDate);
-				statement.executeUpdate();
-			} catch (SQLException e) {
-				throw new DAOException("Problem during preparing statement" + e);
-			}
-			
-			try {
-				resultSet = statement.getGeneratedKeys();
-				if(resultSet != null && resultSet.next()) {
-					id = resultSet.getLong(1);
+				try {
+					connection = dataSource.getConnection();
+				} catch (SQLException e) {
+					throw new DAOException("Problem during getting Connection"
+							+ e);
 				}
-			} catch (SQLException e) {
-				throw new DAOException("Problem during getting id" + e);
+
+				try {
+					statement = connection.prepareStatement(CREATE_NEW_NEWS,
+							new String[] { "NEWS_ID" });
+					String title = entity.getTitle();
+					String shortText = entity.getShortText();
+					String fullText = entity.getFullText();
+					Timestamp creationDate = entity.getCreationDate();
+					String modificationDate = entity.getModificationDate();
+					statement.setString(1, title);
+					statement.setString(2, shortText);
+					statement.setString(3, fullText);
+					statement.setTimestamp(4, creationDate);
+					statement.setString(5, modificationDate);
+					statement.executeUpdate();
+				} catch (SQLException e) {
+					throw new DAOException("Problem during preparing statement"
+							+ e);
+				}
+
+				try {
+					resultSet = statement.getGeneratedKeys();
+					if (resultSet != null && resultSet.next()) {
+						id = resultSet.getLong(1);
+					} else {
+						throw new DAOException("Problem during getting id");
+					}
+				} catch (SQLException e) {
+					throw new DAOException("Problem during getting id" + e);
+				}
+			} finally {
+				closeConnection(connection, statement, resultSet);
 			}
-			closeConnection(connection, statement, resultSet);
 		}
 		return id;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.epam.dao.NewsManagementDAO#read(long)
 	 */
 	@Override
@@ -88,8 +98,12 @@ public class NewsDAOImpl implements NewsDAO {
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.epam.dao.NewsManagementDAO#update(com.epam.entity.NewsManagementEntity)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.NewsManagementEntity
+	 * )
 	 */
 	@Override
 	public void update(News entity) throws DAOException {
@@ -97,8 +111,12 @@ public class NewsDAOImpl implements NewsDAO {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity
+	 * )
 	 */
 	@Override
 	public void delete(News entity) throws DAOException {
@@ -106,7 +124,9 @@ public class NewsDAOImpl implements NewsDAO {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.epam.dao.news.NewsDAO#addNewsTags(long, long)
 	 */
 	@Override
@@ -115,7 +135,9 @@ public class NewsDAOImpl implements NewsDAO {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.epam.dao.news.NewsDAO#addNewsAuthors(long, long)
 	 */
 	@Override
@@ -124,7 +146,9 @@ public class NewsDAOImpl implements NewsDAO {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.epam.dao.news.NewsDAO#deleteNewsTags(long, long)
 	 */
 	@Override
@@ -133,7 +157,9 @@ public class NewsDAOImpl implements NewsDAO {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.epam.dao.news.NewsDAO#deleteNewsAuthors(long, long)
 	 */
 	@Override

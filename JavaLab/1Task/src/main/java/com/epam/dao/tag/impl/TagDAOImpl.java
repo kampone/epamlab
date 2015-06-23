@@ -32,45 +32,55 @@ public class TagDAOImpl implements TagDAO {
 	}
 
 	/**
-	 * @return  return tag id if it is created
+	 * @return return tag id if it is created
 	 * @see com.epam.dao.NewsManagementDAO#create(com.epam.entity.NewsManagementEntity)
 	 */
 	@Override
 	public long create(Tag entity) throws DAOException {
 		long id = 0;
-		if(entity != null) {
+		if (entity != null) {
 			Connection connection = null;
 			PreparedStatement statement = null;
 			ResultSet resultSet = null;
-			
 			try {
-				connection = dataSource.getConnection();
-			} catch (SQLException e) {
-				throw new DAOException("Problem during getting Connection" + e);
-			}
-			
-			try {
-				statement = connection.prepareStatement(CREATE_NEW_TAG);
-				String name = entity.getName();
-				statement.setString(1, name);
-				statement.executeUpdate();
-			} catch (SQLException e) {
-				throw new DAOException("Problem during preparing statement" + e);
-			}
-			try {
-				resultSet = statement.getGeneratedKeys();
-				if(resultSet != null && resultSet.next()) {
-					id = resultSet.getLong(1);
+
+				try {
+					connection = dataSource.getConnection();
+				} catch (SQLException e) {
+					throw new DAOException("Problem during getting Connection"
+							+ e);
 				}
-			} catch (SQLException e) {
-				throw new DAOException("Problem during getting id" + e);
+
+				try {
+					statement = connection.prepareStatement(CREATE_NEW_TAG,
+							new String[] { "TAG_ID" });
+					String name = entity.getName();
+					statement.setString(1, name);
+					statement.executeUpdate();
+				} catch (SQLException e) {
+					throw new DAOException("Problem during preparing statement"
+							+ e);
+				}
+				try {
+					resultSet = statement.getGeneratedKeys();
+					if (resultSet != null && resultSet.next()) {
+						id = resultSet.getLong(1);
+					} else {
+						throw new DAOException("Problem during getting id");
+					}
+				} catch (SQLException e) {
+					throw new DAOException("Problem during getting id" + e);
+				}
+			} finally {
+				closeConnection(connection, statement, resultSet);
 			}
-			closeConnection(connection, statement, resultSet);
 		}
 		return id;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.epam.dao.NewsManagementDAO#read(long)
 	 */
 	@Override
@@ -79,8 +89,12 @@ public class TagDAOImpl implements TagDAO {
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.epam.dao.NewsManagementDAO#update(com.epam.entity.NewsManagementEntity)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.NewsManagementEntity
+	 * )
 	 */
 	@Override
 	public void update(Tag entity) throws DAOException {
@@ -88,8 +102,12 @@ public class TagDAOImpl implements TagDAO {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity
+	 * )
 	 */
 	@Override
 	public void delete(Tag entity) throws DAOException {

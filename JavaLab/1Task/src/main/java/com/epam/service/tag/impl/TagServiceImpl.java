@@ -38,10 +38,11 @@ public class TagServiceImpl implements TagService {
 	 */
 	@Override
 	public long create(Tag entity) throws ServiceException {
+		long id = 0;
 		try {
 			id = tagDAO.create(entity);
 		} catch (DAOException e) {
-			throw new ServiceException("Exception during creating Tag");
+			throw new ServiceException(" Exception during creating Tag " + e);
 		}
 		return id;
 	}
