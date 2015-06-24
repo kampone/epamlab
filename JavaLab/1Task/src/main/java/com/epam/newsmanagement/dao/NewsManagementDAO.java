@@ -8,13 +8,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.epam.newsmanagement.dao.exception.DAOException;
 import com.epam.newsmanagement.entity.NewsManagementEntity;
+import com.epam.newsmanagement.exception.DAOException;
 
 /**
  * @author Uladzislau_Kaminski Interface to realize C.R.U.D. operations
  */
-public interface NewsManagementDAO<T extends NewsManagementEntity> {
+public interface NewsManagementDAO<T> {
 
 	public long create(T entity) throws DAOException;
 

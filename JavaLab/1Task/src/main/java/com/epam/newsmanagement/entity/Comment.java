@@ -11,6 +11,7 @@ import java.sql.Timestamp;
  */
 public class Comment extends NewsManagementEntity {
 	private long id;
+	private long idNews;
 	private String text;
 	private Timestamp creationDate;
 
@@ -26,11 +27,24 @@ public class Comment extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param id
-	 *            the id to set
+	 * @param id the id to set
 	 */
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the idNews
+	 */
+	public long getIdNews() {
+		return idNews;
+	}
+
+	/**
+	 * @param idNews the idNews to set
+	 */
+	public void setIdNews(long idNews) {
+		this.idNews = idNews;
 	}
 
 	/**
@@ -41,8 +55,7 @@ public class Comment extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param text
-	 *            the text to set
+	 * @param text the text to set
 	 */
 	public void setText(String text) {
 		this.text = text;
@@ -56,16 +69,13 @@ public class Comment extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param creationDate
-	 *            the creationDate to set
+	 * @param creationDate the creationDate to set
 	 */
 	public void setCreationDate(Timestamp creationDate) {
 		this.creationDate = creationDate;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -75,13 +85,12 @@ public class Comment extends NewsManagementEntity {
 		result = prime * result
 				+ ((creationDate == null) ? 0 : creationDate.hashCode());
 		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (idNews ^ (idNews >>> 32));
 		result = prime * result + ((text == null) ? 0 : text.hashCode());
 		return result;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -100,6 +109,8 @@ public class Comment extends NewsManagementEntity {
 			return false;
 		if (id != other.id)
 			return false;
+		if (idNews != other.idNews)
+			return false;
 		if (text == null) {
 			if (other.text != null)
 				return false;
@@ -107,5 +118,7 @@ public class Comment extends NewsManagementEntity {
 			return false;
 		return true;
 	}
+	
+	
 
 }

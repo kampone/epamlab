@@ -1,4 +1,4 @@
-package com.epam.newsmanagement.dao.exception;
+package com.epam.newsmanagement.exception;
 
 public class DAOException extends Exception {
 

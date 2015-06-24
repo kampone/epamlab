@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.epam.newsmanagement.dao.comment;
+package com.epam.newsmanagement.dao;
 
 import java.util.List;
 

@@ -4,13 +4,13 @@
 package com.epam.newsmanagement.service;
 
 import com.epam.newsmanagement.entity.NewsManagementEntity;
-import com.epam.newsmanagement.service.exception.ServiceException;
+import com.epam.newsmanagement.exception.ServiceException;
 
 /**
  * @author Uladzislau_Kaminski
  *
  */
-public interface NewsManagementService<T extends NewsManagementEntity> {
+public interface NewsManagementService<T> {
 
 	public long create(T entity) throws ServiceException;
 

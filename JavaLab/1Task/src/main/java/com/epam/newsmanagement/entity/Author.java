@@ -3,7 +3,7 @@ package com.epam.newsmanagement.entity;
 import java.sql.Timestamp;
 
 public class Author extends NewsManagementEntity {
-	private long id;
+	private Long id;
 	private String name;
 	private Timestamp expired;
 
@@ -13,15 +13,14 @@ public class Author extends NewsManagementEntity {
 	/**
 	 * @return the id
 	 */
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
-	 * @param id
-	 *            the id to set
+	 * @param id the id to set
 	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -33,8 +32,7 @@ public class Author extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param name
-	 *            the name to set
+	 * @param name the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -48,16 +46,13 @@ public class Author extends NewsManagementEntity {
 	}
 
 	/**
-	 * @param expired
-	 *            the expired to set
+	 * @param expired the expired to set
 	 */
 	public void setExpired(Timestamp expired) {
 		this.expired = expired;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -65,14 +60,12 @@ public class Author extends NewsManagementEntity {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((expired == null) ? 0 : expired.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/**
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -89,7 +82,10 @@ public class Author extends NewsManagementEntity {
 				return false;
 		} else if (!expired.equals(other.expired))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -98,5 +94,7 @@ public class Author extends NewsManagementEntity {
 			return false;
 		return true;
 	}
+
+	
 
 }

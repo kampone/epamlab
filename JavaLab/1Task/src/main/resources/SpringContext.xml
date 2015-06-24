@@ -17,12 +17,22 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<bean id="tagDAO" class="com.epam.dao.tag.impl.TagDAOImpl">
+	<bean id="tagDAO" class="com.epam.newsmanagement.dao.tag.impl.TagDAOImpl">
 		<property name="dataSource" ref="dataSource"/> 
 	</bean>
 	
-	<bean id="tagService" class="com.epam.service.tag.impl.TagServiceImpl">
+	<bean id="tagService" class="com.epam.newsmanagement.service.tag.impl.TagServiceImpl">
 		<property name="tagDAO" ref="tagDAO"/>
 	</bean>
+	
+	<bean id="commentDAO" class="com.epam.newsmanagement.dao.comment.impl.CommentDAOImpl">
+		<property name="dataSource" ref="dataSource"/> 
+	</bean>
+	
+	<bean id="commentService" class="com.epam.newsmanagement.service.comment.impl.CommentServiceImpl">
+		<property name="commentDAO" ref="commentDAO"/>
+	</bean>
+	
+	
 
 </beans>

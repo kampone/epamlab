@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.epam.newsmanagement.dao.tag;
+package com.epam.newsmanagement.dao;
 
 import com.epam.newsmanagement.dao.NewsManagementDAO;
 import com.epam.newsmanagement.entity.Tag;
