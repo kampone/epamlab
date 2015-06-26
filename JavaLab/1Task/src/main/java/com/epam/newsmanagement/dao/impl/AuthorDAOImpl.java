@@ -11,6 +11,8 @@ import java.sql.Timestamp;
 
 import javax.sql.DataSource;
 
+import oracle.sql.TIMESTAMP;
+
 import com.epam.newsmanagement.dao.AuthorDAO;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Tag;
@@ -21,9 +23,10 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class AuthorDAOImpl implements AuthorDAO {
-	private static final String SQL_CREATE_NEW_AUTHOR_QUERY = "INSERT INTO authors(AUTHOR_NAME) VALUES (?)";
-	private static final String SQL_READ_AUTHOR_BY_ID_QUERY = "SELECT AUTHOR_ID, AUTHOR_NAME, EXPIRED FROM authors WHERE AUTHOR_ID = ?";
-	private static final String SQL_DELETE_AUTHOR_BY_ID_QUERY = "DELETE FROM authors WHERE AUTHOR_ID = ?";
+	private static final String SQL_CREATE_NEW_AUTHOR_QUERY = "INSERT INTO authors(author_name, author_id) VALUES (?, authors_author_id_seq.nextval)";
+	private static final String SQL_READ_AUTHOR_BY_ID_QUERY = "SELECT author_id, author_name, expired FROM authors WHERE author_id = ?";
+	private static final String SQL_UPDATE_AUTHOR_BY_ID_QUERY = "UPDATE authors SET author_name = ? WHERE author_id = ? ";
+	private static final String SQL_DELETE_AUTHOR_BY_ID_QUERY = "UPDATE authors Set EXPIRED = (SELECT SYSTIMESTAMP FROM DUAL) WHERE authors.AUTHOR_ID = ?";
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -121,7 +124,22 @@ public class AuthorDAOImpl implements AuthorDAO {
 	 */
 	@Override
 	public void update(Author entity) throws DAOException {
-		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+
+		try {
+			connection = dataSource.getConnection();
+
+			statement = connection.prepareStatement(SQL_UPDATE_AUTHOR_BY_ID_QUERY);
+			statement.setString(1, entity.getName());
+			statement.setLong(2, entity.getId());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+
+		} finally {
+			closeConnection(connection, statement);
+		}
 
 	}
 

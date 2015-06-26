@@ -3,7 +3,6 @@
  */
 package com.epam.newsmanagement.service;
 
-import com.epam.newsmanagement.entity.NewsManagementEntity;
 import com.epam.newsmanagement.exception.ServiceException;
 
 /**

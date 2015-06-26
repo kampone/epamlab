@@ -15,23 +15,38 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
 	<bean id="tagDAO" class="com.epam.newsmanagement.dao.impl.TagDAOImpl">
-		<property name="dataSource" ref="dataSource"/> 
+		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
-	<bean id="tagService" class="com.epam.newsmanagement.service.impl.TagServiceImpl">
-		<property name="tagDAO" ref="tagDAO"/>
-	</bean>
-	
+
 	<bean id="commentDAO" class="com.epam.newsmanagement.dao.impl.CommentDAOImpl">
-		<property name="dataSource" ref="dataSource"/> 
+		<property name="dataSource" ref="dataSource" />
 	</bean>
-	
+
+	<bean id="authorDAO" class="com.epam.newsmanagement.dao.impl.AuthorDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- <bean id="newsDAO" class="com.epam.newsmanagement.dao.impl.NewsDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+ -->
+	<bean id="tagService" class="com.epam.newsmanagement.service.impl.TagServiceImpl">
+		<property name="tagDAO" ref="tagDAO" />
+	</bean>
+
 	<bean id="commentService" class="com.epam.newsmanagement.service.impl.CommentServiceImpl">
-		<property name="commentDAO" ref="commentDAO"/>
+		<property name="commentDAO" ref="commentDAO" />
 	</bean>
 	
-	
+	<bean id="authorService" class="com.epam.newsmanagement.service.impl.AuthorServiceImpl">
+		<property name="authorDAO" ref="authorDAO" />
+	</bean>
+
+	<!-- <bean id="newsService" class="com.epam.newsmanagement.service.impl.NewsServiceImpl">
+		<property name="newsDAO" ref="newsDAO" />
+	</bean> -->
+
 
 </beans>

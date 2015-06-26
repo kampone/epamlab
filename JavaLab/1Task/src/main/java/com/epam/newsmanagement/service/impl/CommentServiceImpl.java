@@ -30,13 +30,14 @@ public class CommentServiceImpl implements CommentService {
 	 */
 	@Override
 	public long create(Comment entity) throws ServiceException {
-		long id;
+		Long idComment = null;
 		try {
-			id = commentDAO.create(entity);
+			idComment = commentDAO.create(entity);
 		} catch (DAOException e) {
-			throw new ServiceException(System.lineSeparator()+" Exception during creating Comment " + e);
+			throw new ServiceException(" Exception during creating Comment " , e);
 		}
-		return id;
+		return idComment;
+	
 	}
 
 	/* (non-Javadoc)
@@ -48,7 +49,7 @@ public class CommentServiceImpl implements CommentService {
 		try {
 			comment = commentDAO.read(id);
 		} catch (DAOException e) {
-			throw new ServiceException(" Exception during reading Comment " + e);
+			throw new ServiceException(" Exception during reading Comment " , e);
 		}
 		return comment;
 	}
@@ -58,17 +59,29 @@ public class CommentServiceImpl implements CommentService {
 	 */
 	@Override
 	public void update(Comment entity) throws ServiceException {
-		// TODO Auto-generated method stub
+		try {
+			commentDAO.update(entity);
+		} catch (DAOException e) {
+			throw new ServiceException(" Exception during updating Comment " , e);
+		}
 
 	}
 
-	/* (non-Javadoc)
+	/* 
 	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(com.epam.newsmanagement.entity.NewsManagementEntity)
 	 */
 	@Override
 	public void delete(Comment entity) throws ServiceException {
-		// TODO Auto-generated method stub
+		delete(entity.getId());
+	}
 
+	@Override
+	public void delete(Long id) throws ServiceException {
+		try {
+			commentDAO.delete(id);
+		} catch (DAOException e) {
+			throw new ServiceException(" Exception during deleting Comment " , e);
+		}
 	}
 
 }

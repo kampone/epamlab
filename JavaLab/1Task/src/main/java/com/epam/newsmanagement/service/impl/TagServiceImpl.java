@@ -38,13 +38,13 @@ public class TagServiceImpl implements TagService {
 	 */
 	@Override
 	public long create(Tag entity) throws ServiceException {
-		long id = 0;
+		Long idTag = null;
 		try {
-			id = tagDAO.create(entity);
+			idTag = tagDAO.create(entity);
 		} catch (DAOException e) {
 			throw new ServiceException(" Exception during creating Tag " + e);
 		}
-		return id;
+		return idTag;
 	}
 
 	/*
@@ -58,7 +58,7 @@ public class TagServiceImpl implements TagService {
 		try {
 			tag = tagDAO.read(id);
 		} catch (DAOException e) {
-			throw new ServiceException(System.lineSeparator()+" Exception during read Tag by ID ");
+			throw new ServiceException(" Exception during reading Tag ", e);
 		}
 		return tag;
 	}
@@ -74,7 +74,7 @@ public class TagServiceImpl implements TagService {
 		try {
 			tagDAO.update(entity);
 		} catch (DAOException e) {
-			throw new ServiceException("Exception during update Tag");
+			throw new ServiceException("Exception during update Tag", e);
 		}
 	}
 
@@ -89,7 +89,7 @@ public class TagServiceImpl implements TagService {
 		try {
 			tagDAO.delete(entity);
 		} catch (DAOException e) {
-			throw new ServiceException("Exception during delete Tag");
+			throw new ServiceException("Exception during delete Tag",e);
 		}
 
 	}
@@ -98,7 +98,7 @@ public class TagServiceImpl implements TagService {
 		try {
 			tagDAO.delete(idTag);
 		} catch (DAOException e) {
-			throw new ServiceException("Exception during delete Tag");
+			throw new ServiceException("Exception during delete Tag", e);
 		}
 
 	}

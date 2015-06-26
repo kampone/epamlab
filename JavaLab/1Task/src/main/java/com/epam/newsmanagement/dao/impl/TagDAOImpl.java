@@ -21,9 +21,11 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class TagDAOImpl implements TagDAO {
-	private static final String SQL_CREATE_NEW_TAG_QUERY = "INSERT INTO tags(TAG_NAME, TAG_ID) VALUES (?, TAGS_TAG_ID_SEQ.nextval)";
-	private static final String SQL_READ_TAG_BY_ID_QUERY = "SELECT TAG_ID, TAG_NAME FROM tags WHERE TAG_ID = ? ";
-	private static final String SQL_DELETE_TAG_BY_ID_QUERY = "DELETE FROM tags WHERE TAG_ID = ?";
+	
+	private static final String SQL_CREATE_NEW_TAG_QUERY = "INSERT INTO tags(tag_name, tag_id) VALUES (?, tags_tag_id_seq.nextval)";
+	private static final String SQL_READ_TAG_BY_ID_QUERY = "SELECT tag_id, tag_name FROM tags WHERE tag_id = ? ";
+	private static final String SQL_UPDATE_TAG_BY_ID_QUERY = "UPDATE tags SET tag_name = ? WHERE tag_id = ? ";
+	private static final String SQL_DELETE_TAG_BY_ID_QUERY = "DELETE FROM tags WHERE tag_id = ?";
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -119,8 +121,22 @@ public class TagDAOImpl implements TagDAO {
 	 */
 	@Override
 	public void update(Tag entity) throws DAOException {
-		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
 
+		try {
+			connection = dataSource.getConnection();
+
+			statement = connection.prepareStatement(SQL_UPDATE_TAG_BY_ID_QUERY);
+			statement.setString(1, entity.getName());
+			statement.setLong(2, entity.getId());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+
+		} finally {
+			closeConnection(connection, statement);
+		}
 	}
 
 	/*

@@ -11,6 +11,8 @@ import java.sql.Timestamp;
 
 import javax.sql.DataSource;
 
+import oracle.net.aso.e;
+
 import com.epam.newsmanagement.dao.NewsDAO;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
@@ -21,9 +23,10 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class NewsDAOImpl implements NewsDAO {
-	private static final String SQL_CREATE_NEW_NEWS_QUERY = "INSERT INTO news(TITLE, SHORT_TEXT, FULL_TEXT, CREATION_DATE, MODIFICATION_DATE) VALUES (?,?,?,?,?)";
-	private static final String SQL_READ_NEWS_BY_ID_READ = "SELECT NEWS_ID, TITLE, SHORT_TEXT, FULL_TEXT, CREATION_DATE, MODIFICATION_DATE FROM news WHERE NEWS_ID = ?";
-	private static final String SQL_DELETE_NEWS_BY_ID_READ = "DELETE FROM news WHERE NEWS_ID = ?";
+	private static final String SQL_CREATE_NEW_NEWS_QUERY = "INSERT INTO news(title, short_text, full_text, creation_date, modification_date) VALUES (?,?,?,?,?)";
+	private static final String SQL_READ_NEWS_BY_ID_READ = "SELECT news_id, title, short_text, full_text, creation_date, modification_date FROM news WHERE news_id = ?";
+	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news SET title = ?, short_text = ?, full_text = ?, creation_date = ? , modification_date = ? WHERE news_id = ? ";
+	private static final String SQL_DELETE_NEWS_BY_ID_READ = "DELETE FROM news WHERE news_id = ?";
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -136,8 +139,25 @@ public class NewsDAOImpl implements NewsDAO {
 	 */
 	@Override
 	public void update(News entity) throws DAOException {
-		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
 
+		try {
+			connection = dataSource.getConnection();
+			statement = connection.prepareStatement(SQL_UPDATE_NEWS_BY_ID_QUERY);
+			statement.setString(1, entity.getTitle());
+			statement.setString(2, entity.getShortText());
+			statement.setString(3, entity.getFullText());
+			statement.setTimestamp(4, entity.getCreationDate());
+			statement.setString(5, entity.getModificationDate());
+			statement.setLong(6, entity.getId());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+
+		} finally {
+			closeConnection(connection, statement);
+		}
 	}
 
 	/*

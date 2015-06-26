@@ -21,9 +21,10 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class CommentDAOImpl implements CommentDAO {
-	private static final String SQL_CREATE_NEW_COMMENT_QUERY = "INSERT INTO comments(CREATION_DATE, COMMENT_TEXT, NEWS_ID, COMMENT_ID) VALUES (?, ?, ?, COMMENTS_COMMENT_ID_SEQ.nextval)";
-	private static final String SQL_READ_COMMENT_BY_ID_QUERY = "SELECT COMMENT_ID, NEWS_ID, COMMENT_TEXT, CREATION_DATE FROM comments WHERE COMMENT_ID = ? ";
-	private static final String SQL_DELETE_COMMENT_BY_ID_QUERY = "DELETE FROM comments WHERE COMMENT_ID = ?";
+	private static final String SQL_CREATE_NEW_COMMENT_QUERY = "INSERT INTO comments(creation_date, comment_text, news_id, comment_id) VALUES (?, ?, ?, comments_comment_id_seq.nextval)";
+	private static final String SQL_READ_COMMENT_BY_ID_QUERY = "SELECT comment_id, news_id, comment_text, creation_date FROM comments WHERE comment_id = ? ";
+	private static final String SQL_UPDATE_COMMENT_BY_ID_QUERY = "UPDATE comments SET creation_date = ?, comment_text = ?, news_id = ? WHERE comment_id = ? ";
+	private static final String SQL_DELETE_COMMENT_BY_ID_QUERY = "DELETE FROM comments WHERE comment_id = ?";
 
 	private DataSource dataSource;
 
@@ -102,7 +103,6 @@ public class CommentDAOImpl implements CommentDAO {
 			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
 
-
 			while (resultSet.next()) {
 
 				long idComment = resultSet.getLong(1);
@@ -127,7 +127,23 @@ public class CommentDAOImpl implements CommentDAO {
 
 	@Override
 	public void update(Comment entity) throws DAOException {
-		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement statement = null;
+
+		try {
+			connection = dataSource.getConnection();
+			statement = connection.prepareStatement(SQL_UPDATE_COMMENT_BY_ID_QUERY);
+			statement.setTimestamp(1, entity.getCreationDate());
+			statement.setString(2, entity.getText());
+			statement.setLong(3, entity.getIdNews());
+			statement.setLong(4, entity.getId());
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+
+		} finally {
+			closeConnection(connection, statement);
+		}
 
 	}
 
