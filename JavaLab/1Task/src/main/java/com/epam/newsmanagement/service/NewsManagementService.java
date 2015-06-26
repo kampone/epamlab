@@ -19,4 +19,7 @@ public interface NewsManagementService<T> {
 	public void update(T entity) throws ServiceException;
 
 	public void delete(T entity) throws ServiceException;
+	
+	public void delete(Long id) throws ServiceException;
+
 }

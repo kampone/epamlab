@@ -23,6 +23,8 @@ public interface NewsManagementDAO<T> {
 	public void update(T entity) throws DAOException;
 
 	public void delete(T entity) throws DAOException;
+	
+	public void delete(Long id) throws DAOException;
 
 	default void closeConnection(Connection connection, Statement statement)
 			throws DAOException {
