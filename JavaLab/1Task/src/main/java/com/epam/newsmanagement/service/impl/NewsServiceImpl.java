@@ -3,6 +3,8 @@
  */
 package com.epam.newsmanagement.service.impl;
 
+import org.apache.log4j.Logger;
+
 import com.epam.newsmanagement.dao.NewsDAO;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.exception.DAOException;
@@ -14,6 +16,8 @@ import com.epam.newsmanagement.service.NewsService;
  *
  */
 public class NewsServiceImpl implements NewsService {
+	private static final Logger LOG = Logger.getLogger(NewsServiceImpl.class);
+
 	private NewsDAO newsDAO;
 
 	/**
@@ -51,7 +55,8 @@ public class NewsServiceImpl implements NewsService {
 		try {
 			idNews = newsDAO.create(entity);
 		} catch (DAOException e) {
-			throw new ServiceException(" Exception during creating News ",e);
+			LOG.error(" Exception during creating News ", e);
+			throw new ServiceException(" Exception during creating News ", e);
 		}
 		return idNews;
 	}
@@ -67,7 +72,8 @@ public class NewsServiceImpl implements NewsService {
 		try {
 			news = newsDAO.read(id);
 		} catch (DAOException e) {
-			throw new ServiceException(" Exception during reading News ",e);
+			LOG.error(" Exception during reading News ", e);
+			throw new ServiceException(" Exception during reading News ", e);
 		}
 		return news;
 	}
@@ -84,7 +90,8 @@ public class NewsServiceImpl implements NewsService {
 		try {
 			newsDAO.update(entity);
 		} catch (DAOException e) {
-			throw new ServiceException(" Exception during updating News ",e);
+			LOG.error(" Exception during updating News ", e);
+			throw new ServiceException(" Exception during updating News ", e);
 		}
 	}
 
@@ -112,7 +119,8 @@ public class NewsServiceImpl implements NewsService {
 		try {
 			newsDAO.delete(id);
 		} catch (DAOException e) {
-			throw new ServiceException(" Exception during deleting News ",e);
+			LOG.error(" Exception during deleting News ", e);
+			throw new ServiceException(" Exception during deleting News ", e);
 		}
 	}
 

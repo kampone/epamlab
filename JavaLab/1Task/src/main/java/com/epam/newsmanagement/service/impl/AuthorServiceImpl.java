@@ -1,5 +1,7 @@
 package com.epam.newsmanagement.service.impl;
 
+import org.apache.log4j.Logger;
+
 import com.epam.newsmanagement.dao.AuthorDAO;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.exception.DAOException;
@@ -7,11 +9,13 @@ import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.AuthorService;
 
 public class AuthorServiceImpl implements AuthorService {
+	private static final Logger LOG = Logger.getLogger(AuthorServiceImpl.class);
+
 	private AuthorDAO authorDAO;
 
 	public AuthorServiceImpl() {
 	}
-	
+
 	/**
 	 * @return the authorDAO
 	 */
@@ -20,7 +24,8 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	/**
-	 * @param authorDAO the authorDAO to set
+	 * @param authorDAO
+	 *            the authorDAO to set
 	 */
 	public void setAuthorDAO(AuthorDAO authorDAO) {
 		this.authorDAO = authorDAO;
@@ -32,7 +37,8 @@ public class AuthorServiceImpl implements AuthorService {
 		try {
 			id = authorDAO.create(entity);
 		} catch (DAOException e) {
-			throw new ServiceException(" Exception during creating Author ",e);
+			LOG.error(" Exception during creating Author ", e);
+			throw new ServiceException(" Exception during creating Author ", e);
 		}
 		return id;
 	}
@@ -43,7 +49,8 @@ public class AuthorServiceImpl implements AuthorService {
 		try {
 			author = authorDAO.read(id);
 		} catch (DAOException e) {
-			throw new ServiceException(" Exception during reading Author ",e);
+			LOG.error(" Exception during reading Author ", e);
+			throw new ServiceException(" Exception during reading Author ", e);
 		}
 		return author;
 	}
@@ -53,7 +60,8 @@ public class AuthorServiceImpl implements AuthorService {
 		try {
 			authorDAO.update(entity);
 		} catch (DAOException e) {
-			throw new ServiceException(" Exception during reading Author ",e);
+			LOG.error(" Exception during updating Author ", e);
+			throw new ServiceException(" Exception during updating Author ", e);
 		}
 	}
 
@@ -67,7 +75,30 @@ public class AuthorServiceImpl implements AuthorService {
 		try {
 			authorDAO.delete(id);
 		} catch (DAOException e) {
-			throw new ServiceException(" Exception during reading Author ", e);
+			LOG.error(" Exception during deleting Author ", e);
+			throw new ServiceException(" Exception during deleting Author ", e);
+		}
+	}
+
+	@Override
+	public void attachAuthors(long idNews, long idAuthor)
+			throws ServiceException {
+		try {
+			authorDAO.attachAuthors(idNews, idAuthor);
+		} catch (DAOException e) {
+			LOG.error(" Exception during attaching Author ", e);
+			throw new ServiceException(" Exception during attaching Author ", e);
+
+		}
+	}
+
+	@Override
+	public void detachAuthors(long idNews) throws ServiceException {
+		try {
+			authorDAO.detachAuthors(idNews);
+		} catch (DAOException e) {
+			LOG.error(" Exception during detaching Author ", e);
+			throw new ServiceException(" Exception during detaching Author ", e);
 		}
 	}
 

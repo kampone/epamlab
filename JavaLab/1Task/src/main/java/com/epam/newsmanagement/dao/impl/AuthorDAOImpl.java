@@ -27,6 +27,8 @@ public class AuthorDAOImpl implements AuthorDAO {
 	private static final String SQL_READ_AUTHOR_BY_ID_QUERY = "SELECT author_id, author_name, expired FROM authors WHERE author_id = ?";
 	private static final String SQL_UPDATE_AUTHOR_BY_ID_QUERY = "UPDATE authors SET author_name = ? WHERE author_id = ? ";
 	private static final String SQL_DELETE_AUTHOR_BY_ID_QUERY = "UPDATE authors Set EXPIRED = (SELECT SYSTIMESTAMP FROM DUAL) WHERE authors.AUTHOR_ID = ?";
+	private static final String SQL_INSERT_NEWS_AUTHOR_QUERY = "INSERT INTO news_authors(news_id, author_id) VALUES (?, ?)";
+	private static final String SQL_DELETE_NEWS_AUTHOR_QUERY = "DELETE FROM news_authors WHERE news_id = ?";
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -65,7 +67,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 				resultSet = statement.getGeneratedKeys();
 				if (resultSet != null && resultSet.next()) {
 					id = resultSet.getLong(1);
-				}else {
+				} else {
 					throw new DAOException(System.lineSeparator()
 							+ " Problem during getting id ");
 				}
@@ -130,7 +132,8 @@ public class AuthorDAOImpl implements AuthorDAO {
 		try {
 			connection = dataSource.getConnection();
 
-			statement = connection.prepareStatement(SQL_UPDATE_AUTHOR_BY_ID_QUERY);
+			statement = connection
+					.prepareStatement(SQL_UPDATE_AUTHOR_BY_ID_QUERY);
 			statement.setString(1, entity.getName());
 			statement.setLong(2, entity.getId());
 			statement.executeUpdate();
@@ -167,6 +170,46 @@ public class AuthorDAOImpl implements AuthorDAO {
 			statement = connection
 					.prepareStatement(SQL_DELETE_AUTHOR_BY_ID_QUERY);
 			statement.setLong(1, id);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+
+		} finally {
+			closeConnection(connection, statement);
+		}
+	}
+
+	@Override
+	public void attachAuthors(long idNews, long idAuthor) throws DAOException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+
+			connection = dataSource.getConnection();
+
+			statement = connection
+					.prepareStatement(SQL_INSERT_NEWS_AUTHOR_QUERY);
+			statement.setLong(1, idNews);
+			statement.setLong(2, idAuthor);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+
+		} finally {
+			closeConnection(connection, statement);
+		}
+	}
+
+	@Override
+	public void detachAuthors(long idNews) throws DAOException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+
+			connection = dataSource.getConnection();
+			statement = connection
+					.prepareStatement(SQL_DELETE_NEWS_AUTHOR_QUERY);
+			statement.setLong(1, idNews);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);

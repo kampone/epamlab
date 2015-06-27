@@ -42,6 +42,7 @@ public class TagServiceImpl implements TagService {
 		try {
 			idTag = tagDAO.create(entity);
 		} catch (DAOException e) {
+			LOG.error(" Exception during creating Tag " + e);
 			throw new ServiceException(" Exception during creating Tag " + e);
 		}
 		return idTag;
@@ -58,6 +59,7 @@ public class TagServiceImpl implements TagService {
 		try {
 			tag = tagDAO.read(id);
 		} catch (DAOException e) {
+			LOG.error(" Exception during reading Tag " + e);
 			throw new ServiceException(" Exception during reading Tag ", e);
 		}
 		return tag;
@@ -74,6 +76,7 @@ public class TagServiceImpl implements TagService {
 		try {
 			tagDAO.update(entity);
 		} catch (DAOException e) {
+			LOG.error(" Exception during update Tag " + e);
 			throw new ServiceException("Exception during update Tag", e);
 		}
 	}
@@ -89,6 +92,7 @@ public class TagServiceImpl implements TagService {
 		try {
 			tagDAO.delete(entity);
 		} catch (DAOException e) {
+			LOG.error(" Exception during delete Tag " + e);
 			throw new ServiceException("Exception during delete Tag",e);
 		}
 
@@ -98,9 +102,31 @@ public class TagServiceImpl implements TagService {
 		try {
 			tagDAO.delete(idTag);
 		} catch (DAOException e) {
+			LOG.error(" Exception during creating Tag " + e);
 			throw new ServiceException("Exception during delete Tag", e);
 		}
 
+	}
+
+	@Override
+	public void attachTags(long idNews, long idTag) throws ServiceException {
+		try {
+			tagDAO.attachTags(idNews, idTag);
+		} catch (DAOException e) {
+			LOG.error(" Exception during attaching Tag " + e);
+			throw new ServiceException("Exception during attaching Tag", e);
+		}
+	}
+
+	@Override
+	public void detachTags(long idNews) throws ServiceException {
+		try {
+			tagDAO.detachTags(idNews);
+		} catch (DAOException e) {
+			LOG.error(" Exception during detaching Tag " + e);
+			throw new ServiceException("Exception during detaching Tag", e);
+
+		}
 	}
 
 }

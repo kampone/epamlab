@@ -3,6 +3,8 @@
  */
 package com.epam.newsmanagement.service.impl;
 
+import org.apache.log4j.Logger;
+
 import com.epam.newsmanagement.dao.CommentDAO;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.exception.DAOException;
@@ -14,6 +16,8 @@ import com.epam.newsmanagement.service.CommentService;
  *
  */
 public class CommentServiceImpl implements CommentService {
+	private static final Logger LOG = Logger.getLogger(CommentServiceImpl.class);
+
 	private CommentDAO commentDAO;
 	
 	
@@ -34,6 +38,7 @@ public class CommentServiceImpl implements CommentService {
 		try {
 			idComment = commentDAO.create(entity);
 		} catch (DAOException e) {
+			LOG.error(" Exception during creating Comment " , e);
 			throw new ServiceException(" Exception during creating Comment " , e);
 		}
 		return idComment;
@@ -49,6 +54,7 @@ public class CommentServiceImpl implements CommentService {
 		try {
 			comment = commentDAO.read(id);
 		} catch (DAOException e) {
+			LOG.error(" Exception during reading Comment " , e);
 			throw new ServiceException(" Exception during reading Comment " , e);
 		}
 		return comment;
@@ -62,6 +68,7 @@ public class CommentServiceImpl implements CommentService {
 		try {
 			commentDAO.update(entity);
 		} catch (DAOException e) {
+			LOG.error(" Exception during updating Comment " , e);
 			throw new ServiceException(" Exception during updating Comment " , e);
 		}
 
@@ -80,6 +87,7 @@ public class CommentServiceImpl implements CommentService {
 		try {
 			commentDAO.delete(id);
 		} catch (DAOException e) {
+			LOG.error(" Exception during deleting Comment " , e);
 			throw new ServiceException(" Exception during deleting Comment " , e);
 		}
 	}

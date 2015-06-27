@@ -23,36 +23,42 @@ public interface NewsManagementDAO<T> {
 	public void update(T entity) throws DAOException;
 
 	public void delete(T entity) throws DAOException;
-	
+
 	public void delete(Long id) throws DAOException;
 
 	default void closeConnection(Connection connection, Statement statement)
 			throws DAOException {
-		if (connection != null) {
-			try {
+
+		try {
+			if (connection != null) {
 				connection.close();
-			} catch (SQLException e) {
-				throw new DAOException("Problem during close connection");
 			}
+		} catch (SQLException e) {
+			throw new DAOException("Problem during close connection");
+		} finally {
+			if (statement != null) {
+				try {
+					statement.close();
+				} catch (SQLException e) {
+					throw new DAOException("Problem during close connection");
+				}
+			}
+
 		}
 
-		if (statement != null) {
-			try {
-				statement.close();
-			} catch (SQLException e) {
-				throw new DAOException("Problem during close connection");
-			}
-		}
 	}
 
 	default void closeConnection(Connection connection, Statement statement,
-			ResultSet resultSet) throws DAOException {
-		this.closeConnection(connection, statement);
-		if (resultSet != null) {
-			try {
-				resultSet.close();
-			} catch (SQLException e) {
-				throw new DAOException("Problem during close ResultSet");
+			ResultSet resultSet) throws DAOException{
+		try {
+			this.closeConnection(connection, statement);
+		} finally {
+			if (resultSet != null) {
+				try {
+					resultSet.close();
+				} catch (SQLException e) {
+					throw new DAOException("Problem during close ResultSet");
+				}
 			}
 		}
 	}

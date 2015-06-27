@@ -7,12 +7,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-
 import javax.sql.DataSource;
 
 import com.epam.newsmanagement.dao.TagDAO;
-import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;
 
@@ -26,6 +23,9 @@ public class TagDAOImpl implements TagDAO {
 	private static final String SQL_READ_TAG_BY_ID_QUERY = "SELECT tag_id, tag_name FROM tags WHERE tag_id = ? ";
 	private static final String SQL_UPDATE_TAG_BY_ID_QUERY = "UPDATE tags SET tag_name = ? WHERE tag_id = ? ";
 	private static final String SQL_DELETE_TAG_BY_ID_QUERY = "DELETE FROM tags WHERE tag_id = ?";
+	private static final String SQL_INSERT_NEWS_TAG_QUERY = "INSERT INTO news_tags(news_id, tag_id) VALUES (?, ?)";
+	private static final String SQL_DELETE_NEWS_TAG_QUERY = "DELETE FROM news_tags WHERE news_id = ?";
+
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -112,8 +112,8 @@ public class TagDAOImpl implements TagDAO {
 		return tag;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * 
 	 * 
 	 * @see
 	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.NewsManagementEntity
@@ -139,8 +139,8 @@ public class TagDAOImpl implements TagDAO {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 *
 	 * 
 	 * @see
 	 * com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity
@@ -166,10 +166,67 @@ public class TagDAOImpl implements TagDAO {
 			closeConnection(connection, statement);
 		}
 	}
-
+	/**
+	 *
+	 * 
+	 * @see
+	 * com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity
+	 * )
+	 */
 	@Override
 	public void delete(Tag entity) throws DAOException {
 		this.delete(entity.getId());
+	}
+	/**
+	 *
+	 * 
+	 * @see
+	 * com.epam.dao.NewsManagementDAO#attachTags(java.lang.Long, java.lang.Long)
+	 */
+	@Override
+	public void attachTags(long idNews, long idTag) throws DAOException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+
+			connection = dataSource.getConnection();
+
+			statement = connection
+					.prepareStatement(SQL_INSERT_NEWS_TAG_QUERY);
+			statement.setLong(1, idNews);
+			statement.setLong(2, idTag);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+
+		} finally {
+			closeConnection(connection, statement);
+		}		
+	}
+	
+	/**
+	 *
+	 * 
+	 * @see com.epam.dao.NewsManagementDAO#detachTags(java.lang.Long)
+	 */
+	@Override
+	public void detachTags(long idNews) throws DAOException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+
+			connection = dataSource.getConnection();
+			statement = connection
+					.prepareStatement(SQL_DELETE_NEWS_TAG_QUERY);
+			statement.setLong(1, idNews);
+			statement.executeUpdate();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+
+		} finally {
+			closeConnection(connection, statement);
+		}
+		
 	}
 
 }

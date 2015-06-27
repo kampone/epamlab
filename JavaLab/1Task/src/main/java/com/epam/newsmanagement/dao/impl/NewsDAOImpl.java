@@ -11,10 +11,7 @@ import java.sql.Timestamp;
 
 import javax.sql.DataSource;
 
-import oracle.net.aso.e;
-
 import com.epam.newsmanagement.dao.NewsDAO;
-import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.exception.DAOException;
 
@@ -170,40 +167,6 @@ public class NewsDAOImpl implements NewsDAO {
 	@Override
 	public void delete(News entity) throws DAOException {
 		this.delete(entity.getId());
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.epam.dao.news.NewsDAO#deleteNewsTags(long, long)
-	 */
-	@Override
-	public void deleteNewsTags(long idNews, long idTag) throws DAOException {
-		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.epam.dao.news.NewsDAO#deleteNewsAuthors(long, long)
-	 */
-	@Override
-	public void deleteNewsAuthors(long idNews, long idTag) throws DAOException {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void attachTags(long idNews, long idTag) throws DAOException {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void attachAuthors(long idNews, long idTag) throws DAOException {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

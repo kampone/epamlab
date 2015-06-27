@@ -12,11 +12,5 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public interface NewsDAO extends NewsManagementDAO<News> {
-	public void attachTags(long idNews, long idTag) throws DAOException;
-
-	public void attachAuthors(long idNews, long idTag) throws DAOException;
-
-	public void deleteNewsTags(long idNews, long idTag) throws DAOException;
-
-	public void deleteNewsAuthors(long idNews, long idTag) throws DAOException;
+	
 }
