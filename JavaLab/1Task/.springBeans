@@ -10,7 +10,7 @@
 		<config>src/main/resources/bean.xml</config>
 		<config>src/main/resources/contextDAO.xml</config>
 		<config>src/main/resources/contextService.xml</config>
-		<config>src/main/resources/dataSouce.xml</config>
+		<config>src/main/resources/dataSource.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

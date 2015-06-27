@@ -4,6 +4,7 @@
 package com.epam.newsmanagement.dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +21,7 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class NewsDAOImpl implements NewsDAO {
-	private static final String SQL_CREATE_NEW_NEWS_QUERY = "INSERT INTO news(title, short_text, full_text, creation_date, modification_date) VALUES (?,?,?,?,?)";
+	private static final String SQL_CREATE_NEW_NEWS_QUERY = "INSERT INTO news(title, short_text, full_text, creation_date, modification_date, news_id) VALUES (?,?,?,?,?,news_news_id_seq.nextval)";
 	private static final String SQL_READ_NEWS_BY_ID_READ = "SELECT news_id, title, short_text, full_text, creation_date, modification_date FROM news WHERE news_id = ?";
 	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news SET title = ?, short_text = ?, full_text = ?, creation_date = ? , modification_date = ? WHERE news_id = ? ";
 	private static final String SQL_DELETE_NEWS_BY_ID_READ = "DELETE FROM news WHERE news_id = ?";
@@ -55,12 +56,12 @@ public class NewsDAOImpl implements NewsDAO {
 				String shortText = entity.getShortText();
 				String fullText = entity.getFullText();
 				Timestamp creationDate = entity.getCreationDate();
-				String modificationDate = entity.getModificationDate();
+				Date modificationDate = entity.getModificationDate();
 				statement.setString(1, title);
 				statement.setString(2, shortText);
 				statement.setString(3, fullText);
 				statement.setTimestamp(4, creationDate);
-				statement.setString(5, modificationDate);
+				statement.setDate(5, modificationDate);
 				statement.executeUpdate();
 
 				resultSet = statement.getGeneratedKeys();
@@ -107,7 +108,7 @@ public class NewsDAOImpl implements NewsDAO {
 				String shortText = resultSet.getString(3);
 				String fullText = resultSet.getString(4);
 				Timestamp creationDate = resultSet.getTimestamp(5);
-				String modificationDate = resultSet.getString(6);
+				Date modificationDate = resultSet.getDate(6);
 
 				news.setId(idNews);
 				news.setTitle(title);
@@ -146,7 +147,7 @@ public class NewsDAOImpl implements NewsDAO {
 			statement.setString(2, entity.getShortText());
 			statement.setString(3, entity.getFullText());
 			statement.setTimestamp(4, entity.getCreationDate());
-			statement.setString(5, entity.getModificationDate());
+			statement.setDate(5, entity.getModificationDate());
 			statement.setLong(6, entity.getId());
 			statement.executeUpdate();
 		} catch (SQLException e) {

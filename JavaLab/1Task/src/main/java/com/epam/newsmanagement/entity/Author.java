@@ -2,7 +2,7 @@ package com.epam.newsmanagement.entity;
 
 import java.sql.Timestamp;
 
-public class Author extends NewsManagementEntity {
+public class Author{
 	private Long id;
 	private String name;
 	private Timestamp expired;

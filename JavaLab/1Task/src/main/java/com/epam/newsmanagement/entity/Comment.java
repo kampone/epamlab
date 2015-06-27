@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  * @author Uladzislau_Kaminski
  *
  */
-public class Comment extends NewsManagementEntity {
+public class Comment {
 	private long id;
 	private long idNews;
 	private String text;

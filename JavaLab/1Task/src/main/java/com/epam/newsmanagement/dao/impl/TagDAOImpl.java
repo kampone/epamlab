@@ -7,6 +7,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import com.epam.newsmanagement.dao.TagDAO;
@@ -18,7 +21,7 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class TagDAOImpl implements TagDAO {
-	
+
 	private static final String SQL_CREATE_NEW_TAG_QUERY = "INSERT INTO tags(tag_name, tag_id) VALUES (?, tags_tag_id_seq.nextval)";
 	private static final String SQL_READ_TAG_BY_ID_QUERY = "SELECT tag_id, tag_name FROM tags WHERE tag_id = ? ";
 	private static final String SQL_UPDATE_TAG_BY_ID_QUERY = "UPDATE tags SET tag_name = ? WHERE tag_id = ? ";
@@ -115,9 +118,8 @@ public class TagDAOImpl implements TagDAO {
 	/**
 	 * 
 	 * 
-	 * @see
-	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.NewsManagementEntity
-	 * )
+	 * @see com.epam.dao.NewsManagementDAO#update(com.epam.entity.NewsManagementEntity
+	 *      )
 	 */
 	@Override
 	public void update(Tag entity) throws DAOException {
@@ -142,9 +144,8 @@ public class TagDAOImpl implements TagDAO {
 	/**
 	 *
 	 * 
-	 * @see
-	 * com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity
-	 * )
+	 * @see com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity
+	 *      )
 	 */
 	@Override
 	public void delete(Long id) throws DAOException {
@@ -166,22 +167,23 @@ public class TagDAOImpl implements TagDAO {
 			closeConnection(connection, statement);
 		}
 	}
+
 	/**
 	 *
 	 * 
-	 * @see
-	 * com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity
-	 * )
+	 * @see com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity
+	 *      )
 	 */
 	@Override
 	public void delete(Tag entity) throws DAOException {
 		this.delete(entity.getId());
 	}
+
 	/**
 	 *
 	 * 
-	 * @see
-	 * com.epam.dao.NewsManagementDAO#attachTags(java.lang.Long, java.lang.Long)
+	 * @see com.epam.dao.NewsManagementDAO#attachTags(java.lang.Long,
+	 *      java.lang.Long)
 	 */
 	@Override
 	public void attachTags(long idNews, long idTag) throws DAOException {
@@ -191,8 +193,7 @@ public class TagDAOImpl implements TagDAO {
 
 			connection = dataSource.getConnection();
 
-			statement = connection
-					.prepareStatement(SQL_INSERT_NEWS_TAG_QUERY);
+			statement = connection.prepareStatement(SQL_INSERT_NEWS_TAG_QUERY);
 			statement.setLong(1, idNews);
 			statement.setLong(2, idTag);
 			statement.executeUpdate();
@@ -201,9 +202,9 @@ public class TagDAOImpl implements TagDAO {
 
 		} finally {
 			closeConnection(connection, statement);
-		}		
+		}
 	}
-	
+
 	/**
 	 *
 	 * 
@@ -216,8 +217,7 @@ public class TagDAOImpl implements TagDAO {
 		try {
 
 			connection = dataSource.getConnection();
-			statement = connection
-					.prepareStatement(SQL_DELETE_NEWS_TAG_QUERY);
+			statement = connection.prepareStatement(SQL_DELETE_NEWS_TAG_QUERY);
 			statement.setLong(1, idNews);
 			statement.executeUpdate();
 		} catch (SQLException e) {
@@ -226,7 +226,29 @@ public class TagDAOImpl implements TagDAO {
 		} finally {
 			closeConnection(connection, statement);
 		}
-		
+
 	}
 
+	@Override
+	public void attachListTags(long idNews, List<Long> idTagList) throws DAOException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+
+			connection = dataSource.getConnection();
+			statement = connection.prepareStatement(SQL_INSERT_NEWS_TAG_QUERY);
+			statement.setLong(1, idNews);
+			for (Long idTag : idTagList) {
+				statement.setLong(2, idTag);
+				statement.addBatch();
+			}
+		statement.executeBatch();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+
+		} finally {
+			closeConnection(connection, statement);
+		}
+
+	}
 }

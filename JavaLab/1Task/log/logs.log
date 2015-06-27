@@ -278,3 +278,114 @@ org.xml.sax.SAXParseException; lineNumber: 5; columnNumber: 69; SchemaLocation: 
 [main] INFO 26/Jun/2015 13:36:45  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Fri Jun 26 13:36:45 MSK 2015]; root of context hierarchy
 [main] INFO 26/Jun/2015 13:36:45  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
 [main] INFO 26/Jun/2015 13:36:46  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@35851384: defining beans [dataSource,transactionManager,tagDAO,commentDAO,authorDAO,tagService,commentService,authorService]; root of factory hierarchy
+[main] INFO 27/Jun/2015 13:20:58  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Sat Jun 27 13:20:58 MSK 2015]; root of context hierarchy
+[main] INFO 27/Jun/2015 13:20:59  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 27/Jun/2015 13:20:59  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from URL [file:/D:/vlad/JavaLab/1Task/target/classes/dataSource.xml]
+[main] INFO 27/Jun/2015 13:21:35  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Sat Jun 27 13:21:35 MSK 2015]; root of context hierarchy
+[main] INFO 27/Jun/2015 13:21:35  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 27/Jun/2015 13:21:35  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 27/Jun/2015 13:21:35  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 27/Jun/2015 13:21:35  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 27/Jun/2015 13:21:35  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 27/Jun/2015 13:21:35  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c818063: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,transactionManager]; root of factory hierarchy
+[main] INFO 27/Jun/2015 13:23:14  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Sat Jun 27 13:23:14 MSK 2015]; root of context hierarchy
+[main] INFO 27/Jun/2015 13:23:14  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 27/Jun/2015 13:23:14  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 27/Jun/2015 13:23:14  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 27/Jun/2015 13:23:14  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 27/Jun/2015 13:23:14  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 27/Jun/2015 13:23:15  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c818063: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,transactionManager]; root of factory hierarchy
+[main] INFO 27/Jun/2015 13:23:39  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Sat Jun 27 13:23:39 MSK 2015]; root of context hierarchy
+[main] INFO 27/Jun/2015 13:23:39  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 27/Jun/2015 13:23:40  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 27/Jun/2015 13:23:40  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 27/Jun/2015 13:23:40  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 27/Jun/2015 13:23:40  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 27/Jun/2015 13:23:40  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c818063: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,transactionManager]; root of factory hierarchy
+[main] INFO 27/Jun/2015 13:25:43  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Sat Jun 27 13:25:43 MSK 2015]; root of context hierarchy
+[main] INFO 27/Jun/2015 13:25:43  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 27/Jun/2015 13:25:43  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 27/Jun/2015 13:25:43  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 27/Jun/2015 13:25:43  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 27/Jun/2015 13:25:43  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 27/Jun/2015 13:25:43  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c818063: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,transactionManager]; root of factory hierarchy
+[main] INFO 27/Jun/2015 14:30:08  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Sat Jun 27 14:30:07 MSK 2015]; root of context hierarchy
+[main] INFO 27/Jun/2015 14:30:08  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 27/Jun/2015 14:30:08  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 27/Jun/2015 14:30:08  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 27/Jun/2015 14:30:08  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 27/Jun/2015 14:30:08  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 27/Jun/2015 14:30:09  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c818063: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,transactionManager]; root of factory hierarchy
+[main] ERROR27/Jun/2015 14:30:14  service.impl.NewsServiceImpl:  Exception during creating News 
+com.epam.newsmanagement.exception.DAOException: 
+ Problem during getting id 
+	at com.epam.newsmanagement.dao.impl.NewsDAOImpl.create(NewsDAOImpl.java:74)
+	at com.epam.newsmanagement.dao.impl.NewsDAOImpl.create(NewsDAOImpl.java:1)
+	at com.epam.newsmanagement.service.impl.NewsServiceImpl.create(NewsServiceImpl.java:56)
+	at com.epam.newsmanagement.service.impl.NewsServiceImpl.create(NewsServiceImpl.java:1)
+	at com.epam.newsmanagement.main.Main.main(Main.java:42)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: ORA-01400: cannot insert NULL into ("NEWSMANAGEMENT"."NEWS"."NEWS_ID")
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1059)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:522)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:257)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:587)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:225)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:53)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1150)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:4798)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4875)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:102)
+	at com.epam.newsmanagement.dao.impl.NewsDAOImpl.create(NewsDAOImpl.java:64)
+	... 4 more
+[main] INFO 27/Jun/2015 14:31:37  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Sat Jun 27 14:31:37 MSK 2015]; root of context hierarchy
+[main] INFO 27/Jun/2015 14:31:37  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 27/Jun/2015 14:31:38  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 27/Jun/2015 14:31:38  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 27/Jun/2015 14:31:38  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 27/Jun/2015 14:31:38  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 27/Jun/2015 14:31:38  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c818063: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,transactionManager]; root of factory hierarchy
+[main] ERROR27/Jun/2015 14:31:40  service.impl.NewsServiceImpl:  Exception during creating News 
+com.epam.newsmanagement.exception.DAOException: 
+ Problem during getting id 
+	at com.epam.newsmanagement.dao.impl.NewsDAOImpl.create(NewsDAOImpl.java:74)
+	at com.epam.newsmanagement.dao.impl.NewsDAOImpl.create(NewsDAOImpl.java:1)
+	at com.epam.newsmanagement.service.impl.NewsServiceImpl.create(NewsServiceImpl.java:56)
+	at com.epam.newsmanagement.service.impl.NewsServiceImpl.create(NewsServiceImpl.java:1)
+	at com.epam.newsmanagement.main.Main.main(Main.java:42)
+Caused by: java.sql.SQLDataException: ORA-01858: a non-numeric character was found where a numeric was expected
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:450)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:399)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1059)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:522)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:257)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:587)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:225)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:53)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:943)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1150)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:4798)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeUpdate(OraclePreparedStatement.java:4875)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeUpdate(OraclePreparedStatementWrapper.java:1361)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeUpdate(DelegatingPreparedStatement.java:102)
+	at com.epam.newsmanagement.dao.impl.NewsDAOImpl.create(NewsDAOImpl.java:64)
+	... 4 more
+[main] INFO 27/Jun/2015 14:35:55  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Sat Jun 27 14:35:55 MSK 2015]; root of context hierarchy
+[main] INFO 27/Jun/2015 14:35:55  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 27/Jun/2015 14:35:55  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 27/Jun/2015 14:35:55  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 27/Jun/2015 14:35:55  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 27/Jun/2015 14:35:55  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 27/Jun/2015 14:35:56  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c818063: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,transactionManager]; root of factory hierarchy
+[main] INFO 27/Jun/2015 14:39:19  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Sat Jun 27 14:39:19 MSK 2015]; root of context hierarchy
+[main] INFO 27/Jun/2015 14:39:19  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 27/Jun/2015 14:39:20  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 27/Jun/2015 14:39:20  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 27/Jun/2015 14:39:20  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 27/Jun/2015 14:39:20  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 27/Jun/2015 14:39:20  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c818063: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,transactionManager]; root of factory hierarchy

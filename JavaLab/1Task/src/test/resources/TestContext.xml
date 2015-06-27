@@ -3,10 +3,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
  
-	<bean id="tagDAOImpl" class="com.epam.dao.tag.impl.TagDAOImpl"/>
-	
-	<bean id="tagService" class="com.epam.service.tag.impl.TagServiceImpl" >
-		<property name="tagDAO" ref="tagDAOImpl"/>
-	</bean>
-	
+	<import resource="contextDAO.xml"/>
+	<import resource="contextService.xml"/>
 </beans>

@@ -1,18 +1,19 @@
 package com.epam.newsmanagement.entity;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
  * @author Uladzislau_Kaminski
  *
  */
-public class News extends NewsManagementEntity {
-	private long id;
+public class News {
+	private long idNews;
 	private String title;
 	private String shortText;
 	private String fullText;
 	private Timestamp creationDate;
-	private String modificationDate;
+	private Date modificationDate;
 
 	public News() {
 		// TODO Auto-generated constructor stub
@@ -22,7 +23,7 @@ public class News extends NewsManagementEntity {
 	 * @return the id
 	 */
 	public long getId() {
-		return id;
+		return idNews;
 	}
 
 	/**
@@ -30,7 +31,7 @@ public class News extends NewsManagementEntity {
 	 *            the id to set
 	 */
 	public void setId(long id) {
-		this.id = id;
+		this.idNews = id;
 	}
 
 	/**
@@ -96,7 +97,7 @@ public class News extends NewsManagementEntity {
 	/**
 	 * @return the modificationDate
 	 */
-	public String getModificationDate() {
+	public Date getModificationDate() {
 		return modificationDate;
 	}
 
@@ -104,7 +105,7 @@ public class News extends NewsManagementEntity {
 	 * @param modificationDate
 	 *            the modificationDate to set
 	 */
-	public void setModificationDate(String modificationDate) {
+	public void setModificationDate(Date modificationDate) {
 		this.modificationDate = modificationDate;
 	}
 
@@ -121,7 +122,7 @@ public class News extends NewsManagementEntity {
 				+ ((creationDate == null) ? 0 : creationDate.hashCode());
 		result = prime * result
 				+ ((fullText == null) ? 0 : fullText.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (idNews ^ (idNews >>> 32));
 		result = prime
 				* result
 				+ ((modificationDate == null) ? 0 : modificationDate.hashCode());
@@ -155,7 +156,7 @@ public class News extends NewsManagementEntity {
 				return false;
 		} else if (!fullText.equals(other.fullText))
 			return false;
-		if (id != other.id)
+		if (idNews != other.idNews)
 			return false;
 		if (modificationDate == null) {
 			if (other.modificationDate != null)

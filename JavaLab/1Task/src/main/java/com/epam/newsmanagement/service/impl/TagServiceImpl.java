@@ -3,6 +3,8 @@
  */
 package com.epam.newsmanagement.service.impl;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.epam.newsmanagement.dao.TagDAO;
@@ -34,7 +36,6 @@ public class TagServiceImpl implements TagService {
 	 * NewsManagementEntity)
 	 * 
 	 * @return id of tag if it is created
-	 * 
 	 */
 	@Override
 	public long create(Tag entity) throws ServiceException {
@@ -93,11 +94,11 @@ public class TagServiceImpl implements TagService {
 			tagDAO.delete(entity);
 		} catch (DAOException e) {
 			LOG.error(" Exception during delete Tag " + e);
-			throw new ServiceException("Exception during delete Tag",e);
+			throw new ServiceException("Exception during delete Tag", e);
 		}
 
 	}
-	
+
 	public void delete(Long idTag) throws ServiceException {
 		try {
 			tagDAO.delete(idTag);
@@ -126,6 +127,17 @@ public class TagServiceImpl implements TagService {
 			LOG.error(" Exception during detaching Tag " + e);
 			throw new ServiceException("Exception during detaching Tag", e);
 
+		}
+	}
+
+	@Override
+	public void attachListTags(long idNews, List<Long> idTagList)
+			throws ServiceException {
+		try {
+			tagDAO.attachListTags(idNews, idTagList);
+		} catch (DAOException e) {
+			LOG.error(" Exception during attaching list Tag " + e);
+			throw new ServiceException("Exception during attaching list Tag", e);
 		}
 	}
 

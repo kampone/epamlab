@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.epam.newsmanagement.entity.NewsManagementEntity;
 import com.epam.newsmanagement.exception.DAOException;
 
 /**

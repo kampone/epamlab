@@ -9,4 +9,7 @@ package com.epam.newsmanagement.service;
  */
 public interface ServiceManager {
 	
+	public void addNews();
+	public void updateNews();
+	public void deleteNews();
 }

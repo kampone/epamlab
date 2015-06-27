@@ -4,7 +4,7 @@ package com.epam.newsmanagement.entity;
  * @author Uladzislau_Kaminski
  *
  */
-public class Tag extends NewsManagementEntity {
+public class Tag {
 	private long id;
 	private String name;
 
