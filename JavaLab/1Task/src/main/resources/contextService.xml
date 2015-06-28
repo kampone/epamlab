@@ -18,5 +18,12 @@
 	<bean id="newsService" class="com.epam.newsmanagement.service.impl.NewsServiceImpl">
 		<property name="newsDAO" ref="newsDAO" />
 	</bean>
+	
+	<bean id="serviceManager" class="com.epam.newsmanagement.service.impl.ServiceManagerImpl">
+		<property name="tagService" ref="tagService"/>
+		<property name="commentService" ref="commentService"/>
+		<property name="authorService" ref="authorService"/>
+		<property name="newsService" ref="newsService"/>
+	</bean>
 
 </beans>

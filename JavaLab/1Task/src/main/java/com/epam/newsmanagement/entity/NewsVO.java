@@ -13,7 +13,7 @@ public class NewsVO {
 	private String modificationDate;
 	private List<Long> tagsId;
 	private List<Long> commentsId;
-	
+
 	public NewsVO() {
 		tagsId = new ArrayList<Long>();
 		commentsId = new ArrayList<Long>();
@@ -27,7 +27,8 @@ public class NewsVO {
 	}
 
 	/**
-	 * @param idNews the idNews to set
+	 * @param idNews
+	 *            the idNews to set
 	 */
 	public void setIdNews(long idNews) {
 		this.idNews = idNews;
@@ -41,7 +42,8 @@ public class NewsVO {
 	}
 
 	/**
-	 * @param title the title to set
+	 * @param title
+	 *            the title to set
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -55,7 +57,8 @@ public class NewsVO {
 	}
 
 	/**
-	 * @param shortText the shortText to set
+	 * @param shortText
+	 *            the shortText to set
 	 */
 	public void setShortText(String shortText) {
 		this.shortText = shortText;
@@ -69,7 +72,8 @@ public class NewsVO {
 	}
 
 	/**
-	 * @param fullText the fullText to set
+	 * @param fullText
+	 *            the fullText to set
 	 */
 	public void setFullText(String fullText) {
 		this.fullText = fullText;
@@ -83,7 +87,8 @@ public class NewsVO {
 	}
 
 	/**
-	 * @param creationDate the creationDate to set
+	 * @param creationDate
+	 *            the creationDate to set
 	 */
 	public void setCreationDate(Timestamp creationDate) {
 		this.creationDate = creationDate;
@@ -97,7 +102,8 @@ public class NewsVO {
 	}
 
 	/**
-	 * @param modificationDate the modificationDate to set
+	 * @param modificationDate
+	 *            the modificationDate to set
 	 */
 	public void setModificationDate(String modificationDate) {
 		this.modificationDate = modificationDate;
@@ -111,7 +117,8 @@ public class NewsVO {
 	}
 
 	/**
-	 * @param tagsId the tagsId to set
+	 * @param tagsId
+	 *            the tagsId to set
 	 */
 	public void setTagsId(List<Long> tagsId) {
 		this.tagsId = tagsId;
@@ -125,12 +132,27 @@ public class NewsVO {
 	}
 
 	/**
-	 * @param commentsId the commentsId to set
+	 * @param commentsId
+	 *            the commentsId to set
 	 */
 	public void setCommentsId(List<Long> commentsId) {
 		this.commentsId = commentsId;
 	}
+
+	/**
+	 * @param idComment
+	 *            the id of comment to add to news
+	 */
+	public boolean addComment(Long idComment) {
+		return commentsId.add(idComment);
+	}
 	
-	
+	/**
+	 * @param idTag
+	 *            the id of tag to add to news
+	 */
+	public boolean addTag(Long idTag) {
+		return tagsId.add(idTag);
+	}
 
 }

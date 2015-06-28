@@ -11,5 +11,5 @@ import com.epam.newsmanagement.service.NewsManagementService;
  *
  */
 public interface CommentService extends NewsManagementService<Comment> {
-
+	public void deleteCommentsByNewsId(long idNews);
 }

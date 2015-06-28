@@ -179,4 +179,10 @@ public class CommentDAOImpl implements CommentDAO {
 		}
 	}
 
+	@Override
+	public void deleteCommentsByNewsId(long idNews) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
