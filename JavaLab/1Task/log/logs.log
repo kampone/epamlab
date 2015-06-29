@@ -460,3 +460,1158 @@ Caused by: java.sql.SQLDataException: ORA-01858: a non-numeric character was fou
 [main] INFO 27/Jun/2015 23:51:11  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
 [main] INFO 27/Jun/2015 23:51:11  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
 [main] INFO 27/Jun/2015 23:51:11  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4157f54e: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.config.internalTransactionAdvisor,transactionManager]; root of factory hierarchy
+[main] INFO 29/Jun/2015 11:33:43  context.support.ClassPathXmlApplicationContext: Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22927a81: startup date [Mon Jun 29 11:33:43 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 11:33:43  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [SpringContext.xml]
+[main] INFO 29/Jun/2015 11:33:43  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 11:33:44  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 11:33:44  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 11:33:44  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 11:33:44  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4157f54e: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.config.internalTransactionAdvisor,transactionManager]; root of factory hierarchy
+[main] INFO 29/Jun/2015 12:30:52  test.context.TestContext: @ContextConfiguration not found for class [class com.epam.newsmanagement.test.service.TagServiceImplTest]
+[main] INFO 29/Jun/2015 12:30:52  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.TagServiceImplTest]: using defaults.
+[main] ERROR29/Jun/2015 12:30:52  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@51081592] to prepare test instance [com.epam.newsmanagement.test.service.TagServiceImplTest@7f9a81e8]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.IllegalArgumentException: Can not load an ApplicationContext with a NULL 'contextLoader'. Consider annotating your test class with @ContextConfiguration.
+	at org.springframework.util.Assert.notNull(Assert.java:112)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:117)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 31 more
+[main] ERROR29/Jun/2015 12:30:52  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@51081592] to prepare test instance [com.epam.newsmanagement.test.service.TagServiceImplTest@4f933fd1]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.IllegalArgumentException: Can not load an ApplicationContext with a NULL 'contextLoader'. Consider annotating your test class with @ContextConfiguration.
+	at org.springframework.util.Assert.notNull(Assert.java:112)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:117)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 31 more
+[main] ERROR29/Jun/2015 12:30:52  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@51081592] to prepare test instance [com.epam.newsmanagement.test.service.TagServiceImplTest@7c16905e]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.IllegalArgumentException: Can not load an ApplicationContext with a NULL 'contextLoader'. Consider annotating your test class with @ContextConfiguration.
+	at org.springframework.util.Assert.notNull(Assert.java:112)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:117)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 31 more
+[main] ERROR29/Jun/2015 12:30:52  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@51081592] to prepare test instance [com.epam.newsmanagement.test.service.TagServiceImplTest@20e2cbe0]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.lang.IllegalArgumentException: Can not load an ApplicationContext with a NULL 'contextLoader'. Consider annotating your test class with @ContextConfiguration.
+	at org.springframework.util.Assert.notNull(Assert.java:112)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:117)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 31 more
+[main] INFO 29/Jun/2015 12:57:14  test.context.TestContext: @ContextConfiguration not found for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]
+[main] INFO 29/Jun/2015 12:57:14  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] ERROR29/Jun/2015 12:57:14  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@43a25848] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@3ac3fd8b]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:157)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:211)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:288)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:290)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:231)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:174)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: java.lang.IllegalArgumentException: Can not load an ApplicationContext with a NULL 'contextLoader'. Consider annotating your test class with @ContextConfiguration.
+	at org.springframework.util.Assert.notNull(Assert.java:112)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:117)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:148)
+	... 24 more
+[main] INFO 29/Jun/2015 13:02:30  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:02:30  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:02:31  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:02:31  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:02:31  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:02:31  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:02:31 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:02:31  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:02:31  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] ERROR29/Jun/2015 13:02:31  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@704d6e83] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@43a0cee9]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tagDAO' defined in class path resource [contextDAO.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:425)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:84)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1083)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+[main] INFO 29/Jun/2015 13:03:27  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:03:27  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:03:28  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:03:28  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:03:28  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:03:28  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:03:28 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:03:28  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:03:28  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] ERROR29/Jun/2015 13:03:28  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@704d6e83] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@43a0cee9]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tagDAO' defined in class path resource [contextDAO.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:425)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:84)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1083)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+[main] INFO 29/Jun/2015 13:03:45  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:03:45  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:03:45  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:03:45  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:03:45  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:03:45  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:03:45 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:03:45  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:03:45  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] ERROR29/Jun/2015 13:03:45  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@704d6e83] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@43a0cee9]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tagDAO' defined in class path resource [contextDAO.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:425)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:84)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1083)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+[main] INFO 29/Jun/2015 13:04:52  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:04:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:04:53  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:04:53  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:04:53  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:04:53  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:04:53 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:04:53  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:04:53  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] ERROR29/Jun/2015 13:04:53  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@704d6e83] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@43a0cee9]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tagDAO' defined in class path resource [contextDAO.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:425)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:84)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1083)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+[main] INFO 29/Jun/2015 13:05:03  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:05:03  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [com/epam/newsmanagement/test/service/TestContext.xml]
+[main] ERROR29/Jun/2015 13:05:03  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@523884b2] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@5b275dab]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: IOException parsing XML document from class path resource [com/epam/newsmanagement/test/service/TestContext.xml]; nested exception is java.io.FileNotFoundException: class path resource [com/epam/newsmanagement/test/service/TestContext.xml] cannot be opened because it does not exist
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:341)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:143)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:178)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:149)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:212)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:81)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: java.io.FileNotFoundException: class path resource [com/epam/newsmanagement/test/service/TestContext.xml] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:158)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:328)
+	... 33 more
+[main] INFO 29/Jun/2015 13:05:48  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:05:48  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [/TestContext.xml]
+[main] ERROR29/Jun/2015 13:05:48  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@d8355a8] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@59fa1d9b]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: IOException parsing XML document from class path resource [/TestContext.xml]; nested exception is java.io.FileNotFoundException: class path resource [/TestContext.xml] cannot be opened because it does not exist
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:341)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:143)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:178)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:149)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:212)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:81)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: java.io.FileNotFoundException: class path resource [/TestContext.xml] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:158)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:328)
+	... 33 more
+[main] INFO 29/Jun/2015 13:05:58  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:06:14  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:06:14  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [com/epam/newsmanagement/test/service//TestContext.xml]
+[main] ERROR29/Jun/2015 13:06:14  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@523884b2] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@5b275dab]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanDefinitionStoreException: IOException parsing XML document from class path resource [com/epam/newsmanagement/test/service//TestContext.xml]; nested exception is java.io.FileNotFoundException: class path resource [com/epam/newsmanagement/test/service//TestContext.xml] cannot be opened because it does not exist
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:341)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:143)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:178)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:149)
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:212)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:81)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: java.io.FileNotFoundException: class path resource [com/epam/newsmanagement/test/service//TestContext.xml] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:158)
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:328)
+	... 33 more
+[main] INFO 29/Jun/2015 13:08:05  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:08:06  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:08:06  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:08:06  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:08:06  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:08:06  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@4cb2c100: startup date [Mon Jun 29 13:08:06 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:08:06  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:08:06  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] ERROR29/Jun/2015 13:08:06  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@704d6e83] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@43a0cee9]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tagDAO' defined in class path resource [contextDAO.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:425)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:84)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1083)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+[main] INFO 29/Jun/2015 13:09:52  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:09:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:09:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:09:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:09:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:09:52  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@4cb2c100: startup date [Mon Jun 29 13:09:52 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:09:53  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:09:53  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] ERROR29/Jun/2015 13:09:53  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@704d6e83] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@43a0cee9]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tagDAO' defined in class path resource [contextDAO.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:425)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:84)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1083)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+[main] INFO 29/Jun/2015 13:16:15  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:16:16  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:16:16  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:16:16  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:16:16  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:16:16  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:16:16 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:16:16  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:16:16  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] ERROR29/Jun/2015 13:16:16  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@704d6e83] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@43a0cee9]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tagDAO' defined in class path resource [contextDAO.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:425)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:84)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1083)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+[main] INFO 29/Jun/2015 13:18:12  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:18:12  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:18:12  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:18:12  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:18:12  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:18:12  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:18:12 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:18:12  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:18:12  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] ERROR29/Jun/2015 13:18:12  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@704d6e83] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@43a0cee9]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tagDAO' defined in class path resource [contextDAO.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:425)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:84)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1083)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+[main] INFO 29/Jun/2015 13:18:22  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:18:22  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:18:22  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:18:22  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:18:22  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:18:22  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:18:22 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:18:22  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:18:22  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] ERROR29/Jun/2015 13:18:22  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@704d6e83] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@43a0cee9]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tagDAO' defined in class path resource [contextDAO.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:425)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:84)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1083)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+[main] INFO 29/Jun/2015 13:19:24  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:19:24  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:19:24  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:19:24  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:19:24  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:19:24  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:19:24 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:19:25  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:19:25  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@43814d18: defining beans [tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] ERROR29/Jun/2015 13:19:25  test.context.TestContextManager: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@704d6e83] to prepare test instance [com.epam.newsmanagement.test.service.AuthorServiceImplTest@43a0cee9]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:308)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:321)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:220)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:301)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:303)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tagDAO' defined in class path resource [contextDAO.xml]: Cannot resolve reference to bean 'dataSource' while setting bean property 'dataSource'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:106)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:456)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:291)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:288)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:580)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:895)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:425)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:84)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:1)
+	at org.springframework.test.context.TestContext.loadApplicationContext(TestContext.java:280)
+	at org.springframework.test.context.TestContext.getApplicationContext(TestContext.java:304)
+	... 24 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'dataSource' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:527)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1083)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:274)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:190)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:322)
+	... 40 more
+[main] INFO 29/Jun/2015 13:20:02  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:20:03  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:20:03  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 13:20:03  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:20:03  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:20:03  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:20:03  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:20:03 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:20:03  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 13:20:04  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:20:03 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 13:20:04  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:30:14  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:30:15  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:30:15  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 13:30:15  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:30:15  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:30:15  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:30:15  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:30:15 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:30:15  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 13:30:16  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:30:15 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 13:30:16  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:30:39  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:30:39  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:30:39  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 13:30:39  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:30:39  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:30:40  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:30:40  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:30:40 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:30:40  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 13:30:40  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:30:40 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 13:30:40  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:32:51  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:32:51  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:32:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 13:32:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:32:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:32:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:32:52  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:32:52 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:32:52  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 13:32:52  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:32:52 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 13:32:52  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:38:09  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:38:09  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:38:09  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 13:38:10  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:38:10  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:38:10  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:38:10  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:38:10 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:38:10  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 13:38:10  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:38:10 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 13:38:10  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 13:38:34  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 13:38:34  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 13:38:34  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 13:38:34  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 13:38:34  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 13:38:34  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 13:38:34  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:38:34 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 13:38:34  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 13:38:35  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 13:38:34 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 13:38:35  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 14:51:55  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 14:51:55  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 14:51:56  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 14:51:56  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 14:51:56  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 14:51:56  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 14:51:56  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 14:51:56 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 14:51:56  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 14:51:57  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 14:51:56 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 14:51:57  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 14:52:50  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 14:52:50  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 14:52:50  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 14:52:50  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 14:52:50  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 14:52:50  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 14:52:50  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 14:52:50 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 14:52:50  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 14:52:51  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 14:52:50 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 14:52:51  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 14:53:16  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 14:53:17  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 14:53:17  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 14:53:17  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 14:53:17  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 14:53:17  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 14:53:17  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 14:53:17 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 14:53:17  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 14:53:18  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 14:53:17 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 14:53:18  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 14:56:57  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 14:56:57  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 14:56:57  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 14:56:57  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 14:56:57  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 14:56:57  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 14:56:58  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 14:56:58 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 14:56:58  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 14:56:58  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 14:56:58 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 14:56:58  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 15:06:45  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 15:06:45  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 15:06:45  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 15:06:45  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 15:06:45  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 15:06:45  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 15:06:46  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:06:46 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 15:06:46  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 15:06:46  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:06:46 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 15:06:46  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 15:10:05  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 15:10:05  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 15:10:05  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 15:10:05  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 15:10:05  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 15:10:05  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 15:10:06  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:10:06 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 15:10:06  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 15:10:06  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:10:06 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 15:10:06  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 15:11:15  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 15:11:15  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 15:11:16  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 15:11:16  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 15:11:16  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 15:11:16  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 15:11:16  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:11:16 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 15:11:16  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 15:11:16  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:11:16 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 15:11:16  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 15:11:31  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 15:11:31  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 15:11:32  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 15:11:32  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 15:11:32  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 15:11:32  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 15:11:32  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@614c5515: startup date [Mon Jun 29 15:11:32 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 15:11:32  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3d99d22e: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 15:11:32  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@614c5515: startup date [Mon Jun 29 15:11:32 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 15:11:32  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3d99d22e: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 15:11:41  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 15:11:41  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 15:11:41  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 15:11:41  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 15:11:41  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 15:11:41  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 15:11:41  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@614c5515: startup date [Mon Jun 29 15:11:41 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 15:11:41  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3d99d22e: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 15:11:42  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@614c5515: startup date [Mon Jun 29 15:11:41 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 15:11:42  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3d99d22e: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 15:11:46  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 15:11:46  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 15:11:46  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 15:11:46  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 15:11:47  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 15:11:47  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 15:11:47  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@614c5515: startup date [Mon Jun 29 15:11:47 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 15:11:47  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3d99d22e: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 15:11:47  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@614c5515: startup date [Mon Jun 29 15:11:47 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 15:11:47  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@3d99d22e: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 15:11:58  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 15:11:58  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 15:11:58  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 15:11:58  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 15:11:58  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 15:11:58  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 15:11:58  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:11:58 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 15:11:58  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 15:11:59  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:11:58 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 15:11:59  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 15:12:16  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 15:12:16  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 15:12:17  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 15:12:17  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 15:12:17  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 15:12:17  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 15:12:17  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:12:17 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 15:12:17  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 15:12:17  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:12:17 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 15:12:17  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 15:17:12  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 15:17:12  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 15:17:12  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 15:17:12  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 15:17:12  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 15:17:12  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 15:17:12  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:17:12 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 15:17:12  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 15:17:13  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:17:12 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 15:17:13  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 15:42:52  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 15:42:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 15:42:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 15:42:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 15:42:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 15:42:52  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 15:42:52  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:42:52 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 15:42:53  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 15:42:53  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:42:52 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 15:42:53  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[main] INFO 29/Jun/2015 15:54:35  test.context.TestContextManager: @TestExecutionListeners is not present for class [class com.epam.newsmanagement.test.service.AuthorServiceImplTest]: using defaults.
+[main] INFO 29/Jun/2015 15:54:35  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [TestContext.xml]
+[main] INFO 29/Jun/2015 15:54:35  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [dataSource.xml]
+[main] INFO 29/Jun/2015 15:54:36  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [bean.xml]
+[main] INFO 29/Jun/2015 15:54:36  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextDAO.xml]
+[main] INFO 29/Jun/2015 15:54:36  factory.xml.XmlBeanDefinitionReader: Loading XML bean definitions from class path resource [contextService.xml]
+[main] INFO 29/Jun/2015 15:54:36  context.support.GenericApplicationContext: Refreshing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:54:36 MSK 2015]; root of context hierarchy
+[main] INFO 29/Jun/2015 15:54:36  factory.support.DefaultListableBeanFactory: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy
+[Thread-0] INFO 29/Jun/2015 15:54:36  context.support.GenericApplicationContext: Closing org.springframework.context.support.GenericApplicationContext@5315b42e: startup date [Mon Jun 29 15:54:36 MSK 2015]; root of context hierarchy
+[Thread-0] INFO 29/Jun/2015 15:54:36  factory.support.DefaultListableBeanFactory: Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@551aa95a: defining beans [dataSource,tag,author,comment,news,tagDAO,commentDAO,authorDAO,newsDAO,tagService,commentService,authorService,newsService,serviceManager,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor]; root of factory hierarchy

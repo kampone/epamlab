@@ -92,4 +92,10 @@ public class CommentServiceImpl implements CommentService {
 		}
 	}
 
+	@Override
+	public void deleteCommentsByNewsId(long idNews) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
