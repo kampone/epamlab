@@ -12,6 +12,8 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.datasource.DataSourceUtils;
+
 import com.epam.newsmanagement.dao.TagDAO;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;
@@ -23,10 +25,10 @@ import com.epam.newsmanagement.exception.DAOException;
 public class TagDAOImpl implements TagDAO {
 
 	private static final String SQL_CREATE_NEW_TAG_QUERY = "INSERT INTO tags(tag_name, tag_id) VALUES (?, tags_tag_id_seq.nextval)";
-	private static final String SQL_READ_TAG_BY_ID_QUERY = "SELECT tag_id, tag_name FROM tags WHERE tag_id = ? ";
+	private static final String SQL_READ_TAG_BY_ID_QUERY = "SELECT t.tag_id, t.tag_name FROM tags t WHERE t.tag_id = ? ";
 	private static final String SQL_UPDATE_TAG_BY_ID_QUERY = "UPDATE tags SET tag_name = ? WHERE tag_id = ? ";
 	private static final String SQL_DELETE_TAG_BY_ID_QUERY = "DELETE FROM tags WHERE tag_id = ?";
-	private static final String SQL_INSERT_NEWS_TAG_QUERY = "INSERT INTO news_tags(news_id, tag_id) VALUES (?, ?)";
+	private static final String SQL_INSERT_NEWS_TAG_QUERY = "INSERT INTO news_tags nt (nt.news_id, nt.tag_id) VALUES (?, ?)";
 	private static final String SQL_DELETE_NEWS_TAG_QUERY = "DELETE FROM news_tags WHERE news_id = ?";
 
 	private DataSource dataSource;
@@ -52,7 +54,7 @@ public class TagDAOImpl implements TagDAO {
 			ResultSet resultSet = null;
 
 			try {
-				connection = dataSource.getConnection();
+				connection = DataSourceUtils.doGetConnection(dataSource);
 
 				statement = connection.prepareStatement(
 						SQL_CREATE_NEW_TAG_QUERY, new String[] { "TAG_ID" });
@@ -68,11 +70,10 @@ public class TagDAOImpl implements TagDAO {
 							+ " Problem during getting id ");
 				}
 			} catch (SQLException e) {
-				throw new DAOException(System.lineSeparator()
-						+ " Problem during getting id ", e);
+				throw new DAOException(e);
 
 			} finally {
-				closeConnection(connection, statement, resultSet);
+				closeConnection(dataSource, connection, statement, resultSet);
 			}
 		}
 		return id;
@@ -90,27 +91,23 @@ public class TagDAOImpl implements TagDAO {
 		ResultSet resultSet = null;
 
 		try {
-			connection = dataSource.getConnection();
-
+			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_READ_TAG_BY_ID_QUERY);
 			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
 
 			while (resultSet.next()) {
-
 				long idTag = resultSet.getLong(1);
 				String name = resultSet.getString(2);
-
 				tag.setId(idTag);
 				tag.setName(name);
 
 			}
 		} catch (SQLException e) {
-			throw new DAOException(System.lineSeparator()
-					+ " Problem during reading tag ", e);
+			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement, resultSet);
+			closeConnection(dataSource, connection, statement, resultSet);
 		}
 		return tag;
 	}
@@ -125,10 +122,9 @@ public class TagDAOImpl implements TagDAO {
 	public void update(Tag entity) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
-
 		try {
-			connection = dataSource.getConnection();
-
+			
+			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_UPDATE_TAG_BY_ID_QUERY);
 			statement.setString(1, entity.getName());
 			statement.setLong(2, entity.getId());
@@ -137,7 +133,7 @@ public class TagDAOImpl implements TagDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 	}
 
@@ -154,7 +150,7 @@ public class TagDAOImpl implements TagDAO {
 		PreparedStatement statement = null;
 
 		try {
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 
 			statement = connection.prepareStatement(SQL_DELETE_TAG_BY_ID_QUERY);
 			statement.setLong(1, id);
@@ -164,7 +160,7 @@ public class TagDAOImpl implements TagDAO {
 					+ " Problem during preparing statement ", e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 	}
 
@@ -190,9 +186,7 @@ public class TagDAOImpl implements TagDAO {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
-
-			connection = dataSource.getConnection();
-
+			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_INSERT_NEWS_TAG_QUERY);
 			statement.setLong(1, idNews);
 			statement.setLong(2, idTag);
@@ -201,7 +195,7 @@ public class TagDAOImpl implements TagDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 	}
 
@@ -216,7 +210,7 @@ public class TagDAOImpl implements TagDAO {
 		PreparedStatement statement = null;
 		try {
 
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_DELETE_NEWS_TAG_QUERY);
 			statement.setLong(1, idNews);
 			statement.executeUpdate();
@@ -224,7 +218,7 @@ public class TagDAOImpl implements TagDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 
 	}
@@ -235,7 +229,7 @@ public class TagDAOImpl implements TagDAO {
 		PreparedStatement statement = null;
 		try {
 
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_INSERT_NEWS_TAG_QUERY);
 			statement.setLong(1, idNews);
 			for (Long idTag : idTagList) {
@@ -247,7 +241,7 @@ public class TagDAOImpl implements TagDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 
 	}

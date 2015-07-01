@@ -13,6 +13,7 @@ import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.Tag;
+import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.AuthorService;
 import com.epam.newsmanagement.service.CommentService;
@@ -24,7 +25,7 @@ import com.epam.newsmanagement.service.TagService;
  * @author Uladzislau_Kaminski
  *
  */
-@Transactional(propagation = Propagation.REQUIRED, rollbackFor = ServiceException.class)
+@Transactional(rollbackFor = Exception.class)
 public class ServiceManagerImpl implements ServiceManager {
 	private TagService tagService;
 	private CommentService commentService;
@@ -113,6 +114,7 @@ public class ServiceManagerImpl implements ServiceManager {
 	@Override
 	public void updateNews(News news, List<Tag> tagList,
 			List<Comment> commentList) throws ServiceException {
+		
 
 	}
 
@@ -126,8 +128,8 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	// Should be deleted
-
-	public void testMethod() throws ServiceException {
+	@Transactional(propagation = Propagation.MANDATORY, rollbackFor = Exception.class)
+	public void testMethod() throws ServiceException, DAOException {
 		Tag tag = new Tag();
 		tag.setName("blank");
 		long idTag = tagService.create(tag);
@@ -135,7 +137,7 @@ public class ServiceManagerImpl implements ServiceManager {
 		author.setName("Vasja");
 		long idAuthor = authorService.create(author);
 		if (true)
-			throw new ServiceException("Test Exception");
+			throw new DAOException("Test Exception");
 		idAuthor = authorService.create(author);
 
 	}

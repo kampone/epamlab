@@ -9,7 +9,7 @@ import com.epam.newsmanagement.service.NewsManagementService;
 
 /**
  * @author Uladzislau_Kaminski
- *
+ * 
  */
 public interface AuthorService extends NewsManagementService<Author> {
 	

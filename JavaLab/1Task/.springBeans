@@ -12,6 +12,7 @@
 		<config>src/main/resources/contextService.xml</config>
 		<config>src/main/resources/dataSource.xml</config>
 		<config>src/main/resources/SpringContext.xml</config>
+		<config>src/test/resources/testDataSource.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

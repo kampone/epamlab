@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.epam.newsmanagement.test.service;
+package com.epam.newsmanagement.service.impl;
 
 import static org.junit.Assert.*;
 

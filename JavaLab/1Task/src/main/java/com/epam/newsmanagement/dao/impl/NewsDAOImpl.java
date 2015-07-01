@@ -12,6 +12,8 @@ import java.sql.Timestamp;
 
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.datasource.DataSourceUtils;
+
 import com.epam.newsmanagement.dao.NewsDAO;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.exception.DAOException;
@@ -48,7 +50,7 @@ public class NewsDAOImpl implements NewsDAO {
 			ResultSet resultSet = null;
 
 			try {
-				connection = dataSource.getConnection();
+				connection = DataSourceUtils.doGetConnection(dataSource);
 
 				statement = connection.prepareStatement(
 						SQL_CREATE_NEW_NEWS_QUERY, new String[] { "NEWS_ID" });
@@ -72,11 +74,10 @@ public class NewsDAOImpl implements NewsDAO {
 							+ " Problem during getting id ");
 				}
 			} catch (SQLException e) {
-				throw new DAOException(System.lineSeparator()
-						+ " Problem during getting id ", e);
+				throw new DAOException(e);
 
 			} finally {
-				closeConnection(connection, statement, resultSet);
+				closeConnection(dataSource, connection, statement, resultSet);
 			}
 		}
 		return id;
@@ -95,7 +96,7 @@ public class NewsDAOImpl implements NewsDAO {
 		ResultSet resultSet = null;
 
 		try {
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 
 			statement = connection.prepareStatement(SQL_READ_NEWS_BY_ID_READ);
 			statement.setLong(1, id);
@@ -123,7 +124,7 @@ public class NewsDAOImpl implements NewsDAO {
 					+ " Problem during reading comment ", e);
 
 		} finally {
-			closeConnection(connection, statement, resultSet);
+			closeConnection(dataSource, connection, statement, resultSet);
 		}
 		return news;
 	}
@@ -141,7 +142,7 @@ public class NewsDAOImpl implements NewsDAO {
 		PreparedStatement statement = null;
 
 		try {
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_UPDATE_NEWS_BY_ID_QUERY);
 			statement.setString(1, entity.getTitle());
 			statement.setString(2, entity.getShortText());
@@ -154,7 +155,7 @@ public class NewsDAOImpl implements NewsDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 	}
 
@@ -177,7 +178,7 @@ public class NewsDAOImpl implements NewsDAO {
 		PreparedStatement statement = null;
 
 		try {
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 
 			statement = connection.prepareStatement(SQL_DELETE_NEWS_BY_ID_READ);
 			statement.setLong(1, id);
@@ -187,7 +188,7 @@ public class NewsDAOImpl implements NewsDAO {
 					+ " Problem during preparing statement ", e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 	}
 

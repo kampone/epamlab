@@ -2,9 +2,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
- 	
- 	<import resource="dataSource.xml"/>
- 	<import resource="bean.xml" />
+	<bean name="databaseTester" class="org.dbunit.DataSourceDatabaseTester">
+		<constructor-arg ref="dataSource" />
+	</bean>
+	<import resource="testDataSource.xml" />
+	<import resource="bean.xml" />
 	<import resource="contextDAO.xml" />
 	<import resource="contextService.xml" />
 </beans>

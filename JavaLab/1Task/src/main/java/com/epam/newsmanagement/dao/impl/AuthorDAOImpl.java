@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 
 import javax.sql.DataSource;
+import javax.xml.crypto.Data;
+
+import org.springframework.jdbc.datasource.DataSourceUtils;
 
 import oracle.sql.TIMESTAMP;
 
@@ -55,7 +58,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 			ResultSet resultSet = null;
 
 			try {
-				connection = dataSource.getConnection();
+				connection = DataSourceUtils.doGetConnection(dataSource);
 
 				statement = connection.prepareStatement(
 						SQL_CREATE_NEW_AUTHOR_QUERY,
@@ -74,7 +77,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 			} catch (SQLException e) {
 				throw new DAOException(e);
 			} finally {
-				closeConnection(connection, statement, resultSet);
+				closeConnection(dataSource, connection, statement, resultSet);
 			}
 		}
 		return id;
@@ -93,7 +96,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 		ResultSet resultSet = null;
 		try {
 
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 
 			statement = connection
 					.prepareStatement(SQL_READ_AUTHOR_BY_ID_QUERY);
@@ -112,7 +115,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement, resultSet);
+			closeConnection(dataSource, connection, statement, resultSet);
 		}
 		return author;
 	}
@@ -130,7 +133,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 		PreparedStatement statement = null;
 
 		try {
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 
 			statement = connection
 					.prepareStatement(SQL_UPDATE_AUTHOR_BY_ID_QUERY);
@@ -141,7 +144,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 
 	}
@@ -165,7 +168,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 		PreparedStatement statement = null;
 		try {
 
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 
 			statement = connection
 					.prepareStatement(SQL_DELETE_AUTHOR_BY_ID_QUERY);
@@ -175,7 +178,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 	}
 
@@ -185,7 +188,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 		PreparedStatement statement = null;
 		try {
 
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 
 			statement = connection
 					.prepareStatement(SQL_INSERT_NEWS_AUTHOR_QUERY);
@@ -196,7 +199,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 	}
 
@@ -206,7 +209,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 		PreparedStatement statement = null;
 		try {
 
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection
 					.prepareStatement(SQL_DELETE_NEWS_AUTHOR_QUERY);
 			statement.setLong(1, idNews);
@@ -215,7 +218,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 	}
 

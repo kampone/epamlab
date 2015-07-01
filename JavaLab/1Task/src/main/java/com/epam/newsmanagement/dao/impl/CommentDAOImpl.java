@@ -12,6 +12,8 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.datasource.DataSourceUtils;
+
 import com.epam.newsmanagement.dao.CommentDAO;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.exception.DAOException;
@@ -50,11 +52,10 @@ public class CommentDAOImpl implements CommentDAO {
 			Connection connection = null;
 			PreparedStatement statement = null;
 			ResultSet resultSet = null;
-
+				
 			try {
 
-				connection = dataSource.getConnection();
-
+				connection = DataSourceUtils.doGetConnection(dataSource);
 				statement = connection.prepareStatement(
 						SQL_CREATE_NEW_COMMENT_QUERY,
 						new String[] { "COMMENT_ID" });
@@ -78,7 +79,7 @@ public class CommentDAOImpl implements CommentDAO {
 				throw new DAOException(e);
 
 			} finally {
-				closeConnection(connection, statement, resultSet);
+				closeConnection(dataSource, connection, statement, resultSet);
 			}
 		}
 		return id;
@@ -96,7 +97,7 @@ public class CommentDAOImpl implements CommentDAO {
 		ResultSet resultSet = null;
 		try {
 
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 
 			statement = connection
 					.prepareStatement(SQL_READ_COMMENT_BY_ID_QUERY);
@@ -120,7 +121,7 @@ public class CommentDAOImpl implements CommentDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement, resultSet);
+			closeConnection(dataSource, connection, statement, resultSet);
 		}
 		return comment;
 	}
@@ -131,7 +132,7 @@ public class CommentDAOImpl implements CommentDAO {
 		PreparedStatement statement = null;
 
 		try {
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_UPDATE_COMMENT_BY_ID_QUERY);
 			statement.setTimestamp(1, entity.getCreationDate());
 			statement.setString(2, entity.getText());
@@ -142,7 +143,7 @@ public class CommentDAOImpl implements CommentDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 
 	}
@@ -165,7 +166,7 @@ public class CommentDAOImpl implements CommentDAO {
 		PreparedStatement statement = null;
 
 		try {
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 
 			statement = connection
 					.prepareStatement(SQL_DELETE_COMMENT_BY_ID_QUERY);
@@ -175,7 +176,7 @@ public class CommentDAOImpl implements CommentDAO {
 			throw new DAOException(e);
 
 		} finally {
-			closeConnection(connection, statement);
+			closeConnection(dataSource, connection, statement);
 		}
 	}
 
