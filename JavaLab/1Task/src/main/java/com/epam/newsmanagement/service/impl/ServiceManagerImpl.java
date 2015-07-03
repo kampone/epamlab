@@ -100,7 +100,6 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	@Override
-	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public void addNews(News news, List<Tag> tagList) throws ServiceException {
 		long idNews = newsService.create(news);
 		List<Long> idTagList = new ArrayList<Long>();
@@ -128,11 +127,10 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	// Should be deleted
-	@Transactional(propagation = Propagation.MANDATORY, rollbackFor = Exception.class)
 	public void testMethod() throws ServiceException, DAOException {
 		Tag tag = new Tag();
 		tag.setName("blank");
-		long idTag = tagService.create(tag);
+		tagService.create(tag);
 		Author author = new Author();
 		author.setName("Vasja");
 		long idAuthor = authorService.create(author);

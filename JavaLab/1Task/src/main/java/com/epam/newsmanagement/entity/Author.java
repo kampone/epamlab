@@ -3,7 +3,7 @@ package com.epam.newsmanagement.entity;
 import java.sql.Timestamp;
 
 public class Author{
-	private Long id;
+	private long id;
 	private String name;
 	private Timestamp expired;
 
@@ -13,7 +13,7 @@ public class Author{
 	/**
 	 * @return the id
 	 */
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -52,22 +52,16 @@ public class Author{
 		this.expired = expired;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((expired == null) ? 0 : expired.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -82,10 +76,7 @@ public class Author{
 				return false;
 		} else if (!expired.equals(other.expired))
 			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
+		if (id != other.id)
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -95,6 +86,6 @@ public class Author{
 		return true;
 	}
 
-	
+
 
 }

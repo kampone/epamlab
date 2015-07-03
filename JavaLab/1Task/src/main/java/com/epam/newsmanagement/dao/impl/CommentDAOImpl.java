@@ -25,7 +25,7 @@ import com.epam.newsmanagement.exception.DAOException;
 public class CommentDAOImpl implements CommentDAO {
 	private static final String SQL_CREATE_NEW_COMMENT_QUERY = "INSERT INTO comments(creation_date, comment_text, news_id, comment_id) VALUES (?, ?, ?, comments_comment_id_seq.nextval)";
 	private static final String SQL_READ_COMMENT_BY_ID_QUERY = "SELECT comment_id, news_id, comment_text, creation_date FROM comments WHERE comment_id = ? ";
-	private static final String SQL_UPDATE_COMMENT_BY_ID_QUERY = "UPDATE comments SET creation_date = ?, comment_text = ?, news_id = ? WHERE comment_id = ? ";
+	private static final String SQL_UPDATE_COMMENT_BY_ID_QUERY = "UPDATE comments SET creation_date = S, comment_text = ?, news_id = ? WHERE comment_id = ? ";
 	private static final String SQL_DELETE_COMMENT_BY_ID_QUERY = "DELETE FROM comments WHERE comment_id = ?";
 
 	private DataSource dataSource;

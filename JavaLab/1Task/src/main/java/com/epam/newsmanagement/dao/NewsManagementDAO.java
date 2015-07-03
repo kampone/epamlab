@@ -10,7 +10,6 @@ import java.sql.Statement;
 
 import javax.sql.DataSource;
 
-import org.dbunit.dataset.DataSetUtils;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 
 import com.epam.newsmanagement.exception.DAOException;

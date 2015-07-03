@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+	<tags tag_id="1" tag_name="test" />
+	<tags tag_id="2" tag_name="science" />
+	<tags tag_id="3" tag_name="nature" />
+	<tags tag_id="4" tag_name="culture" />
+	<news news_id="1" title="test_title" short_text="short text"
+		full_text="full text" creation_date="2012-12-20 12:20:10"
+		modification_date="2013-12-20" />
+	<news news_id="2" title="test_title" short_text="short text"
+		full_text="full text" creation_date="2012-12-20 12:20:10"
+		modification_date="2013-12-20" />
+	<news news_id="3" title="test_title" short_text="short text"
+		full_text="full text" creation_date="2012-12-20 12:20:10"
+		modification_date="2013-12-20" />
+	<news_tags news_id="1" tag_id="2" />
+	<news_tags news_id="1" tag_id="3" />
+	<news_tags news_id="1" tag_id="4" /> 
+	<news_tags news_id="2" tag_id="3" /> 
+	<news_tags news_id="2" tag_id="4" /> 
+</dataset>

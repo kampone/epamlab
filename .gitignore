@@ -4,4 +4,6 @@ target
 lib
 .metadata
 .settings
+.recommenders
+log
 RemoteSystemTempFiles
