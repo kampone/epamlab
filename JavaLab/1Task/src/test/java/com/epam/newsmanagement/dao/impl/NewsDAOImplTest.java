@@ -1,5 +1,7 @@
 package com.epam.newsmanagement.dao.impl;
 
+import java.util.Date;
+
 import org.dbunit.DBTestCase;
 import org.dbunit.IDatabaseTester;
 import org.dbunit.dataset.IDataSet;
@@ -103,13 +105,23 @@ public class NewsDAOImplTest extends DBTestCase {
 	}
 
 	@Test
-	public void testDeleteNews() {
-		fail("Not yet implemented"); // TODO
+	public void testDeleteNews() throws Exception {
+		IDataSet expected = getDataSet();
+		long idNews = 1L;
+		News news = new News();
+		news.setId(idNews);
+		newsDAO.delete(news);
+		IDataSet actual = tester.getConnection().createDataSet(new String[] { "news" });
+		assertEquals(expected.getTable("news").getRowCount() - 1, actual.getTable("news").getRowCount());
 	}
 
 	@Test
-	public void testDeleteLong() {
-		fail("Not yet implemented"); // TODO
+	public void testDeleteById() throws Exception {
+		long idNews = 1L;
+		IDataSet expected = getDataSet();
+		newsDAO.delete(idNews);
+		IDataSet actual = tester.getConnection().createDataSet(new String[] { "news" });
+		assertEquals(expected.getTable("news").getRowCount() - 1, actual.getTable("news").getRowCount());
 	}
 
 }

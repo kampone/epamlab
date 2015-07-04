@@ -142,7 +142,7 @@ public class NewsDAOImpl implements NewsDAO {
 			statement.setString(1, entity.getTitle());
 			statement.setString(2, entity.getShortText());
 			statement.setString(3, entity.getFullText());
-			statement.setLong(6, entity.getId());
+			statement.setLong(4, entity.getId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);
