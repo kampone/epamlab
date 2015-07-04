@@ -33,7 +33,7 @@ public class TagDAOImplTest extends DBTestCase {
 
 	@Before
 	public void setUp() throws Exception {
-		IDataSet dataSet = new FlatXmlDataSetBuilder().build(this.getClass().getResourceAsStream("/tagDataSet.xml"));
+		IDataSet dataSet = getDataSet();
 		tester.setDataSet(dataSet);
 		tester.setTearDownOperation(getTearDownOperation());
 		tester.onSetup();
