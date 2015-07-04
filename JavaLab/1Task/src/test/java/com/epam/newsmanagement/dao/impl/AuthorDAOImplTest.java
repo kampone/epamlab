@@ -15,7 +15,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.epam.newsmanagement.dao.AuthorDAO;
 import com.epam.newsmanagement.entity.Author;
+import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;
+
+import oracle.net.aso.a;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/TestContext.xml" })
@@ -51,7 +54,7 @@ public class AuthorDAOImplTest extends DBTestCase {
 		author.setName("testAuthor");
 		authorDAO.create(author);
 		IDataSet actual = tester.getConnection().createDataSet();
-		assertEquals(expected.getTable("authors").getRowCount() + 1, actual.getTable("authors").getRowCount());
+		assertEquals(expected.getTable("AUTHORS").getRowCount() + 1, actual.getTable("AUTHORS").getRowCount());
 
 	}
 
@@ -111,6 +114,7 @@ public class AuthorDAOImplTest extends DBTestCase {
 	@Test
 	public void testDetachAuthors() throws Exception {
 		IDataSet expected = getDataSet();
+		long idAuthor = 3L;
 		long idNews = 2L;
 		authorDAO.detachAuthor(idNews);
 		IDataSet actual = tester.getConnection().createDataSet();
