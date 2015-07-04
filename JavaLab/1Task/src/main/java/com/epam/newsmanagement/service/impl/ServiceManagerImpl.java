@@ -3,17 +3,12 @@
  */
 package com.epam.newsmanagement.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
-import com.epam.newsmanagement.entity.Tag;
-import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.AuthorService;
 import com.epam.newsmanagement.service.CommentService;

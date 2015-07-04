@@ -10,15 +10,10 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
-
 import org.springframework.jdbc.datasource.DataSourceUtils;
-
-import oracle.sql.TIMESTAMP;
 
 import com.epam.newsmanagement.dao.AuthorDAO;
 import com.epam.newsmanagement.entity.Author;
-import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;
 
 /**

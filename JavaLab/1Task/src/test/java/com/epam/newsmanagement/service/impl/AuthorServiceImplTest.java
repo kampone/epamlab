@@ -4,9 +4,6 @@ package com.epam.newsmanagement.service.impl;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
 import javax.sql.DataSource;
 
 import org.junit.Before;
@@ -16,8 +13,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -62,12 +57,7 @@ public class AuthorServiceImplTest {
 		
 	@Test
 	public void testCreate() throws ServiceException, DAOException {
-		try {
-			Connection connection = dataSource.getConnection();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 		long expected = 1L;
 		Author author = mock(Author.class);
 		when(mockAuthorDAO.create(author)).thenReturn(1L);
