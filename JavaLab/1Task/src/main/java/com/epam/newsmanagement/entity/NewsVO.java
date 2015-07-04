@@ -13,146 +13,156 @@ public class NewsVO {
 	private String modificationDate;
 	private List<Long> tagsId;
 	private List<Long> commentsId;
+	private long idAuthor;
 
 	public NewsVO() {
 		tagsId = new ArrayList<Long>();
 		commentsId = new ArrayList<Long>();
 	}
 
-	/**
-	 * @return the idNews
-	 */
 	public long getIdNews() {
 		return idNews;
 	}
 
-	/**
-	 * @param idNews
-	 *            the idNews to set
-	 */
 	public void setIdNews(long idNews) {
 		this.idNews = idNews;
 	}
 
-	/**
-	 * @return the title
-	 */
 	public String getTitle() {
 		return title;
 	}
 
-	/**
-	 * @param title
-	 *            the title to set
-	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
-	/**
-	 * @return the shortText
-	 */
 	public String getShortText() {
 		return shortText;
 	}
 
-	/**
-	 * @param shortText
-	 *            the shortText to set
-	 */
 	public void setShortText(String shortText) {
 		this.shortText = shortText;
 	}
 
-	/**
-	 * @return the fullText
-	 */
 	public String getFullText() {
 		return fullText;
 	}
 
-	/**
-	 * @param fullText
-	 *            the fullText to set
-	 */
 	public void setFullText(String fullText) {
 		this.fullText = fullText;
 	}
 
-	/**
-	 * @return the creationDate
-	 */
 	public Timestamp getCreationDate() {
 		return creationDate;
 	}
 
-	/**
-	 * @param creationDate
-	 *            the creationDate to set
-	 */
 	public void setCreationDate(Timestamp creationDate) {
 		this.creationDate = creationDate;
 	}
 
-	/**
-	 * @return the modificationDate
-	 */
 	public String getModificationDate() {
 		return modificationDate;
 	}
 
-	/**
-	 * @param modificationDate
-	 *            the modificationDate to set
-	 */
 	public void setModificationDate(String modificationDate) {
 		this.modificationDate = modificationDate;
 	}
 
-	/**
-	 * @return the tagsId
-	 */
 	public List<Long> getTagsId() {
 		return tagsId;
 	}
 
-	/**
-	 * @param tagsId
-	 *            the tagsId to set
-	 */
 	public void setTagsId(List<Long> tagsId) {
 		this.tagsId = tagsId;
 	}
 
-	/**
-	 * @return the commentsId
-	 */
 	public List<Long> getCommentsId() {
 		return commentsId;
 	}
 
-	/**
-	 * @param commentsId
-	 *            the commentsId to set
-	 */
 	public void setCommentsId(List<Long> commentsId) {
 		this.commentsId = commentsId;
 	}
 
-	/**
-	 * @param idComment
-	 *            the id of comment to add to news
-	 */
-	public boolean addComment(Long idComment) {
-		return commentsId.add(idComment);
+	public long getIdAuthor() {
+		return idAuthor;
+	}
+
+	public void setIdAuthor(long idAuthor) {
+		this.idAuthor = idAuthor;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((commentsId == null) ? 0 : commentsId.hashCode());
+		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
+		result = prime * result + ((fullText == null) ? 0 : fullText.hashCode());
+		result = prime * result + (int) (idAuthor ^ (idAuthor >>> 32));
+		result = prime * result + (int) (idNews ^ (idNews >>> 32));
+		result = prime * result + ((modificationDate == null) ? 0 : modificationDate.hashCode());
+		result = prime * result + ((shortText == null) ? 0 : shortText.hashCode());
+		result = prime * result + ((tagsId == null) ? 0 : tagsId.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NewsVO other = (NewsVO) obj;
+		if (commentsId == null) {
+			if (other.commentsId != null)
+				return false;
+		} else if (!commentsId.equals(other.commentsId))
+			return false;
+		if (creationDate == null) {
+			if (other.creationDate != null)
+				return false;
+		} else if (!creationDate.equals(other.creationDate))
+			return false;
+		if (fullText == null) {
+			if (other.fullText != null)
+				return false;
+		} else if (!fullText.equals(other.fullText))
+			return false;
+		if (idAuthor != other.idAuthor)
+			return false;
+		if (idNews != other.idNews)
+			return false;
+		if (modificationDate == null) {
+			if (other.modificationDate != null)
+				return false;
+		} else if (!modificationDate.equals(other.modificationDate))
+			return false;
+		if (shortText == null) {
+			if (other.shortText != null)
+				return false;
+		} else if (!shortText.equals(other.shortText))
+			return false;
+		if (tagsId == null) {
+			if (other.tagsId != null)
+				return false;
+		} else if (!tagsId.equals(other.tagsId))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
 	}
 	
-	/**
-	 * @param idTag
-	 *            the id of tag to add to news
-	 */
-	public boolean addTag(Long idTag) {
-		return tagsId.add(idTag);
-	}
+	
+
+	
+	
+	
 
 }

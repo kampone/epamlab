@@ -32,9 +32,7 @@ public class ServiceManagerImpl implements ServiceManager {
 	private AuthorService authorService;
 	private NewsService newsService;
 
-	/**
-	 * 
-	 */
+	
 	public ServiceManagerImpl() {
 		// TODO Auto-generated constructor stub
 	}
@@ -100,20 +98,21 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	@Override
-	public void addNews(News news, List<Tag> tagList) throws ServiceException {
+	public void addNews(News news,long idAuthor, List<Long> idTagList) throws ServiceException {
 		long idNews = newsService.create(news);
-		List<Long> idTagList = new ArrayList<Long>();
-		for (Tag tag : tagList) {
-			idTagList.add(tag.getId());
-		}
 		tagService.attachListTags(idNews, idTagList);
-
+		authorService.attachAuthors(idNews, idAuthor);
+		
 	}
 
 	@Override
-	public void updateNews(News news, List<Tag> tagList,
+	public void updateNews(News news, long idAuthor, List<Long> idTagList,
 			List<Comment> commentList) throws ServiceException {
-		
+		tagService.detachTags(news.getId());
+		authorService.detachAuthors(news.getId());
+		newsService.update(news);
+		authorService.attachAuthors(news.getId(), idAuthor);
+		tagService.attachListTags(news.getId(), idTagList);
 
 	}
 
@@ -126,18 +125,6 @@ public class ServiceManagerImpl implements ServiceManager {
 
 	}
 
-	// Should be deleted
-	public void testMethod() throws ServiceException, DAOException {
-		Tag tag = new Tag();
-		tag.setName("blank");
-		tagService.create(tag);
-		Author author = new Author();
-		author.setName("Vasja");
-		long idAuthor = authorService.create(author);
-		if (true)
-			throw new DAOException("Test Exception");
-		idAuthor = authorService.create(author);
-
-	}
+	
 
 }

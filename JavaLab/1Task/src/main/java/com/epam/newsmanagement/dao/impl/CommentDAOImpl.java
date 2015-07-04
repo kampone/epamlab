@@ -23,10 +23,10 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class CommentDAOImpl implements CommentDAO {
-	private static final String SQL_CREATE_NEW_COMMENT_QUERY = "INSERT INTO comments(creation_date, comment_text, news_id, comment_id) VALUES (?, ?, ?, comments_comment_id_seq.nextval)";
-	private static final String SQL_READ_COMMENT_BY_ID_QUERY = "SELECT comment_id, news_id, comment_text, creation_date FROM comments WHERE comment_id = ? ";
-	private static final String SQL_UPDATE_COMMENT_BY_ID_QUERY = "UPDATE comments SET creation_date = S, comment_text = ?, news_id = ? WHERE comment_id = ? ";
-	private static final String SQL_DELETE_COMMENT_BY_ID_QUERY = "DELETE FROM comments WHERE comment_id = ?";
+	private static final String SQL_CREATE_NEW_COMMENT_QUERY = "INSERT INTO comments c (c.creation_date, c.comment_text, c.news_id, c.comment_id) VALUES (?, ?, ?, comments_comment_id_seq.nextval)";
+	private static final String SQL_READ_COMMENT_BY_ID_QUERY = "SELECT c.comment_id, c.news_id, c.comment_text, c.creation_date FROM comments c WHERE c.comment_id = ? ";
+	private static final String SQL_UPDATE_COMMENT_BY_ID_QUERY = "UPDATE comments c SET c.creation_date = S, c.comment_text = ?, c.news_id = ? WHERE c.comment_id = ? ";
+	private static final String SQL_DELETE_COMMENT_BY_ID_QUERY = "DELETE FROM comments c WHERE c.comment_id = ?";
 
 	private DataSource dataSource;
 
@@ -38,11 +38,10 @@ public class CommentDAOImpl implements CommentDAO {
 		this.dataSource = dataSource;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * 
 	 * @see
-	 * com.epam.dao.NewsManagementDAO#create(com.epam.entity.NewsManagementEntity
+	 * com.epam.dao.NewsManagementDAO#create(com.epam.entity.Comment
 	 * )
 	 */
 	@Override
@@ -86,7 +85,9 @@ public class CommentDAOImpl implements CommentDAO {
 	}
 
 	/**
-	 * 
+	 *@see
+	 * com.epam.dao.NewsManagementDAO#read(long
+	 * )
 	 * 
 	*/
 	@Override
@@ -125,7 +126,12 @@ public class CommentDAOImpl implements CommentDAO {
 		}
 		return comment;
 	}
-
+	/**
+	 *@see
+	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.Comment
+	 * )
+	 * 
+	*/
 	@Override
 	public void update(Comment entity) throws DAOException {
 		Connection connection = null;
@@ -148,17 +154,33 @@ public class CommentDAOImpl implements CommentDAO {
 
 	}
 
+	/**
+	 *@see
+	 * com.epam.dao.CommentDAO#takeCommentsByNewsId(long
+	 * )
+	 * 
+	*/
 	@Override
 	public List<Comment> takeCommentsByNewsId(long idNews) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	/**
+	 *@see
+	 * com.epam.dao.AuthorDAO#delete(com.epam.entity.Comment
+	 * )
+	 * 
+	*/
 	@Override
 	public void delete(Comment entity) throws DAOException {
 		this.delete(entity.getId());
 	}
-
+	/**
+	 *@see
+	 * com.epam.dao.AuthorDAO#delete(long
+	 * )
+	 * 
+	*/
 	@Override
 	public void delete(Long id) throws DAOException {
 
@@ -179,7 +201,11 @@ public class CommentDAOImpl implements CommentDAO {
 			closeConnection(dataSource, connection, statement);
 		}
 	}
-
+	/**
+	 *@see
+	 * com.epam.dao.AuthorDAO#deleteCommentsByNewsId(long)
+	 * 
+	*/
 	@Override
 	public void deleteCommentsByNewsId(long idNews) {
 		// TODO Auto-generated method stub

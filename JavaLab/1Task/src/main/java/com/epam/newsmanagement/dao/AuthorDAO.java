@@ -13,7 +13,17 @@ import com.epam.newsmanagement.exception.DAOException;
  */
 public interface AuthorDAO extends NewsManagementDAO<Author> {
 
+	/**
+	 * Attach Author to News 
+	 * @param idNews News id
+	 * @param idAuthor Author id
+	 * @throws DAOException if trouble with connection with database 
+	 */
 	public void attachAuthors(long idNews, long idAuthor) throws DAOException;
-
-	public void detachAuthors(long idNews) throws DAOException;
+	/**
+	 * Detach author from News by id
+	 * @param idNews News id
+	 * @throws DAOException if trouble with connection with database 
+	 */
+	public void detachAuthor(long idNews) throws DAOException;
 }

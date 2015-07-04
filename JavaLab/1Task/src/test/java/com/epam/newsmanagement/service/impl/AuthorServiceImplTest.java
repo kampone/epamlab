@@ -45,6 +45,8 @@ public class AuthorServiceImplTest {
 	@Autowired
 	private AuthorService authorService;
 	
+	@Autowired
+	DataSource dataSource;
 
 	@Before
     public void setUp() {
@@ -60,8 +62,6 @@ public class AuthorServiceImplTest {
 		
 	@Test
 	public void testCreate() throws ServiceException, DAOException {
-		ApplicationContext context = new ClassPathXmlApplicationContext("TestContext.xml");
-		DataSource dataSource = (DataSource) context.getBean("dataSource");
 		try {
 			Connection connection = dataSource.getConnection();
 		} catch (SQLException e) {
@@ -149,7 +149,7 @@ public class AuthorServiceImplTest {
 	public void testDetachAuthors() throws ServiceException, DAOException {
 		News news = mock(News.class);
 		authorService.detachAuthors(news.getId());
-		verify(mockAuthorDAO,times(1)).detachAuthors(news.getId());
+		verify(mockAuthorDAO,times(1)).detachAuthor(news.getId());
 }
 
 }

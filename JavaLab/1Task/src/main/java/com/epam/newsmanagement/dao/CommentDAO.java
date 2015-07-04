@@ -15,9 +15,13 @@ import com.epam.newsmanagement.entity.Comment;
 public interface CommentDAO extends NewsManagementDAO<Comment> {
 	/**
 	 * 
-	 * @param idNews
-	 * @return
+	 * @param idNews News id
+	 * @return List of comments by idNews
 	 */
 	public List<Comment> takeCommentsByNewsId(long idNews);
+	/**
+	 * Delete all comments by News id
+	 * @param idNews News id
+	 */
 	public void deleteCommentsByNewsId(long idNews);
 }

@@ -95,7 +95,7 @@ public class AuthorServiceImpl implements AuthorService {
 	@Override
 	public void detachAuthors(long idNews) throws ServiceException {
 		try {
-			authorDAO.detachAuthors(idNews);
+			authorDAO.detachAuthor(idNews);
 		} catch (DAOException e) {
 			LOG.error(" Exception during detaching Author ", e);
 			throw new ServiceException(" Exception during detaching Author ", e);

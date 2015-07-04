@@ -6,7 +6,6 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
 	<import resource="dataSource.xml"/>
-	<import resource="bean.xml" />
 	<import resource="contextDAO.xml" />
 	<import resource="contextService.xml" />
 	<tx:annotation-driven transaction-manager="transactionManager"/>

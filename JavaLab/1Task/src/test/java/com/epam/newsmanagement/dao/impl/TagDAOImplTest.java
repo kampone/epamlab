@@ -15,6 +15,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import com.epam.newsmanagement.dao.TagDAO;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;
@@ -23,6 +24,7 @@ import com.epam.newsmanagement.exception.DAOException;
 @ContextConfiguration(locations = { "/TestContext.xml" })
 public class TagDAOImplTest extends DBTestCase {
 //TODO POM properties and scope tests
+	
 	@Autowired
 	private TagDAO tagDAO;
 
@@ -47,7 +49,7 @@ public class TagDAOImplTest extends DBTestCase {
 	public void testCreate() throws Exception {
 		IDataSet expected = getDataSet();
 		Tag tag = new Tag();
-		tag.setName("testTag");
+		tag.setName("Tag");
 		tagDAO.create(tag);
 		IDataSet actual = tester.getConnection().createDataSet(new String[] { "tags" });
 		assertEquals(expected.getTable("tags").getRowCount() + 1, actual.getTable("tags").getRowCount());

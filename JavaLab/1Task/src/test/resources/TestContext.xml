@@ -6,7 +6,6 @@
 		<constructor-arg ref="dataSource" />
 	</bean>
 	<import resource="testDataSource.xml" />
-	<import resource="bean.xml" />
 	<import resource="contextDAO.xml" />
 	<import resource="contextService.xml" />
 </beans>

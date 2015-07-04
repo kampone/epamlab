@@ -23,10 +23,10 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class NewsDAOImpl implements NewsDAO {
-	private static final String SQL_CREATE_NEW_NEWS_QUERY = "INSERT INTO news(title, short_text, full_text, creation_date, modification_date, news_id) VALUES (?,?,?,?,?,news_news_id_seq.nextval)";
-	private static final String SQL_READ_NEWS_BY_ID_READ = "SELECT news_id, title, short_text, full_text, creation_date, modification_date FROM news WHERE news_id = ?";
-	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news SET title = ?, short_text = ?, full_text = ?, creation_date = ? , modification_date = ? WHERE news_id = ? ";
-	private static final String SQL_DELETE_NEWS_BY_ID_READ = "DELETE FROM news WHERE news_id = ?";
+	private static final String SQL_CREATE_NEW_NEWS_QUERY = "INSERT INTO news n (n.title, n.short_text, n.full_text, n.creation_date, n.modification_date, n.news_id) VALUES (?,?,?,?,?,news_news_id_seq.nextval)";
+	private static final String SQL_READ_NEWS_BY_ID_READ = "SELECT n.news_id, n.title, n.short_text, n.full_text, n.creation_date, n.modification_date FROM news n WHERE n.news_id = ?";
+	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news n SET n.title = ?, n.short_text = ?, n.full_text = ?, n.creation_date = ? , n.modification_date = ? WHERE n.news_id = ? ";
+	private static final String SQL_DELETE_NEWS_BY_ID_READ = "DELETE FROM news n WHERE n.news_id = ?";
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -39,7 +39,7 @@ public class NewsDAOImpl implements NewsDAO {
 
 	/**
 	 * @return return tag id if it is created
-	 * @see com.epam.dao.NewsManagementDAO#create(com.epam.entity.NewsManagementEntity)
+	 * @see com.epam.dao.NewsManagementDAO#create(com.epam.entity.News)
 	 */
 	@Override
 	public long create(News entity) throws DAOException {
@@ -83,8 +83,8 @@ public class NewsDAOImpl implements NewsDAO {
 		return id;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 *
 	 * 
 	 * @see com.epam.dao.NewsManagementDAO#read(long)
 	 */
@@ -129,11 +129,10 @@ public class NewsDAOImpl implements NewsDAO {
 		return news;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * 
 	 * @see
-	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.NewsManagementEntity
+	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.News
 	 * )
 	 */
 	@Override
@@ -159,18 +158,22 @@ public class NewsDAOImpl implements NewsDAO {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * 
 	 * @see
-	 * com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity
+	 * com.epam.dao.NewsManagementDAO#delete(com.epam.entity.News
 	 * )
 	 */
 	@Override
 	public void delete(News entity) throws DAOException {
 		this.delete(entity.getId());
 	}
-
+	/**
+	 * 
+	 * @see
+	 * com.epam.dao.NewsManagementDAO#delete(long
+	 * )
+	 */
 	@Override
 	public void delete(Long id) throws DAOException {
 

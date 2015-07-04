@@ -26,12 +26,12 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class AuthorDAOImpl implements AuthorDAO {
-	private static final String SQL_CREATE_NEW_AUTHOR_QUERY = "INSERT INTO authors(author_name, author_id) VALUES (?, authors_author_id_seq.nextval)";
-	private static final String SQL_READ_AUTHOR_BY_ID_QUERY = "SELECT author_id, author_name, expired FROM authors WHERE author_id = ?";
-	private static final String SQL_UPDATE_AUTHOR_BY_ID_QUERY = "UPDATE authors SET author_name = ? WHERE author_id = ? ";
-	private static final String SQL_DELETE_AUTHOR_BY_ID_QUERY = "UPDATE authors Set EXPIRED = SYSDATE WHERE authors.AUTHOR_ID = ?";
-	private static final String SQL_INSERT_NEWS_AUTHOR_QUERY = "INSERT INTO news_authors(news_id, author_id) VALUES (?, ?)";
-	private static final String SQL_DELETE_NEWS_AUTHOR_QUERY = "DELETE FROM news_authors WHERE news_id = ?";
+	private static final String SQL_CREATE_NEW_AUTHOR_QUERY = "INSERT INTO authors a (a.author_name, a.author_id) VALUES (?, authors_author_id_seq.nextval)";
+	private static final String SQL_READ_AUTHOR_BY_ID_QUERY = "SELECT a.author_id, a.author_name, a.expired FROM authors a WHERE a.author_id = ?";
+	private static final String SQL_UPDATE_AUTHOR_BY_ID_QUERY = "UPDATE authors a SET a.author_name = ? WHERE a.author_id = ? ";
+	private static final String SQL_DELETE_AUTHOR_BY_ID_QUERY = "UPDATE authors a Set EXPIRED = SYSDATE WHERE a.AUTHOR_ID = ?";
+	private static final String SQL_INSERT_NEWS_AUTHOR_QUERY = "INSERT INTO news_authors a (a.news_id, a.author_id) VALUES (?, ?)";
+	private static final String SQL_DELETE_NEWS_AUTHOR_QUERY = "DELETE FROM news_authors a WHERE a.news_id = ?";
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -42,11 +42,11 @@ public class AuthorDAOImpl implements AuthorDAO {
 		this.dataSource = dataSource;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * 
 	 * 
 	 * @see
-	 * com.epam.dao.NewsManagementDAO#create(com.epam.entity.NewsManagementEntity
+	 * com.epam.dao.NewsManagementDAO#create(com.epam.entity.Author
 	 * )
 	 */
 	@Override
@@ -84,8 +84,8 @@ public class AuthorDAOImpl implements AuthorDAO {
 		return id;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * 
 	 * 
 	 * @see com.epam.dao.NewsManagementDAO#read(long)
 	 */
@@ -121,11 +121,11 @@ public class AuthorDAOImpl implements AuthorDAO {
 		return author;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * 
 	 * 
 	 * @see
-	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.NewsManagementEntity
+	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.Author
 	 * )
 	 */
 	@Override
@@ -150,11 +150,11 @@ public class AuthorDAOImpl implements AuthorDAO {
 
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 *
 	 * 
 	 * @see
-	 * com.epam.dao.NewsManagementDAO#delete(com.epam.entity.NewsManagementEntity
+	 * com.epam.dao.NewsManagementDAO#delete(com.epam.entity.Author
 	 * )
 	 */
 	@Override
@@ -182,7 +182,12 @@ public class AuthorDAOImpl implements AuthorDAO {
 			closeConnection(dataSource, connection, statement);
 		}
 	}
-
+	/**
+	 *
+	 * 
+	 * @see
+	 * com.epam.dao.AuthorDAO#attachAuthors(long,long)
+	 */
 	@Override
 	public void attachAuthors(long idNews, long idAuthor) throws DAOException {
 		Connection connection = null;
@@ -203,9 +208,14 @@ public class AuthorDAOImpl implements AuthorDAO {
 			closeConnection(dataSource, connection, statement);
 		}
 	}
-
+	/**
+	 *
+	 * 
+	 * @see
+	 * com.epam.dao.AuthorDAO#detachAuthor(long)
+	 */
 	@Override
-	public void detachAuthors(long idNews) throws DAOException {
+	public void detachAuthor(long idNews) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {

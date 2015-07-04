@@ -10,7 +10,7 @@ import java.sql.Timestamp;
  *
  */
 public class Comment {
-	private long id;
+	private long idComment;
 	private long idNews;
 	private String text;
 	private Timestamp creationDate;
@@ -23,14 +23,14 @@ public class Comment {
 	 * @return the id
 	 */
 	public long getId() {
-		return id;
+		return idComment;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(long id) {
-		this.id = id;
+		this.idComment = id;
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class Comment {
 		int result = 1;
 		result = prime * result
 				+ ((creationDate == null) ? 0 : creationDate.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (idComment ^ (idComment >>> 32));
 		result = prime * result + (int) (idNews ^ (idNews >>> 32));
 		result = prime * result + ((text == null) ? 0 : text.hashCode());
 		return result;
@@ -107,7 +107,7 @@ public class Comment {
 				return false;
 		} else if (!creationDate.equals(other.creationDate))
 			return false;
-		if (id != other.id)
+		if (idComment != other.idComment)
 			return false;
 		if (idNews != other.idNews)
 			return false;
