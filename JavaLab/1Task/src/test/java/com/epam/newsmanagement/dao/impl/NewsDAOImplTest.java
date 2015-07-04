@@ -1,7 +1,5 @@
 package com.epam.newsmanagement.dao.impl;
 
-import java.util.Date;
-
 import org.dbunit.DBTestCase;
 import org.dbunit.IDatabaseTester;
 import org.dbunit.dataset.IDataSet;
