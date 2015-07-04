@@ -1,9 +1,14 @@
-logs
-target
+
 .class
-lib
+.classpath
 .metadata
 .settings
 .recommenders
+.project
+
+javadoc
+lib
+logs
+target
 log
 RemoteSystemsTempFiles

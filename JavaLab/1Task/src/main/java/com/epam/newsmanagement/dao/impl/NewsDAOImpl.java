@@ -23,9 +23,9 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class NewsDAOImpl implements NewsDAO {
-	private static final String SQL_CREATE_NEW_NEWS_QUERY = "INSERT INTO news n (n.title, n.short_text, n.full_text, n.creation_date, n.modification_date, n.news_id) VALUES (?,?,?,?,?,news_news_id_seq.nextval)";
+	private static final String SQL_CREATE_NEW_NEWS_QUERY = "INSERT INTO news n (n.title, n.short_text, n.full_text, n.creation_date, n.modification_date, n.news_id) VALUES (?,?,?,SYSDATE,SYSDATE,news_news_id_seq.nextval)";
 	private static final String SQL_READ_NEWS_BY_ID_READ = "SELECT n.news_id, n.title, n.short_text, n.full_text, n.creation_date, n.modification_date FROM news n WHERE n.news_id = ?";
-	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news n SET n.title = ?, n.short_text = ?, n.full_text = ?, n.creation_date = ? , n.modification_date = ? WHERE n.news_id = ? ";
+	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news n SET n.title = ?, n.short_text = ?, n.full_text = ?, n.modification_date = SYSDATE WHERE n.news_id = ? ";
 	private static final String SQL_DELETE_NEWS_BY_ID_READ = "DELETE FROM news n WHERE n.news_id = ?";
 	private DataSource dataSource;
 
@@ -57,13 +57,9 @@ public class NewsDAOImpl implements NewsDAO {
 				String title = entity.getTitle();
 				String shortText = entity.getShortText();
 				String fullText = entity.getFullText();
-				Timestamp creationDate = entity.getCreationDate();
-				Date modificationDate = entity.getModificationDate();
 				statement.setString(1, title);
 				statement.setString(2, shortText);
 				statement.setString(3, fullText);
-				statement.setTimestamp(4, creationDate);
-				statement.setDate(5, modificationDate);
 				statement.executeUpdate();
 
 				resultSet = statement.getGeneratedKeys();
@@ -146,8 +142,6 @@ public class NewsDAOImpl implements NewsDAO {
 			statement.setString(1, entity.getTitle());
 			statement.setString(2, entity.getShortText());
 			statement.setString(3, entity.getFullText());
-			statement.setTimestamp(4, entity.getCreationDate());
-			statement.setDate(5, entity.getModificationDate());
 			statement.setLong(6, entity.getId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
