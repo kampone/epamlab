@@ -59,7 +59,7 @@ public class AuthorServiceImplTest {
 	public void testCreate() throws ServiceException, DAOException {
 	
 		long expected = 1L;
-		Author author = mock(Author.class);
+		Author author = new Author();
 		when(mockAuthorDAO.create(author)).thenReturn(1L);
 		long actual = authorService.create(author);
 		verify(mockAuthorDAO,times(1)).create(author);
@@ -74,11 +74,11 @@ public class AuthorServiceImplTest {
 	 */
 	@Test
 	public void testRead() throws ServiceException, DAOException {
-		Author mockAuthor = mock(Author.class);
-		when(authorService.read(anyLong())).thenReturn(mockAuthor);
+		Author author = new Author();
+		when(authorService.read(anyLong())).thenReturn(author);
 		Author actual = authorService.read(anyLong());
 		verify(mockAuthorDAO,times(1)).read(anyLong());
-		assertEquals(mockAuthor, actual);
+		assertEquals(author, actual);
 	}
 
 	/**
@@ -88,9 +88,9 @@ public class AuthorServiceImplTest {
 	 */
 	@Test
 	public void testUpdate() throws ServiceException, DAOException {
-		Author mockAuthor = mock(Author.class);
-		authorService.update(mockAuthor);
-		verify(mockAuthorDAO,times(1)).update(mockAuthor);
+		Author author = new Author();
+		authorService.update(author);
+		verify(mockAuthorDAO,times(1)).update(author);
 	}
 
 	/**
@@ -100,9 +100,9 @@ public class AuthorServiceImplTest {
 	 */
 	@Test
 	public void testDeleteAuthor() throws ServiceException, DAOException {
-		Author mockAuthor = mock(Author.class);
-		authorService.delete(mockAuthor);
-		verify(mockAuthorDAO,times(1)).delete(mockAuthor.getId());
+		Author author = new Author();
+		authorService.delete(author);
+		verify(mockAuthorDAO,times(1)).delete(author.getId());
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class AuthorServiceImplTest {
 	 */
 	@Test
 	public void testDeleteLong() throws ServiceException, DAOException {
-		Author author = mock(Author.class);
+		Author author = new Author();
 		authorService.delete(author.getId());
 		verify(mockAuthorDAO,times(1)).delete(author.getId());
 	}
@@ -124,7 +124,7 @@ public class AuthorServiceImplTest {
 	 */
 	@Test
 	public void testAttachAuthors() throws DAOException, ServiceException {
-		Author author = mock(Author.class);
+		Author author = new Author();
 		News news = mock(News.class);
 		authorService.attachAuthors(news.getId(), author.getId());
 		verify(mockAuthorDAO,times(1)).attachAuthors(news.getId(), author.getId());
@@ -137,7 +137,7 @@ public class AuthorServiceImplTest {
 	 */
 	@Test
 	public void testDetachAuthors() throws ServiceException, DAOException {
-		News news = mock(News.class);
+		News news = new News();
 		authorService.detachAuthors(news.getId());
 		verify(mockAuthorDAO,times(1)).detachAuthor(news.getId());
 }

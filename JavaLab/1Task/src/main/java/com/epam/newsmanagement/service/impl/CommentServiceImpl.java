@@ -79,7 +79,12 @@ public class CommentServiceImpl implements CommentService {
 	 */
 	@Override
 	public void delete(Comment entity) throws ServiceException {
-		delete(entity.getId());
+		try {
+			commentDAO.delete(entity);
+		} catch (DAOException e) {
+			LOG.error(" Exception during deleting Comment " , e);
+			throw new ServiceException(" Exception during deleting Comment " , e);
+		}
 	}
 
 	@Override

@@ -103,7 +103,12 @@ public class NewsServiceImpl implements NewsService {
 	 */
 	@Override
 	public void delete(News entity) throws ServiceException {
-		delete(entity.getId());
+		try {
+			newsDAO.delete(entity);
+		} catch (DAOException e) {
+			LOG.error(" Exception during deleting News ", e);
+			throw new ServiceException(" Exception during deleting News ", e);
+		}
 	}
 
 	/*
