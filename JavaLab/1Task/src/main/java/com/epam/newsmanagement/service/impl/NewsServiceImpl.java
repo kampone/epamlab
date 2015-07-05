@@ -24,7 +24,6 @@ public class NewsServiceImpl implements NewsService {
 	 * 
 	 */
 	public NewsServiceImpl() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -42,8 +41,8 @@ public class NewsServiceImpl implements NewsService {
 		this.newsDAO = newsDAO;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 *
 	 * 
 	 * @see
 	 * com.epam.newsmanagement.service.NewsManagementService#create(java.lang

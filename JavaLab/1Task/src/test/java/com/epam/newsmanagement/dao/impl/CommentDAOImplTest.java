@@ -1,5 +1,7 @@
 package com.epam.newsmanagement.dao.impl;
 
+import java.util.List;
+
 import org.dbunit.DBTestCase;
 import org.dbunit.IDatabaseTester;
 import org.dbunit.dataset.IDataSet;
@@ -15,7 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.epam.newsmanagement.dao.CommentDAO;
 import com.epam.newsmanagement.entity.Comment;
-import com.epam.newsmanagement.entity.Tag;
+import com.epam.newsmanagement.exception.DAOException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/TestContext.xml" })
@@ -63,33 +65,73 @@ public class CommentDAOImplTest extends DBTestCase{
 	}
 
 	@Test
-	public void testRead() {
-		fail("Not yet implemented"); // TODO
+	public void testRead() throws DAOException {
+		long idComment = 1L;
+		long idNews = 1L;
+		String comment_text = "hello comment0";
+		String creationDate = "2013-11-20 12:20:10.0";
+		Comment comment = commentDAO.read(idComment);
+		assertEquals(idComment, comment.getId());
+		assertEquals(idNews, comment.getIdNews());
+		assertEquals(comment_text, comment.getText());
+		assertEquals(creationDate, comment.getCreationDate().toString());
+		
 	}
 
 	@Test
-	public void testUpdate() {
-		fail("Not yet implemented"); // TODO
+	public void testUpdate() throws DAOException {
+		long idComment = 1L;
+		long idNews = 1L;
+		String comment_text = "hello comment1";
+		Comment comment = new Comment();
+		comment.setId(idComment);
+		comment.setIdNews(idNews);
+		comment.setText(comment_text);
+		commentDAO.update(comment);
+		Comment actualComment = commentDAO.read(idComment);
+		assertEquals(idComment, actualComment.getId());
+		assertEquals(idNews, actualComment.getIdNews());
+		assertEquals(comment_text, actualComment.getText());
 	}
 
 	@Test
-	public void testTakeCommentsByNewsId() {
-		fail("Not yet implemented"); // TODO
+	public void testTakeCommentsByNewsId() throws Exception {
+		long idNews = 1L;
+		int size = 3;
+		List<Comment> commentList = commentDAO.takeCommentsByNewsId(idNews);
+		assertEquals(size, commentList.size());
+	
 	}
 
 	@Test
-	public void testDeleteComment() {
-		fail("Not yet implemented"); // TODO
+	public void testDeleteComment() throws Exception {
+		long idComment = 1L;
+		IDataSet expected = getDataSet();
+		Comment comment = new Comment();
+		comment.setId(idComment);
+		commentDAO.delete(comment);
+		IDataSet actual = tester.getConnection().createDataSet(new String[] { "comments" });
+		assertEquals(expected.getTable("comments").getRowCount() - 1, actual.getTable("comments").getRowCount());
+	
 	}
 
 	@Test
-	public void testDeleteLong() {
-		fail("Not yet implemented"); // TODO
-	}
+	public void testDeleteById() throws Exception {
+		long idComment = 1L;
+		IDataSet expected = getDataSet();
+		commentDAO.delete(idComment);
+		IDataSet actual = tester.getConnection().createDataSet(new String[] { "comments" });
+		assertEquals(expected.getTable("comments").getRowCount() - 1, actual.getTable("comments").getRowCount());
+		}
 
 	@Test
-	public void testDeleteCommentsByNewsId() {
-		fail("Not yet implemented"); // TODO
+	public void testDeleteCommentsByNewsId() throws Exception {
+		long idNews = 1L;
+		IDataSet expected = getDataSet();
+		commentDAO.deleteCommentsByNewsId(idNews);
+		IDataSet actual = tester.getConnection().createDataSet(new String[] { "comments" });
+		assertEquals(expected.getTable("comments").getRowCount() - 3, actual.getTable("comments").getRowCount());
+	
 	}
 
 }

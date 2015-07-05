@@ -41,8 +41,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 	 * 
 	 * 
 	 * @see
-	 * com.epam.dao.NewsManagementDAO#create(com.epam.entity.Author
-	 * )
+	 * com.epam.dao.NewsManagementDAO#create(java.lang.Object)
 	 */
 	@Override
 	public long create(Author entity) throws DAOException {
@@ -82,7 +81,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 	/**
 	 * 
 	 * 
-	 * @see com.epam.dao.NewsManagementDAO#read(long)
+	 * @see com.epam.dao.NewsManagementDAO#read(java.lang.Long)
 	 */
 	@Override
 	public Author read(long id) throws DAOException {
@@ -120,7 +119,8 @@ public class AuthorDAOImpl implements AuthorDAO {
 	 * 
 	 * 
 	 * @see
-	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.Author
+	 * com.epam.dao.NewsManagementDAO#update(java.lang
+	 * .Object
 	 * )
 	 */
 	@Override

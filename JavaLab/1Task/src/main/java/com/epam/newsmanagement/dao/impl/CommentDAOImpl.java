@@ -59,7 +59,6 @@ public class CommentDAOImpl implements CommentDAO {
 						SQL_CREATE_NEW_COMMENT_QUERY,
 						new String[] { "COMMENT_ID" });
 
-				Timestamp creationDate = entity.getCreationDate();
 				String text = entity.getText();
 				long idNews = entity.getIdNews();
 				statement.setString(1, text);
