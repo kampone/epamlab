@@ -48,9 +48,7 @@ public class TagServiceImplTest {
 	@Autowired
 	private TagService tagService;
 	
-	@Autowired
-	DataSource dataSource;
-
+	
 	/**
 	 * @throws java.lang.Exception
 	 */

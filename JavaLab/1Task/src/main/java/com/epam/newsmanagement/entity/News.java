@@ -16,7 +16,6 @@ public class News {
 	private Date modificationDate;
 
 	public News() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

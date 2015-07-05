@@ -16,7 +16,6 @@ public class Comment {
 	private Timestamp creationDate;
 
 	public Comment() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

@@ -41,8 +41,7 @@ public class NewsServiceImplTest {
 	@Autowired
 	private NewsService newsService;
 	
-	@Autowired
-	DataSource dataSource;
+
 	
 	/**
 	 * @throws java.lang.Exception

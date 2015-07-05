@@ -3,6 +3,8 @@
  */
 package com.epam.newsmanagement.service.impl;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.epam.newsmanagement.dao.CommentDAO;
@@ -92,15 +94,32 @@ public class CommentServiceImpl implements CommentService {
 		try {
 			commentDAO.delete(id);
 		} catch (DAOException e) {
-			LOG.error(" Exception during deleting Comment " , e);
-			throw new ServiceException(" Exception during deleting Comment " , e);
+			LOG.error(" Exception during deleting Comment by id " , e);
+			throw new ServiceException(" Exception during deleting Comment by id" , e);
 		}
 	}
 
 	@Override
-	public void deleteCommentsByNewsId(long idNews) {
-		// TODO Auto-generated method stub
+	public void deleteCommentsByNewsId(long idNews) throws ServiceException {
+		try {
+			commentDAO.deleteCommentsByNewsId(idNews);
+		} catch (DAOException e) {
+			LOG.error(" Exception during deleting Comment by news id " , e);
+			throw new ServiceException(" Exception during deleting Comment by new id " , e);
+		}
 		
+	}
+
+	@Override
+	public List<Comment> takeCommentsByNewsId(long idNews) throws ServiceException {
+		List<Comment> commentList = null;
+		try {
+			commentList = commentDAO.takeCommentsByNewsId(idNews);
+		} catch (DAOException e) {
+			LOG.error(" Exception during taking Comment by news id " , e);
+			throw new ServiceException(" Exception during taking Comment by new id " , e);
+		}
+		return commentList;
 	}
 
 }

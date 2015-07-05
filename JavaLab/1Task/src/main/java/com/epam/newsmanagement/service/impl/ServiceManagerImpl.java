@@ -29,7 +29,6 @@ public class ServiceManagerImpl implements ServiceManager {
 
 	
 	public ServiceManagerImpl() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -101,8 +100,7 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	@Override
-	public void updateNews(News news, long idAuthor, List<Long> idTagList,
-			List<Comment> commentList) throws ServiceException {
+	public void updateNews(News news, long idAuthor, List<Long> idTagList) throws ServiceException {
 		tagService.detachTags(news.getId());
 		authorService.detachAuthors(news.getId());
 		newsService.update(news);

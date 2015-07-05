@@ -41,8 +41,7 @@ public class CommentServiceImplTest {
 	@Autowired
 	private CommentService commentService;
 	
-	@Autowired
-	DataSource dataSource;
+
 
 	/**
 	 * @throws java.lang.Exception
@@ -116,11 +115,19 @@ public class CommentServiceImplTest {
 	/**
 	 * Test method for {@link com.epam.newsmanagement.service.impl.CommentServiceImpl#deleteCommentsByNewsId(long)}.
 	 * @throws DAOException 
+	 * @throws ServiceException 
 	 */
 	@Test
-	public void testDeleteCommentsByNewsId() throws DAOException {
+	public void testDeleteCommentsByNewsId() throws DAOException, ServiceException {
 		commentService.deleteCommentsByNewsId(Mockito.anyLong());
 		verify(mockCommentDAO,times(1)).deleteCommentsByNewsId(Mockito.anyLong());
+	}
+	
+	@Test
+	public void testTakeCommnentsByNewsId() throws DAOException, ServiceException{
+		commentService.takeCommentsByNewsId(Mockito.anyLong());
+		verify(mockCommentDAO,times(1)).takeCommentsByNewsId(Mockito.anyLong());
+
 	}
 
 }

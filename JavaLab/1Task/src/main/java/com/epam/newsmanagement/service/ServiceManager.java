@@ -14,9 +14,10 @@ import com.epam.newsmanagement.exception.ServiceException;
  *
  */
 public interface ServiceManager {
-	
+
 	public void addNews(News news, long idAuthor, List<Long> idTagList) throws ServiceException;
-	public void updateNews(News news, long idAuthor, List<Long> idTagList,
-			List<Comment> commentList) throws ServiceException;
+
+	public void updateNews(News news, long idAuthor, List<Long> idTagList) throws ServiceException;
+
 	public void deleteNews(Long idNews) throws ServiceException;
 }

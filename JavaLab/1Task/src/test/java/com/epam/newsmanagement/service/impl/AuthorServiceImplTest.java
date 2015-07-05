@@ -40,8 +40,6 @@ public class AuthorServiceImplTest {
 	@Autowired
 	private AuthorService authorService;
 	
-	@Autowired
-	DataSource dataSource;
 
 	@Before
     public void setUp() {
