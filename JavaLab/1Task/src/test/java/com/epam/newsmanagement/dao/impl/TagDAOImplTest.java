@@ -1,5 +1,7 @@
 package com.epam.newsmanagement.dao.impl;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,8 +25,7 @@ import com.epam.newsmanagement.exception.DAOException;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/TestContext.xml" })
 public class TagDAOImplTest extends DBTestCase {
-//TODO POM properties and scope tests
-	
+
 	@Autowired
 	private TagDAO tagDAO;
 
@@ -37,9 +38,9 @@ public class TagDAOImplTest extends DBTestCase {
 		tester.setDataSet(dataSet);
 		tester.setTearDownOperation(getTearDownOperation());
 		tester.onSetup();
-		
+
 	}
-	
+
 	@After
 	public void tearDown() throws Exception {
 		tester.onTearDown();
@@ -83,7 +84,7 @@ public class TagDAOImplTest extends DBTestCase {
 		long idTag = 1L;
 		tagDAO.delete(idTag);
 		IDataSet actual = tester.getConnection().createDataSet(new String[] { "tags" });
-		assertEquals(expected.getTable("tags").getRowCount()-1, actual.getTable("tags").getRowCount());
+		assertEquals(expected.getTable("tags").getRowCount() - 1, actual.getTable("tags").getRowCount());
 	}
 
 	@Test
@@ -94,7 +95,7 @@ public class TagDAOImplTest extends DBTestCase {
 		tag.setId(idTag);
 		tagDAO.delete(tag);
 		IDataSet actual = tester.getConnection().createDataSet(new String[] { "tags" });
-		assertEquals(expected.getTable("tags").getRowCount()-1, actual.getTable("tags").getRowCount());
+		assertEquals(expected.getTable("tags").getRowCount() - 1, actual.getTable("tags").getRowCount());
 	}
 
 	@Test
@@ -104,7 +105,7 @@ public class TagDAOImplTest extends DBTestCase {
 		long idNews = 1L;
 		tagDAO.attachTags(idNews, idTag);
 		IDataSet actual = tester.getConnection().createDataSet(new String[] { "news_tags" });
-		assertEquals(expected.getTable("news_tags").getRowCount()+1, actual.getTable("news_tags").getRowCount());
+		assertEquals(expected.getTable("news_tags").getRowCount() + 1, actual.getTable("news_tags").getRowCount());
 	}
 
 	@Test
@@ -113,7 +114,7 @@ public class TagDAOImplTest extends DBTestCase {
 		long idNews = 2L;
 		tagDAO.detachTags(idNews);
 		IDataSet actual = tester.getConnection().createDataSet(new String[] { "news_tags" });
-		assertEquals(expected.getTable("news_tags").getRowCount()-2, actual.getTable("news_tags").getRowCount());
+		assertEquals(expected.getTable("news_tags").getRowCount() - 2, actual.getTable("news_tags").getRowCount());
 	}
 
 	@Test
@@ -126,8 +127,16 @@ public class TagDAOImplTest extends DBTestCase {
 		idTagList.add(3L);
 		tagDAO.attachListTags(idNews, idTagList);
 		IDataSet actual = tester.getConnection().createDataSet(new String[] { "news_tags" });
-		assertEquals(expected.getTable("news_tags").getRowCount()+3, actual.getTable("news_tags").getRowCount());
-	
+		assertEquals(expected.getTable("news_tags").getRowCount() + 3, actual.getTable("news_tags").getRowCount());
+
+	}
+
+	@Test
+	public void testTakeNewsTags() throws Exception {
+		long idNews = 1L;
+		int size = 3;
+		List<Tag> tagList = tagDAO.takeNewsTags(idNews);
+		assertEquals(size, tagList.size());
 	}
 
 	@Override

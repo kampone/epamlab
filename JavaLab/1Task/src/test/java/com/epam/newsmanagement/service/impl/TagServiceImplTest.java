@@ -159,5 +159,16 @@ public class TagServiceImplTest {
 		tagService.attachListTags(news.getId(), idTagList);
 		verify(mockTagDAO,times(1)).attachListTags(news.getId(), idTagList);
 	}
+	
+	/**	 
+	 *  Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#takeNewsTags(long)}.
+	 * @throws ServiceException
+	 * @throws DAOException
+	 */
+	@Test
+	public void testTakeNewsTags() throws ServiceException, DAOException{
+		tagService.takeNewsTags(anyLong());
+		verify(mockTagDAO,times(1)).takeNewsTags(anyLong());
+	}
 
 }

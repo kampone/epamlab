@@ -95,31 +95,14 @@ public class ServiceManagerImplTest {
 
 		long idNews = newsService.create(news);
 		tagService.attachListTags(idNews, idTagList);
-		authorService.attachAuthors(idNews, idAuthor);
+		authorService.attachAuthor(idNews, idAuthor);
 
 		verify(mockNewsDAO, times(1)).create(news);
 		verify(mockTagDAO, times(1)).attachListTags(idNews, idTagList);
-		verify(mockAuthorDAO, times(1)).attachAuthors(idNews, idAuthor);
+		verify(mockAuthorDAO, times(1)).attachAuthor(idNews, idAuthor);
 	}
 
-//	@Test
-//	@ExpectedException(value = Exception.class)
-//	public void testAddNewsTransaction() throws Exception {
-//		News news = new News();
-//		long idAuthor = 1L;
-//		List<Long> idTagList = new ArrayList<>();
-//		long idNews = 0L;
-//		try {
-//			idNews = newsService.create(news);
-//			tagService.attachListTags(idNews, idTagList);
-//			if(true) throw new Exception();
-//			authorService.attachAuthors(idNews, idAuthor);
-//		} finally {
-//			verify(mockNewsDAO, times(1)).create(news);
-//			verify(mockTagDAO, times(1)).attachListTags(idNews, idTagList);
-//			verify(mockAuthorDAO, times(0)).attachAuthors(idNews, idAuthor);
-//		}
-//	}
+
 
 	/**
 	 * Test method for
@@ -135,16 +118,16 @@ public class ServiceManagerImplTest {
 		List<Long> idTagList = new ArrayList<>();
 		
 		tagService.detachTags(news.getId());
-		authorService.detachAuthors(news.getId());
+		authorService.detachAuthor(news.getId());
 		newsService.update(news);
-		authorService.attachAuthors(news.getId(), idAuthor);
+		authorService.attachAuthor(news.getId(), idAuthor);
 		tagService.attachListTags(news.getId(), idTagList);
 		
 		verify(mockTagDAO, times(1)).detachTags(news.getId());
 		verify(mockAuthorDAO, times(1)).detachAuthor(news.getId());
 		verify(mockNewsDAO, times(1)).update(news);
 		verify(mockTagDAO, times(1)).attachListTags(news.getId(), idTagList);
-		verify(mockAuthorDAO, times(1)).attachAuthors(news.getId(), idAuthor);
+		verify(mockAuthorDAO, times(1)).attachAuthor(news.getId(), idAuthor);
 	}
 
 	/**
@@ -158,7 +141,7 @@ public class ServiceManagerImplTest {
 	public void testDeleteNews() throws ServiceException, DAOException {
 		long idNews = 1L;
 		tagService.detachTags(idNews);
-		authorService.detachAuthors(idNews);
+		authorService.detachAuthor(idNews);
 		commentService.deleteCommentsByNewsId(idNews);
 		newsService.delete(idNews);
 		

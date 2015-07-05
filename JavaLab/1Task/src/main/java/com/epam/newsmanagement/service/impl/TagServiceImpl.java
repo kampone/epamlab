@@ -141,4 +141,16 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
+	@Override
+	public List<Tag> takeNewsTags(long idNews) throws ServiceException {
+		List<Tag> tagList = null;
+		try {
+			tagList = tagDAO.takeNewsTags(idNews);
+		} catch (DAOException e) {
+			LOG.error(" Exception during taking list Tag by news id " + e);
+			throw new ServiceException("Exception during taking list Tag by news id", e);
+		}
+		return tagList;
+	}
+
 }

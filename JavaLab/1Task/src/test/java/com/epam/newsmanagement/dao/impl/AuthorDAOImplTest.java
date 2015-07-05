@@ -102,7 +102,7 @@ public class AuthorDAOImplTest extends DBTestCase {
 		IDataSet expected = getDataSet();
 		long idAuthor = 1L;
 		long idNews = 1L;
-		authorDAO.attachAuthors(idNews, idAuthor);
+		authorDAO.attachAuthor(idNews, idAuthor);
 		IDataSet actual = tester.getConnection().createDataSet();
 		assertEquals(expected.getTable("news_authors").getRowCount() + 1,
 				actual.getTable("news_authors").getRowCount());

@@ -181,10 +181,10 @@ public class AuthorDAOImpl implements AuthorDAO {
 	 *
 	 * 
 	 * @see
-	 * com.epam.dao.AuthorDAO#attachAuthors(long,long)
+	 * com.epam.dao.AuthorDAO#attachAuthor(long,long)
 	 */
 	@Override
-	public void attachAuthors(long idNews, long idAuthor) throws DAOException {
+	public void attachAuthor(long idNews, long idAuthor) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {

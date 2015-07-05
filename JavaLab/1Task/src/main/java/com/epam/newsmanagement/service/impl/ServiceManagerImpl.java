@@ -95,16 +95,16 @@ public class ServiceManagerImpl implements ServiceManager {
 	public void addNews(News news,long idAuthor, List<Long> idTagList) throws ServiceException {
 		long idNews = newsService.create(news);
 		tagService.attachListTags(idNews, idTagList);
-		authorService.attachAuthors(idNews, idAuthor);
+		authorService.attachAuthor(idNews, idAuthor);
 		
 	}
 
 	@Override
 	public void updateNews(News news, long idAuthor, List<Long> idTagList) throws ServiceException {
 		tagService.detachTags(news.getId());
-		authorService.detachAuthors(news.getId());
+		authorService.detachAuthor(news.getId());
 		newsService.update(news);
-		authorService.attachAuthors(news.getId(), idAuthor);
+		authorService.attachAuthor(news.getId(), idAuthor);
 		tagService.attachListTags(news.getId(), idTagList);
 
 	}
@@ -112,7 +112,7 @@ public class ServiceManagerImpl implements ServiceManager {
 	@Override
 	public void deleteNews(Long idNews) throws ServiceException {
 		tagService.detachTags(idNews);
-		authorService.detachAuthors(idNews);
+		authorService.detachAuthor(idNews);
 		commentService.deleteCommentsByNewsId(idNews);
 		newsService.delete(idNews);
 

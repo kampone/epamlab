@@ -14,6 +14,18 @@ import com.epam.newsmanagement.service.NewsManagementService;
  *
  */
 public interface CommentService extends NewsManagementService<Comment> {
+	/**
+	 * 	
+	 * Delete all comments by news id 
+	 * @param idNews News id
+	 * @throws ServiceException if problem in DAO layer
+	 */
 	public void deleteCommentsByNewsId(long idNews) throws ServiceException;
+	/**
+	 * 	
+	 * @return all comments by news id 
+	 * @param idNews News id
+	 * @throws ServiceException if problem in DAO layer
+	 */
 	public List<Comment> takeCommentsByNewsId(long idNews) throws ServiceException;
 }

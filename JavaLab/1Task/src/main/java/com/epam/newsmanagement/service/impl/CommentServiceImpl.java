@@ -47,7 +47,7 @@ public class CommentServiceImpl implements CommentService {
 	
 	}
 
-	/* (non-Javadoc)
+	/** 
 	 * @see com.epam.newsmanagement.service.NewsManagementService#read(long)
 	 */
 	@Override
@@ -62,7 +62,7 @@ public class CommentServiceImpl implements CommentService {
 		return comment;
 	}
 
-	/* (non-Javadoc)
+	/** 
 	 * @see com.epam.newsmanagement.service.NewsManagementService#update(com.epam.newsmanagement.entity.NewsManagementEntity)
 	 */
 	@Override
@@ -76,7 +76,7 @@ public class CommentServiceImpl implements CommentService {
 
 	}
 
-	/* 
+	/** 
 	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(com.epam.newsmanagement.entity.NewsManagementEntity)
 	 */
 	@Override

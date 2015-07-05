@@ -81,10 +81,10 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	@Override
-	public void attachAuthors(long idNews, long idAuthor)
+	public void attachAuthor(long idNews, long idAuthor)
 			throws ServiceException {
 		try {
-			authorDAO.attachAuthors(idNews, idAuthor);
+			authorDAO.attachAuthor(idNews, idAuthor);
 		} catch (DAOException e) {
 			LOG.error(" Exception during attaching Author ", e);
 			throw new ServiceException(" Exception during attaching Author ", e);
@@ -93,7 +93,7 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	@Override
-	public void detachAuthors(long idNews) throws ServiceException {
+	public void detachAuthor(long idNews) throws ServiceException {
 		try {
 			authorDAO.detachAuthor(idNews);
 		} catch (DAOException e) {

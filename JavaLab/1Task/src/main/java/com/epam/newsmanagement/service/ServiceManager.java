@@ -14,10 +14,26 @@ import com.epam.newsmanagement.exception.ServiceException;
  *
  */
 public interface ServiceManager {
-
+	/**
+	 * Create new news in transaction
+	 * @param news that will be created
+	 * @param idAuthor of news
+	 * @param idTagList id list of news tags
+	 * @throws ServiceException if trouble with connection in DAO layer
+	 */
 	public void addNews(News news, long idAuthor, List<Long> idTagList) throws ServiceException;
-
+	/**
+	 * Update news in transaction
+	 * @param news that will be update
+	 * @param idAuthor of news
+	 * @param idTagList id list of news tags
+	 * @throws ServiceException if trouble with connection in DAO layer
+	 */
 	public void updateNews(News news, long idAuthor, List<Long> idTagList) throws ServiceException;
-
+	/**
+	 * Delete news and its comments and detach author and tags by id 
+	 * @param idNews that should be deleted
+	 * @throws ServiceException if trouble with connection in DAO layer
+	 */
 	public void deleteNews(Long idNews) throws ServiceException;
 }

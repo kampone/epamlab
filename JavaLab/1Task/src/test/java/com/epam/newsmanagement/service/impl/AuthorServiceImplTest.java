@@ -116,7 +116,7 @@ public class AuthorServiceImplTest {
 	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#attachAuthors(long, long)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#attachAuthor(long, long)}.
 	 * @throws DAOException 
 	 * @throws ServiceException 
 	 */
@@ -124,19 +124,19 @@ public class AuthorServiceImplTest {
 	public void testAttachAuthors() throws DAOException, ServiceException {
 		Author author = new Author();
 		News news = mock(News.class);
-		authorService.attachAuthors(news.getId(), author.getId());
-		verify(mockAuthorDAO,times(1)).attachAuthors(news.getId(), author.getId());
+		authorService.attachAuthor(news.getId(), author.getId());
+		verify(mockAuthorDAO,times(1)).attachAuthor(news.getId(), author.getId());
 	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#detachAuthors(long)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#detachAuthor(long)}.
 	 * @throws ServiceException 
 	 * @throws DAOException 
 	 */
 	@Test
 	public void testDetachAuthors() throws ServiceException, DAOException {
 		News news = new News();
-		authorService.detachAuthors(news.getId());
+		authorService.detachAuthor(news.getId());
 		verify(mockAuthorDAO,times(1)).detachAuthor(news.getId());
 }
 

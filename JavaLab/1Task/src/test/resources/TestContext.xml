@@ -5,7 +5,7 @@
 	<bean name="databaseTester" class="org.dbunit.DataSourceDatabaseTester">
 		<constructor-arg ref="dataSource" />
 	</bean>
-	<import resource="testDataSource.xml" />
+	<import resource="dataSource.xml" />
 	<import resource="contextDAO.xml" />
 	<import resource="contextService.xml" />
 </beans>
