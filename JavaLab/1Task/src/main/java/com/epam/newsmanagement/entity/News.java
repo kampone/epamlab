@@ -8,7 +8,7 @@ import java.sql.Timestamp;
  *
  */
 public class News {
-	private long idNews;
+	private Long idNews;
 	private String title;
 	private String shortText;
 	private String fullText;
@@ -21,7 +21,7 @@ public class News {
 	/**
 	 * @return the id
 	 */
-	public long getId() {
+	public Long getId() {
 		return idNews;
 	}
 
@@ -29,7 +29,7 @@ public class News {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.idNews = id;
 	}
 
@@ -108,32 +108,23 @@ public class News {
 		this.modificationDate = modificationDate;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((creationDate == null) ? 0 : creationDate.hashCode());
-		result = prime * result
-				+ ((fullText == null) ? 0 : fullText.hashCode());
-		result = prime * result + (int) (idNews ^ (idNews >>> 32));
-		result = prime
-				* result
-				+ ((modificationDate == null) ? 0 : modificationDate.hashCode());
-		result = prime * result
-				+ ((shortText == null) ? 0 : shortText.hashCode());
+		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
+		result = prime * result + ((fullText == null) ? 0 : fullText.hashCode());
+		result = prime * result + ((idNews == null) ? 0 : idNews.hashCode());
+		result = prime * result + ((modificationDate == null) ? 0 : modificationDate.hashCode());
+		result = prime * result + ((shortText == null) ? 0 : shortText.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -155,7 +146,10 @@ public class News {
 				return false;
 		} else if (!fullText.equals(other.fullText))
 			return false;
-		if (idNews != other.idNews)
+		if (idNews == null) {
+			if (other.idNews != null)
+				return false;
+		} else if (!idNews.equals(other.idNews))
 			return false;
 		if (modificationDate == null) {
 			if (other.modificationDate != null)

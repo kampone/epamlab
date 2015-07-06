@@ -3,7 +3,6 @@
  */
 package com.epam.newsmanagement.service;
 
-import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 
 /**

@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.AuthorService;

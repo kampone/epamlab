@@ -39,14 +39,12 @@ public class TagServiceImpl implements TagService {
 	 */
 	@Override
 	public long create(Tag entity) throws ServiceException {
-		Long idTag = null;
 		try {
-			idTag = tagDAO.create(entity);
+			return tagDAO.create(entity);
 		} catch (DAOException e) {
 			LOG.error(" Exception during creating Tag " + e);
 			throw new ServiceException(" Exception during creating Tag " + e);
 		}
-		return idTag;
 	}
 
 	/*
@@ -56,14 +54,12 @@ public class TagServiceImpl implements TagService {
 	 */
 	@Override
 	public Tag read(long id) throws ServiceException {
-		Tag tag = null;
 		try {
-			tag = tagDAO.read(id);
+			return tagDAO.read(id);
 		} catch (DAOException e) {
 			LOG.error(" Exception during reading Tag " + e);
 			throw new ServiceException(" Exception during reading Tag ", e);
 		}
-		return tag;
 	}
 
 	/*
@@ -131,8 +127,7 @@ public class TagServiceImpl implements TagService {
 	}
 
 	@Override
-	public void attachListTags(long idNews, List<Long> idTagList)
-			throws ServiceException {
+	public void attachListTags(long idNews, List<Long> idTagList) throws ServiceException {
 		try {
 			tagDAO.attachListTags(idNews, idTagList);
 		} catch (DAOException e) {
@@ -143,14 +138,12 @@ public class TagServiceImpl implements TagService {
 
 	@Override
 	public List<Tag> takeNewsTags(long idNews) throws ServiceException {
-		List<Tag> tagList = null;
 		try {
-			tagList = tagDAO.takeNewsTags(idNews);
+			return tagDAO.takeNewsTags(idNews);
 		} catch (DAOException e) {
 			LOG.error(" Exception during taking list Tag by news id " + e);
 			throw new ServiceException("Exception during taking list Tag by news id", e);
 		}
-		return tagList;
 	}
 
 }

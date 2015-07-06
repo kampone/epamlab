@@ -27,7 +27,7 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	public long create(T entity) throws DAOException;
+	public Long create(T entity) throws DAOException;
 
 	/**
 	 * Read entity from database
@@ -38,7 +38,7 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	public T read(long id) throws DAOException;
+	public T read(Long id) throws DAOException;
 
 	/**
 	 * Update entity in database

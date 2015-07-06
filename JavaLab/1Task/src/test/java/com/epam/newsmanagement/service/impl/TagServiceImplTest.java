@@ -13,8 +13,6 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +24,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.epam.newsmanagement.dao.TagDAO;
-import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;

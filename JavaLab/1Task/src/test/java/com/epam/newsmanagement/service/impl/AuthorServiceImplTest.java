@@ -4,8 +4,6 @@ package com.epam.newsmanagement.service.impl;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
-import javax.sql.DataSource;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

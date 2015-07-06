@@ -15,15 +15,15 @@ import com.epam.newsmanagement.exception.DAOException;
  */
 public interface CommentDAO extends NewsManagementDAO<Comment> {
 	/**
-	 * 
+	 * Return list of comments by idNews
 	 * @param idNews News id
 	 * @return List of comments by idNews
 	 */
-	public List<Comment> takeCommentsByNewsId(long idNews) throws DAOException;
+	public List<Comment> takeCommentsByNewsId(Long idNews) throws DAOException;
 	/**
 	 * Delete all comments by News id
 	 * @param idNews News id
 	 * @throws DAOException 
 	 */
-	public void deleteCommentsByNewsId(long idNews) throws DAOException;
+	public void deleteCommentsByNewsId(Long idNews) throws DAOException;
 }

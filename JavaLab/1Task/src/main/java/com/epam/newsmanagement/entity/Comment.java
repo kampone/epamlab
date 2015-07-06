@@ -10,8 +10,8 @@ import java.sql.Timestamp;
  *
  */
 public class Comment {
-	private long idComment;
-	private long idNews;
+	private Long idComment;
+	private Long idNews;
 	private String text;
 	private Timestamp creationDate;
 
@@ -21,28 +21,28 @@ public class Comment {
 	/**
 	 * @return the id
 	 */
-	public long getId() {
+	public Long getId() {
 		return idComment;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.idComment = id;
 	}
 
 	/**
 	 * @return the idNews
 	 */
-	public long getIdNews() {
+	public Long getIdNews() {
 		return idNews;
 	}
 
 	/**
 	 * @param idNews the idNews to set
 	 */
-	public void setIdNews(long idNews) {
+	public void setIdNews(Long idNews) {
 		this.idNews = idNews;
 	}
 
@@ -74,24 +74,17 @@ public class Comment {
 		this.creationDate = creationDate;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((creationDate == null) ? 0 : creationDate.hashCode());
-		result = prime * result + (int) (idComment ^ (idComment >>> 32));
-		result = prime * result + (int) (idNews ^ (idNews >>> 32));
+		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
+		result = prime * result + ((idComment == null) ? 0 : idComment.hashCode());
+		result = prime * result + ((idNews == null) ? 0 : idNews.hashCode());
 		result = prime * result + ((text == null) ? 0 : text.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -106,9 +99,15 @@ public class Comment {
 				return false;
 		} else if (!creationDate.equals(other.creationDate))
 			return false;
-		if (idComment != other.idComment)
+		if (idComment == null) {
+			if (other.idComment != null)
+				return false;
+		} else if (!idComment.equals(other.idComment))
 			return false;
-		if (idNews != other.idNews)
+		if (idNews == null) {
+			if (other.idNews != null)
+				return false;
+		} else if (!idNews.equals(other.idNews))
 			return false;
 		if (text == null) {
 			if (other.text != null)

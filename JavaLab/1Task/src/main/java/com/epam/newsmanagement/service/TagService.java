@@ -6,7 +6,6 @@ package com.epam.newsmanagement.service;
 import java.util.List;
 
 import com.epam.newsmanagement.entity.Tag;
-import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.NewsManagementService;
 

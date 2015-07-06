@@ -50,14 +50,12 @@ public class NewsServiceImpl implements NewsService {
 	 */
 	@Override
 	public long create(News entity) throws ServiceException {
-		Long idNews = null;
 		try {
-			idNews = newsDAO.create(entity);
+			return newsDAO.create(entity);
 		} catch (DAOException e) {
 			LOG.error(" Exception during creating News ", e);
 			throw new ServiceException(" Exception during creating News ", e);
 		}
-		return idNews;
 	}
 
 	/*
@@ -67,14 +65,12 @@ public class NewsServiceImpl implements NewsService {
 	 */
 	@Override
 	public News read(long id) throws ServiceException {
-		News news = null;
 		try {
-			news = newsDAO.read(id);
+			return newsDAO.read(id);
 		} catch (DAOException e) {
 			LOG.error(" Exception during reading News ", e);
 			throw new ServiceException(" Exception during reading News ", e);
 		}
-		return news;
 	}
 
 	/*

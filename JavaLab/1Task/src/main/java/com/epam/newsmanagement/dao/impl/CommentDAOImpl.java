@@ -17,7 +17,6 @@ import org.springframework.jdbc.datasource.DataSourceUtils;
 
 import com.epam.newsmanagement.dao.CommentDAO;
 import com.epam.newsmanagement.entity.Comment;
-import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;
 
 /**
@@ -44,81 +43,27 @@ public class CommentDAOImpl implements CommentDAO {
 
 	/**
 	 * 
-	 * @see
-	 * com.epam.dao.NewsManagementDAO#create(com.epam.entity.Comment
-	 * )
+	 * @see com.epam.dao.NewsManagementDAO#create(com.epam.entity.Comment )
 	 */
 	@Override
-	public long create(Comment entity) throws DAOException {
-		long id = 0;
-		if (entity != null) {
-			Connection connection = null;
-			PreparedStatement statement = null;
-			ResultSet resultSet = null;
-				
-			try {
-
-				connection = DataSourceUtils.doGetConnection(dataSource);
-				statement = connection.prepareStatement(
-						SQL_CREATE_NEW_COMMENT_QUERY,
-						new String[] { "COMMENT_ID" });
-
-				String text = entity.getText();
-				long idNews = entity.getIdNews();
-				statement.setString(1, text);
-				statement.setLong(2, idNews);
-				statement.executeUpdate();
-
-				resultSet = statement.getGeneratedKeys();
-				if (resultSet != null && resultSet.next()) {
-					id = resultSet.getLong(1);
-				} else {
-					throw new DAOException(System.lineSeparator()
-							+ " Problem during getting id ");
-				}
-			} catch (SQLException e) {
-				throw new DAOException(e);
-
-			} finally {
-				closeConnection(dataSource, connection, statement, resultSet);
-			}
-		}
-		return id;
-	}
-
-	/**
-	 *@see
-	 * com.epam.dao.NewsManagementDAO#read(long
-	 * )
-	 * 
-	*/
-	@Override
-	public Comment read(long id) throws DAOException {
-		Comment comment = new Comment();
+	public Long create(Comment entity) throws DAOException {
+		Long id = null;
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		try {
-
 			connection = DataSourceUtils.doGetConnection(dataSource);
-
-			statement = connection
-					.prepareStatement(SQL_READ_COMMENT_BY_ID_QUERY);
-			statement.setLong(1, id);
-			resultSet = statement.executeQuery();
-
-			while (resultSet.next()) {
-
-				long idComment = resultSet.getLong(1);
-				long idNews = resultSet.getLong(2);
-				String text = resultSet.getString(3);
-				Timestamp creationDate = resultSet.getTimestamp(4);
-
-				comment.setId(idComment);
-				comment.setIdNews(idNews);
-				comment.setText(text);
-				comment.setCreationDate(creationDate);
-
+			statement = connection.prepareStatement(SQL_CREATE_NEW_COMMENT_QUERY, new String[] { "COMMENT_ID" });
+			String text = entity.getText();
+			Long idNews = entity.getIdNews();
+			statement.setString(1, text);
+			statement.setLong(2, idNews);
+			statement.executeUpdate();
+			resultSet = statement.getGeneratedKeys();
+			if (resultSet != null && resultSet.next()) {
+				id = resultSet.getLong(1);
+			} else {
+				throw new DAOException(System.lineSeparator() + " Problem during getting id ");
 			}
 		} catch (SQLException e) {
 			throw new DAOException(e);
@@ -126,19 +71,51 @@ public class CommentDAOImpl implements CommentDAO {
 		} finally {
 			closeConnection(dataSource, connection, statement, resultSet);
 		}
+		return id;
+	}
+
+	/**
+	 * @see com.epam.dao.NewsManagementDAO#read(Long )
+	 * 
+	 */
+	@Override
+	public Comment read(Long id) throws DAOException {
+		Comment comment = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			connection = DataSourceUtils.doGetConnection(dataSource);
+			statement = connection.prepareStatement(SQL_READ_COMMENT_BY_ID_QUERY);
+			statement.setLong(1, id);
+			resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				comment = new Comment();
+				Long idComment = resultSet.getLong(1);
+				Long idNews = resultSet.getLong(2);
+				String text = resultSet.getString(3);
+				Timestamp creationDate = resultSet.getTimestamp(4);
+				comment.setId(idComment);
+				comment.setIdNews(idNews);
+				comment.setText(text);
+				comment.setCreationDate(creationDate);
+			}
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		} finally {
+			closeConnection(dataSource, connection, statement, resultSet);
+		}
 		return comment;
 	}
+
 	/**
-	 *@see
-	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.Comment
-	 * )
+	 * @see com.epam.dao.NewsManagementDAO#update(com.epam.entity.Comment )
 	 * 
-	*/
+	 */
 	@Override
 	public void update(Comment entity) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
-
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_UPDATE_COMMENT_BY_ID_QUERY);
@@ -148,7 +125,6 @@ public class CommentDAOImpl implements CommentDAO {
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);
-
 		} finally {
 			closeConnection(dataSource, connection, statement);
 		}
@@ -156,30 +132,26 @@ public class CommentDAOImpl implements CommentDAO {
 	}
 
 	/**
-	 *@throws DAOException 
-	 * @see
-	 * com.epam.dao.CommentDAO#takeCommentsByNewsId(long
-	 * )
+	 * @throws DAOException
+	 * @see com.epam.dao.CommentDAO#takeCommentsByNewsId(Long )
 	 * 
-	*/
+	 */
 	@Override
-	public List<Comment> takeCommentsByNewsId(long idNews) throws DAOException {
+	public List<Comment> takeCommentsByNewsId(Long idNews) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
-		List<Comment> commentList = new ArrayList<>();
+		List<Comment> commentList = null;
+		Comment comment = null;
 		try {
-
 			connection = DataSourceUtils.doGetConnection(dataSource);
-
 			statement = connection.prepareStatement(SQL_READ_COMMENTS_BY_NEWS_ID_QUERY);
 			statement.setLong(1, idNews);
 			resultSet = statement.executeQuery();
-
+			commentList = new ArrayList<>();
 			while (resultSet.next()) {
-
-				Comment comment = new Comment();
-				long idComment = resultSet.getLong(1);
+				comment = new Comment();
+				Long idComment = resultSet.getLong(1);
 				String text = resultSet.getString(2);
 				Timestamp creationDate = resultSet.getTimestamp(3);
 				comment.setId(idComment);
@@ -195,63 +167,52 @@ public class CommentDAOImpl implements CommentDAO {
 		}
 		return commentList;
 	}
+
 	/**
-	 *@see
-	 * com.epam.dao.AuthorDAO#delete(com.epam.entity.Comment
-	 * )
+	 * @see com.epam.dao.AuthorDAO#delete(com.epam.entity.Comment )
 	 * 
-	*/
+	 */
 	@Override
 	public void delete(Comment entity) throws DAOException {
 		this.delete(entity.getId());
 	}
+
 	/**
-	 *@see
-	 * com.epam.dao.AuthorDAO#delete(long
-	 * )
+	 * @see com.epam.dao.AuthorDAO#delete(Long )
 	 * 
-	*/
+	 */
 	@Override
 	public void delete(Long id) throws DAOException {
-
 		Connection connection = null;
 		PreparedStatement statement = null;
-
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
-
-			statement = connection
-					.prepareStatement(SQL_DELETE_COMMENT_BY_ID_QUERY);
+			statement = connection.prepareStatement(SQL_DELETE_COMMENT_BY_ID_QUERY);
 			statement.setLong(1, id);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);
-
 		} finally {
 			closeConnection(dataSource, connection, statement);
 		}
 	}
+
 	/**
-	 *@throws DAOException 
-	 * @see
-	 * com.epam.dao.AuthorDAO#deleteCommentsByNewsId(long)
+	 * @throws DAOException
+	 * @see com.epam.dao.AuthorDAO#deleteCommentsByNewsId(Long)
 	 * 
-	*/
+	 */
 	@Override
-	public void deleteCommentsByNewsId(long idNews) throws DAOException {
+	public void deleteCommentsByNewsId(Long idNews) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
-
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
-
-			statement = connection
-					.prepareStatement(SQL_DELETE_COMMENT_BY_NEWS_ID_QUERY);
+			statement = connection.prepareStatement(SQL_DELETE_COMMENT_BY_NEWS_ID_QUERY);
 			statement.setLong(1, idNews);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);
-
 		} finally {
 			closeConnection(dataSource, connection, statement);
 		}

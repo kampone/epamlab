@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsVO {
-	private long idNews;
+	private Long idNews;
 	private String title;
 	private String shortText;
 	private String fullText;
@@ -13,18 +13,18 @@ public class NewsVO {
 	private String modificationDate;
 	private List<Long> tagsId;
 	private List<Long> commentsId;
-	private long idAuthor;
+	private Long idAuthor;
 
 	public NewsVO() {
 		tagsId = new ArrayList<Long>();
 		commentsId = new ArrayList<Long>();
 	}
 
-	public long getIdNews() {
+	public Long getIdNews() {
 		return idNews;
 	}
 
-	public void setIdNews(long idNews) {
+	public void setIdNews(Long idNews) {
 		this.idNews = idNews;
 	}
 
@@ -84,14 +84,17 @@ public class NewsVO {
 		this.commentsId = commentsId;
 	}
 
-	public long getIdAuthor() {
+	public Long getIdAuthor() {
 		return idAuthor;
 	}
 
-	public void setIdAuthor(long idAuthor) {
+	public void setIdAuthor(Long idAuthor) {
 		this.idAuthor = idAuthor;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -99,8 +102,8 @@ public class NewsVO {
 		result = prime * result + ((commentsId == null) ? 0 : commentsId.hashCode());
 		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
 		result = prime * result + ((fullText == null) ? 0 : fullText.hashCode());
-		result = prime * result + (int) (idAuthor ^ (idAuthor >>> 32));
-		result = prime * result + (int) (idNews ^ (idNews >>> 32));
+		result = prime * result + ((idAuthor == null) ? 0 : idAuthor.hashCode());
+		result = prime * result + ((idNews == null) ? 0 : idNews.hashCode());
 		result = prime * result + ((modificationDate == null) ? 0 : modificationDate.hashCode());
 		result = prime * result + ((shortText == null) ? 0 : shortText.hashCode());
 		result = prime * result + ((tagsId == null) ? 0 : tagsId.hashCode());
@@ -108,6 +111,9 @@ public class NewsVO {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -132,9 +138,15 @@ public class NewsVO {
 				return false;
 		} else if (!fullText.equals(other.fullText))
 			return false;
-		if (idAuthor != other.idAuthor)
+		if (idAuthor == null) {
+			if (other.idAuthor != null)
+				return false;
+		} else if (!idAuthor.equals(other.idAuthor))
 			return false;
-		if (idNews != other.idNews)
+		if (idNews == null) {
+			if (other.idNews != null)
+				return false;
+		} else if (!idNews.equals(other.idNews))
 			return false;
 		if (modificationDate == null) {
 			if (other.modificationDate != null)

@@ -28,7 +28,7 @@ public class NewsDAOImpl implements NewsDAO {
 	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news n SET n.title = ?, n.short_text = ?, n.full_text = ?, n.modification_date = SYSDATE WHERE n.news_id = ? ";
 	private static final String SQL_DELETE_NEWS_BY_ID_READ = "DELETE FROM news n WHERE n.news_id = ?";
 	private DataSource dataSource;
-
+//TODO: create number of connection
 	public DataSource getDataSource() {
 		return dataSource;
 	}
@@ -42,39 +42,31 @@ public class NewsDAOImpl implements NewsDAO {
 	 * @see com.epam.dao.NewsManagementDAO#create(com.epam.entity.News)
 	 */
 	@Override
-	public long create(News entity) throws DAOException {
-		long id = 0;
-		if (entity != null) {
-			Connection connection = null;
-			PreparedStatement statement = null;
-			ResultSet resultSet = null;
-
-			try {
-				connection = DataSourceUtils.doGetConnection(dataSource);
-
-				statement = connection.prepareStatement(
-						SQL_CREATE_NEW_NEWS_QUERY, new String[] { "NEWS_ID" });
-				String title = entity.getTitle();
-				String shortText = entity.getShortText();
-				String fullText = entity.getFullText();
-				statement.setString(1, title);
-				statement.setString(2, shortText);
-				statement.setString(3, fullText);
-				statement.executeUpdate();
-
-				resultSet = statement.getGeneratedKeys();
-				if (resultSet != null && resultSet.next()) {
-					id = resultSet.getLong(1);
-				} else {
-					throw new DAOException(System.lineSeparator()
-							+ " Problem during getting id ");
-				}
-			} catch (SQLException e) {
-				throw new DAOException(e);
-
-			} finally {
-				closeConnection(dataSource, connection, statement, resultSet);
+	public Long create(News entity) throws DAOException {
+		Long id = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			connection = DataSourceUtils.doGetConnection(dataSource);
+			statement = connection.prepareStatement(SQL_CREATE_NEW_NEWS_QUERY, new String[] { "NEWS_ID" });
+			String title = entity.getTitle();
+			String shortText = entity.getShortText();
+			String fullText = entity.getFullText();
+			statement.setString(1, title);
+			statement.setString(2, shortText);
+			statement.setString(3, fullText);
+			statement.executeUpdate();
+			resultSet = statement.getGeneratedKeys();
+			if (resultSet != null && resultSet.next()) {
+				id = resultSet.getLong(1);
+			} else {
+				throw new DAOException(System.lineSeparator() + " Problem during getting id ");
 			}
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		} finally {
+			closeConnection(dataSource, connection, statement, resultSet);
 		}
 		return id;
 	}
@@ -82,43 +74,36 @@ public class NewsDAOImpl implements NewsDAO {
 	/**
 	 *
 	 * 
-	 * @see com.epam.dao.NewsManagementDAO#read(long)
+	 * @see com.epam.dao.NewsManagementDAO#read(Long)
 	 */
 	@Override
-	public News read(long id) throws DAOException {
-		News news = new News();
+	public News read(Long id) throws DAOException {
+		News news = null;
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
-
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
-
 			statement = connection.prepareStatement(SQL_READ_NEWS_BY_ID_READ);
 			statement.setLong(1, id);
 			resultSet = statement.executeQuery();
-
 			while (resultSet.next()) {
-
-				long idNews = resultSet.getLong(1);
+				news = new News();
+				Long idNews = resultSet.getLong(1);
 				String title = resultSet.getString(2);
 				String shortText = resultSet.getString(3);
 				String fullText = resultSet.getString(4);
 				Timestamp creationDate = resultSet.getTimestamp(5);
 				Date modificationDate = resultSet.getDate(6);
-
 				news.setId(idNews);
 				news.setTitle(title);
 				news.setShortText(shortText);
 				news.setFullText(fullText);
 				news.setCreationDate(creationDate);
 				news.setModificationDate(modificationDate);
-
 			}
 		} catch (SQLException e) {
-			throw new DAOException(System.lineSeparator()
-					+ " Problem during reading comment ", e);
-
+			throw new DAOException(System.lineSeparator() + " Problem during reading comment ", e);
 		} finally {
 			closeConnection(dataSource, connection, statement, resultSet);
 		}
@@ -127,9 +112,7 @@ public class NewsDAOImpl implements NewsDAO {
 
 	/**
 	 * 
-	 * @see
-	 * com.epam.dao.NewsManagementDAO#update(com.epam.entity.News
-	 * )
+	 * @see com.epam.dao.NewsManagementDAO#update(com.epam.entity.News )
 	 */
 	@Override
 	public void update(News entity) throws DAOException {
@@ -146,7 +129,6 @@ public class NewsDAOImpl implements NewsDAO {
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);
-
 		} finally {
 			closeConnection(dataSource, connection, statement);
 		}
@@ -154,36 +136,28 @@ public class NewsDAOImpl implements NewsDAO {
 
 	/**
 	 * 
-	 * @see
-	 * com.epam.dao.NewsManagementDAO#delete(com.epam.entity.News
-	 * )
+	 * @see com.epam.dao.NewsManagementDAO#delete(com.epam.entity.News )
 	 */
 	@Override
 	public void delete(News entity) throws DAOException {
 		this.delete(entity.getId());
 	}
+
 	/**
 	 * 
-	 * @see
-	 * com.epam.dao.NewsManagementDAO#delete(long
-	 * )
+	 * @see com.epam.dao.NewsManagementDAO#delete(java.lang.Long )
 	 */
 	@Override
 	public void delete(Long id) throws DAOException {
-
 		Connection connection = null;
 		PreparedStatement statement = null;
-
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
-
 			statement = connection.prepareStatement(SQL_DELETE_NEWS_BY_ID_READ);
 			statement.setLong(1, id);
 			statement.executeUpdate();
 		} catch (SQLException e) {
-			throw new DAOException(System.lineSeparator()
-					+ " Problem during preparing statement ", e);
-
+			throw new DAOException(System.lineSeparator() + " Problem during preparing statement ", e);
 		} finally {
 			closeConnection(dataSource, connection, statement);
 		}

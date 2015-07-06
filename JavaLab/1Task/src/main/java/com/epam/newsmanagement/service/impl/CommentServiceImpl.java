@@ -36,14 +36,12 @@ public class CommentServiceImpl implements CommentService {
 	 */
 	@Override
 	public long create(Comment entity) throws ServiceException {
-		Long idComment = null;
 		try {
-			idComment = commentDAO.create(entity);
+			return commentDAO.create(entity);
 		} catch (DAOException e) {
 			LOG.error(" Exception during creating Comment " , e);
 			throw new ServiceException(" Exception during creating Comment " , e);
 		}
-		return idComment;
 	
 	}
 
@@ -52,14 +50,12 @@ public class CommentServiceImpl implements CommentService {
 	 */
 	@Override
 	public Comment read(long id) throws ServiceException {
-		Comment comment = null;
 		try {
-			comment = commentDAO.read(id);
+			return commentDAO.read(id);
 		} catch (DAOException e) {
 			LOG.error(" Exception during reading Comment " , e);
 			throw new ServiceException(" Exception during reading Comment " , e);
 		}
-		return comment;
 	}
 
 	/** 
@@ -112,14 +108,12 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public List<Comment> takeCommentsByNewsId(long idNews) throws ServiceException {
-		List<Comment> commentList = null;
 		try {
-			commentList = commentDAO.takeCommentsByNewsId(idNews);
+			return commentDAO.takeCommentsByNewsId(idNews);
 		} catch (DAOException e) {
 			LOG.error(" Exception during taking Comment by news id " , e);
 			throw new ServiceException(" Exception during taking Comment by new id " , e);
 		}
-		return commentList;
 	}
 
 }

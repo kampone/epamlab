@@ -57,7 +57,7 @@ public class AuthorDAOImplTest extends DBTestCase {
 
 	@Test
 	public void testRead() throws Exception {
-		long idAuthor = 1L;
+		Long idAuthor = 1L;
 		Author author = authorDAO.read(idAuthor);
 		assertEquals(idAuthor, author.getId());
 		assertEquals("Vasja", author.getName());
@@ -65,7 +65,7 @@ public class AuthorDAOImplTest extends DBTestCase {
 
 	@Test
 	public void testUpdate() throws DAOException {
-		long idAuthor = 1L;
+		Long idAuthor = 1L;
 		String nameAuthor = "Dzmitri";
 		Author author = new Author();
 		author.setId(idAuthor);
@@ -78,7 +78,7 @@ public class AuthorDAOImplTest extends DBTestCase {
 
 	@Test
 	public void testDeleteAuthor() throws DAOException {
-		long idAuthor = 1L;
+		Long idAuthor = 1L;
 		Author author = authorDAO.read(idAuthor);
 		assertNull(author.getExpired());
 		authorDAO.delete(author);
@@ -89,7 +89,7 @@ public class AuthorDAOImplTest extends DBTestCase {
 
 	@Test
 	public void testDeleteById() throws DAOException {
-		long idAuthor = 1L;
+		Long idAuthor = 1L;
 		Author author = authorDAO.read(idAuthor);
 		assertNull(author.getExpired());
 		authorDAO.delete(author.getId());
@@ -100,8 +100,8 @@ public class AuthorDAOImplTest extends DBTestCase {
 	@Test
 	public void testAttachAuthors() throws Exception {
 		IDataSet expected = getDataSet();
-		long idAuthor = 1L;
-		long idNews = 1L;
+		Long idAuthor = 1L;
+		Long idNews = 1L;
 		authorDAO.attachAuthor(idNews, idAuthor);
 		IDataSet actual = tester.getConnection().createDataSet();
 		assertEquals(expected.getTable("news_authors").getRowCount() + 1,
@@ -111,7 +111,7 @@ public class AuthorDAOImplTest extends DBTestCase {
 	@Test
 	public void testDetachAuthors() throws Exception {
 		IDataSet expected = getDataSet();
-		long idNews = 2L;
+		Long idNews = 2L;
 		authorDAO.detachAuthor(idNews);
 		IDataSet actual = tester.getConnection().createDataSet();
 		assertEquals(expected.getTable("news_authors").getRowCount() - 1,

@@ -33,26 +33,22 @@ public class AuthorServiceImpl implements AuthorService {
 
 	@Override
 	public long create(Author entity) throws ServiceException {
-		Long id = null;
 		try {
-			id = authorDAO.create(entity);
+			return authorDAO.create(entity);
 		} catch (DAOException e) {
 			LOG.error(" Exception during creating Author ", e);
 			throw new ServiceException(" Exception during creating Author ", e);
 		}
-		return id;
 	}
 
 	@Override
 	public Author read(long id) throws ServiceException {
-		Author author = null;
 		try {
-			author = authorDAO.read(id);
+			return authorDAO.read(id);
 		} catch (DAOException e) {
 			LOG.error(" Exception during reading Author ", e);
 			throw new ServiceException(" Exception during reading Author ", e);
 		}
-		return author;
 	}
 
 	@Override

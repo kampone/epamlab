@@ -5,7 +5,6 @@ package com.epam.newsmanagement.service;
 
 import java.util.List;
 
-import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.exception.ServiceException;
 

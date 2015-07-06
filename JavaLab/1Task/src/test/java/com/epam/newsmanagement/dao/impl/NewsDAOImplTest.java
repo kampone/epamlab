@@ -64,7 +64,7 @@ public class NewsDAOImplTest extends DBTestCase {
 
 	@Test
 	public void testRead() throws DAOException {
-		long idNews = 1L;
+		Long idNews = 1L;
 		String title = "test_title0";
 		String shortText = "short text0";
 		String fullText = "full text0";
@@ -87,7 +87,7 @@ public class NewsDAOImplTest extends DBTestCase {
 
 	@Test
 	public void testUpdate() throws DAOException {
-		long idNews = 1L;
+		Long idNews = 1L;
 		String title = "test_title1";
 		String shortText = "short text1";
 		String fullText = "full text1";
@@ -105,7 +105,7 @@ public class NewsDAOImplTest extends DBTestCase {
 	@Test
 	public void testDeleteNews() throws Exception {
 		IDataSet expected = getDataSet();
-		long idNews = 1L;
+		Long idNews = 1L;
 		News news = new News();
 		news.setId(idNews);
 		newsDAO.delete(news);
@@ -115,7 +115,7 @@ public class NewsDAOImplTest extends DBTestCase {
 
 	@Test
 	public void testDeleteById() throws Exception {
-		long idNews = 1L;
+		Long idNews = 1L;
 		IDataSet expected = getDataSet();
 		newsDAO.delete(idNews);
 		IDataSet actual = tester.getConnection().createDataSet(new String[] { "news" });

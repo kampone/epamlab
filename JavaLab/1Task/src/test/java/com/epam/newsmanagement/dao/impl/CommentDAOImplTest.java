@@ -54,7 +54,7 @@ public class CommentDAOImplTest extends DBTestCase{
 	}
 	@Test
 	public void testCreate() throws Exception {
-		long idNews = 1L;
+		Long idNews = 1L;
 		IDataSet expected = getDataSet();
 		Comment comment = new Comment();
 		comment.setText("comment");
@@ -66,8 +66,8 @@ public class CommentDAOImplTest extends DBTestCase{
 
 	@Test
 	public void testRead() throws DAOException {
-		long idComment = 1L;
-		long idNews = 1L;
+		Long idComment = 1L;
+		Long idNews = 1L;
 		String comment_text = "hello comment0";
 		String creationDate = "2013-11-20 12:20:10.0";
 		Comment comment = commentDAO.read(idComment);
@@ -80,8 +80,8 @@ public class CommentDAOImplTest extends DBTestCase{
 
 	@Test
 	public void testUpdate() throws DAOException {
-		long idComment = 1L;
-		long idNews = 1L;
+		Long idComment = 1L;
+		Long idNews = 1L;
 		String comment_text = "hello comment1";
 		Comment comment = new Comment();
 		comment.setId(idComment);
@@ -96,7 +96,7 @@ public class CommentDAOImplTest extends DBTestCase{
 
 	@Test
 	public void testTakeCommentsByNewsId() throws Exception {
-		long idNews = 1L;
+		Long idNews = 1L;
 		int size = 3;
 		List<Comment> commentList = commentDAO.takeCommentsByNewsId(idNews);
 		assertEquals(size, commentList.size());
@@ -105,7 +105,7 @@ public class CommentDAOImplTest extends DBTestCase{
 
 	@Test
 	public void testDeleteComment() throws Exception {
-		long idComment = 1L;
+		Long idComment = 1L;
 		IDataSet expected = getDataSet();
 		Comment comment = new Comment();
 		comment.setId(idComment);
@@ -117,7 +117,7 @@ public class CommentDAOImplTest extends DBTestCase{
 
 	@Test
 	public void testDeleteById() throws Exception {
-		long idComment = 1L;
+		Long idComment = 1L;
 		IDataSet expected = getDataSet();
 		commentDAO.delete(idComment);
 		IDataSet actual = tester.getConnection().createDataSet(new String[] { "comments" });
@@ -126,7 +126,7 @@ public class CommentDAOImplTest extends DBTestCase{
 
 	@Test
 	public void testDeleteCommentsByNewsId() throws Exception {
-		long idNews = 1L;
+		Long idNews = 1L;
 		IDataSet expected = getDataSet();
 		commentDAO.deleteCommentsByNewsId(idNews);
 		IDataSet actual = tester.getConnection().createDataSet(new String[] { "comments" });
