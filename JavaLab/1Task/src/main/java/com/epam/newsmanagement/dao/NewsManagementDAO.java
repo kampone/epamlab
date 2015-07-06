@@ -10,8 +10,8 @@ import java.sql.Statement;
 
 import javax.sql.DataSource;
 
+import org.dbunit.operation.CloseConnectionOperation;
 import org.springframework.jdbc.datasource.DataSourceUtils;
-
 
 import com.epam.newsmanagement.exception.DAOException;
 
@@ -70,7 +70,14 @@ public interface NewsManagementDAO<T> {
 	 *             if trouble with connection with database
 	 */
 	public void delete(Long id) throws DAOException;
-
+	/**
+	 * Default method that close connection
+	 * @param dataSource
+	 * @param connection
+	 */
+	default void CloseConnection(DataSource dataSource, Connection connection) {
+		DataSourceUtils.releaseConnection(connection, dataSource);
+	}
 	/**
 	 * Default method that close connection, statement
 	 * 

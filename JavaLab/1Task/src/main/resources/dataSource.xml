@@ -10,9 +10,9 @@
 		<property name="url" value="${db_url}" />
 		<property name="username" value="${user}" />
 		<property name="password" value="${password}" />
-		<!-- <property name="initialSize" value="${initialSize}" /> -->
-	<!-- 	<property name="maxActive" value="${maxActive}" />
-		<property name="maxIdle" value="${maxIdle}" /> -->
+		<property name="initialSize" value="${initialSize}" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxIdle" value="${maxIdle}" />
 	</bean>
 	<context:property-placeholder location="classpath:jdbc.properties" />
 </beans>
