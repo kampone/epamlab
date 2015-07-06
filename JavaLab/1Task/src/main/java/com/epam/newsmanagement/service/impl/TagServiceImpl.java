@@ -38,7 +38,7 @@ public class TagServiceImpl implements TagService {
 	 * @return id of tag if it is created
 	 */
 	@Override
-	public long create(Tag entity) throws ServiceException {
+	public Long create(Tag entity) throws ServiceException {
 		try {
 			return tagDAO.create(entity);
 		} catch (DAOException e) {
@@ -50,10 +50,10 @@ public class TagServiceImpl implements TagService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.epam.service.NewsManagementService#read(long)
+	 * @see com.epam.service.NewsManagementService#read(Long)
 	 */
 	@Override
-	public Tag read(long id) throws ServiceException {
+	public Tag read(Long id) throws ServiceException {
 		try {
 			return tagDAO.read(id);
 		} catch (DAOException e) {
@@ -106,7 +106,7 @@ public class TagServiceImpl implements TagService {
 	}
 
 	@Override
-	public void attachTags(long idNews, long idTag) throws ServiceException {
+	public void attachTags(Long idNews, Long idTag) throws ServiceException {
 		try {
 			tagDAO.attachTags(idNews, idTag);
 		} catch (DAOException e) {
@@ -116,7 +116,7 @@ public class TagServiceImpl implements TagService {
 	}
 
 	@Override
-	public void detachTags(long idNews) throws ServiceException {
+	public void detachTags(Long idNews) throws ServiceException {
 		try {
 			tagDAO.detachTags(idNews);
 		} catch (DAOException e) {
@@ -127,7 +127,7 @@ public class TagServiceImpl implements TagService {
 	}
 
 	@Override
-	public void attachListTags(long idNews, List<Long> idTagList) throws ServiceException {
+	public void attachListTags(Long idNews, List<Long> idTagList) throws ServiceException {
 		try {
 			tagDAO.attachListTags(idNews, idTagList);
 		} catch (DAOException e) {
@@ -137,7 +137,7 @@ public class TagServiceImpl implements TagService {
 	}
 
 	@Override
-	public List<Tag> takeNewsTags(long idNews) throws ServiceException {
+	public List<Tag> takeNewsTags(Long idNews) throws ServiceException {
 		try {
 			return tagDAO.takeNewsTags(idNews);
 		} catch (DAOException e) {

@@ -35,7 +35,7 @@ public class CommentServiceImpl implements CommentService {
 	 * @see com.epam.newsmanagement.service.NewsManagementService#create(com.epam.newsmanagement.entity.NewsManagementEntity)
 	 */
 	@Override
-	public long create(Comment entity) throws ServiceException {
+	public Long create(Comment entity) throws ServiceException {
 		try {
 			return commentDAO.create(entity);
 		} catch (DAOException e) {
@@ -46,10 +46,10 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	/** 
-	 * @see com.epam.newsmanagement.service.NewsManagementService#read(long)
+	 * @see com.epam.newsmanagement.service.NewsManagementService#read(Long)
 	 */
 	@Override
-	public Comment read(long id) throws ServiceException {
+	public Comment read(Long id) throws ServiceException {
 		try {
 			return commentDAO.read(id);
 		} catch (DAOException e) {
@@ -96,7 +96,7 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public void deleteCommentsByNewsId(long idNews) throws ServiceException {
+	public void deleteCommentsByNewsId(Long idNews) throws ServiceException {
 		try {
 			commentDAO.deleteCommentsByNewsId(idNews);
 		} catch (DAOException e) {
@@ -107,7 +107,7 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public List<Comment> takeCommentsByNewsId(long idNews) throws ServiceException {
+	public List<Comment> takeCommentsByNewsId(Long idNews) throws ServiceException {
 		try {
 			return commentDAO.takeCommentsByNewsId(idNews);
 		} catch (DAOException e) {

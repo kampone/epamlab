@@ -32,7 +32,7 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	@Override
-	public long create(Author entity) throws ServiceException {
+	public Long create(Author entity) throws ServiceException {
 		try {
 			return authorDAO.create(entity);
 		} catch (DAOException e) {
@@ -42,7 +42,7 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	@Override
-	public Author read(long id) throws ServiceException {
+	public Author read(Long id) throws ServiceException {
 		try {
 			return authorDAO.read(id);
 		} catch (DAOException e) {
@@ -77,7 +77,7 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	@Override
-	public void attachAuthor(long idNews, long idAuthor)
+	public void attachAuthor(Long idNews, Long idAuthor)
 			throws ServiceException {
 		try {
 			authorDAO.attachAuthor(idNews, idAuthor);
@@ -89,7 +89,7 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	@Override
-	public void detachAuthor(long idNews) throws ServiceException {
+	public void detachAuthor(Long idNews) throws ServiceException {
 		try {
 			authorDAO.detachAuthor(idNews);
 		} catch (DAOException e) {

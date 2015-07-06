@@ -19,7 +19,7 @@ public interface AuthorService extends NewsManagementService<Author> {
 	 * @param idAuthor Author id
 	 * @throws ServiceException if problem in DAO layer
 	 */
-	public void attachAuthor(long idNews, long idAuthor) throws ServiceException;
+	public void attachAuthor(Long idNews, Long idAuthor) throws ServiceException;
 
 	/**
 	 * 	
@@ -27,5 +27,5 @@ public interface AuthorService extends NewsManagementService<Author> {
 	 * @param idNews News id
 	 * @throws ServiceException if problem in DAO layer
 	 */
-	public void detachAuthor(long idNews) throws ServiceException;
+	public void detachAuthor(Long idNews) throws ServiceException;
 }

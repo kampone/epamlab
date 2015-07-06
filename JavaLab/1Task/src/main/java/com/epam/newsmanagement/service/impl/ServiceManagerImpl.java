@@ -91,15 +91,15 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	@Override
-	public void addNews(News news,long idAuthor, List<Long> idTagList) throws ServiceException {
-		long idNews = newsService.create(news);
+	public void addNews(News news,Long idAuthor, List<Long> idTagList) throws ServiceException {
+		Long idNews = newsService.create(news);
 		tagService.attachListTags(idNews, idTagList);
 		authorService.attachAuthor(idNews, idAuthor);
 		
 	}
 
 	@Override
-	public void updateNews(News news, long idAuthor, List<Long> idTagList) throws ServiceException {
+	public void updateNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException {
 		tagService.detachTags(news.getId());
 		authorService.detachAuthor(news.getId());
 		newsService.update(news);

@@ -3,21 +3,21 @@
  */
 package com.epam.newsmanagement.service.impl;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.anyLong;
+import static org.mockito.Matchers.anyList;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -62,15 +62,15 @@ public class TagServiceImplTest {
 	 */
 	@Test
 	public void testCreate() throws DAOException, ServiceException {
-		long expected = 1L;
+		Long expected = 1L;
 		Tag tag = mock(Tag.class);
 		when(mockTagDAO.create(tag)).thenReturn(1L);
-		long actual = tagService.create(tag);
+		Long actual = tagService.create(tag);
 		verify(mockTagDAO,times(1)).create(tag);
 		assertEquals(expected, actual);	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#read(long)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#read(Long)}.
 	 * @throws DAOException 
 	 * @throws ServiceException 
 	 */
@@ -120,45 +120,40 @@ public class TagServiceImplTest {
 	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#attachTags(long, long)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#attachTags(Long, Long)}.
 	 * @throws ServiceException 
 	 * @throws DAOException 
 	 */
 	@Test
 	public void testAttachTags() throws ServiceException, DAOException {
-		Tag tag = new Tag();
-		News news = new News();
-		tagService.attachTags(news.getId(), tag.getId());
-		verify(mockTagDAO,times(1)).attachTags(news.getId(), tag.getId());
+		tagService.attachTags(anyLong(), anyLong());
+		verify(mockTagDAO,times(1)).attachTags(anyLong(), anyLong());
 	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#detachTags(long)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#detachTags(Long)}.
 	 * @throws ServiceException 
 	 * @throws DAOException 
 	 */
 	@Test
 	public void testDetachTags() throws ServiceException, DAOException {
-		News news = new News();
-		tagService.detachTags(news.getId());
-		verify(mockTagDAO,times(1)).detachTags(news.getId());
+		tagService.detachTags(anyLong());
+		verify(mockTagDAO,times(1)).detachTags(anyLong());
 	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#attachListTags(long, java.util.List)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#attachListTags(Long, java.util.List)}.
 	 * @throws ServiceException 
 	 * @throws DAOException 
 	 */
 	@Test
 	public void testAttachListTags() throws ServiceException, DAOException {
-		News news = new News();
-		List<Long> idTagList = new ArrayList<Long>();
-		tagService.attachListTags(news.getId(), idTagList);
-		verify(mockTagDAO,times(1)).attachListTags(news.getId(), idTagList);
+		tagService.attachListTags(anyLong(), anyList());
+		verify(mockTagDAO,times(1)).attachListTags(anyLong(), anyList());
 	}
 	
 	/**	 
-	 *  Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#takeNewsTags(long)}.
+	 *  Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#takeNewsTags(Long)}.
 	 * @throws ServiceException
 	 * @throws DAOException
 	 */

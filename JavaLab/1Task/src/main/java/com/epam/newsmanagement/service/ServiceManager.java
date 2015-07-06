@@ -20,7 +20,7 @@ public interface ServiceManager {
 	 * @param idTagList id list of news tags
 	 * @throws ServiceException if trouble with connection in DAO layer
 	 */
-	public void addNews(News news, long idAuthor, List<Long> idTagList) throws ServiceException;
+	public void addNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException;
 	/**
 	 * Update news in transaction
 	 * @param news that will be update
@@ -28,7 +28,7 @@ public interface ServiceManager {
 	 * @param idTagList id list of news tags
 	 * @throws ServiceException if trouble with connection in DAO layer
 	 */
-	public void updateNews(News news, long idAuthor, List<Long> idTagList) throws ServiceException;
+	public void updateNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException;
 	/**
 	 * Delete news and its comments and detach author and tags by id 
 	 * @param idNews that should be deleted

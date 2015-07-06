@@ -4,6 +4,8 @@
 package com.epam.newsmanagement.service.impl;
 
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.Matchers.anyLong;
+
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
@@ -63,15 +65,16 @@ public class CommentServiceImplTest {
 	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.CommentServiceImpl#read(long)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.CommentServiceImpl#read(Long)}.
 	 * @throws ServiceException 
 	 * @throws DAOException 
 	 */
 	@Test
 	public void testRead() throws ServiceException, DAOException {
 		Comment comment = new Comment();
+		comment.setId(anyLong());
 		commentService.read(comment.getId());
-		verify(mockCommentDAO,times(1)).read(comment.getId());
+		verify(mockCommentDAO,times(1)).read(anyLong());
 	}
 
 	/**
@@ -111,7 +114,7 @@ public class CommentServiceImplTest {
 	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.CommentServiceImpl#deleteCommentsByNewsId(long)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.CommentServiceImpl#deleteCommentsByNewsId(Long)}.
 	 * @throws DAOException 
 	 * @throws ServiceException 
 	 */

@@ -63,13 +63,13 @@ public class NewsServiceImplTest {
 	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.NewsServiceImpl#read(long)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.NewsServiceImpl#read(Long)}.
 	 * @throws ServiceException 
 	 * @throws DAOException 
 	 */
 	@Test
 	public void testRead() throws ServiceException, DAOException {
-		long idNews = 1L;
+		Long idNews = 1L;
 		newsService.read(idNews);
 		verify(mockNewsDAO,times(1)).read(idNews);
 	}

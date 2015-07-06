@@ -49,7 +49,7 @@ public class NewsServiceImpl implements NewsService {
 	 * .Object)
 	 */
 	@Override
-	public long create(News entity) throws ServiceException {
+	public Long create(News entity) throws ServiceException {
 		try {
 			return newsDAO.create(entity);
 		} catch (DAOException e) {
@@ -61,10 +61,10 @@ public class NewsServiceImpl implements NewsService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.epam.newsmanagement.service.NewsManagementService#read(long)
+	 * @see com.epam.newsmanagement.service.NewsManagementService#read(Long)
 	 */
 	@Override
-	public News read(long id) throws ServiceException {
+	public News read(Long id) throws ServiceException {
 		try {
 			return newsDAO.read(id);
 		} catch (DAOException e) {

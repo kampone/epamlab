@@ -2,6 +2,7 @@
 package com.epam.newsmanagement.service.impl;
 
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.anyLong;
 import static org.mockito.Mockito.*;
 
 import org.junit.Before;
@@ -54,17 +55,17 @@ public class AuthorServiceImplTest {
 	@Test
 	public void testCreate() throws ServiceException, DAOException {
 	
-		long expected = 1L;
+		Long expected = 1L;
 		Author author = new Author();
 		when(mockAuthorDAO.create(author)).thenReturn(1L);
-		long actual = authorService.create(author);
+		Long actual = authorService.create(author);
 		verify(mockAuthorDAO,times(1)).create(author);
 		assertEquals(expected, actual);
 		
 	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#read(long)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#read(Long)}.
 	 * @throws ServiceException 
 	 * @throws DAOException 
 	 */
@@ -114,26 +115,26 @@ public class AuthorServiceImplTest {
 	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#attachAuthor(long, long)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#attachAuthor(Long, Long)}.
 	 * @throws DAOException 
 	 * @throws ServiceException 
 	 */
 	@Test
 	public void testAttachAuthors() throws DAOException, ServiceException {
-		Author author = new Author();
-		News news = mock(News.class);
-		authorService.attachAuthor(news.getId(), author.getId());
-		verify(mockAuthorDAO,times(1)).attachAuthor(news.getId(), author.getId());
+		
+		authorService.attachAuthor(anyLong(), anyLong());
+		verify(mockAuthorDAO,times(1)).attachAuthor(anyLong(), anyLong());
 	}
 
 	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#detachAuthor(long)}.
+	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#detachAuthor(Long)}.
 	 * @throws ServiceException 
 	 * @throws DAOException 
 	 */
 	@Test
 	public void testDetachAuthors() throws ServiceException, DAOException {
 		News news = new News();
+		news.setId(anyLong());
 		authorService.detachAuthor(news.getId());
 		verify(mockAuthorDAO,times(1)).detachAuthor(news.getId());
 }
