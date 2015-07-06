@@ -1,7 +1,5 @@
 package com.epam.newsmanagement.dao.impl;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +20,6 @@ import com.epam.newsmanagement.dao.TagDAO;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;
 
-@SuppressWarnings("unused")
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/TestContext.xml" })
 public class TagDAOImplTest extends DBTestCase {
