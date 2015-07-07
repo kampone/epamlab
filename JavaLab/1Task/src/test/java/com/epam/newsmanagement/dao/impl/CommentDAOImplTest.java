@@ -55,25 +55,25 @@ public class CommentDAOImplTest extends DBTestCase{
 	@Test
 	public void testCreate() throws Exception {
 		Long idNews = 1L;
-		IDataSet expected = getDataSet();
+		String commentText = "comment";
 		Comment comment = new Comment();
-		comment.setText("comment");
+		comment.setText(commentText);
 		comment.setIdNews(idNews);
-		commentDAO.create(comment);
-		IDataSet actual = tester.getConnection().createDataSet(new String[] { "comments" });
-		assertEquals(expected.getTable("comments").getRowCount() + 1, actual.getTable("comments").getRowCount());
+		Long idComment = commentDAO.create(comment);
+		assertEquals(idComment, commentDAO.read(idComment).getId());
+		assertEquals(commentText, commentDAO.read(idComment).getText());
 	}
 
 	@Test
 	public void testRead() throws DAOException {
 		Long idComment = 1L;
 		Long idNews = 1L;
-		String comment_text = "hello comment0";
+		String commentText = "hello comment0";
 		String creationDate = "2013-11-20 12:20:10.0";
 		Comment comment = commentDAO.read(idComment);
 		assertEquals(idComment, comment.getId());
 		assertEquals(idNews, comment.getIdNews());
-		assertEquals(comment_text, comment.getText());
+		assertEquals(commentText, comment.getText());
 		assertEquals(creationDate, comment.getCreationDate().toString());
 		
 	}
@@ -82,16 +82,16 @@ public class CommentDAOImplTest extends DBTestCase{
 	public void testUpdate() throws DAOException {
 		Long idComment = 1L;
 		Long idNews = 1L;
-		String comment_text = "hello comment1";
+		String commentText = "hello comment1";
 		Comment comment = new Comment();
 		comment.setId(idComment);
 		comment.setIdNews(idNews);
-		comment.setText(comment_text);
+		comment.setText(commentText);
 		commentDAO.update(comment);
 		Comment actualComment = commentDAO.read(idComment);
 		assertEquals(idComment, actualComment.getId());
 		assertEquals(idNews, actualComment.getIdNews());
-		assertEquals(comment_text, actualComment.getText());
+		assertEquals(commentText, actualComment.getText());
 	}
 
 	@Test
@@ -106,13 +106,10 @@ public class CommentDAOImplTest extends DBTestCase{
 	@Test
 	public void testDeleteComment() throws Exception {
 		Long idComment = 1L;
-		IDataSet expected = getDataSet();
 		Comment comment = new Comment();
 		comment.setId(idComment);
 		commentDAO.delete(comment);
-		IDataSet actual = tester.getConnection().createDataSet(new String[] { "comments" });
-		assertEquals(expected.getTable("comments").getRowCount() - 1, actual.getTable("comments").getRowCount());
-	
+		assertNull(commentDAO.read(idComment));
 	}
 
 	@Test
@@ -120,8 +117,7 @@ public class CommentDAOImplTest extends DBTestCase{
 		Long idComment = 1L;
 		IDataSet expected = getDataSet();
 		commentDAO.delete(idComment);
-		IDataSet actual = tester.getConnection().createDataSet(new String[] { "comments" });
-		assertEquals(expected.getTable("comments").getRowCount() - 1, actual.getTable("comments").getRowCount());
+		assertNull(commentDAO.read(idComment));
 		}
 
 	@Test
@@ -129,9 +125,7 @@ public class CommentDAOImplTest extends DBTestCase{
 		Long idNews = 1L;
 		IDataSet expected = getDataSet();
 		commentDAO.deleteCommentsByNewsId(idNews);
-		IDataSet actual = tester.getConnection().createDataSet(new String[] { "comments" });
-		assertEquals(expected.getTable("comments").getRowCount() - 3, actual.getTable("comments").getRowCount());
-	
+		assertTrue(commentDAO.takeCommentsByNewsId(idNews).isEmpty());
 	}
 
 }

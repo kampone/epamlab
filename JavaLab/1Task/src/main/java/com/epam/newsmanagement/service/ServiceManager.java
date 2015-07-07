@@ -5,7 +5,9 @@ package com.epam.newsmanagement.service;
 
 import java.util.List;
 
+import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 
 /**
@@ -35,4 +37,6 @@ public interface ServiceManager {
 	 * @throws ServiceException if trouble with connection in DAO layer
 	 */
 	public void deleteNews(Long idNews) throws ServiceException;
+	
+
 }

@@ -26,4 +26,11 @@ public interface AuthorDAO extends NewsManagementDAO<Author> {
 	 * @throws DAOException if trouble with connection with database 
 	 */
 	public void detachAuthor(Long idNews) throws DAOException;
+	/**
+	 * Return Author of news by its id
+	 * @param idNews News id
+	 * @return Author
+	 * @throws DAOException  if trouble with connection with database
+	 */
+	public Author takeAuthorByNewsId(Long idNews) throws DAOException;
 }

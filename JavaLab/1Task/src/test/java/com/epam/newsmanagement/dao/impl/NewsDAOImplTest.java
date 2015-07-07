@@ -52,14 +52,18 @@ public class NewsDAOImplTest extends DBTestCase {
 	}
 	@Test
 	public void testCreate() throws Exception {
-		IDataSet expected = getDataSet();
 		News news = new News();
-		news.setTitle("testTitle");
-		news.setShortText("testShortText");
-		news.setFullText("testFullText");
-		newsDAO.create(news);
-		IDataSet actual = tester.getConnection().createDataSet(new String[] { "news" });
-		assertEquals(expected.getTable("news").getRowCount() + 1, actual.getTable("news").getRowCount());
+		String title = "test_title";
+		String shortText = "short text";
+		String fullText = "full text";
+		news.setTitle(title);
+		news.setShortText(shortText);
+		news.setFullText(fullText);
+		Long idNews = newsDAO.create(news);
+		News actualNews = newsDAO.read(idNews);
+		assertEquals(title, actualNews.getTitle());
+		assertEquals(shortText, actualNews.getShortText());
+		assertEquals(fullText, actualNews.getFullText());
 	}
 
 	@Test
@@ -104,22 +108,17 @@ public class NewsDAOImplTest extends DBTestCase {
 
 	@Test
 	public void testDeleteNews() throws Exception {
-		IDataSet expected = getDataSet();
 		Long idNews = 1L;
 		News news = new News();
 		news.setId(idNews);
 		newsDAO.delete(news);
-		IDataSet actual = tester.getConnection().createDataSet(new String[] { "news" });
-		assertEquals(expected.getTable("news").getRowCount() - 1, actual.getTable("news").getRowCount());
+		assertNull(newsDAO.read(idNews));
 	}
 
 	@Test
 	public void testDeleteById() throws Exception {
 		Long idNews = 1L;
-		IDataSet expected = getDataSet();
 		newsDAO.delete(idNews);
-		IDataSet actual = tester.getConnection().createDataSet(new String[] { "news" });
-		assertEquals(expected.getTable("news").getRowCount() - 1, actual.getTable("news").getRowCount());
-	}
+		assertNull(newsDAO.read(idNews));}
 
 }

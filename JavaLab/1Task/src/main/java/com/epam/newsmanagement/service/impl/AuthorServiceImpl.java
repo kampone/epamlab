@@ -98,4 +98,14 @@ public class AuthorServiceImpl implements AuthorService {
 		}
 	}
 
+	@Override
+	public Author takeAuthorByNewsId(Long idNews) throws ServiceException {
+		try {
+			return authorDAO.takeAuthorByNewsId(idNews);
+		} catch (DAOException e) {
+			LOG.error(" Exception during taking Author by news id ", e);
+			throw new ServiceException(" Exception during taking Author by news id ", e);
+		}
+	}
+
 }

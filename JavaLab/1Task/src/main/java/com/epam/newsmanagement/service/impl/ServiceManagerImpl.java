@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.AuthorService;
@@ -116,6 +117,7 @@ public class ServiceManagerImpl implements ServiceManager {
 		newsService.delete(idNews);
 
 	}
+
 
 	
 

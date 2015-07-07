@@ -1,10 +1,7 @@
 package com.epam.newsmanagement.dao.impl;
 
-import java.sql.Connection;
-
 import org.dbunit.DBTestCase;
 import org.dbunit.IDatabaseTester;
-import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
@@ -31,7 +28,7 @@ public class AuthorDAOImplTest extends DBTestCase {
 
 	@Before
 	public void setUp() throws Exception {
-		IDataSet dataSet = new FlatXmlDataSetBuilder().build(this.getClass().getResourceAsStream("/authorDataSet.xml"));
+		IDataSet dataSet = getDataSet();
 		tester.setDataSet(dataSet);
 		tester.setTearDownOperation(getTearDownOperation());
 		tester.onSetup();
@@ -49,13 +46,13 @@ public class AuthorDAOImplTest extends DBTestCase {
 
 	@Test
 	public void testCreate() throws Exception {
-		IDataSet expected = getDataSet();
 		Author author = new Author();
-		author.setName("testAuthor");
-		authorDAO.create(author);
-		IDataSet actual = tester.getConnection().createDataSet();
-		assertEquals(expected.getTable("authors").getRowCount() + 1, actual.getTable("authors").getRowCount());
-
+		String authorName = "testAuthor";
+		author.setName(authorName);
+		
+		Long idAuthor = authorDAO.create(author);
+		Author actualAuthor = authorDAO.read(idAuthor);
+		assertEquals(authorName, actualAuthor.getName());
 	}
 
 	@Test
@@ -105,17 +102,16 @@ public class AuthorDAOImplTest extends DBTestCase {
 		Long idAuthor = 1L;
 		Long idNews = 1L;
 		authorDAO.attachAuthor(idNews, idAuthor);
+		assertNotNull(authorDAO.takeAuthorByNewsId(idNews));
+
 		
 	}
 
 	@Test
 	public void testDetachAuthors() throws Exception {
-		IDataSet expected = getDataSet();
 		Long idNews = 2L;
 		authorDAO.detachAuthor(idNews);
-		IDataSet actual = tester.getConnection().createDataSet();
-		assertEquals(expected.getTable("news_authors").getRowCount() - 1,
-				actual.getTable("news_authors").getRowCount());
+		assertNull(authorDAO.takeAuthorByNewsId(idNews));
 	}
 
 	@Override
