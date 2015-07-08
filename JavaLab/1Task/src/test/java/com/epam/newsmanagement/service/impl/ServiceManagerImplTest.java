@@ -20,6 +20,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.ExpectedException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -84,8 +85,6 @@ public class ServiceManagerImplTest {
 		verify(mockAuthorService, times(1)).attachAuthor(anyLong(), anyLong());
 	}
 
-
-
 	/**
 	 * Test method for
 	 * {@link com.epam.newsmanagement.service.impl.ServiceManagerImpl#updateNews(com.epam.newsmanagement.entity.News, Long, java.util.List, java.util.List)}
@@ -125,5 +124,7 @@ public class ServiceManagerImplTest {
 		verify(mockCommentService, times(1)).deleteCommentsByNewsId(idNews);
 		verify(mockNewsService, times(1)).delete(idNews);
 	}
+	
+	
 
 }

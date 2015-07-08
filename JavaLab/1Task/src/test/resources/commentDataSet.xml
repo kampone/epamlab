@@ -9,7 +9,7 @@
 	<news news_id="3" title="test_title2" short_text="short text2"
 		full_text="full text2" creation_date="2012-12-20 12:20:10"
 		modification_date="2013-12-20" />
-		
+
 	<comments comment_id="1" news_id="1" comment_text="hello comment0"
 		creation_date="2013-11-20 12:20:10" />
 	<comments comment_id="2" news_id="1" comment_text="hello comment1"

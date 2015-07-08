@@ -3,6 +3,7 @@
  */
 package com.epam.newsmanagement.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,10 +11,16 @@ import java.util.List;
  *
  */
 public class SearchCriteria {
+	
+	
 
 	private List<Long> idTagList;
 	private Long idAuthor;
 	
+	public SearchCriteria() {
+		idTagList = new ArrayList<>();
+	}
+
 	public List<Long> getIdTagList() {
 		return idTagList;
 	}

@@ -48,7 +48,7 @@ public class NewsDAOImplTest extends DBTestCase {
 
 	@Override
 	protected DatabaseOperation getTearDownOperation() throws Exception {
-		return DatabaseOperation.DELETE_ALL;
+		return DatabaseOperation.NONE;
 	}
 	@Test
 	public void testCreate() throws Exception {

@@ -20,12 +20,12 @@ public interface CommentService extends NewsManagementService<Comment> {
 	 * @param idNews News id
 	 * @throws ServiceException if problem in DAO layer
 	 */
-	public void deleteCommentsByNewsId(Long idNews) throws ServiceException;
+	 void deleteCommentsByNewsId(Long idNews) throws ServiceException;
 	/**
-	 * 	
+	 * 	Return all comments by news id
 	 * @return all comments by news id 
 	 * @param idNews News id
 	 * @throws ServiceException if problem in DAO layer
 	 */
-	public List<Comment> takeCommentsByNewsId(Long idNews) throws ServiceException;
+	 List<Comment> takeCommentsByNewsId(Long idNews) throws ServiceException;
 }

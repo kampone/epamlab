@@ -169,4 +169,11 @@ public class News {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "News [idNews=" + idNews + ", title=" + title + ", shortText=" + shortText + ", fullText=" + fullText
+				+ ", creationDate=" + creationDate + ", modificationDate=" + modificationDate + "]";
+	}
+
+	
 }

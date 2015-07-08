@@ -19,11 +19,11 @@ public interface CommentDAO extends NewsManagementDAO<Comment> {
 	 * @param idNews News id
 	 * @return List of comments by idNews
 	 */
-	public List<Comment> takeCommentsByNewsId(Long idNews) throws DAOException;
+	 List<Comment> takeCommentsByNewsId(Long idNews) throws DAOException;
 	/**
 	 * Delete all comments by News id
 	 * @param idNews News id
 	 * @throws DAOException 
 	 */
-	public void deleteCommentsByNewsId(Long idNews) throws DAOException;
+	 void deleteCommentsByNewsId(Long idNews) throws DAOException;
 }

@@ -3,10 +3,13 @@
  */
 package com.epam.newsmanagement.service.impl;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.epam.newsmanagement.dao.NewsDAO;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.NewsService;
@@ -44,9 +47,8 @@ public class NewsServiceImpl implements NewsService {
 	/**
 	 *
 	 * 
-	 * @see
-	 * com.epam.newsmanagement.service.NewsManagementService#create(java.lang
-	 * .Object)
+	 * @see com.epam.newsmanagement.service.NewsManagementService#create(java.lang
+	 *      .Object)
 	 */
 	@Override
 	public Long create(News entity) throws ServiceException {
@@ -121,6 +123,16 @@ public class NewsServiceImpl implements NewsService {
 		} catch (DAOException e) {
 			LOG.error(" Exception during deleting News ", e);
 			throw new ServiceException(" Exception during deleting News ", e);
+		}
+	}
+
+	@Override
+	public List<News> getNews(SearchCriteria searchCriteria, int startindex, int lastIndex) throws ServiceException {
+		try {
+			return newsDAO.getNews(searchCriteria, startindex, lastIndex);
+		} catch (DAOException e) {
+			LOG.error(" Exception during getting News with SearchCriteria ", e);
+			throw new ServiceException(" Exception during getting News with SearchCriteria ", e);
 		}
 	}
 

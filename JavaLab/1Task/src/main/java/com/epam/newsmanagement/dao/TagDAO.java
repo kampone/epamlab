@@ -19,27 +19,27 @@ public interface TagDAO extends NewsManagementDAO<Tag> {
 	 * @param idTag Tag id
 	 * @throws DAOException if trouble with connection with database 
 	 */
-	public void attachTags(Long idNews, Long idTag) throws DAOException;
+	 void attachTags(Long idNews, Long idTag) throws DAOException;
 	/**
 	 *	Attach Tag list to News 
 	 * @param idNews News id
 	 * @param idTagList List of Tag id
 	 * @throws DAOException if trouble with connection with database
 	 */
-	public void attachListTags(Long idNews, List<Long> idTagList) throws DAOException;		
+	 void attachListTags(Long idNews, List<Long> idTagList) throws DAOException;		
 	/**
 	 *	Detach all tags from News by id
 	 * @param idNews News id
 	 * @throws DAOException if trouble with connection with database
 	 */
-	public void detachTags(Long idNews) throws DAOException;
+	 void detachTags(Long idNews) throws DAOException;
 	/**
 	 * Return List of tags by news id
 	 * @param idNews News id
 	 * @return List of tags by news id
 	 * @throws DAOException if trouble with connection with database
 	 */
-	public List<Tag> takeNewsTags(Long idNews) throws DAOException;
+	 List<Tag> takeNewsTags(Long idNews) throws DAOException;
 	
 
 }

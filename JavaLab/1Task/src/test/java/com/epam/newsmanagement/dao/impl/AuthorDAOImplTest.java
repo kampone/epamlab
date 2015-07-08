@@ -113,6 +113,14 @@ public class AuthorDAOImplTest extends DBTestCase {
 		authorDAO.detachAuthor(idNews);
 		assertNull(authorDAO.takeAuthorByNewsId(idNews));
 	}
+	
+	@Test
+	public void testTakeAuthorByNewsId() throws DAOException {
+		Long idNews = 3L;
+		String authorName = "Petia";
+		Author actualAuthor = authorDAO.takeAuthorByNewsId(idNews);
+		assertEquals(authorName, actualAuthor.getName());
+	}
 
 	@Override
 	protected IDataSet getDataSet() throws Exception {

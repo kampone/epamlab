@@ -138,5 +138,11 @@ public class AuthorServiceImplTest {
 		authorService.detachAuthor(news.getId());
 		verify(mockAuthorDAO,times(1)).detachAuthor(news.getId());
 }
+	
+	@Test
+	public void testTakeAuthorByNewsId() throws ServiceException, DAOException{
+		authorService.takeAuthorByNewsId(anyLong());
+		verify(mockAuthorDAO,times(1)).takeAuthorByNewsId(anyLong());
+	}
 
 }

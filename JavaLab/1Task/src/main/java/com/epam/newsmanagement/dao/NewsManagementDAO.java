@@ -28,7 +28,7 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	public Long create(T entity) throws DAOException;
+	 Long create(T entity) throws DAOException;
 
 	/**
 	 * Read entity from database
@@ -39,7 +39,7 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	public T read(Long id) throws DAOException;
+	 T read(Long id) throws DAOException;
 
 	/**
 	 * Update entity in database
@@ -49,7 +49,7 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	public void update(T entity) throws DAOException;
+	 void update(T entity) throws DAOException;
 
 	/**
 	 * Delete entity from database
@@ -59,7 +59,7 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	public void delete(T entity) throws DAOException;
+	 void delete(T entity) throws DAOException;
 
 	/**
 	 * Delete entity from database
@@ -69,7 +69,7 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	public void delete(Long id) throws DAOException;
+	 void delete(Long id) throws DAOException;
 	/**
 	 * Default method that close connection
 	 * @param dataSource

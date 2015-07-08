@@ -19,7 +19,7 @@ public interface NewsManagementService<T> {
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	public Long create(T entity) throws ServiceException;
+	 Long create(T entity) throws ServiceException;
 	/**
 	 * Read entity from database
 	 * 
@@ -29,7 +29,7 @@ public interface NewsManagementService<T> {
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	public T read(Long id) throws ServiceException;
+	 T read(Long id) throws ServiceException;
 	/**
 	 * Update entity in database
 	 * 
@@ -38,7 +38,7 @@ public interface NewsManagementService<T> {
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	public void update(T entity) throws ServiceException;
+	 void update(T entity) throws ServiceException;
 	/**
 	 * Delete entity from database
 	 * 
@@ -47,12 +47,12 @@ public interface NewsManagementService<T> {
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	public void delete(T entity) throws ServiceException;
+	 void delete(T entity) throws ServiceException;
 	/**
 	 * Delete entity from database
 	 * @param id of entity
 	 * @throws ServiceException if trouble with connection in DAO layer
 	 */
-	public void delete(Long id) throws ServiceException;
+	 void delete(Long id) throws ServiceException;
 
 }

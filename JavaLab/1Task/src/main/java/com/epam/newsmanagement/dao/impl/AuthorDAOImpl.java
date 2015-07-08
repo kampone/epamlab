@@ -161,6 +161,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
+		
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_INSERT_NEWS_AUTHOR_QUERY);
 			statement.setLong(1, idNews);
