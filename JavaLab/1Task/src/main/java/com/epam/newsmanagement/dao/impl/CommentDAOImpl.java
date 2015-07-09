@@ -219,15 +219,15 @@ public class CommentDAOImpl implements CommentDAO {
 	}
 
 	@Override
-	public void addCommentsForNews(Long idNews, List<Comment> commentList) throws DAOException {
+	public void addCommentsForNews(List<Comment> commentList) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_CREATE_COMMENT_QUERY);
-			statement.setLong(2, idNews);
 			for (Comment comment : commentList) {
 				statement.setString(1, comment.getText());
+				statement.setLong(2, comment.getIdNews());
 				statement.addBatch();
 			}
 			statement.executeBatch();

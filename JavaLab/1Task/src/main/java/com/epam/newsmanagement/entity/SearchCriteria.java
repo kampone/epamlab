@@ -33,6 +33,10 @@ public class SearchCriteria {
 	public void setIdAuthor(Long idAuthor) {
 		this.idAuthor = idAuthor;
 	}
+	
+	public boolean addTag(Long idTag) {
+		return idTagList.add(idTag);
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */

@@ -34,5 +34,5 @@ public interface CommentDAO extends NewsManagementDAO<Comment> {
 	  * @param commentList list of comments 
 	  * @throws DAOException if trouble with connection with database 
 	  */
-	 void addCommentsForNews(Long idNews, List<Comment> commentList) throws DAOException;
+	 void addCommentsForNews(List<Comment> commentList) throws DAOException;
 }

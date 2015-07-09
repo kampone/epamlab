@@ -31,9 +31,8 @@ public interface CommentService extends NewsManagementService<Comment> {
 	 
 	 /**
 	  * Create list of comments for news
-	  * @param idNews news id
 	  * @param commentList list of comments 
 	  * @throws ServiceException if problem in DAO layer
 	  */
-	void addCommnetsForNews(Long idNews, List<Comment> commentList) throws ServiceException;
+	void addCommnetsForNews(List<Comment> commentList) throws ServiceException;
 }

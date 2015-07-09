@@ -141,8 +141,8 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	@Override
-	public void addCommentForNews(Long idNews, List<Comment> commentList) throws ServiceException {
-		commentService.addCommnetsForNews(idNews, commentList);
+	public void addCommentForNews(List<Comment> commentList) throws ServiceException {
+		commentService.addCommnetsForNews(commentList);
 	}
 
 	@Override

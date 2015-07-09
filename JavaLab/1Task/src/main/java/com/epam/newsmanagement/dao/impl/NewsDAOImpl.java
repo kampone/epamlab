@@ -192,14 +192,14 @@ public class NewsDAOImpl implements NewsDAO {
 		StringBuilder sbSearchCriteria = new StringBuilder(SQL_ADD_SEARCH_CRITERIA_QUERY);
 		if (searchCriteria.getIdAuthor() != null) {
 			sbSearchCriteria.append(SQL_WHERE_AUTHOR_ID_QUERY);
-		}
-		if (!searchCriteria.getIdTagList().isEmpty()) {
-			if (searchCriteria.getIdAuthor() == null) {
-				sbSearchCriteria.append(SQL_WHERE_TAGS_ID_QUERY);
-			} else {
-				sbSearchCriteria.append(SQL_AND_TAGS_ID_QUERY);
+			if (!searchCriteria.getIdTagList().isEmpty()) {
+				if (searchCriteria.getIdAuthor() == null) {
+					sbSearchCriteria.append(SQL_WHERE_TAGS_ID_QUERY);
+				} else {
+					sbSearchCriteria.append(SQL_AND_TAGS_ID_QUERY);
+				}
+				sbSearchCriteria.append(makeParametres(searchCriteria));
 			}
-			sbSearchCriteria.append(makeParametres(searchCriteria));
 		}
 		return sbSearchCriteria.toString();
 	}
@@ -218,13 +218,15 @@ public class NewsDAOImpl implements NewsDAO {
 			throws DAOException {
 		try {
 			int i = 1;
-			if (sc.getIdAuthor() != null) {
-				ps.setLong(i, sc.getIdAuthor());
-				++i;
-			}
-			for (Long id : sc.getIdTagList()) {
-				ps.setLong(i, id);
-				++i;
+			if (sc != null) {
+				if (sc.getIdAuthor() != null) {
+					ps.setLong(i, sc.getIdAuthor());
+					++i;
+				}
+				for (Long id : sc.getIdTagList()) {
+					ps.setLong(i, id);
+					++i;
+				}
 			}
 			ps.setInt(i++, startIndex);
 			ps.setInt(i, lastIndex);

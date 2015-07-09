@@ -5,6 +5,7 @@ package com.epam.newsmanagement.service.impl;
 
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.anyLong;
+import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyList;
 
 import static org.mockito.Mockito.times;
@@ -23,6 +24,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.epam.newsmanagement.entity.Author;
+import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
@@ -32,6 +35,15 @@ import com.epam.newsmanagement.service.NewsService;
 import com.epam.newsmanagement.service.ServiceManager;
 import com.epam.newsmanagement.service.TagService;
 
+/**
+ * @author Uladzislau_Kaminski
+ *
+ */
+
+/**
+ * @author Uladzislau_Kaminski
+ *
+ */
 /**
  * @author Uladzislau_Kaminski
  *
@@ -53,7 +65,6 @@ public class ServiceManagerImplTest {
 	@Autowired
 	private ServiceManager serviceManager;
 
-	
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -74,10 +85,9 @@ public class ServiceManagerImplTest {
 	@Test
 	public void testAddNews() throws ServiceException, DAOException {
 		News news = new News();
-		Long idAuthor = anyLong();
 		List<Long> idTagList = new ArrayList<>();
 
-		serviceManager.addNews(news, idAuthor, idTagList);
+		serviceManager.addNews(news, anyLong(), idTagList);
 
 		verify(mockNewsService, times(1)).create(news);
 		verify(mockTagService, times(1)).attachListTags(anyLong(), anyList());
@@ -88,17 +98,16 @@ public class ServiceManagerImplTest {
 	 * Test method for
 	 * {@link com.epam.newsmanagement.service.impl.ServiceManagerImpl#updateNews(com.epam.newsmanagement.entity.News, Long, java.util.List, java.util.List)}
 	 * .
-	 * @throws ServiceException 
-	 * @throws DAOException 
+	 * 
+	 * @throws ServiceException
+	 * @throws DAOException
 	 */
 	@Test
 	public void testUpdateNews() throws ServiceException, DAOException {
 		News news = new News();
-		Long idAuthor = anyLong();
-		List<Long> idTagList = new ArrayList<>();
-		
-		serviceManager.updateNews(news, idAuthor, idTagList);
-		
+		Long idNews = 1L;
+		serviceManager.updateNews(news, idNews, anyList());
+
 		verify(mockTagService, times(1)).detachTags(anyLong());
 		verify(mockAuthorService, times(1)).detachAuthor(anyLong());
 		verify(mockNewsService, times(1)).update(news);
@@ -110,50 +119,61 @@ public class ServiceManagerImplTest {
 	 * Test method for
 	 * {@link com.epam.newsmanagement.service.impl.ServiceManagerImpl#deleteNews(java.lang.Long)}
 	 * .
-	 * @throws ServiceException 
-	 * @throws DAOException 
+	 * 
+	 * @throws ServiceException
+	 * @throws DAOException
 	 */
 	@Test
 	public void testDeleteNews() throws ServiceException, DAOException {
-		Long idNews = anyLong();
-		serviceManager.deleteNews(idNews);
-		
-		verify(mockTagService, times(1)).detachTags(idNews);
-		verify(mockAuthorService, times(1)).detachAuthor(idNews);
-		verify(mockCommentService, times(1)).deleteCommentsByNewsId(idNews);
-		verify(mockNewsService, times(1)).delete(idNews);
+		serviceManager.deleteNews(anyLong());
+
+		verify(mockTagService, times(1)).detachTags(anyLong());
+		verify(mockAuthorService, times(1)).detachAuthor(anyLong());
+		verify(mockCommentService, times(1)).deleteCommentsByNewsId(anyLong());
+		verify(mockNewsService, times(1)).delete(anyLong());
 	}
 
 	@Test
 	public void testDeleteCommentsByNewsId() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Long idNews = 1L;
+		serviceManager.deleteCommentsByNewsId(idNews);
+		verify(mockCommentService, times(1)).deleteCommentsByNewsId(anyLong());
 	}
 
 	@Test
 	public void testAddCommentForNews() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		serviceManager.addCommentForNews(anyList());
+		verify(mockCommentService, times(1)).addCommnetsForNews(anyList());
 	}
 
 	@Test
 	public void testAttachListTagsForNews() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		List<Long> idTagList = new ArrayList<>();
+		Long idNews = 1L;
+		serviceManager.attachListTagsForNews(idNews, idTagList);
+		verify(mockTagService, times(1)).attachListTags(idNews, idTagList);
+
 	}
 
 	@Test
 	public void testAddNewAuthor() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		Author author = new Author();
+		serviceManager.addNewAuthor(author);
+		verify(mockAuthorService, times(1)).create(author);
+
 	}
 
 	@Test
 	public void testGetSingleNews() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		serviceManager.getSingleNews(anyLong());
+		verify(mockNewsService, times(1)).read(anyLong());
 	}
 
 	@Test
 	public void testGetNews() throws Exception {
-		throw new RuntimeException("not yet implemented");
+		int i = 1;
+		serviceManager.getNews(null, i, i);
+		verify(mockNewsService, times(1)).getNews(null, i, i);
 	}
-	
-	
 
 }

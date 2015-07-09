@@ -1,5 +1,6 @@
 package com.epam.newsmanagement.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.dbunit.DBTestCase;
@@ -128,8 +129,15 @@ public class CommentDAOImplTest extends DBTestCase{
 
 	@Test
 	public void testAddCommentsForNews() throws Exception {
-		//TODO
-		throw new RuntimeException("not yet implemented");
+		Long idNews = 2L;
+		int size = 2;
+		Comment  comment = new Comment();
+		List<Comment> commentList = new ArrayList<>();
+		comment.setText("text");
+		comment.setIdNews(idNews);
+		commentList.add(comment);
+		commentDAO.addCommentsForNews(commentList);
+		assertEquals(size, commentDAO.takeCommentsByNewsId(idNews).size());
 	}
 
 }

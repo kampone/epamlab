@@ -74,7 +74,7 @@ public interface ServiceManager {
 	 * @param commentList list of comments
 	 * @throws ServiceException if trouble in DAO layer 
 	 */
-	 void addCommentForNews(Long idNews, List<Comment> commentList) throws ServiceException;
+	 void addCommentForNews(List<Comment> commentList) throws ServiceException;
 	/**
 	 * Delete all comments of news by news id
 	 * @param idNews news id

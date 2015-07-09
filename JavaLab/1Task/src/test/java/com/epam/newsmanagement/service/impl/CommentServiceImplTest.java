@@ -5,9 +5,12 @@ package com.epam.newsmanagement.service.impl;
 
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.anyLong;
-
+import static org.mockito.Matchers.anyList;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +29,10 @@ import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.CommentService;
 
+/**
+ * @author Uladzislau_Kaminski
+ *
+ */
 /**
  * @author Uladzislau_Kaminski
  *
@@ -133,13 +140,12 @@ public class CommentServiceImplTest {
 
 	@Test
 	public void testAddCommnetsForNews() throws Exception {
-		//TODO
-		throw new RuntimeException("not yet implemented");
+		commentService.addCommnetsForNews(anyList());
+		verify(mockCommentDAO,times(1)).addCommentsForNews(anyList());	
 	}
 
 	@Test
 	public void testTakeCommentsByNewsId() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
+		commentService.takeCommentsByNewsId(anyLong());
+		verify(mockCommentDAO,times(1)).takeCommentsByNewsId(anyLong());		}
 }

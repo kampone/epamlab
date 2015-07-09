@@ -15,12 +15,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.epam.newsmanagement.dao.NewsDAO;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.exception.DAOException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "/TestContext.xml" })
 public class NewsDAOImplTest extends DBTestCase {
-	
+
 	@Autowired
 	private NewsDAO newsDAO;
 
@@ -33,14 +34,14 @@ public class NewsDAOImplTest extends DBTestCase {
 		tester.setDataSet(dataSet);
 		tester.setTearDownOperation(getTearDownOperation());
 		tester.onSetup();
-		
+
 	}
-	
+
 	@After
 	public void tearDown() throws Exception {
 		tester.onTearDown();
 	}
-	
+
 	@Override
 	protected IDataSet getDataSet() throws Exception {
 		return new FlatXmlDataSetBuilder().build(this.getClass().getResourceAsStream("/newsDataSet.xml"));
@@ -50,6 +51,7 @@ public class NewsDAOImplTest extends DBTestCase {
 	protected DatabaseOperation getTearDownOperation() throws Exception {
 		return DatabaseOperation.NONE;
 	}
+
 	@Test
 	public void testCreate() throws Exception {
 		News news = new News();
@@ -77,8 +79,8 @@ public class NewsDAOImplTest extends DBTestCase {
 		News news = newsDAO.read(idNews);
 		/*
 		 * <news news_id="1" title="test_title0" short_text="short text0"
-		full_text="full text0" creation_date="2012-12-20 12:20:10"
-		modification_date="2013-12-20" />
+		 * full_text="full text0" creation_date="2012-12-20 12:20:10"
+		 * modification_date="2013-12-20" />
 		 */
 		assertEquals(idNews, news.getId());
 		assertEquals(title, news.getTitle());
@@ -119,12 +121,21 @@ public class NewsDAOImplTest extends DBTestCase {
 	public void testDeleteById() throws Exception {
 		Long idNews = 1L;
 		newsDAO.delete(idNews);
-		assertNull(newsDAO.read(idNews));}
+		assertNull(newsDAO.read(idNews));
+	}
 
 	@Test
 	public void testGetNews() throws Exception {
-		//TODO
-		throw new RuntimeException("not yet implemented");
+		int size = 3;
+		assertEquals(size, newsDAO.getNews(null, Integer.MIN_VALUE, Integer.MAX_VALUE).size());
 	}
+
+	@Test
+	public void testGetNewsEmptySearchCriteria() throws Exception {
+		int size = 3;
+		assertEquals(size, newsDAO.getNews(new SearchCriteria(), Integer.MIN_VALUE, Integer.MAX_VALUE).size());
+	}
+
+	
 
 }

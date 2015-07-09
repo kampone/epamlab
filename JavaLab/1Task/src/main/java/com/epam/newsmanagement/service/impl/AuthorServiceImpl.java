@@ -31,6 +31,9 @@ public class AuthorServiceImpl implements AuthorService {
 		this.authorDAO = authorDAO;
 	}
 
+	/* (non-Javadoc)
+	 * @see com.epam.newsmanagement.service.NewsManagementService#create(java.lang.Object)
+	 */
 	@Override
 	public Long create(Author entity) throws ServiceException {
 		try {
@@ -88,6 +91,9 @@ public class AuthorServiceImpl implements AuthorService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.AuthorService#detachAuthor(java.lang.Long)
+	 */
 	@Override
 	public void detachAuthor(Long idNews) throws ServiceException {
 		try {
@@ -98,6 +104,9 @@ public class AuthorServiceImpl implements AuthorService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.AuthorService#takeAuthorByNewsId(java.lang.Long)
+	 */
 	@Override
 	public Author takeAuthorByNewsId(Long idNews) throws ServiceException {
 		try {
