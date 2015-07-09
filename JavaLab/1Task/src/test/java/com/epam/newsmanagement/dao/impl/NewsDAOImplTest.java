@@ -121,4 +121,10 @@ public class NewsDAOImplTest extends DBTestCase {
 		newsDAO.delete(idNews);
 		assertNull(newsDAO.read(idNews));}
 
+	@Test
+	public void testGetNews() throws Exception {
+		//TODO
+		throw new RuntimeException("not yet implemented");
+	}
+
 }

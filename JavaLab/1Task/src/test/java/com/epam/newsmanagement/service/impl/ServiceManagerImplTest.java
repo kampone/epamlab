@@ -20,7 +20,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.ExpectedException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -123,6 +122,36 @@ public class ServiceManagerImplTest {
 		verify(mockAuthorService, times(1)).detachAuthor(idNews);
 		verify(mockCommentService, times(1)).deleteCommentsByNewsId(idNews);
 		verify(mockNewsService, times(1)).delete(idNews);
+	}
+
+	@Test
+	public void testDeleteCommentsByNewsId() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testAddCommentForNews() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testAttachListTagsForNews() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testAddNewAuthor() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testGetSingleNews() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testGetNews() throws Exception {
+		throw new RuntimeException("not yet implemented");
 	}
 	
 	

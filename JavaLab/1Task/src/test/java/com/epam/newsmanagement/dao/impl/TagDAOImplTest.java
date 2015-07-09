@@ -77,7 +77,6 @@ public class TagDAOImplTest extends DBTestCase {
 
 	@Test
 	public void testDeleteById() throws Exception {
-		IDataSet expected = getDataSet();
 		Long idTag = 1L;
 		tagDAO.delete(idTag);
 		assertNull(tagDAO.read(idTag));
@@ -85,7 +84,6 @@ public class TagDAOImplTest extends DBTestCase {
 
 	@Test
 	public void testDeleteTag() throws Exception {
-		IDataSet expected = getDataSet();
 		Long idTag = 1L;
 		Tag tag = new Tag();
 		tag.setId(idTag);

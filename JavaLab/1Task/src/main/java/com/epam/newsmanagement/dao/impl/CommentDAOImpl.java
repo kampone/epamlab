@@ -24,13 +24,13 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class CommentDAOImpl implements CommentDAO {
-	private static final String SQL_CREATE_NEW_COMMENT_QUERY = "INSERT INTO comments c (c.creation_date, c.comment_text, c.news_id, c.comment_id) VALUES (SYSDATE, ?, ?, comments_comment_id_seq.nextval)";
+	private static final String SQL_CREATE_COMMENT_QUERY = "INSERT INTO comments c (c.creation_date, c.comment_text, c.news_id, c.comment_id) VALUES (SYSDATE, ?, ?, comments_comment_id_seq.nextval)";
 	private static final String SQL_READ_COMMENT_BY_ID_QUERY = "SELECT c.comment_id, c.news_id, c.comment_text, c.creation_date FROM comments c WHERE c.comment_id = ? ";
 	private static final String SQL_UPDATE_COMMENT_BY_ID_QUERY = "UPDATE comments c SET  c.comment_text = ?, c.news_id = ? WHERE c.comment_id = ? ";
 	private static final String SQL_DELETE_COMMENT_BY_ID_QUERY = "DELETE FROM comments c WHERE c.comment_id = ?";
 	private static final String SQL_DELETE_COMMENT_BY_NEWS_ID_QUERY = "DELETE FROM comments c WHERE c.news_id = ?";
 	private static final String SQL_READ_COMMENTS_BY_NEWS_ID_QUERY = "SELECT c.comment_id, c.comment_text, c.creation_date FROM comments c WHERE c.news_id = ?";
-
+	
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {
@@ -53,7 +53,7 @@ public class CommentDAOImpl implements CommentDAO {
 		ResultSet resultSet = null;
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
-			statement = connection.prepareStatement(SQL_CREATE_NEW_COMMENT_QUERY, new String[] { "COMMENT_ID" });
+			statement = connection.prepareStatement(SQL_CREATE_COMMENT_QUERY, new String[] { "COMMENT_ID" });
 			String text = entity.getText();
 			Long idNews = entity.getIdNews();
 			statement.setString(1, text);
@@ -216,6 +216,26 @@ public class CommentDAOImpl implements CommentDAO {
 		} finally {
 			closeConnection(dataSource, connection, statement);
 		}
+	}
+
+	@Override
+	public void addCommentsForNews(Long idNews, List<Comment> commentList) throws DAOException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+			connection = DataSourceUtils.doGetConnection(dataSource);
+			statement = connection.prepareStatement(SQL_CREATE_COMMENT_QUERY);
+			statement.setLong(2, idNews);
+			for (Comment comment : commentList) {
+				statement.setString(1, comment.getText());
+				statement.addBatch();
+			}
+			statement.executeBatch();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		} finally {
+			closeConnection(dataSource, connection, statement);
+		}		
 	}
 
 }

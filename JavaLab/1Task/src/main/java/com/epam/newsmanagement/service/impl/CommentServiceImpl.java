@@ -116,4 +116,14 @@ public class CommentServiceImpl implements CommentService {
 		}
 	}
 
+	@Override
+	public void addCommnetsForNews(Long idNews, List<Comment> commentList) throws ServiceException {
+		try {
+			commentDAO.addCommentsForNews(idNews, commentList);		
+		} catch (DAOException e) {
+			LOG.error(" Exception during adding comments fow news  " , e);
+			throw new ServiceException(" Exception during adding comments fow news " , e);
+		}
+	}
+
 }

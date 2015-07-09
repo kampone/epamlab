@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.epam.newsmanagement.dao.NewsDAO;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
@@ -143,7 +142,7 @@ public class ServiceManagerImpl implements ServiceManager {
 
 	@Override
 	public void addCommentForNews(Long idNews, List<Comment> commentList) throws ServiceException {
-		//TODO: implement it!
+		commentService.addCommnetsForNews(idNews, commentList);
 	}
 
 	@Override

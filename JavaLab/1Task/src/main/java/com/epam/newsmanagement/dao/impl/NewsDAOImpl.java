@@ -3,7 +3,6 @@
  */
 package com.epam.newsmanagement.dao.impl;
 
-import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -22,8 +21,6 @@ import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.exception.DAOException;
 
-import oracle.net.aso.s;
-
 /**
  * @author Uladzislau_Kaminski
  *
@@ -33,12 +30,12 @@ public class NewsDAOImpl implements NewsDAO {
 	private static final String SQL_READ_NEWS_BY_ID_QUERY = "SELECT n.news_id, n.title, n.short_text, n.full_text, n.creation_date, n.modification_date FROM news n WHERE n.news_id = ?";
 	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news n SET n.title = ?, n.short_text = ?, n.full_text = ?, n.modification_date = SYSDATE WHERE n.news_id = ? ";
 	private static final String SQL_DELETE_NEWS_BY_ID_QUERY = "DELETE FROM news n WHERE n.news_id = ?";
-	private static final String SQL_READ_ALL_NEWS_QUERY = "SELECT  res.news_id, res.title, res.short_text, res.full_text, res.creation_date, res.modification_date "
+	private static final String SQL_READ_ALL_NEWS_QUERY = "SELECT DISTINCT  res.news_id, res.title, res.short_text, res.full_text, res.creation_date, res.modification_date "
 			+ "FROM ( SELECT row_number() OVER (ORDER BY nc.comments_count DESC, nc.modification_date) rn, nc.* "
 			+ "FROM (SELECT n.news_id , n.title , n.short_text ,n.full_text , n.creation_date , n.modification_date, COUNT(c.news_id) AS comments_count "
 			+ "FROM news n "
 			+ "LEFT JOIN comments c ON n.news_id=c.news_id GROUP BY n.news_id, n.title , n.short_text ,n.full_text , n.creation_date , n.modification_date) nc "
-			+ ") res  " + "WHERE res.rn  BETWEEN ? AND ? ; ";
+			+ ") res  " + "WHERE res.rn  BETWEEN ? AND ?  ";
 	private static final String SQL_ADD_SEARCH_CRITERIA_QUERY = "LEFT JOIN (SELECT na.author_id, na.news_id, nt.tag_id FROM news_tags nt "
 			+ "LEFT JOIN news_authors na ON na.news_id = nt.news_id) links ON links.news_id = nc.news_id ";
 	private static final String SQL_WHERE_AUTHOR_ID_QUERY = "WHERE links.author_id=? ";
@@ -47,7 +44,6 @@ public class NewsDAOImpl implements NewsDAO {
 
 	private DataSource dataSource;
 
-	// TODO: create number of connection
 	public DataSource getDataSource() {
 		return dataSource;
 	}
@@ -189,7 +185,6 @@ public class NewsDAOImpl implements NewsDAO {
 			int lastIndex = sbAllNews.lastIndexOf(")");
 			sbAllNews.insert(lastIndex, createQueryWithSearchCriteria(searchCriteria));
 		}
-		System.out.println(sbAllNews);
 		return sbAllNews.toString();
 	}
 
@@ -206,7 +201,6 @@ public class NewsDAOImpl implements NewsDAO {
 			}
 			sbSearchCriteria.append(makeParametres(searchCriteria));
 		}
-		System.out.println(sbSearchCriteria);
 		return sbSearchCriteria.toString();
 	}
 
@@ -220,7 +214,8 @@ public class NewsDAOImpl implements NewsDAO {
 		return sb.toString();
 	}
 
-	private PreparedStatement insertParametres(SearchCriteria sc, PreparedStatement ps, int startIndex, int lastIndex) throws DAOException {
+	private PreparedStatement insertParametres(SearchCriteria sc, PreparedStatement ps, int startIndex, int lastIndex)
+			throws DAOException {
 		try {
 			int i = 1;
 			if (sc.getIdAuthor() != null) {
@@ -231,19 +226,16 @@ public class NewsDAOImpl implements NewsDAO {
 				ps.setLong(i, id);
 				++i;
 			}
-			
-			ps.setInt(i, startIndex);
-			++i;
-			System.out.println(i);
+			ps.setInt(i++, startIndex);
 			ps.setInt(i, lastIndex);
 		} catch (SQLException e) {
 			throw new DAOException(System.lineSeparator() + " Problem during inserting parametrs ", e);
-		} 
+		}
 		return ps;
 	}
 
 	@Override
-	public List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex ) throws DAOException {
+	public List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws DAOException {
 		List<News> newsList = null;
 		News news = null;
 		Connection connection = null;
@@ -271,12 +263,10 @@ public class NewsDAOImpl implements NewsDAO {
 				newsList.add(news);
 			}
 		} catch (SQLException e) {
-			System.out.println(e);
 			throw new DAOException(System.lineSeparator() + " Problem during reading comment ", e);
 		} finally {
 			closeConnection(dataSource, connection, statement, resultSet);
 		}
-		System.out.println(newsList);
 		return newsList;
 	}
 

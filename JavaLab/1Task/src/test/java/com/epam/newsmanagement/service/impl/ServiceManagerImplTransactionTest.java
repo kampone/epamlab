@@ -32,11 +32,11 @@ public class ServiceManagerImplTransactionTest {
 		List<Long> list = new ArrayList<>();
 		searchCriteria.setIdAuthor(1L);
 		list.add(1l);
-//		list.add(2l);
-//		list.add(3l);
+		list.add(2l);
+		list.add(3l);
 //		list.add(4l);
 		searchCriteria.setIdTagList(list);
-		serviceManager.getNews(searchCriteria, 1, 10);
+		System.out.println(serviceManager.getNews(searchCriteria, 1, 10));
 		}
 //SELECT  res.news_id, res.title, res.short_text, res.full_text, res.creation_date, res.modification_date FROM ( SELECT row_number() OVER (ORDER BY nc.comments_count DESC, nc.modification_date) rn, nc.* FROM (SELECT n.news_id , n.title , n.short_text ,n.full_text , n.creation_date , n.modification_date, COUNT(c.news_id) AS comments_count FROM news n LEFT JOIN comments c ON n.news_id=c.news_id GROUP BY n.news_id, n.title , n.short_text ,n.full_text , n.creation_date , n.modification_date) nc LEFT JOIN (SELECT na.author_id, na.news_id, nt.tag_id FROM news_tags nt LEFT JOIN news_authors na ON na.news_id = nt.news_id) links ON links.news_id = nc.news_id ) res  WHERE res.rn  BETWEEN ? AND ?; 
 //SELECT  res.news_id, res.title, res.short_text, res.full_text, res.creation_date, res.modification_date FROM ( SELECT row_number() OVER (ORDER BY nc.comments_count DESC, nc.modification_date) rn, nc.* FROM (SELECT n.news_id , n.title , n.short_text ,n.full_text , n.creation_date , n.modification_date, COUNT(c.news_id) AS comments_count FROM news n LEFT JOIN comments c ON n.news_id=c.news_id GROUP BY n.news_id, n.title , n.short_text ,n.full_text , n.creation_date , n.modification_date) nc LEFT JOIN (SELECT na.author_id, na.news_id, nt.tag_id FROM news_tags nt LEFT JOIN news_authors na ON na.news_id = nt.news_id) links ON links.news_id = nc.news_id WHERE links.tag_id IN (?,?,?,?)) res  WHERE res.rn  BETWEEN ? AND ?; 

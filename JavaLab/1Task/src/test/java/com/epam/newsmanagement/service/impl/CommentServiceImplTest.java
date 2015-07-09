@@ -131,4 +131,15 @@ public class CommentServiceImplTest {
 
 	}
 
+	@Test
+	public void testAddCommnetsForNews() throws Exception {
+		//TODO
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testTakeCommentsByNewsId() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
 }

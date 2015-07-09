@@ -110,4 +110,12 @@ public class NewsServiceImplTest {
 		verify(mockNewsDAO,times(1)).delete(news.getId());
 	}
 
+	@Test
+	public void testGetNews() throws Exception {
+		//TODO
+		throw new RuntimeException("not yet implemented");
+	}
+
+	
+
 }

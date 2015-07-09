@@ -115,7 +115,6 @@ public class CommentDAOImplTest extends DBTestCase{
 	@Test
 	public void testDeleteById() throws Exception {
 		Long idComment = 1L;
-		IDataSet expected = getDataSet();
 		commentDAO.delete(idComment);
 		assertNull(commentDAO.read(idComment));
 		}
@@ -123,9 +122,14 @@ public class CommentDAOImplTest extends DBTestCase{
 	@Test
 	public void testDeleteCommentsByNewsId() throws Exception {
 		Long idNews = 1L;
-		IDataSet expected = getDataSet();
 		commentDAO.deleteCommentsByNewsId(idNews);
 		assertTrue(commentDAO.takeCommentsByNewsId(idNews).isEmpty());
+	}
+
+	@Test
+	public void testAddCommentsForNews() throws Exception {
+		//TODO
+		throw new RuntimeException("not yet implemented");
 	}
 
 }
