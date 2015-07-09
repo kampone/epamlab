@@ -29,13 +29,9 @@ public class TagServiceImpl implements TagService {
 		this.tagDAO = tagDAO;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.epam.service.NewsManagementService#create(com.epam.entity.
-	 * NewsManagementEntity)
-	 * 
-	 * @return id of tag if it is created
+	
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#create(java.lang.Object)
 	 */
 	@Override
 	public Long create(Tag entity) throws ServiceException {
@@ -47,10 +43,9 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.epam.service.NewsManagementService#read(Long)
+
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#read(java.lang.Long)
 	 */
 	@Override
 	public Tag read(Long id) throws ServiceException {
@@ -61,12 +56,9 @@ public class TagServiceImpl implements TagService {
 			throw new ServiceException(" Exception during reading Tag ", e);
 		}
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.epam.service.NewsManagementService#update(com.epam.entity.
-	 * NewsManagementEntity)
+ 
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#update(java.lang.Object)
 	 */
 	@Override
 	public void update(Tag entity) throws ServiceException {
@@ -78,11 +70,9 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.epam.service.NewsManagementService#delete(com.epam.entity.
-	 * NewsManagementEntity)
+
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(Tag entity) throws ServiceException {
@@ -95,6 +85,9 @@ public class TagServiceImpl implements TagService {
 
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(java.lang.Long)
+	 */
 	public void delete(Long idTag) throws ServiceException {
 		try {
 			tagDAO.delete(idTag);
@@ -105,6 +98,9 @@ public class TagServiceImpl implements TagService {
 
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.TagService#attachTags(java.lang.Long, java.lang.Long)
+	 */
 	@Override
 	public void attachTags(Long idNews, Long idTag) throws ServiceException {
 		try {
@@ -115,6 +111,9 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.TagService#detachTags(java.lang.Long)
+	 */
 	@Override
 	public void detachTags(Long idNews) throws ServiceException {
 		try {
@@ -126,6 +125,9 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.TagService#attachListTags(java.lang.Long, java.util.List)
+	 */
 	@Override
 	public void attachListTags(Long idNews, List<Long> idTagList) throws ServiceException {
 		try {
@@ -136,6 +138,9 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.TagService#takeNewsTags(java.lang.Long)
+	 */
 	@Override
 	public List<Tag> takeNewsTags(Long idNews) throws ServiceException {
 		try {

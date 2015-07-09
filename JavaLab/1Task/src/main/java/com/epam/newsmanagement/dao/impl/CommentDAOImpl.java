@@ -41,9 +41,9 @@ public class CommentDAOImpl implements CommentDAO {
 		this.dataSource = dataSource;
 	}
 
+
 	/**
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#create(com.epam.entity.Comment )
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#create(java.lang.Object)
 	 */
 	@Override
 	public Long create(Comment entity) throws DAOException {
@@ -74,9 +74,9 @@ public class CommentDAOImpl implements CommentDAO {
 		return id;
 	}
 
+
 	/**
-	 * @see com.epam.dao.NewsManagementDAO#read(Long )
-	 * 
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#read(java.lang.Long)
 	 */
 	@Override
 	public Comment read(Long id) throws DAOException {
@@ -108,9 +108,9 @@ public class CommentDAOImpl implements CommentDAO {
 		return comment;
 	}
 
+
 	/**
-	 * @see com.epam.dao.NewsManagementDAO#update(com.epam.entity.Comment )
-	 * 
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#update(java.lang.Object)
 	 */
 	@Override
 	public void update(Comment entity) throws DAOException {
@@ -131,10 +131,9 @@ public class CommentDAOImpl implements CommentDAO {
 
 	}
 
+	
 	/**
-	 * @throws DAOException
-	 * @see com.epam.dao.CommentDAO#takeCommentsByNewsId(Long )
-	 * 
+	 * @see com.epam.newsmanagement.dao.CommentDAO#takeCommentsByNewsId(java.lang.Long)
 	 */
 	@Override
 	public List<Comment> takeCommentsByNewsId(Long idNews) throws DAOException {
@@ -168,18 +167,18 @@ public class CommentDAOImpl implements CommentDAO {
 		return commentList;
 	}
 
+
 	/**
-	 * @see com.epam.dao.AuthorDAO#delete(com.epam.entity.Comment )
-	 * 
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(Comment entity) throws DAOException {
 		this.delete(entity.getId());
 	}
 
+	
 	/**
-	 * @see com.epam.dao.AuthorDAO#delete(Long )
-	 * 
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Long)
 	 */
 	@Override
 	public void delete(Long id) throws DAOException {
@@ -197,10 +196,9 @@ public class CommentDAOImpl implements CommentDAO {
 		}
 	}
 
+
 	/**
-	 * @throws DAOException
-	 * @see com.epam.dao.AuthorDAO#deleteCommentsByNewsId(Long)
-	 * 
+	 * @see com.epam.newsmanagement.dao.CommentDAO#deleteCommentsByNewsId(java.lang.Long)
 	 */
 	@Override
 	public void deleteCommentsByNewsId(Long idNews) throws DAOException {
@@ -218,6 +216,9 @@ public class CommentDAOImpl implements CommentDAO {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.CommentDAO#addCommentsForNews(java.util.List)
+	 */
 	@Override
 	public void addCommentsForNews(List<Comment> commentList) throws DAOException {
 		Connection connection = null;

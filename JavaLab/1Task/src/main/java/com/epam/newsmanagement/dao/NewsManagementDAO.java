@@ -71,17 +71,18 @@ public interface NewsManagementDAO<T> {
 	 void delete(Long id) throws DAOException;
 	/**
 	 * Default method that close connection
-	 * @param dataSource
-	 * @param connection
+	 * @param dataSource implements DataSource
+	 * @param connection Connection
 	 */
 	default void CloseConnection(DataSource dataSource, Connection connection) {
 		DataSourceUtils.releaseConnection(connection, dataSource);
 	}
 	/**
 	 * Default method that close connection, statement
-	 * 
+	 * @param dataSource implements DataSource
 	 * @param connection
-	 *            that should be closed
+	 *             that should be closed
+	 *             
 	 * @param statement
 	 *            that should be closed
 	 * @throws DAOException
@@ -103,7 +104,7 @@ public interface NewsManagementDAO<T> {
 
 	/**
 	 * Default method that close connection, statement
-	 * 
+	 * @param dataSource implements DataSource
 	 * @param connection
 	 *            that should be closed
 	 * @param statement

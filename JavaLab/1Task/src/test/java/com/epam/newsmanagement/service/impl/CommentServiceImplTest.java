@@ -33,10 +33,7 @@ import com.epam.newsmanagement.service.CommentService;
  * @author Uladzislau_Kaminski
  *
  */
-/**
- * @author Uladzislau_Kaminski
- *
- */
+
 @ContextConfiguration(locations = {"/TestContext.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class CommentServiceImplTest {
@@ -50,20 +47,14 @@ public class CommentServiceImplTest {
 	
 
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+	
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
         assertNotNull(commentService);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.CommentServiceImpl#create(com.epam.newsmanagement.entity.Comment)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testCreate() throws ServiceException, DAOException {
 		Comment comment = new Comment();
@@ -71,11 +62,7 @@ public class CommentServiceImplTest {
 		verify(mockCommentDAO,times(1)).create(comment);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.CommentServiceImpl#read(Long)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testRead() throws ServiceException, DAOException {
 		Comment comment = new Comment();
@@ -84,11 +71,7 @@ public class CommentServiceImplTest {
 		verify(mockCommentDAO,times(1)).read(anyLong());
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.CommentServiceImpl#update(com.epam.newsmanagement.entity.Comment)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testUpdate() throws ServiceException, DAOException {
 		Comment comment = new Comment();
@@ -96,11 +79,7 @@ public class CommentServiceImplTest {
 		verify(mockCommentDAO,times(1)).update(comment);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.CommentServiceImpl#delete(com.epam.newsmanagement.entity.Comment)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testDeleteComment() throws ServiceException, DAOException {
 		Comment comment = new Comment();
@@ -108,11 +87,7 @@ public class CommentServiceImplTest {
 		verify(mockCommentDAO,times(1)).delete(comment);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.CommentServiceImpl#delete(java.lang.Long)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testDeleteLong() throws ServiceException, DAOException {
 		Comment comment = new Comment();
@@ -120,11 +95,7 @@ public class CommentServiceImplTest {
 		verify(mockCommentDAO,times(1)).delete(comment.getId());
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.CommentServiceImpl#deleteCommentsByNewsId(Long)}.
-	 * @throws DAOException 
-	 * @throws ServiceException 
-	 */
+	
 	@Test
 	public void testDeleteCommentsByNewsId() throws DAOException, ServiceException {
 		commentService.deleteCommentsByNewsId(Mockito.anyLong());

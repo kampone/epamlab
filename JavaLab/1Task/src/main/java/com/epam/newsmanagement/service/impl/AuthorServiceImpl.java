@@ -16,22 +16,18 @@ public class AuthorServiceImpl implements AuthorService {
 	public AuthorServiceImpl() {
 	}
 
-	/**
-	 * @return the authorDAO
-	 */
+	
 	public AuthorDAO getAuthorDAO() {
 		return authorDAO;
 	}
 
-	/**
-	 * @param authorDAO
-	 *            the authorDAO to set
-	 */
+	
 	public void setAuthorDAO(AuthorDAO authorDAO) {
 		this.authorDAO = authorDAO;
 	}
 
-	/* (non-Javadoc)
+
+	/**
 	 * @see com.epam.newsmanagement.service.NewsManagementService#create(java.lang.Object)
 	 */
 	@Override
@@ -44,6 +40,9 @@ public class AuthorServiceImpl implements AuthorService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#read(java.lang.Long)
+	 */
 	@Override
 	public Author read(Long id) throws ServiceException {
 		try {
@@ -54,6 +53,9 @@ public class AuthorServiceImpl implements AuthorService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#update(java.lang.Object)
+	 */
 	@Override
 	public void update(Author entity) throws ServiceException {
 		try {
@@ -64,11 +66,17 @@ public class AuthorServiceImpl implements AuthorService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(java.lang.Object)
+	 */
 	@Override
 	public void delete(Author entity) throws ServiceException {
 		delete(entity.getId());
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(java.lang.Long)
+	 */
 	@Override
 	public void delete(Long id) throws ServiceException {
 		try {
@@ -79,6 +87,9 @@ public class AuthorServiceImpl implements AuthorService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.AuthorService#attachAuthor(java.lang.Long, java.lang.Long)
+	 */
 	@Override
 	public void attachAuthor(Long idNews, Long idAuthor)
 			throws ServiceException {

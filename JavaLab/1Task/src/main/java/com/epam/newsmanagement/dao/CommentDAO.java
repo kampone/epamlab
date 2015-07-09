@@ -30,7 +30,6 @@ public interface CommentDAO extends NewsManagementDAO<Comment> {
 
 	 /**
 	  * Create list of comments for news
-	  * @param idNews news id
 	  * @param commentList list of comments 
 	  * @throws DAOException if trouble with connection with database 
 	  */

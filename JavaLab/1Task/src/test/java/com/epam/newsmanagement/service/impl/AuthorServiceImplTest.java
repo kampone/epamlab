@@ -46,11 +46,6 @@ public class AuthorServiceImplTest {
         assertNotNull(authorService);
     }
  
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#create(com.epam.newsmanagement.entity.Author)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
 		
 	@Test
 	public void testCreate() throws ServiceException, DAOException {
@@ -64,11 +59,7 @@ public class AuthorServiceImplTest {
 		
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#read(Long)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testRead() throws ServiceException, DAOException {
 		Author author = new Author();
@@ -78,11 +69,7 @@ public class AuthorServiceImplTest {
 		assertEquals(author, actual);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#update(com.epam.newsmanagement.entity.Author)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testUpdate() throws ServiceException, DAOException {
 		Author author = new Author();
@@ -90,11 +77,7 @@ public class AuthorServiceImplTest {
 		verify(mockAuthorDAO,times(1)).update(author);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#delete(com.epam.newsmanagement.entity.Author)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testDeleteAuthor() throws ServiceException, DAOException {
 		Author author = new Author();
@@ -102,11 +85,7 @@ public class AuthorServiceImplTest {
 		verify(mockAuthorDAO,times(1)).delete(author.getId());
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#delete(java.lang.Long)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testDeleteLong() throws ServiceException, DAOException {
 		Author author = new Author();
@@ -114,11 +93,7 @@ public class AuthorServiceImplTest {
 		verify(mockAuthorDAO,times(1)).delete(author.getId());
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#attachAuthor(Long, Long)}.
-	 * @throws DAOException 
-	 * @throws ServiceException 
-	 */
+	
 	@Test
 	public void testAttachAuthors() throws DAOException, ServiceException {
 		
@@ -126,11 +101,8 @@ public class AuthorServiceImplTest {
 		verify(mockAuthorDAO,times(1)).attachAuthor(anyLong(), anyLong());
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.AuthorServiceImpl#detachAuthor(Long)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	 
+
 	@Test
 	public void testDetachAuthors() throws ServiceException, DAOException {
 		News news = new News();

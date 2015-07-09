@@ -77,11 +77,7 @@ public class NewsDAOImplTest extends DBTestCase {
 		String creationDate = "2012-12-20 12:20:10.0";
 		String modificationDate = "2013-12-20";
 		News news = newsDAO.read(idNews);
-		/*
-		 * <news news_id="1" title="test_title0" short_text="short text0"
-		 * full_text="full text0" creation_date="2012-12-20 12:20:10"
-		 * modification_date="2013-12-20" />
-		 */
+		
 		assertEquals(idNews, news.getId());
 		assertEquals(title, news.getTitle());
 		assertEquals(shortText, news.getShortText());

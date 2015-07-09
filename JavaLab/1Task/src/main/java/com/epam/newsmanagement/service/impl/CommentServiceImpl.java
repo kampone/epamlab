@@ -13,10 +13,12 @@ import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.CommentService;
 
+
 /**
  * @author Uladzislau_Kaminski
  *
  */
+
 public class CommentServiceImpl implements CommentService {
 	private static final Logger LOG = Logger.getLogger(CommentServiceImpl.class);
 
@@ -31,8 +33,8 @@ public class CommentServiceImpl implements CommentService {
 		this.commentDAO = commentDAO;
 	}
 
-	/* (non-Javadoc)
-	 * @see com.epam.newsmanagement.service.NewsManagementService#create(com.epam.newsmanagement.entity.NewsManagementEntity)
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#create(java.lang.Object)
 	 */
 	@Override
 	public Long create(Comment entity) throws ServiceException {
@@ -45,8 +47,9 @@ public class CommentServiceImpl implements CommentService {
 	
 	}
 
-	/** 
-	 * @see com.epam.newsmanagement.service.NewsManagementService#read(Long)
+	
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#read(java.lang.Long)
 	 */
 	@Override
 	public Comment read(Long id) throws ServiceException {
@@ -58,8 +61,9 @@ public class CommentServiceImpl implements CommentService {
 		}
 	}
 
-	/** 
-	 * @see com.epam.newsmanagement.service.NewsManagementService#update(com.epam.newsmanagement.entity.NewsManagementEntity)
+
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#update(java.lang.Object)
 	 */
 	@Override
 	public void update(Comment entity) throws ServiceException {
@@ -72,8 +76,9 @@ public class CommentServiceImpl implements CommentService {
 
 	}
 
-	/** 
-	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(com.epam.newsmanagement.entity.NewsManagementEntity)
+	
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(Comment entity) throws ServiceException {
@@ -84,7 +89,10 @@ public class CommentServiceImpl implements CommentService {
 			throw new ServiceException(" Exception during deleting Comment " , e);
 		}
 	}
-
+	
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(java.lang.Long)
+	 */
 	@Override
 	public void delete(Long id) throws ServiceException {
 		try {
@@ -106,6 +114,9 @@ public class CommentServiceImpl implements CommentService {
 		
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.CommentService#takeCommentsByNewsId(java.lang.Long)
+	 */
 	@Override
 	public List<Comment> takeCommentsByNewsId(Long idNews) throws ServiceException {
 		try {
@@ -116,6 +127,9 @@ public class CommentServiceImpl implements CommentService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.CommentService#addCommnetsForNews(java.util.List)
+	 */
 	@Override
 	public void addCommnetsForNews(List<Comment> commentList) throws ServiceException {
 		try {

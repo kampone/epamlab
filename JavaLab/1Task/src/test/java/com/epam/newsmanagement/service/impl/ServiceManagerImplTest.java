@@ -40,14 +40,7 @@ import com.epam.newsmanagement.service.TagService;
  *
  */
 
-/**
- * @author Uladzislau_Kaminski
- *
- */
-/**
- * @author Uladzislau_Kaminski
- *
- */
+
 @ContextConfiguration(locations = { "/TestContext.xml" })
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ServiceManagerImplTest {
@@ -65,23 +58,14 @@ public class ServiceManagerImplTest {
 	@Autowired
 	private ServiceManager serviceManager;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
+	
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		assertNotNull(serviceManager);
 	}
 
-	/**
-	 * Test method for
-	 * {@link com.epam.newsmanagement.service.impl.ServiceManagerImpl#addNews(com.epam.newsmanagement.entity.News, Long, java.util.List)}
-	 * .
-	 * 
-	 * @throws ServiceException
-	 * @throws DAOException
-	 */
+	
 	@Test
 	public void testAddNews() throws ServiceException, DAOException {
 		News news = new News();
@@ -94,14 +78,7 @@ public class ServiceManagerImplTest {
 		verify(mockAuthorService, times(1)).attachAuthor(anyLong(), anyLong());
 	}
 
-	/**
-	 * Test method for
-	 * {@link com.epam.newsmanagement.service.impl.ServiceManagerImpl#updateNews(com.epam.newsmanagement.entity.News, Long, java.util.List, java.util.List)}
-	 * .
-	 * 
-	 * @throws ServiceException
-	 * @throws DAOException
-	 */
+
 	@Test
 	public void testUpdateNews() throws ServiceException, DAOException {
 		News news = new News();
@@ -115,14 +92,7 @@ public class ServiceManagerImplTest {
 		verify(mockAuthorService, times(1)).attachAuthor(anyLong(), anyLong());
 	}
 
-	/**
-	 * Test method for
-	 * {@link com.epam.newsmanagement.service.impl.ServiceManagerImpl#deleteNews(java.lang.Long)}
-	 * .
-	 * 
-	 * @throws ServiceException
-	 * @throws DAOException
-	 */
+	
 	@Test
 	public void testDeleteNews() throws ServiceException, DAOException {
 		serviceManager.deleteNews(anyLong());

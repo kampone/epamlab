@@ -26,6 +26,9 @@ public class AuthorDAOImplTest extends DBTestCase {
 	@Autowired
 	private IDatabaseTester tester;
 
+	/**
+	 * @see org.dbunit.DatabaseTestCase#setUp()
+	 */
 	@Before
 	public void setUp() throws Exception {
 		IDataSet dataSet = getDataSet();

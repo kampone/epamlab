@@ -18,37 +18,28 @@ import com.epam.newsmanagement.service.NewsService;
  * @author Uladzislau_Kaminski
  *
  */
+/**
+ * @author Uladzislau_Kaminski
+ *
+ */
 public class NewsServiceImpl implements NewsService {
 	private static final Logger LOG = Logger.getLogger(NewsServiceImpl.class);
 
 	private NewsDAO newsDAO;
 
-	/**
-	 * 
-	 */
 	public NewsServiceImpl() {
 	}
 
-	/**
-	 * @return the newsDAO
-	 */
 	public NewsDAO getNewsDAO() {
 		return newsDAO;
 	}
 
-	/**
-	 * @param newsDAO
-	 *            the newsDAO to set
-	 */
 	public void setNewsDAO(NewsDAO newsDAO) {
 		this.newsDAO = newsDAO;
 	}
 
 	/**
-	 *
-	 * 
-	 * @see com.epam.newsmanagement.service.NewsManagementService#create(java.lang
-	 *      .Object)
+	 * @see com.epam.newsmanagement.service.NewsManagementService#create(java.lang.Object)
 	 */
 	@Override
 	public Long create(News entity) throws ServiceException {
@@ -60,10 +51,8 @@ public class NewsServiceImpl implements NewsService {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.epam.newsmanagement.service.NewsManagementService#read(Long)
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#read(java.lang.Long)
 	 */
 	@Override
 	public News read(Long id) throws ServiceException {
@@ -75,12 +64,8 @@ public class NewsServiceImpl implements NewsService {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.epam.newsmanagement.service.NewsManagementService#update(java.lang
-	 * .Object)
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#update(java.lang.Object)
 	 */
 	@Override
 	public void update(News entity) throws ServiceException {
@@ -92,12 +77,8 @@ public class NewsServiceImpl implements NewsService {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.epam.newsmanagement.service.NewsManagementService#delete(java.lang
-	 * .Object)
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(News entity) throws ServiceException {
@@ -109,12 +90,9 @@ public class NewsServiceImpl implements NewsService {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.epam.newsmanagement.service.NewsManagementService#delete(java.lang
-	 * .Long)
+	
+	/**
+	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(java.lang.Long)
 	 */
 	@Override
 	public void delete(Long id) throws ServiceException {
@@ -126,6 +104,9 @@ public class NewsServiceImpl implements NewsService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.NewsService#getNews(com.epam.newsmanagement.entity.SearchCriteria, int, int)
+	 */
 	@Override
 	public List<News> getNews(SearchCriteria searchCriteria, int startindex, int lastIndex) throws ServiceException {
 		try {

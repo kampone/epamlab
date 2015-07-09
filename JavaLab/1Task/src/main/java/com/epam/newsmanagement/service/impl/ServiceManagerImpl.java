@@ -92,6 +92,9 @@ public class ServiceManagerImpl implements ServiceManager {
 		this.newsService = newsService;
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#addNews(com.epam.newsmanagement.entity.News, java.lang.Long, java.util.List)
+	 */
 	@Override
 	public Long addNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException {
 		Long idNews = newsService.create(news);
@@ -101,6 +104,9 @@ public class ServiceManagerImpl implements ServiceManager {
 		
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#updateNews(com.epam.newsmanagement.entity.News, java.lang.Long, java.util.List)
+	 */
 	@Override
 	public void updateNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException {
 		tagService.detachTags(news.getId());
@@ -111,6 +117,9 @@ public class ServiceManagerImpl implements ServiceManager {
 
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#deleteNews(java.lang.Long)
+	 */
 	@Override
 	public void deleteNews(Long idNews) throws ServiceException {
 		tagService.detachTags(idNews);
@@ -120,31 +129,49 @@ public class ServiceManagerImpl implements ServiceManager {
 
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#getNews(com.epam.newsmanagement.entity.SearchCriteria, int, int)
+	 */
 	@Override
 	public List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException {
 		return newsService.getNews(searchCriteria, startIndex,  lastIndex);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#getSingleNews(java.lang.Long)
+	 */
 	@Override
 	public News getSingleNews(Long idNews) throws ServiceException {
 		return newsService.read(idNews);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#addNewAuthor(com.epam.newsmanagement.entity.Author)
+	 */
 	@Override
 	public Long addNewAuthor(Author author) throws ServiceException {
 		return authorService.create(author);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#attachListTagsForNews(java.lang.Long, java.util.List)
+	 */
 	@Override
 	public void attachListTagsForNews(Long idNews, List<Long> idTagList) throws ServiceException {
 		tagService.attachListTags(idNews, idTagList);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#addCommentForNews(java.util.List)
+	 */
 	@Override
 	public void addCommentForNews(List<Comment> commentList) throws ServiceException {
 		commentService.addCommnetsForNews(commentList);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#deleteCommentsByNewsId(java.lang.Long)
+	 */
 	@Override
 	public void deleteCommentsByNewsId(Long idNews) throws ServiceException {
 		commentService.deleteCommentsByNewsId(idNews);

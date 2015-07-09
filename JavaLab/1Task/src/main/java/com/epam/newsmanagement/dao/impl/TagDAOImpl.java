@@ -42,9 +42,9 @@ public class TagDAOImpl implements TagDAO {
 		this.dataSource = dataSource;
 	}
 
+
 	/**
-	 * @return return tag id if it is created
-	 * @see com.epam.dao.NewsManagementDAO
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#create(java.lang.Object)
 	 */
 	@Override
 	public Long create(Tag entity) throws DAOException {
@@ -72,9 +72,9 @@ public class TagDAOImpl implements TagDAO {
 		return id;
 	}
 
+	
 	/**
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#read(Long)
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#read(java.lang.Long)
 	 */
 	@Override
 	public Tag read(Long id) throws DAOException {
@@ -106,10 +106,9 @@ public class TagDAOImpl implements TagDAO {
 		return tag;
 	}
 
+	
 	/**
-	 * 
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#update(com.epam.entity.Tag )
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#update(java.lang.Object)
 	 */
 	@Override
 	public void update(Tag entity) throws DAOException {
@@ -128,10 +127,9 @@ public class TagDAOImpl implements TagDAO {
 		}
 	}
 
+
 	/**
-	 *
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#delete(Long )
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Long)
 	 */
 	@Override
 	public void delete(Long id) throws DAOException {
@@ -149,20 +147,18 @@ public class TagDAOImpl implements TagDAO {
 		}
 	}
 
+
 	/**
-	 *
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#delete(com.epam.entity.Tag )
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(Tag entity) throws DAOException {
 		this.delete(entity.getId());
 	}
 
+
 	/**
-	 *
-	 * 
-	 * @see com.epam.dao.TagDAO#attachTags(java.lang.Long, java.lang.Long)
+	 * @see com.epam.newsmanagement.dao.TagDAO#attachTags(java.lang.Long, java.lang.Long)
 	 */
 	@Override
 	public void attachTags(Long idNews, Long idTag) throws DAOException {
@@ -182,10 +178,9 @@ public class TagDAOImpl implements TagDAO {
 		}
 	}
 
+	
 	/**
-	 *
-	 * 
-	 * @see com.epam.dao.TagDAO#detachTags(Long)
+	 * @see com.epam.newsmanagement.dao.TagDAO#detachTags(java.lang.Long)
 	 */
 	@Override
 	public void detachTags(Long idNews) throws DAOException {
@@ -204,6 +199,9 @@ public class TagDAOImpl implements TagDAO {
 
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.TagDAO#attachListTags(java.lang.Long, java.util.List)
+	 */
 	@Override
 	public void attachListTags(Long idNews, List<Long> idTagList) throws DAOException {
 		Connection connection = null;
@@ -226,9 +224,7 @@ public class TagDAOImpl implements TagDAO {
 	}
 
 	/**
-	 *
-	 * 
-	 * @see com.epam.dao.Tag#takeNewsTags(Long)
+	 * @see com.epam.newsmanagement.dao.TagDAO#takeNewsTags(java.lang.Long)
 	 */
 	@Override
 	public List<Tag> takeNewsTags(Long idNews) throws DAOException {

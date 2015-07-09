@@ -39,10 +39,9 @@ public class AuthorDAOImpl implements AuthorDAO {
 		this.dataSource = dataSource;
 	}
 
+	
 	/**
-	 * 
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#create(java.lang.Object)
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#create(java.lang.Object)
 	 */
 	@Override
 	public Long create(Author entity) throws DAOException {
@@ -70,10 +69,9 @@ public class AuthorDAOImpl implements AuthorDAO {
 		return id;
 	}
 
+	
 	/**
-	 * 
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#read(java.lang.Long)
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#read(java.lang.Long)
 	 */
 	@Override
 	public Author read(Long id) throws DAOException {
@@ -103,10 +101,9 @@ public class AuthorDAOImpl implements AuthorDAO {
 		return author;
 	}
 
+	
 	/**
-	 * 
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#update(java.lang .Object )
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#update(java.lang.Object)
 	 */
 	@Override
 	public void update(Author entity) throws DAOException {
@@ -126,10 +123,9 @@ public class AuthorDAOImpl implements AuthorDAO {
 
 	}
 
+
 	/**
-	 *
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#delete(com.epam.entity.Author )
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(Author entity) throws DAOException {
@@ -151,10 +147,9 @@ public class AuthorDAOImpl implements AuthorDAO {
 			closeConnection(dataSource, connection, statement);
 		}
 	}
+
 	/**
-	 *
-	 * 
-	 * @see com.epam.dao.AuthorDAO#attachAuthor(Long,Long)
+	 * @see com.epam.newsmanagement.dao.AuthorDAO#attachAuthor(java.lang.Long, java.lang.Long)
 	 */
 	@Override
 	public void attachAuthor(Long idNews, Long idAuthor) throws DAOException {
@@ -174,10 +169,9 @@ public class AuthorDAOImpl implements AuthorDAO {
 		}
 	}
 
+	
 	/**
-	 *
-	 * 
-	 * @see com.epam.dao.AuthorDAO#detachAuthor(Long)
+	 * @see com.epam.newsmanagement.dao.AuthorDAO#detachAuthor(java.lang.Long)
 	 */
 	@Override
 	public void detachAuthor(Long idNews) throws DAOException {
@@ -195,6 +189,9 @@ public class AuthorDAOImpl implements AuthorDAO {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.AuthorDAO#takeAuthorByNewsId(java.lang.Long)
+	 */
 	@Override
 	public Author takeAuthorByNewsId(Long idNews) throws DAOException {
 		Author author = null;

@@ -40,22 +40,13 @@ public class NewsServiceImplTest {
 	@Autowired
 	private NewsService newsService;
 	
-
-	
-	/**
-	 * @throws java.lang.Exception
-	 */
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
         assertNotNull(newsService);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.NewsServiceImpl#create(com.epam.newsmanagement.entity.News)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testCreate() throws ServiceException, DAOException {
 		News news = new News();
@@ -63,11 +54,7 @@ public class NewsServiceImplTest {
 		verify(mockNewsDAO,times(1)).create(news);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.NewsServiceImpl#read(Long)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testRead() throws ServiceException, DAOException {
 		Long idNews = 1L;
@@ -75,11 +62,7 @@ public class NewsServiceImplTest {
 		verify(mockNewsDAO,times(1)).read(idNews);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.NewsServiceImpl#update(com.epam.newsmanagement.entity.News)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testUpdate() throws ServiceException, DAOException {
 		News news = new News();
@@ -87,11 +70,6 @@ public class NewsServiceImplTest {
 		verify(mockNewsDAO,times(1)).update(news);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.NewsServiceImpl#delete(com.epam.newsmanagement.entity.News)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
 	@Test
 	public void testDeleteNews() throws ServiceException, DAOException {
 		News news = new News();
@@ -99,11 +77,7 @@ public class NewsServiceImplTest {
 		verify(mockNewsDAO,times(1)).delete(news);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.NewsServiceImpl#delete(java.lang.Long)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testDeleteById() throws ServiceException, DAOException {
 		News news = new News();

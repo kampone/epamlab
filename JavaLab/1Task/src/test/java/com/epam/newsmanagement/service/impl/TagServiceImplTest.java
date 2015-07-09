@@ -44,20 +44,14 @@ public class TagServiceImplTest {
 	private TagService tagService;
 	
 	
-	/**
-	 * @throws java.lang.Exception
-	 */
+	
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
         assertNotNull(tagService);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#create(com.epam.newsmanagement.entity.Tag)}.
-	 * @throws DAOException 
-	 * @throws ServiceException 
-	 */
+	
 	@Test
 	public void testCreate() throws DAOException, ServiceException {
 		Long expected = 1L;
@@ -67,11 +61,6 @@ public class TagServiceImplTest {
 		verify(mockTagDAO,times(1)).create(tag);
 		assertEquals(expected, actual);	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#read(Long)}.
-	 * @throws DAOException 
-	 * @throws ServiceException 
-	 */
 	@Test
 	public void testRead() throws DAOException, ServiceException {
 		Tag tag = new Tag();
@@ -81,11 +70,7 @@ public class TagServiceImplTest {
 		assertEquals(tag, actual);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#update(com.epam.newsmanagement.entity.Tag)}.
-	 * @throws DAOException 
-	 * @throws ServiceException 
-	 */
+	
 	@Test
 	public void testUpdate() throws DAOException, ServiceException {
 		Tag tag = new Tag();
@@ -93,11 +78,7 @@ public class TagServiceImplTest {
 		verify(mockTagDAO,times(1)).update(tag);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#delete(com.epam.newsmanagement.entity.Tag)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testDeleteTag() throws ServiceException, DAOException {
 		Tag tag = new Tag();
@@ -105,11 +86,7 @@ public class TagServiceImplTest {
 		verify(mockTagDAO,times(1)).delete(tag);
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#delete(java.lang.Long)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testDeleteById() throws ServiceException, DAOException {
 		Tag tag = new Tag();
@@ -117,44 +94,28 @@ public class TagServiceImplTest {
 		verify(mockTagDAO,times(1)).delete(tag.getId());
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#attachTags(Long, Long)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testAttachTags() throws ServiceException, DAOException {
 		tagService.attachTags(anyLong(), anyLong());
 		verify(mockTagDAO,times(1)).attachTags(anyLong(), anyLong());
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#detachTags(Long)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testDetachTags() throws ServiceException, DAOException {
 		tagService.detachTags(anyLong());
 		verify(mockTagDAO,times(1)).detachTags(anyLong());
 	}
 
-	/**
-	 * Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#attachListTags(Long, java.util.List)}.
-	 * @throws ServiceException 
-	 * @throws DAOException 
-	 */
+	
 	@Test
 	public void testAttachListTags() throws ServiceException, DAOException {
 		tagService.attachListTags(anyLong(), anyList());
 		verify(mockTagDAO,times(1)).attachListTags(anyLong(), anyList());
 	}
 	
-	/**	 
-	 *  Test method for {@link com.epam.newsmanagement.service.impl.TagServiceImpl#takeNewsTags(Long)}.
-	 * @throws ServiceException
-	 * @throws DAOException
-	 */
+	
 	@Test
 	public void testTakeNewsTags() throws ServiceException, DAOException{
 		tagService.takeNewsTags(anyLong());

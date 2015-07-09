@@ -52,9 +52,9 @@ public class NewsDAOImpl implements NewsDAO {
 		this.dataSource = dataSource;
 	}
 
+	
 	/**
-	 * @return return tag id if it is created
-	 * @see com.epam.dao.NewsManagementDAO#create(com.epam.entity.News)
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#create(java.lang.Object)
 	 */
 	@Override
 	public Long create(News entity) throws DAOException {
@@ -87,9 +87,7 @@ public class NewsDAOImpl implements NewsDAO {
 	}
 
 	/**
-	 *
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#read(Long)
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#read(java.lang.Long)
 	 */
 	@Override
 	public News read(Long id) throws DAOException {
@@ -126,8 +124,7 @@ public class NewsDAOImpl implements NewsDAO {
 	}
 
 	/**
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#update(com.epam.entity.News )
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#update(java.lang.Object)
 	 */
 	@Override
 	public void update(News entity) throws DAOException {
@@ -149,18 +146,19 @@ public class NewsDAOImpl implements NewsDAO {
 		}
 	}
 
+	
+	
 	/**
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#delete(com.epam.entity.News )
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Object)
 	 */
 	@Override
 	public void delete(News entity) throws DAOException {
 		this.delete(entity.getId());
 	}
 
+
 	/**
-	 * 
-	 * @see com.epam.dao.NewsManagementDAO#delete(java.lang.Long )
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Long)
 	 */
 	@Override
 	public void delete(Long id) throws DAOException {
@@ -236,6 +234,9 @@ public class NewsDAOImpl implements NewsDAO {
 		return ps;
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.NewsDAO#getNews(com.epam.newsmanagement.entity.SearchCriteria, int, int)
+	 */
 	@Override
 	public List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws DAOException {
 		List<News> newsList = null;
