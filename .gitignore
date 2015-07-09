@@ -1,9 +1,4 @@
-javadoc
-lib
-log
-target
-JavaLab/1Task/log/
-RemoteSystemsTempFiles
+
 .class
 .classpath
 .metadata
@@ -11,4 +6,8 @@ RemoteSystemsTempFiles
 .recommenders
 .project
 
-
+javadoc
+lib
+log
+target
+RemoteSystemsTempFiles
