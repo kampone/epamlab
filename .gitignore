@@ -5,6 +5,7 @@
 .settings
 .recommenders
 .project
+springBeans.xml
 
 javadoc
 lib
