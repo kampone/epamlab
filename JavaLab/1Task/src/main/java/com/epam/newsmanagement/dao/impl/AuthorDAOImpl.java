@@ -29,6 +29,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 	private static final String SQL_INSERT_NEWS_AUTHOR_QUERY = "INSERT INTO news_authors na (na.news_id, na.author_id) VALUES (?, ?)";
 	private static final String SQL_DELETE_NEWS_AUTHOR_QUERY = "DELETE FROM news_authors na WHERE na.news_id = ?";
 	private static final String SQL_READ_AUTHOR_BY_NEWS_ID_QUERY = "SELECT a.author_id, a.author_name, a.expired FROM authors a INNER JOIN news_authors na ON na.author_id = a.author_id  WHERE na.news_id = ?";;
+	
 	private DataSource dataSource;
 
 	public DataSource getDataSource() {

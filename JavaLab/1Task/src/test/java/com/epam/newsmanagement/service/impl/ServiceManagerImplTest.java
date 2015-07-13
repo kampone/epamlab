@@ -146,4 +146,18 @@ public class ServiceManagerImplTest {
 		verify(mockNewsService, times(1)).getNews(null, i, i);
 	}
 
+
+	@Test
+	public void testGetNewsVO() throws Exception {
+		Long idNews = 1L;
+		serviceManager.getNewsVO(idNews);
+		verify(mockNewsService, times(1)).read(idNews);
+		verify(mockAuthorService, times(1)).takeAuthorByNewsId(idNews);
+		verify(mockTagService, times(1)).takeNewsTags(idNews);
+		verify(mockCommentService, times(1)).takeCommentsByNewsId(idNews);
+
+		
+
+		}
+
 }

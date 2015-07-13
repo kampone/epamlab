@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.NewsVO;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.AuthorService;
@@ -175,6 +176,19 @@ public class ServiceManagerImpl implements ServiceManager {
 	@Override
 	public void deleteCommentsByNewsId(Long idNews) throws ServiceException {
 		commentService.deleteCommentsByNewsId(idNews);
+	}
+
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#getNewsVO(java.lang.Long)
+	 */
+	@Override
+	public NewsVO getNewsVO(Long idNews) throws ServiceException {
+		NewsVO newsVO = new NewsVO();
+		newsVO.setNews(newsService.read(idNews));
+		newsVO.setAuthor(authorService.takeAuthorByNewsId(idNews));
+		newsVO.setTagList(tagService.takeNewsTags(idNews));
+		newsVO.setCommentList(commentService.takeCommentsByNewsId(idNews));
+		return newsVO;
 	}
 
 }

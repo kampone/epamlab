@@ -5,58 +5,47 @@ import java.util.List;
 
 public class NewsVO {
 	private News news;
-	private List<Long> tagsId;
-	private List<Long> commentsId;
-	private Long idAuthor;
-
+	private Author author;
+	private List<Tag> tagList;
+	private List<Comment> commentList;
 	public NewsVO() {
-		tagsId = new ArrayList<Long>();
-		commentsId = new ArrayList<Long>();
+		tagList = new ArrayList<>();
+		commentList = new ArrayList<>();
 	}
-
 	public News getNews() {
 		return news;
 	}
-
 	public void setNews(News news) {
 		this.news = news;
 	}
-
-	public List<Long> getTagsId() {
-		return tagsId;
+	public Author getAuthor() {
+		return author;
 	}
-
-	public void setTagsId(List<Long> tagsId) {
-		this.tagsId = tagsId;
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
-
-	public List<Long> getCommentsId() {
-		return commentsId;
+	public List<Tag> getTagList() {
+		return tagList;
 	}
-
-	public void setCommentsId(List<Long> commentsId) {
-		this.commentsId = commentsId;
+	public void setTagList(List<Tag> tagList) {
+		this.tagList = tagList;
 	}
-
-	public Long getIdAuthor() {
-		return idAuthor;
+	public List<Comment> getCommentList() {
+		return commentList;
 	}
-
-	public void setIdAuthor(Long idAuthor) {
-		this.idAuthor = idAuthor;
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((commentsId == null) ? 0 : commentsId.hashCode());
-		result = prime * result + ((idAuthor == null) ? 0 : idAuthor.hashCode());
+		result = prime * result + ((author == null) ? 0 : author.hashCode());
+		result = prime * result + ((commentList == null) ? 0 : commentList.hashCode());
 		result = prime * result + ((news == null) ? 0 : news.hashCode());
-		result = prime * result + ((tagsId == null) ? 0 : tagsId.hashCode());
+		result = prime * result + ((tagList == null) ? 0 : tagList.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -66,27 +55,30 @@ public class NewsVO {
 		if (getClass() != obj.getClass())
 			return false;
 		NewsVO other = (NewsVO) obj;
-		if (commentsId == null) {
-			if (other.commentsId != null)
+		if (author == null) {
+			if (other.author != null)
 				return false;
-		} else if (!commentsId.equals(other.commentsId))
+		} else if (!author.equals(other.author))
 			return false;
-		if (idAuthor == null) {
-			if (other.idAuthor != null)
+		if (commentList == null) {
+			if (other.commentList != null)
 				return false;
-		} else if (!idAuthor.equals(other.idAuthor))
+		} else if (!commentList.equals(other.commentList))
 			return false;
 		if (news == null) {
 			if (other.news != null)
 				return false;
 		} else if (!news.equals(other.news))
 			return false;
-		if (tagsId == null) {
-			if (other.tagsId != null)
+		if (tagList == null) {
+			if (other.tagList != null)
 				return false;
-		} else if (!tagsId.equals(other.tagsId))
+		} else if (!tagList.equals(other.tagList))
 			return false;
 		return true;
 	}
-
+	
+	
+	
+	
 }
