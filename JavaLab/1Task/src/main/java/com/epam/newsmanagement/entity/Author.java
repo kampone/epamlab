@@ -3,7 +3,7 @@ package com.epam.newsmanagement.entity;
 import java.sql.Timestamp;
 
 public class Author{
-	private Long idAuthor;
+	private Long authorId;
 	private String name;
 	private Timestamp expired;
 
@@ -14,14 +14,14 @@ public class Author{
 	 * @return the id
 	 */
 	public Long getId() {
-		return idAuthor;
+		return authorId;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(Long id) {
-		this.idAuthor = id;
+		this.authorId = id;
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class Author{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((expired == null) ? 0 : expired.hashCode());
-		result = prime * result + ((idAuthor == null) ? 0 : idAuthor.hashCode());
+		result = prime * result + ((authorId == null) ? 0 : authorId.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -76,10 +76,10 @@ public class Author{
 				return false;
 		} else if (!expired.equals(other.expired))
 			return false;
-		if (idAuthor == null) {
-			if (other.idAuthor != null)
+		if (authorId == null) {
+			if (other.authorId != null)
 				return false;
-		} else if (!idAuthor.equals(other.idAuthor))
+		} else if (!authorId.equals(other.authorId))
 			return false;
 		if (name == null) {
 			if (other.name != null)

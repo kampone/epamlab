@@ -10,7 +10,6 @@ import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.NewsVO;
 import com.epam.newsmanagement.entity.SearchCriteria;
-import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 
 /**
@@ -23,39 +22,39 @@ public interface ServiceManager {
 	 * 
 	 * @param news
 	 *            that will be created
-	 * @param idAuthor
+	 * @param authorId
 	 *            of news
-	 * @param idTagList
+	 * @param tagIdList
 	 *            id list of news tags
 	 * @return id of news
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	Long addNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException;
+	Long addNews(News news, Long authorId, List<Long> tagIdList) throws ServiceException;
 
 	/**
 	 * Update news in transaction
 	 * 
 	 * @param news
 	 *            that will be update
-	 * @param idAuthor
+	 * @param authorId
 	 *            of news
-	 * @param idTagList
+	 * @param tagIdList
 	 *            id list of news tags
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	void updateNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException;
+	void updateNews(News news, Long authorId, List<Long> tagIdList) throws ServiceException;
 
 	/**
 	 * Delete news and its comments and detach author and tags by id
 	 * 
-	 * @param idNews
+	 * @param newsId
 	 *            that should be deleted
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	void deleteNews(Long idNews) throws ServiceException;
+	void deleteNews(Long newsId) throws ServiceException;
 
 	/**
 	 * Return news which satisfy search criteria
@@ -76,16 +75,16 @@ public interface ServiceManager {
 	/**
 	 * Return news with this id
 	 * 
-	 * @param idNews
+	 * @param newsId
 	 *            News Id
 	 * @return News with this id
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	News getSingleNews(Long idNews) throws ServiceException;
+	News getSingleNews(Long newsId) throws ServiceException;
 
 	/**
-	 * Create new author in datebase
+	 * Create new author in database
 	 * 
 	 * @param author
 	 *            that should be created
@@ -98,14 +97,14 @@ public interface ServiceManager {
 	/**
 	 * Attach Tag list to News
 	 * 
-	 * @param idNews
+	 * @param newsId
 	 *            News id
-	 * @param idTagList
+	 * @param tagIdList
 	 *            List of Tag id
 	 * @throws ServiceException
 	 *             if trouble in DAO layer
 	 */
-	void attachListTagsForNews(Long idNews, List<Long> idTagList) throws ServiceException;
+	void attachListTagsForNews(Long newsId, List<Long> tagIdList) throws ServiceException;
 
 	/**
 	 * Add list of comments to news by news id
@@ -120,20 +119,20 @@ public interface ServiceManager {
 	/**
 	 * Delete all comments of news by news id
 	 * 
-	 * @param idNews
+	 * @param newsId
 	 *            news id
 	 * @throws ServiceException
 	 *             if trouble in DAO layer
 	 */
-	void deleteCommentsByNewsId(Long idNews) throws ServiceException;
+	void deleteCommentsByNewsId(Long newsId) throws ServiceException;
 	
 	
 	/**
 	 * Get News ValueObject with author, tags, comments 
-	 * @param idNews id of News
+	 * @param newsId id of News
 	 * @return NewsVO
 	 * @throws ServiceException
 	 *             if trouble in DAO layer
 	 */
-	NewsVO getNewsVO(Long idNews) throws ServiceException;
+	NewsVO getNewsVO(Long newsId) throws ServiceException;
 }

@@ -24,11 +24,6 @@ public class CommentServiceImpl implements CommentService {
 
 	private CommentDAO commentDAO;
 	
-	
-	public CommentDAO getCommentDAO() {
-		return commentDAO;
-	}
-
 	public void setCommentDAO(CommentDAO commentDAO) {
 		this.commentDAO = commentDAO;
 	}
@@ -115,12 +110,12 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.CommentService#takeCommentsByNewsId(java.lang.Long)
+	 * @see com.epam.newsmanagement.service.CommentService#getCommentsByNewsId(java.lang.Long)
 	 */
 	@Override
-	public List<Comment> takeCommentsByNewsId(Long idNews) throws ServiceException {
+	public List<Comment> getCommentsByNewsId(Long idNews) throws ServiceException {
 		try {
-			return commentDAO.takeCommentsByNewsId(idNews);
+			return commentDAO.getCommentsByNewsId(idNews);
 		} catch (DAOException e) {
 			LOG.error(" Exception during taking Comment by news id " , e);
 			throw new ServiceException(" Exception during taking Comment by new id " , e);

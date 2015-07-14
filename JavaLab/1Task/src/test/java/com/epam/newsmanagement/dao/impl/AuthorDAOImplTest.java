@@ -101,29 +101,29 @@ public class AuthorDAOImplTest extends DBTestCase {
 	}
 
 	@Test
-	public void testAttachAuthors() throws Exception {
-		Long idAuthor = 1L;
-		Long idNews = 1L;
-		authorDAO.attachAuthor(idNews, idAuthor);
-		assertNotNull(authorDAO.takeAuthorByNewsId(idNews));
-
-		
-	}
+		public void testAttachAuthorToNewss() throws Exception {
+			Long idAuthor = 1L;
+			Long idNews = 1L;
+			authorDAO.attachAuthorToNews(idNews, idAuthor);
+			assertNotNull(authorDAO.getAuthorByNewsId(idNews));
+	
+			
+		}
 
 	@Test
-	public void testDetachAuthors() throws Exception {
-		Long idNews = 2L;
-		authorDAO.detachAuthor(idNews);
-		assertNull(authorDAO.takeAuthorByNewsId(idNews));
-	}
+		public void testDetachAuthorFromNewss() throws Exception {
+			Long idNews = 2L;
+			authorDAO.detachAuthorFromNews(idNews);
+			assertNull(authorDAO.getAuthorByNewsId(idNews));
+		}
 	
 	@Test
-	public void testTakeAuthorByNewsId() throws DAOException {
-		Long idNews = 3L;
-		String authorName = "Petia";
-		Author actualAuthor = authorDAO.takeAuthorByNewsId(idNews);
-		assertEquals(authorName, actualAuthor.getName());
-	}
+		public void testGetAuthorByNewsId() throws DAOException {
+			Long idNews = 3L;
+			String authorName = "Petia";
+			Author actualAuthor = authorDAO.getAuthorByNewsId(idNews);
+			assertEquals(authorName, actualAuthor.getName());
+		}
 
 	@Override
 	protected IDataSet getDataSet() throws Exception {

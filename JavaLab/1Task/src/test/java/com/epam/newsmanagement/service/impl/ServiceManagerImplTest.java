@@ -5,7 +5,6 @@ package com.epam.newsmanagement.service.impl;
 
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.anyLong;
-import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyList;
 
 import static org.mockito.Mockito.times;
@@ -25,7 +24,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.epam.newsmanagement.entity.Author;
-import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
@@ -74,8 +72,8 @@ public class ServiceManagerImplTest {
 		serviceManager.addNews(news, anyLong(), idTagList);
 
 		verify(mockNewsService, times(1)).create(news);
-		verify(mockTagService, times(1)).attachListTags(anyLong(), anyList());
-		verify(mockAuthorService, times(1)).attachAuthor(anyLong(), anyLong());
+		verify(mockTagService, times(1)).attachListTagsToNews(anyLong(), anyList());
+		verify(mockAuthorService, times(1)).attachAuthorToNews(anyLong(), anyLong());
 	}
 
 
@@ -85,11 +83,11 @@ public class ServiceManagerImplTest {
 		Long idNews = 1L;
 		serviceManager.updateNews(news, idNews, anyList());
 
-		verify(mockTagService, times(1)).detachTags(anyLong());
-		verify(mockAuthorService, times(1)).detachAuthor(anyLong());
+		verify(mockTagService, times(1)).detachTagsFromNews(anyLong());
+		verify(mockAuthorService, times(1)).detachAuthorFromNews(anyLong());
 		verify(mockNewsService, times(1)).update(news);
-		verify(mockTagService, times(1)).attachListTags(anyLong(), anyList());
-		verify(mockAuthorService, times(1)).attachAuthor(anyLong(), anyLong());
+		verify(mockTagService, times(1)).attachListTagsToNews(anyLong(), anyList());
+		verify(mockAuthorService, times(1)).attachAuthorToNews(anyLong(), anyLong());
 	}
 
 	
@@ -97,8 +95,8 @@ public class ServiceManagerImplTest {
 	public void testDeleteNews() throws ServiceException, DAOException {
 		serviceManager.deleteNews(anyLong());
 
-		verify(mockTagService, times(1)).detachTags(anyLong());
-		verify(mockAuthorService, times(1)).detachAuthor(anyLong());
+		verify(mockTagService, times(1)).detachTagsFromNews(anyLong());
+		verify(mockAuthorService, times(1)).detachAuthorFromNews(anyLong());
 		verify(mockCommentService, times(1)).deleteCommentsByNewsId(anyLong());
 		verify(mockNewsService, times(1)).delete(anyLong());
 	}
@@ -121,7 +119,7 @@ public class ServiceManagerImplTest {
 		List<Long> idTagList = new ArrayList<>();
 		Long idNews = 1L;
 		serviceManager.attachListTagsForNews(idNews, idTagList);
-		verify(mockTagService, times(1)).attachListTags(idNews, idTagList);
+		verify(mockTagService, times(1)).attachListTagsToNews(idNews, idTagList);
 
 	}
 
@@ -152,12 +150,9 @@ public class ServiceManagerImplTest {
 		Long idNews = 1L;
 		serviceManager.getNewsVO(idNews);
 		verify(mockNewsService, times(1)).read(idNews);
-		verify(mockAuthorService, times(1)).takeAuthorByNewsId(idNews);
-		verify(mockTagService, times(1)).takeNewsTags(idNews);
-		verify(mockCommentService, times(1)).takeCommentsByNewsId(idNews);
-
-		
-
+		verify(mockAuthorService, times(1)).getAuthorByNewsId(idNews);
+		verify(mockTagService, times(1)).getNewsTags(idNews);
+		verify(mockCommentService, times(1)).getCommentsByNewsId(idNews);
 		}
 
 }

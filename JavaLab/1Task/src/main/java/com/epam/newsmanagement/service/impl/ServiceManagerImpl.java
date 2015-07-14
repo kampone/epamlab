@@ -34,25 +34,11 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	/**
-	 * @return the tagService
-	 */
-	public TagService getTagService() {
-		return tagService;
-	}
-
-	/**
 	 * @param tagService
 	 *            the tagService to set
 	 */
 	public void setTagService(TagService tagService) {
 		this.tagService = tagService;
-	}
-
-	/**
-	 * @return the commentService
-	 */
-	public CommentService getCommentService() {
-		return commentService;
 	}
 
 	/**
@@ -64,25 +50,11 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	/**
-	 * @return the authorService
-	 */
-	public AuthorService getAuthorService() {
-		return authorService;
-	}
-
-	/**
 	 * @param authorService
 	 *            the authorService to set
 	 */
 	public void setAuthorService(AuthorService authorService) {
 		this.authorService = authorService;
-	}
-
-	/**
-	 * @return the newsService
-	 */
-	public NewsService getNewsService() {
-		return newsService;
 	}
 
 	/**
@@ -94,27 +66,29 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.ServiceManager#addNews(com.epam.newsmanagement.entity.News, java.lang.Long, java.util.List)
+	 * @see com.epam.newsmanagement.service.ServiceManager#addNews(com.epam.newsmanagement.entity.News,
+	 *      java.lang.Long, java.util.List)
 	 */
 	@Override
 	public Long addNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException {
 		Long idNews = newsService.create(news);
-		tagService.attachListTags(idNews, idTagList);
-		authorService.attachAuthor(idNews, idAuthor);
+		tagService.attachListTagsToNews(idNews, idTagList);
+		authorService.attachAuthorToNews(idNews, idAuthor);
 		return idNews;
-		
+
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.ServiceManager#updateNews(com.epam.newsmanagement.entity.News, java.lang.Long, java.util.List)
+	 * @see com.epam.newsmanagement.service.ServiceManager#updateNews(com.epam.newsmanagement.entity.News,
+	 *      java.lang.Long, java.util.List)
 	 */
 	@Override
 	public void updateNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException {
-		tagService.detachTags(news.getId());
-		authorService.detachAuthor(news.getId());
+		tagService.detachTagsFromNews(news.getId());
+		authorService.detachAuthorFromNews(news.getId());
 		newsService.update(news);
-		authorService.attachAuthor(news.getId(), idAuthor);
-		tagService.attachListTags(news.getId(), idTagList);
+		authorService.attachAuthorToNews(news.getId(), idAuthor);
+		tagService.attachListTagsToNews(news.getId(), idTagList);
 
 	}
 
@@ -123,19 +97,20 @@ public class ServiceManagerImpl implements ServiceManager {
 	 */
 	@Override
 	public void deleteNews(Long idNews) throws ServiceException {
-		tagService.detachTags(idNews);
-		authorService.detachAuthor(idNews);
+		tagService.detachTagsFromNews(idNews);
+		authorService.detachAuthorFromNews(idNews);
 		commentService.deleteCommentsByNewsId(idNews);
 		newsService.delete(idNews);
 
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.ServiceManager#getNews(com.epam.newsmanagement.entity.SearchCriteria, int, int)
+	 * @see com.epam.newsmanagement.service.ServiceManager#getNews(com.epam.newsmanagement.entity.SearchCriteria,
+	 *      int, int)
 	 */
 	@Override
 	public List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException {
-		return newsService.getNews(searchCriteria, startIndex,  lastIndex);
+		return newsService.getNews(searchCriteria, startIndex, lastIndex);
 	}
 
 	/**
@@ -155,11 +130,12 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.ServiceManager#attachListTagsForNews(java.lang.Long, java.util.List)
+	 * @see com.epam.newsmanagement.service.ServiceManager#attachListTagsForNews(java.lang.Long,
+	 *      java.util.List)
 	 */
 	@Override
 	public void attachListTagsForNews(Long idNews, List<Long> idTagList) throws ServiceException {
-		tagService.attachListTags(idNews, idTagList);
+		tagService.attachListTagsToNews(idNews, idTagList);
 	}
 
 	/**
@@ -185,9 +161,9 @@ public class ServiceManagerImpl implements ServiceManager {
 	public NewsVO getNewsVO(Long idNews) throws ServiceException {
 		NewsVO newsVO = new NewsVO();
 		newsVO.setNews(newsService.read(idNews));
-		newsVO.setAuthor(authorService.takeAuthorByNewsId(idNews));
-		newsVO.setTagList(tagService.takeNewsTags(idNews));
-		newsVO.setCommentList(commentService.takeCommentsByNewsId(idNews));
+		newsVO.setAuthor(authorService.getAuthorByNewsId(idNews));
+		newsVO.setTagList(tagService.getNewsTags(idNews));
+		newsVO.setCommentList(commentService.getCommentsByNewsId(idNews));
 		return newsVO;
 	}
 

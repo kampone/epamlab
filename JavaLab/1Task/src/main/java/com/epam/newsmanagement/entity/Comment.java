@@ -10,8 +10,8 @@ import java.sql.Timestamp;
  *
  */
 public class Comment {
-	private Long idComment;
-	private Long idNews;
+	private Long commentId;
+	private Long newsId;
 	private String text;
 	private Timestamp creationDate;
 
@@ -22,28 +22,28 @@ public class Comment {
 	 * @return the id
 	 */
 	public Long getId() {
-		return idComment;
+		return commentId;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(Long id) {
-		this.idComment = id;
+		this.commentId = id;
 	}
 
 	/**
 	 * @return the idNews
 	 */
 	public Long getIdNews() {
-		return idNews;
+		return newsId;
 	}
 
 	/**
 	 * @param idNews the idNews to set
 	 */
 	public void setIdNews(Long idNews) {
-		this.idNews = idNews;
+		this.newsId = idNews;
 	}
 
 	/**
@@ -79,8 +79,8 @@ public class Comment {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
-		result = prime * result + ((idComment == null) ? 0 : idComment.hashCode());
-		result = prime * result + ((idNews == null) ? 0 : idNews.hashCode());
+		result = prime * result + ((commentId == null) ? 0 : commentId.hashCode());
+		result = prime * result + ((newsId == null) ? 0 : newsId.hashCode());
 		result = prime * result + ((text == null) ? 0 : text.hashCode());
 		return result;
 	}
@@ -99,15 +99,15 @@ public class Comment {
 				return false;
 		} else if (!creationDate.equals(other.creationDate))
 			return false;
-		if (idComment == null) {
-			if (other.idComment != null)
+		if (commentId == null) {
+			if (other.commentId != null)
 				return false;
-		} else if (!idComment.equals(other.idComment))
+		} else if (!commentId.equals(other.commentId))
 			return false;
-		if (idNews == null) {
-			if (other.idNews != null)
+		if (newsId == null) {
+			if (other.newsId != null)
 				return false;
-		} else if (!idNews.equals(other.idNews))
+		} else if (!newsId.equals(other.newsId))
 			return false;
 		if (text == null) {
 			if (other.text != null)

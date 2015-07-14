@@ -16,30 +16,30 @@ import com.epam.newsmanagement.service.NewsManagementService;
 public interface TagService extends NewsManagementService<Tag> {
 	/**
 	 * Attach Tag to News 
-	 * @param idNews News id
-	 * @param idTag Tag id
+	 * @param newsId News id
+	 * @param tagId Tag id
 	 * @throws ServiceException if trouble in DAO layer 
 	 */
-	 void attachTags(Long idNews, Long idTag) throws ServiceException;
+	 void attachTagsToNews(Long newsId, Long tagId) throws ServiceException;
 	/**
 	 *	Attach Tag list to News 
-	 * @param idNews News id
-	 * @param idTagList List of Tag id
+	 * @param newsId News id
+	 * @param tagIdList List of Tag id
 	 * @throws ServiceException if trouble in DAO layer 
 	 */
-	 void attachListTags(Long idNews, List<Long> idTagList) throws ServiceException;
+	 void attachListTagsToNews(Long newsId, List<Long> tagIdList) throws ServiceException;
 	/**
 	 *	Detach all tags from News by id
-	 * @param idNews News id
+	 * @param newsId News id
 	 * @throws ServiceException if trouble in DAO layer 
 	 */
-	 void detachTags(Long idNews) throws ServiceException;
+	 void detachTagsFromNews(Long newsId) throws ServiceException;
 	/**
 	 * Return List of tags by news id
-	 * @param idNews News id
+	 * @param newsId News id
 	 * @return List of tags by news id
 	 * @throws ServiceException if trouble in DAO layer 
 	 */
-	 List<Tag> takeNewsTags(Long idNews) throws ServiceException;
+	 List<Tag> getNewsTags(Long newsId) throws ServiceException;
 
 }

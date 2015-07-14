@@ -15,31 +15,31 @@ import com.epam.newsmanagement.exception.DAOException;
 public interface TagDAO extends NewsManagementDAO<Tag> {
 	/**
 	 * Attach Tag to News 
-	 * @param idNews News id
-	 * @param idTag Tag id
+	 * @param newsId News id
+	 * @param tagId Tag id
 	 * @throws DAOException if trouble with connection with database 
 	 */
-	 void attachTags(Long idNews, Long idTag) throws DAOException;
+	 void attachTagsToNews(Long newsId, Long tagId) throws DAOException;
 	/**
 	 *	Attach Tag list to News 
-	 * @param idNews News id
-	 * @param idTagList List of Tag id
+	 * @param newsId News id
+	 * @param tagIdList List of Tag id
 	 * @throws DAOException if trouble with connection with database
 	 */
-	 void attachListTags(Long idNews, List<Long> idTagList) throws DAOException;		
+	 void attachListTagsToNews(Long newsId, List<Long> tagIdList) throws DAOException;		
 	/**
 	 *	Detach all tags from News by id
-	 * @param idNews News id
+	 * @param newsId News id
 	 * @throws DAOException if trouble with connection with database
 	 */
-	 void detachTags(Long idNews) throws DAOException;
+	 void detachTagsFromNews(Long newsId) throws DAOException;
 	/**
 	 * Return List of tags by news id
 	 * @param idNews News id
 	 * @return List of tags by news id
 	 * @throws DAOException if trouble with connection with database
 	 */
-	 List<Tag> takeNewsTags(Long idNews) throws DAOException;
+	 List<Tag> getNewsTags(Long idNews) throws DAOException;
 	
 
 }

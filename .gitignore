@@ -7,7 +7,7 @@
 .project
 .springBeans
 
-javadoc
+doc
 lib
 log
 target

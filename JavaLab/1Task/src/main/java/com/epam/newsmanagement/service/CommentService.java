@@ -17,17 +17,17 @@ public interface CommentService extends NewsManagementService<Comment> {
 	/**
 	 * 	
 	 * Delete all comments by news id 
-	 * @param idNews News id
+	 * @param newsId News id
 	 * @throws ServiceException if problem in DAO layer
 	 */
-	 void deleteCommentsByNewsId(Long idNews) throws ServiceException;
+	 void deleteCommentsByNewsId(Long newsId) throws ServiceException;
 	/**
 	 * 	Return all comments by news id
 	 * @return all comments by news id 
-	 * @param idNews News id
+	 * @param newsId News id
 	 * @throws ServiceException if problem in DAO layer
 	 */
-	 List<Comment> takeCommentsByNewsId(Long idNews) throws ServiceException;
+	 List<Comment> getCommentsByNewsId(Long newsId) throws ServiceException;
 	 
 	 /**
 	  * Create list of comments for news

@@ -92,41 +92,41 @@ public class TagDAOImplTest extends DBTestCase {
 	}
 
 	@Test
-	public void testAttachTags() throws Exception {
-		int size = 4;
-		Long idTag = 1L;
-		Long idNews = 1L;
-		tagDAO.attachTags(idNews, idTag);
-		assertEquals(size, tagDAO.takeNewsTags(idNews).size());
-	}
+		public void testAttachTagsToNews() throws Exception {
+			int size = 4;
+			Long idTag = 1L;
+			Long idNews = 1L;
+			tagDAO.attachTagsToNews(idNews, idTag);
+			assertEquals(size, tagDAO.getNewsTags(idNews).size());
+		}
 
 	@Test
-	public void testDetachTags() throws Exception {
-		Long idNews = 2L;
-		tagDAO.detachTags(idNews);
-		assertTrue(tagDAO.takeNewsTags(idNews).isEmpty());
-	}
+		public void testDetachTagsFromNews() throws Exception {
+			Long idNews = 2L;
+			tagDAO.detachTagsFromNews(idNews);
+			assertTrue(tagDAO.getNewsTags(idNews).isEmpty());
+		}
 
 	@Test
-	public void testAttachListTags() throws Exception {
-		Long idNews = 3L;
-		int size = 3;
-		List<Long> idTagList = new ArrayList<>();
-		idTagList.add(1L);
-		idTagList.add(2L);
-		idTagList.add(3L);
-		tagDAO.attachListTags(idNews, idTagList);
-		assertEquals(size, tagDAO.takeNewsTags(idNews).size());
-
-	}
+		public void testAttachListTagsToNews() throws Exception {
+			Long idNews = 3L;
+			int size = 3;
+			List<Long> idTagList = new ArrayList<>();
+			idTagList.add(1L);
+			idTagList.add(2L);
+			idTagList.add(3L);
+			tagDAO.attachListTagsToNews(idNews, idTagList);
+			assertEquals(size, tagDAO.getNewsTags(idNews).size());
+	
+		}
 
 	@Test
-	public void testTakeNewsTags() throws Exception {
-		Long idNews = 1L;
-		int size = 3;
-		List<Tag> tagList = tagDAO.takeNewsTags(idNews);
-		assertEquals(size, tagList.size());
-	}
+		public void testGetNewsTags() throws Exception {
+			Long idNews = 1L;
+			int size = 3;
+			List<Tag> tagList = tagDAO.getNewsTags(idNews);
+			assertEquals(size, tagList.size());
+		}
 
 	@Override
 	protected IDataSet getDataSet() throws Exception {

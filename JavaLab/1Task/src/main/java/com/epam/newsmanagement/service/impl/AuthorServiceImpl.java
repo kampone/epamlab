@@ -17,11 +17,6 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	
-	public AuthorDAO getAuthorDAO() {
-		return authorDAO;
-	}
-
-	
 	public void setAuthorDAO(AuthorDAO authorDAO) {
 		this.authorDAO = authorDAO;
 	}
@@ -88,13 +83,13 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.AuthorService#attachAuthor(java.lang.Long, java.lang.Long)
+	 * @see com.epam.newsmanagement.service.AuthorService#attachAuthorToNews(java.lang.Long, java.lang.Long)
 	 */
 	@Override
-	public void attachAuthor(Long idNews, Long idAuthor)
+	public void attachAuthorToNews(Long idNews, Long idAuthor)
 			throws ServiceException {
 		try {
-			authorDAO.attachAuthor(idNews, idAuthor);
+			authorDAO.attachAuthorToNews(idNews, idAuthor);
 		} catch (DAOException e) {
 			LOG.error(" Exception during attaching Author ", e);
 			throw new ServiceException(" Exception during attaching Author ", e);
@@ -103,12 +98,12 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.AuthorService#detachAuthor(java.lang.Long)
+	 * @see com.epam.newsmanagement.service.AuthorService#detachAuthorFromNews(java.lang.Long)
 	 */
 	@Override
-	public void detachAuthor(Long idNews) throws ServiceException {
+	public void detachAuthorFromNews(Long idNews) throws ServiceException {
 		try {
-			authorDAO.detachAuthor(idNews);
+			authorDAO.detachAuthorFromNews(idNews);
 		} catch (DAOException e) {
 			LOG.error(" Exception during detaching Author ", e);
 			throw new ServiceException(" Exception during detaching Author ", e);
@@ -116,12 +111,12 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.AuthorService#takeAuthorByNewsId(java.lang.Long)
+	 * @see com.epam.newsmanagement.service.AuthorService#getAuthorByNewsId(java.lang.Long)
 	 */
 	@Override
-	public Author takeAuthorByNewsId(Long idNews) throws ServiceException {
+	public Author getAuthorByNewsId(Long idNews) throws ServiceException {
 		try {
-			return authorDAO.takeAuthorByNewsId(idNews);
+			return authorDAO.getAuthorByNewsId(idNews);
 		} catch (DAOException e) {
 			LOG.error(" Exception during taking Author by news id ", e);
 			throw new ServiceException(" Exception during taking Author by news id ", e);

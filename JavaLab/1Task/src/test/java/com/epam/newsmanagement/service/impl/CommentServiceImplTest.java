@@ -9,9 +9,6 @@ import static org.mockito.Matchers.anyList;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -104,8 +101,8 @@ public class CommentServiceImplTest {
 	
 	@Test
 	public void testTakeCommnentsByNewsId() throws DAOException, ServiceException{
-		commentService.takeCommentsByNewsId(Mockito.anyLong());
-		verify(mockCommentDAO,times(1)).takeCommentsByNewsId(Mockito.anyLong());
+		commentService.getCommentsByNewsId(Mockito.anyLong());
+		verify(mockCommentDAO,times(1)).getCommentsByNewsId(Mockito.anyLong());
 
 	}
 
@@ -116,7 +113,7 @@ public class CommentServiceImplTest {
 	}
 
 	@Test
-	public void testTakeCommentsByNewsId() throws Exception {
-		commentService.takeCommentsByNewsId(anyLong());
-		verify(mockCommentDAO,times(1)).takeCommentsByNewsId(anyLong());		}
+		public void testGetCommentsByNewsId() throws Exception {
+			commentService.getCommentsByNewsId(anyLong());
+			verify(mockCommentDAO,times(1)).getCommentsByNewsId(anyLong());		}
 }

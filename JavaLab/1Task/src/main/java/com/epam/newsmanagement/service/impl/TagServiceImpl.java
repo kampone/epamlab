@@ -21,15 +21,10 @@ public class TagServiceImpl implements TagService {
 	private static final Logger LOG = Logger.getLogger(TagServiceImpl.class);
 	private TagDAO tagDAO;
 
-	public TagDAO getTagDAO() {
-		return tagDAO;
-	}
-
 	public void setTagDAO(TagDAO tagDAO) {
 		this.tagDAO = tagDAO;
 	}
 
-	
 	/**
 	 * @see com.epam.newsmanagement.service.NewsManagementService#create(java.lang.Object)
 	 */
@@ -43,7 +38,6 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
-
 	/**
 	 * @see com.epam.newsmanagement.service.NewsManagementService#read(java.lang.Long)
 	 */
@@ -56,7 +50,7 @@ public class TagServiceImpl implements TagService {
 			throw new ServiceException(" Exception during reading Tag ", e);
 		}
 	}
- 
+
 	/**
 	 * @see com.epam.newsmanagement.service.NewsManagementService#update(java.lang.Object)
 	 */
@@ -69,7 +63,6 @@ public class TagServiceImpl implements TagService {
 			throw new ServiceException("Exception during update Tag", e);
 		}
 	}
-
 
 	/**
 	 * @see com.epam.newsmanagement.service.NewsManagementService#delete(java.lang.Object)
@@ -99,12 +92,13 @@ public class TagServiceImpl implements TagService {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.TagService#attachTags(java.lang.Long, java.lang.Long)
+	 * @see com.epam.newsmanagement.service.TagService#attachTags(java.lang.Long,
+	 *      java.lang.Long)
 	 */
 	@Override
-	public void attachTags(Long idNews, Long idTag) throws ServiceException {
+	public void attachTagsToNews(Long idNews, Long idTag) throws ServiceException {
 		try {
-			tagDAO.attachTags(idNews, idTag);
+			tagDAO.attachTagsToNews(idNews, idTag);
 		} catch (DAOException e) {
 			LOG.error(" Exception during attaching Tag " + e);
 			throw new ServiceException("Exception during attaching Tag", e);
@@ -112,12 +106,12 @@ public class TagServiceImpl implements TagService {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.TagService#detachTags(java.lang.Long)
+	 * @see com.epam.newsmanagement.service.TagService#detachTagsFromNews(java.lang.Long)
 	 */
 	@Override
-	public void detachTags(Long idNews) throws ServiceException {
+	public void detachTagsFromNews(Long idNews) throws ServiceException {
 		try {
-			tagDAO.detachTags(idNews);
+			tagDAO.detachTagsFromNews(idNews);
 		} catch (DAOException e) {
 			LOG.error(" Exception during detaching Tag " + e);
 			throw new ServiceException("Exception during detaching Tag", e);
@@ -126,12 +120,13 @@ public class TagServiceImpl implements TagService {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.TagService#attachListTags(java.lang.Long, java.util.List)
+	 * @see com.epam.newsmanagement.service.TagService#attachListTagsToNews(java.lang.Long,
+	 *      java.util.List)
 	 */
 	@Override
-	public void attachListTags(Long idNews, List<Long> idTagList) throws ServiceException {
+	public void attachListTagsToNews(Long idNews, List<Long> idTagList) throws ServiceException {
 		try {
-			tagDAO.attachListTags(idNews, idTagList);
+			tagDAO.attachListTagsToNews(idNews, idTagList);
 		} catch (DAOException e) {
 			LOG.error(" Exception during attaching list Tag " + e);
 			throw new ServiceException("Exception during attaching list Tag", e);
@@ -139,12 +134,12 @@ public class TagServiceImpl implements TagService {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.service.TagService#takeNewsTags(java.lang.Long)
+	 * @see com.epam.newsmanagement.service.TagService#getNewsTags(java.lang.Long)
 	 */
 	@Override
-	public List<Tag> takeNewsTags(Long idNews) throws ServiceException {
+	public List<Tag> getNewsTags(Long idNews) throws ServiceException {
 		try {
-			return tagDAO.takeNewsTags(idNews);
+			return tagDAO.getNewsTags(idNews);
 		} catch (DAOException e) {
 			LOG.error(" Exception during taking list Tag by news id " + e);
 			throw new ServiceException("Exception during taking list Tag by news id", e);

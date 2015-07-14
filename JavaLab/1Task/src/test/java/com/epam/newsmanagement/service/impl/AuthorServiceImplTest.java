@@ -95,26 +95,26 @@ public class AuthorServiceImplTest {
 
 	
 	@Test
-	public void testAttachAuthors() throws DAOException, ServiceException {
-		
-		authorService.attachAuthor(anyLong(), anyLong());
-		verify(mockAuthorDAO,times(1)).attachAuthor(anyLong(), anyLong());
-	}
+		public void testAttachAuthorToNewss() throws DAOException, ServiceException {
+			
+			authorService.attachAuthorToNews(anyLong(), anyLong());
+			verify(mockAuthorDAO,times(1)).attachAuthorToNews(anyLong(), anyLong());
+		}
 
 	 
 
 	@Test
-	public void testDetachAuthors() throws ServiceException, DAOException {
-		News news = new News();
-		news.setId(anyLong());
-		authorService.detachAuthor(news.getId());
-		verify(mockAuthorDAO,times(1)).detachAuthor(news.getId());
-}
+		public void testDetachAuthorFromNewss() throws ServiceException, DAOException {
+			News news = new News();
+			news.setId(anyLong());
+			authorService.detachAuthorFromNews(news.getId());
+			verify(mockAuthorDAO,times(1)).detachAuthorFromNews(news.getId());
+	}
 	
 	@Test
-	public void testTakeAuthorByNewsId() throws ServiceException, DAOException{
-		authorService.takeAuthorByNewsId(anyLong());
-		verify(mockAuthorDAO,times(1)).takeAuthorByNewsId(anyLong());
-	}
+		public void testGetAuthorByNewsId() throws ServiceException, DAOException{
+			authorService.getAuthorByNewsId(anyLong());
+			verify(mockAuthorDAO,times(1)).getAuthorByNewsId(anyLong());
+		}
 
 }

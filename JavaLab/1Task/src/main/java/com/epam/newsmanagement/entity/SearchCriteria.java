@@ -11,44 +11,51 @@ import java.util.List;
  *
  */
 public class SearchCriteria {
-	
-	
 
-	private List<Long> idTagList;
-	private Long idAuthor;
-	
+	private List<Long> tagIdList;
+	private Long authorId;
+
 	public SearchCriteria() {
-		idTagList = new ArrayList<>();
+		tagIdList = new ArrayList<>();
 	}
 
-	public List<Long> getIdTagList() {
-		return idTagList;
+	public List<Long> getTagIdList() {
+		return tagIdList;
 	}
-	public void setIdTagList(List<Long> idTagList) {
-		this.idTagList = idTagList;
+
+	public void setTagIdList(List<Long> idTagList) {
+		this.tagIdList = idTagList;
 	}
-	public Long getIdAuthor() {
-		return idAuthor;
+
+	public Long getAuthorId() {
+		return authorId;
 	}
-	public void setIdAuthor(Long idAuthor) {
-		this.idAuthor = idAuthor;
+
+	public void setAuthorId(Long idAuthor) {
+		this.authorId = idAuthor;
 	}
-	
+
 	public boolean addTag(Long idTag) {
-		return idTagList.add(idTag);
+		return tagIdList.add(idTag);
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idAuthor == null) ? 0 : idAuthor.hashCode());
-		result = prime * result + ((idTagList == null) ? 0 : idTagList.hashCode());
+		result = prime * result + ((authorId == null) ? 0 : authorId.hashCode());
+		result = prime * result + ((tagIdList == null) ? 0 : tagIdList.hashCode());
 		return result;
 	}
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -60,18 +67,17 @@ public class SearchCriteria {
 		if (getClass() != obj.getClass())
 			return false;
 		SearchCriteria other = (SearchCriteria) obj;
-		if (idAuthor == null) {
-			if (other.idAuthor != null)
+		if (authorId == null) {
+			if (other.authorId != null)
 				return false;
-		} else if (!idAuthor.equals(other.idAuthor))
+		} else if (!authorId.equals(other.authorId))
 			return false;
-		if (idTagList == null) {
-			if (other.idTagList != null)
+		if (tagIdList == null) {
+			if (other.tagIdList != null)
 				return false;
-		} else if (!idTagList.equals(other.idTagList))
+		} else if (!tagIdList.equals(other.tagIdList))
 			return false;
 		return true;
 	}
-	
-	
+
 }

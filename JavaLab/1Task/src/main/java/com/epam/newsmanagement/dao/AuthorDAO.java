@@ -15,22 +15,22 @@ public interface AuthorDAO extends NewsManagementDAO<Author> {
 
 	/**
 	 * Attach Author to News 
-	 * @param idNews News id
-	 * @param idAuthor Author id
+	 * @param newsId News id
+	 * @param authorId Author id
 	 * @throws DAOException if trouble with connection with database 
 	 */
-	void attachAuthor(Long idNews, Long idAuthor) throws DAOException;
+	void attachAuthorToNews(Long newsId, Long authorId) throws DAOException;
 	/**
 	 * Detach author from News by id
-	 * @param idNews News id
+	 * @param newsId News id
 	 * @throws DAOException if trouble with connection with database 
 	 */
-	void detachAuthor(Long idNews) throws DAOException;
+	void detachAuthorFromNews(Long newsId) throws DAOException;
 	/**
 	 * Return Author of news by its id
-	 * @param idNews News id
+	 * @param newsId News id
 	 * @return Author
 	 * @throws DAOException  if trouble with connection with database
 	 */
-	Author takeAuthorByNewsId(Long idNews) throws DAOException;
+	Author getAuthorByNewsId(Long newsId) throws DAOException;
 }

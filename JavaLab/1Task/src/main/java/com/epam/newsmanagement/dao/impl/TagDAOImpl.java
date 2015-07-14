@@ -34,9 +34,6 @@ public class TagDAOImpl implements TagDAO {
 
 	private DataSource dataSource;
 
-	public DataSource getDataSource() {
-		return dataSource;
-	}
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
@@ -91,9 +88,9 @@ public class TagDAOImpl implements TagDAO {
 
 			while (resultSet.next()) {
 				tag = new Tag();
-				Long idTag = resultSet.getLong(1);
+				Long tagId = resultSet.getLong(1);
 				String name = resultSet.getString(2);
-				tag.setId(idTag);
+				tag.setId(tagId);
 				tag.setName(name);
 
 			}
@@ -158,17 +155,17 @@ public class TagDAOImpl implements TagDAO {
 
 
 	/**
-	 * @see com.epam.newsmanagement.dao.TagDAO#attachTags(java.lang.Long, java.lang.Long)
+	 * @see com.epam.newsmanagement.dao.TagDAO#attachTagsToNews(java.lang.Long, java.lang.Long)
 	 */
 	@Override
-	public void attachTags(Long idNews, Long idTag) throws DAOException {
+	public void attachTagsToNews(Long newsId, Long tagId) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_INSERT_NEWS_TAG_QUERY);
-			statement.setLong(1, idNews);
-			statement.setLong(2, idTag);
+			statement.setLong(1, newsId);
+			statement.setLong(2, tagId);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);
@@ -180,16 +177,16 @@ public class TagDAOImpl implements TagDAO {
 
 	
 	/**
-	 * @see com.epam.newsmanagement.dao.TagDAO#detachTags(java.lang.Long)
+	 * @see com.epam.newsmanagement.dao.TagDAO#detachTagsFromNews(java.lang.Long)
 	 */
 	@Override
-	public void detachTags(Long idNews) throws DAOException {
+	public void detachTagsFromNews(Long newsId) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_DELETE_NEWS_TAG_QUERY);
-			statement.setLong(1, idNews);
+			statement.setLong(1, newsId);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);
@@ -200,18 +197,18 @@ public class TagDAOImpl implements TagDAO {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.dao.TagDAO#attachListTags(java.lang.Long, java.util.List)
+	 * @see com.epam.newsmanagement.dao.TagDAO#attachListTagsToNews(java.lang.Long, java.util.List)
 	 */
 	@Override
-	public void attachListTags(Long idNews, List<Long> idTagList) throws DAOException {
+	public void attachListTagsToNews(Long newsId, List<Long> tagIdList) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_INSERT_NEWS_TAG_QUERY);
-			statement.setLong(1, idNews);
-			for (Long idTag : idTagList) {
-				statement.setLong(2, idTag);
+			statement.setLong(1, newsId);
+			for (Long tagId : tagIdList) {
+				statement.setLong(2, tagId);
 				statement.addBatch();
 			}
 			statement.executeBatch();
@@ -224,10 +221,10 @@ public class TagDAOImpl implements TagDAO {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.dao.TagDAO#takeNewsTags(java.lang.Long)
+	 * @see com.epam.newsmanagement.dao.TagDAO#getNewsTags(java.lang.Long)
 	 */
 	@Override
-	public List<Tag> takeNewsTags(Long idNews) throws DAOException {
+	public List<Tag> getNewsTags(Long newsId) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -236,14 +233,14 @@ public class TagDAOImpl implements TagDAO {
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_READ_TAG_BY_NEWS_ID_QUERY);
-			statement.setLong(1, idNews);
+			statement.setLong(1, newsId);
 			resultSet = statement.executeQuery();
 			tagList = new ArrayList<>();
 			while (resultSet.next()) {
 				tag = new Tag();
-				Long idTag = resultSet.getLong(1);
+				Long tagId = resultSet.getLong(1);
 				String name = resultSet.getString(2);
-				tag.setId(idTag);
+				tag.setId(tagId);
 				tag.setName(name);
 				tagList.add(tag);
 			}

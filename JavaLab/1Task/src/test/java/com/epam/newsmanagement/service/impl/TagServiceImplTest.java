@@ -97,29 +97,29 @@ public class TagServiceImplTest {
 	
 	@Test
 	public void testAttachTags() throws ServiceException, DAOException {
-		tagService.attachTags(anyLong(), anyLong());
-		verify(mockTagDAO,times(1)).attachTags(anyLong(), anyLong());
+		tagService.attachTagsToNews(anyLong(), anyLong());
+		verify(mockTagDAO,times(1)).attachTagsToNews(anyLong(), anyLong());
 	}
 
 	
 	@Test
-	public void testDetachTags() throws ServiceException, DAOException {
-		tagService.detachTags(anyLong());
-		verify(mockTagDAO,times(1)).detachTags(anyLong());
-	}
+		public void testDetachTagsFromNews() throws ServiceException, DAOException {
+			tagService.detachTagsFromNews(anyLong());
+			verify(mockTagDAO,times(1)).detachTagsFromNews(anyLong());
+		}
 
 	
 	@Test
-	public void testAttachListTags() throws ServiceException, DAOException {
-		tagService.attachListTags(anyLong(), anyList());
-		verify(mockTagDAO,times(1)).attachListTags(anyLong(), anyList());
-	}
+		public void testAttachListTagsToNews() throws ServiceException, DAOException {
+			tagService.attachListTagsToNews(anyLong(), anyList());
+			verify(mockTagDAO,times(1)).attachListTagsToNews(anyLong(), anyList());
+		}
 	
 	
 	@Test
-	public void testTakeNewsTags() throws ServiceException, DAOException{
-		tagService.takeNewsTags(anyLong());
-		verify(mockTagDAO,times(1)).takeNewsTags(anyLong());
-	}
+		public void testGetNewsTags() throws ServiceException, DAOException{
+			tagService.getNewsTags(anyLong());
+			verify(mockTagDAO,times(1)).getNewsTags(anyLong());
+		}
 
 }

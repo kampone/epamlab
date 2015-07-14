@@ -44,15 +44,10 @@ public class NewsDAOImpl implements NewsDAO {
 
 	private DataSource dataSource;
 
-	public DataSource getDataSource() {
-		return dataSource;
-	}
-
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 
-	
 	/**
 	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#create(java.lang.Object)
 	 */
@@ -102,13 +97,13 @@ public class NewsDAOImpl implements NewsDAO {
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				news = new News();
-				Long idNews = resultSet.getLong(1);
+				Long newsId = resultSet.getLong(1);
 				String title = resultSet.getString(2);
 				String shortText = resultSet.getString(3);
 				String fullText = resultSet.getString(4);
 				Timestamp creationDate = resultSet.getTimestamp(5);
 				Date modificationDate = resultSet.getDate(6);
-				news.setId(idNews);
+				news.setId(newsId);
 				news.setTitle(title);
 				news.setShortText(shortText);
 				news.setFullText(fullText);
@@ -146,8 +141,6 @@ public class NewsDAOImpl implements NewsDAO {
 		}
 	}
 
-	
-	
 	/**
 	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Object)
 	 */
@@ -155,7 +148,6 @@ public class NewsDAOImpl implements NewsDAO {
 	public void delete(News entity) throws DAOException {
 		this.delete(entity.getId());
 	}
-
 
 	/**
 	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Long)
@@ -188,23 +180,24 @@ public class NewsDAOImpl implements NewsDAO {
 
 	private String createQueryWithSearchCriteria(SearchCriteria searchCriteria) {
 		StringBuilder sbSearchCriteria = new StringBuilder(SQL_ADD_SEARCH_CRITERIA_QUERY);
-		if (searchCriteria.getIdAuthor() != null) {
+		if (searchCriteria.getAuthorId() != null) { 
 			sbSearchCriteria.append(SQL_WHERE_AUTHOR_ID_QUERY);
-			if (!searchCriteria.getIdTagList().isEmpty()) {
-				if (searchCriteria.getIdAuthor() == null) {
-					sbSearchCriteria.append(SQL_WHERE_TAGS_ID_QUERY);
-				} else {
-					sbSearchCriteria.append(SQL_AND_TAGS_ID_QUERY);
-				}
-				sbSearchCriteria.append(makeParametres(searchCriteria));
-			}
 		}
+		if (!searchCriteria.getTagIdList().isEmpty()) {
+			if (searchCriteria.getAuthorId() == null) {
+				sbSearchCriteria.append(SQL_WHERE_TAGS_ID_QUERY);
+			} else {
+				sbSearchCriteria.append(SQL_AND_TAGS_ID_QUERY);
+			}
+			sbSearchCriteria.append(makeParametres(searchCriteria));
+		}
+
 		return sbSearchCriteria.toString();
 	}
 
 	private String makeParametres(SearchCriteria searchCriteria) {
 		StringBuilder sb = new StringBuilder("(");
-		for (Long a : searchCriteria.getIdTagList()) {
+		for (int j = 0; j < searchCriteria.getTagIdList().size(); j++) {
 			sb.append("?,");
 		}
 		sb.deleteCharAt(sb.length() - 1);
@@ -217,11 +210,11 @@ public class NewsDAOImpl implements NewsDAO {
 		try {
 			int i = 1;
 			if (sc != null) {
-				if (sc.getIdAuthor() != null) {
-					ps.setLong(i, sc.getIdAuthor());
+				if (sc.getAuthorId() != null) {
+					ps.setLong(i, sc.getAuthorId());
 					++i;
 				}
-				for (Long id : sc.getIdTagList()) {
+				for (Long id : sc.getTagIdList()) {
 					ps.setLong(i, id);
 					++i;
 				}
@@ -235,7 +228,8 @@ public class NewsDAOImpl implements NewsDAO {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.dao.NewsDAO#getNews(com.epam.newsmanagement.entity.SearchCriteria, int, int)
+	 * @see com.epam.newsmanagement.dao.NewsDAO#getNews(com.epam.newsmanagement.entity.SearchCriteria,
+	 *      int, int)
 	 */
 	@Override
 	public List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws DAOException {
@@ -251,13 +245,13 @@ public class NewsDAOImpl implements NewsDAO {
 			resultSet = insertParametres(searchCriteria, statement, startIndex, lastIndex).executeQuery();
 			while (resultSet.next()) {
 				news = new News();
-				Long idNews = resultSet.getLong(1);
+				Long newsId = resultSet.getLong(1);
 				String title = resultSet.getString(2);
 				String shortText = resultSet.getString(3);
 				String fullText = resultSet.getString(4);
 				Timestamp creationDate = resultSet.getTimestamp(5);
 				Date modificationDate = resultSet.getDate(6);
-				news.setId(idNews);
+				news.setId(newsId);
 				news.setTitle(title);
 				news.setShortText(shortText);
 				news.setFullText(fullText);

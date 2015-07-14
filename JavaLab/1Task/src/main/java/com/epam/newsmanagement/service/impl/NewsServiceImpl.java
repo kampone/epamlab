@@ -30,10 +30,6 @@ public class NewsServiceImpl implements NewsService {
 	public NewsServiceImpl() {
 	}
 
-	public NewsDAO getNewsDAO() {
-		return newsDAO;
-	}
-
 	public void setNewsDAO(NewsDAO newsDAO) {
 		this.newsDAO = newsDAO;
 	}

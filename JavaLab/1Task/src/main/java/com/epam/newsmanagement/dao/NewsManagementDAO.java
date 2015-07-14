@@ -27,7 +27,7 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	 Long create(T entity) throws DAOException;
+	Long create(T entity) throws DAOException;
 
 	/**
 	 * Read entity from database
@@ -38,7 +38,7 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	 T read(Long id) throws DAOException;
+	T read(Long id) throws DAOException;
 
 	/**
 	 * Update entity in database
@@ -48,7 +48,7 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	 void update(T entity) throws DAOException;
+	void update(T entity) throws DAOException;
 
 	/**
 	 * Delete entity from database
@@ -58,7 +58,7 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	 void delete(T entity) throws DAOException;
+	void delete(T entity) throws DAOException;
 
 	/**
 	 * Delete entity from database
@@ -68,21 +68,28 @@ public interface NewsManagementDAO<T> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	 void delete(Long id) throws DAOException;
+	void delete(Long id) throws DAOException;
+
 	/**
 	 * Default method that close connection
-	 * @param dataSource implements DataSource
-	 * @param connection Connection
+	 * 
+	 * @param dataSource
+	 *            implements DataSource
+	 * @param connection
+	 *            Connection
 	 */
 	default void CloseConnection(DataSource dataSource, Connection connection) {
 		DataSourceUtils.releaseConnection(connection, dataSource);
 	}
+
 	/**
 	 * Default method that close connection, statement
-	 * @param dataSource implements DataSource
+	 * 
+	 * @param dataSource
+	 *            implements DataSource
 	 * @param connection
-	 *             that should be closed
-	 *             
+	 *            that should be closed
+	 * 
 	 * @param statement
 	 *            that should be closed
 	 * @throws DAOException
@@ -104,7 +111,9 @@ public interface NewsManagementDAO<T> {
 
 	/**
 	 * Default method that close connection, statement
-	 * @param dataSource implements DataSource
+	 * 
+	 * @param dataSource
+	 *            implements DataSource
 	 * @param connection
 	 *            that should be closed
 	 * @param statement
@@ -116,7 +125,7 @@ public interface NewsManagementDAO<T> {
 	 */
 	default void closeConnection(DataSource dataSource, Connection connection, Statement statement, ResultSet resultSet)
 			throws DAOException {
-		
+
 		this.closeConnection(dataSource, connection, statement);
 		if (resultSet != null) {
 			try {

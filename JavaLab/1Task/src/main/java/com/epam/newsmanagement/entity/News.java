@@ -8,7 +8,7 @@ import java.sql.Timestamp;
  *
  */
 public class News {
-	private Long idNews;
+	private Long newsId;
 	private String title;
 	private String shortText;
 	private String fullText;
@@ -22,7 +22,7 @@ public class News {
 	 * @return the id
 	 */
 	public Long getId() {
-		return idNews;
+		return newsId;
 	}
 
 	/**
@@ -30,7 +30,7 @@ public class News {
 	 *            the id to set
 	 */
 	public void setId(Long id) {
-		this.idNews = id;
+		this.newsId = id;
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class News {
 		int result = 1;
 		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
 		result = prime * result + ((fullText == null) ? 0 : fullText.hashCode());
-		result = prime * result + ((idNews == null) ? 0 : idNews.hashCode());
+		result = prime * result + ((newsId == null) ? 0 : newsId.hashCode());
 		result = prime * result + ((modificationDate == null) ? 0 : modificationDate.hashCode());
 		result = prime * result + ((shortText == null) ? 0 : shortText.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
@@ -146,10 +146,10 @@ public class News {
 				return false;
 		} else if (!fullText.equals(other.fullText))
 			return false;
-		if (idNews == null) {
-			if (other.idNews != null)
+		if (newsId == null) {
+			if (other.newsId != null)
 				return false;
-		} else if (!idNews.equals(other.idNews))
+		} else if (!newsId.equals(other.newsId))
 			return false;
 		if (modificationDate == null) {
 			if (other.modificationDate != null)
@@ -171,7 +171,7 @@ public class News {
 
 	@Override
 	public String toString() {
-		return System.lineSeparator()+"News [idNews=" + idNews + ", title=" + title + ", shortText=" + shortText + ", fullText=" + fullText
+		return System.lineSeparator()+"News [idNews=" + newsId + ", title=" + title + ", shortText=" + shortText + ", fullText=" + fullText
 				+ ", creationDate=" + creationDate + ", modificationDate=" + modificationDate + "]";
 	}
 

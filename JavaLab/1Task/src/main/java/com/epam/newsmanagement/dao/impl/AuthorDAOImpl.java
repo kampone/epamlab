@@ -32,10 +32,6 @@ public class AuthorDAOImpl implements AuthorDAO {
 	
 	private DataSource dataSource;
 
-	public DataSource getDataSource() {
-		return dataSource;
-	}
-
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
@@ -87,10 +83,10 @@ public class AuthorDAOImpl implements AuthorDAO {
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				author = new Author();
-				Long idAuthor = resultSet.getLong(1);
+				Long authorId = resultSet.getLong(1);
 				String name = resultSet.getString(2);
 				Timestamp expired = resultSet.getTimestamp(3);
-				author.setId(idAuthor);
+				author.setId(authorId);
 				author.setName(name);
 				author.setExpired(expired);
 			}
@@ -150,18 +146,18 @@ public class AuthorDAOImpl implements AuthorDAO {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.dao.AuthorDAO#attachAuthor(java.lang.Long, java.lang.Long)
+	 * @see com.epam.newsmanagement.dao.AuthorDAO#attachAuthorToNews(java.lang.Long, java.lang.Long)
 	 */
 	@Override
-	public void attachAuthor(Long idNews, Long idAuthor) throws DAOException {
+	public void attachAuthorToNews(Long newsId, Long authorId) throws DAOException { 
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
 		
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_INSERT_NEWS_AUTHOR_QUERY);
-			statement.setLong(1, idNews);
-			statement.setLong(2, idAuthor);
+			statement.setLong(1, newsId);
+			statement.setLong(2, authorId);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);
@@ -172,16 +168,16 @@ public class AuthorDAOImpl implements AuthorDAO {
 
 	
 	/**
-	 * @see com.epam.newsmanagement.dao.AuthorDAO#detachAuthor(java.lang.Long)
+	 * @see com.epam.newsmanagement.dao.AuthorDAO#detachAuthorFromNews(java.lang.Long)
 	 */
 	@Override
-	public void detachAuthor(Long idNews) throws DAOException {
+	public void detachAuthorFromNews(Long newsId) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_DELETE_NEWS_AUTHOR_QUERY);
-			statement.setLong(1, idNews);
+			statement.setLong(1, newsId);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);
@@ -191,10 +187,10 @@ public class AuthorDAOImpl implements AuthorDAO {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.dao.AuthorDAO#takeAuthorByNewsId(java.lang.Long)
+	 * @see com.epam.newsmanagement.dao.AuthorDAO#getAuthorByNewsId(java.lang.Long)
 	 */
 	@Override
-	public Author takeAuthorByNewsId(Long idNews) throws DAOException {
+	public Author getAuthorByNewsId(Long newsId) throws DAOException { 
 		Author author = null;
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -202,14 +198,14 @@ public class AuthorDAOImpl implements AuthorDAO {
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_READ_AUTHOR_BY_NEWS_ID_QUERY);
-			statement.setLong(1, idNews);
+			statement.setLong(1, newsId);
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				author = new Author();
-				Long idAuthor = resultSet.getLong(1);
+				Long authorId = resultSet.getLong(1);
 				String name = resultSet.getString(2);
 				Timestamp expired = resultSet.getTimestamp(3);
-				author.setId(idAuthor);
+				author.setId(authorId);
 				author.setName(name);
 				author.setExpired(expired);
 			}

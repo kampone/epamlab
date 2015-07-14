@@ -5,14 +5,14 @@ package com.epam.newsmanagement.entity;
  *
  */
 public class Tag {
-	private Long idTag;
+	private Long tagId;
 	private String name;
 
 	/**
 	 * @return the id
 	 */
 	public Long getId() {
-		return idTag;
+		return tagId;
 	}
 
 	/**
@@ -20,7 +20,7 @@ public class Tag {
 	 *            the id to set
 	 */
 	public void setId(Long id) {
-		this.idTag = id;
+		this.tagId = id;
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class Tag {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idTag == null) ? 0 : idTag.hashCode());
+		result = prime * result + ((tagId == null) ? 0 : tagId.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -62,10 +62,10 @@ public class Tag {
 		if (getClass() != obj.getClass())
 			return false;
 		Tag other = (Tag) obj;
-		if (idTag == null) {
-			if (other.idTag != null)
+		if (tagId == null) {
+			if (other.tagId != null)
 				return false;
-		} else if (!idTag.equals(other.idTag))
+		} else if (!tagId.equals(other.tagId))
 			return false;
 		if (name == null) {
 			if (other.name != null)

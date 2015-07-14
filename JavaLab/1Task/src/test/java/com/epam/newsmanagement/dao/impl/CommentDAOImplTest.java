@@ -96,13 +96,13 @@ public class CommentDAOImplTest extends DBTestCase{
 	}
 
 	@Test
-	public void testTakeCommentsByNewsId() throws Exception {
-		Long idNews = 1L;
-		int size = 3;
-		List<Comment> commentList = commentDAO.takeCommentsByNewsId(idNews);
-		assertEquals(size, commentList.size());
-	
-	}
+		public void testGetCommentsByNewsId() throws Exception {
+			Long idNews = 1L;
+			int size = 3;
+			List<Comment> commentList = commentDAO.getCommentsByNewsId(idNews);
+			assertEquals(size, commentList.size());
+		
+		}
 
 	@Test
 	public void testDeleteComment() throws Exception {
@@ -124,7 +124,7 @@ public class CommentDAOImplTest extends DBTestCase{
 	public void testDeleteCommentsByNewsId() throws Exception {
 		Long idNews = 1L;
 		commentDAO.deleteCommentsByNewsId(idNews);
-		assertTrue(commentDAO.takeCommentsByNewsId(idNews).isEmpty());
+		assertTrue(commentDAO.getCommentsByNewsId(idNews).isEmpty());
 	}
 
 	@Test
@@ -137,7 +137,7 @@ public class CommentDAOImplTest extends DBTestCase{
 		comment.setIdNews(idNews);
 		commentList.add(comment);
 		commentDAO.addCommentsForNews(commentList);
-		assertEquals(size, commentDAO.takeCommentsByNewsId(idNews).size());
+		assertEquals(size, commentDAO.getCommentsByNewsId(idNews).size());
 	}
 
 }

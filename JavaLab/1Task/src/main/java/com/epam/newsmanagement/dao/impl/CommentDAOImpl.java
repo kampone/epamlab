@@ -33,9 +33,6 @@ public class CommentDAOImpl implements CommentDAO {
 	
 	private DataSource dataSource;
 
-	public DataSource getDataSource() {
-		return dataSource;
-	}
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
@@ -55,9 +52,9 @@ public class CommentDAOImpl implements CommentDAO {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_CREATE_COMMENT_QUERY, new String[] { "COMMENT_ID" });
 			String text = entity.getText();
-			Long idNews = entity.getIdNews();
+			Long newsId = entity.getIdNews();
 			statement.setString(1, text);
-			statement.setLong(2, idNews);
+			statement.setLong(2, newsId);
 			statement.executeUpdate();
 			resultSet = statement.getGeneratedKeys();
 			if (resultSet != null && resultSet.next()) {
@@ -91,12 +88,12 @@ public class CommentDAOImpl implements CommentDAO {
 			resultSet = statement.executeQuery();
 			while (resultSet.next()) {
 				comment = new Comment();
-				Long idComment = resultSet.getLong(1);
-				Long idNews = resultSet.getLong(2);
+				Long commentId = resultSet.getLong(1);
+				Long newsId = resultSet.getLong(2);
 				String text = resultSet.getString(3);
 				Timestamp creationDate = resultSet.getTimestamp(4);
-				comment.setId(idComment);
-				comment.setIdNews(idNews);
+				comment.setId(commentId);
+				comment.setIdNews(newsId);
 				comment.setText(text);
 				comment.setCreationDate(creationDate);
 			}
@@ -133,10 +130,10 @@ public class CommentDAOImpl implements CommentDAO {
 
 	
 	/**
-	 * @see com.epam.newsmanagement.dao.CommentDAO#takeCommentsByNewsId(java.lang.Long)
+	 * @see com.epam.newsmanagement.dao.CommentDAO#getCommentsByNewsId(java.lang.Long)
 	 */
 	@Override
-	public List<Comment> takeCommentsByNewsId(Long idNews) throws DAOException {
+	public List<Comment> getCommentsByNewsId(Long newsId) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -145,16 +142,16 @@ public class CommentDAOImpl implements CommentDAO {
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_READ_COMMENTS_BY_NEWS_ID_QUERY);
-			statement.setLong(1, idNews);
+			statement.setLong(1, newsId);
 			resultSet = statement.executeQuery();
 			commentList = new ArrayList<>();
 			while (resultSet.next()) {
 				comment = new Comment();
-				Long idComment = resultSet.getLong(1);
+				Long commentId = resultSet.getLong(1);
 				String text = resultSet.getString(2);
 				Timestamp creationDate = resultSet.getTimestamp(3);
-				comment.setId(idComment);
-				comment.setIdNews(idNews);
+				comment.setId(commentId);
+				comment.setIdNews(newsId);
 				comment.setText(text);
 				comment.setCreationDate(creationDate);
 				commentList.add(comment);
@@ -201,13 +198,13 @@ public class CommentDAOImpl implements CommentDAO {
 	 * @see com.epam.newsmanagement.dao.CommentDAO#deleteCommentsByNewsId(java.lang.Long)
 	 */
 	@Override
-	public void deleteCommentsByNewsId(Long idNews) throws DAOException {
+	public void deleteCommentsByNewsId(Long newsId) throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_DELETE_COMMENT_BY_NEWS_ID_QUERY);
-			statement.setLong(1, idNews);
+			statement.setLong(1, newsId);
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);
