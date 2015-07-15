@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="tagDAO" class="com.epam.newsmanagement.dao.impl.TagDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="commentDAO" class="com.epam.newsmanagement.dao.impl.CommentDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="authorDAO" class="com.epam.newsmanagement.dao.impl.AuthorDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="newsDAO" class="com.epam.newsmanagement.dao.impl.NewsDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+</beans>
