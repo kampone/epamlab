@@ -12,3 +12,6 @@ lib
 log
 target
 RemoteSystemsTempFiles
+
+Servers
+testapp
