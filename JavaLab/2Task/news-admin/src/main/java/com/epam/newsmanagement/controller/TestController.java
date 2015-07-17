@@ -1,5 +1,7 @@
 package com.epam.newsmanagement.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,6 @@ public class TestController {
 		Author author = new Author();
 		author.setName("VASYA!");
 		model.addAttribute("message", service.addNewAuthor(author));
-		return "hello";
+		return "profile";
 	}
 }
