@@ -1,3 +1,4 @@
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <table align="center" width="1200px">
 	<tr>
 		<td>
@@ -13,19 +14,19 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">News Portal</a>
+						<a class="navbar-brand" href="#"><spring:message code="label.head.name"/></a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse"
 						id="bs-example-navbar-collapse-1">
 						<ul class="navbar-form navbar-right">
-							<button type="button" class="btn btn-default">En</button>
-							<button type="button" class="btn btn-default">Ru</button>
+							<a href="?lang=en"><button type="button" class="btn btn-default">En</button></a>
+							<a href="?lang=ru"><button type="button" class="btn btn-default">Ru</button></a>
 							
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#">Log out</a></li>
+							<li><a href="#"><spring:message code="label.head.logout"/></a></li>
 						</ul>
 					</div>
 				</div>

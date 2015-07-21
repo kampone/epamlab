@@ -4,7 +4,7 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
   <definition name="profile" template="/WEB-INF/jsp/templates/classic.jsp">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="News Portal" />
     <put-attribute name="navMenu" value="/WEB-INF/jsp/header/header.jsp" />
     <put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp" />
     <put-attribute name="search" value="/WEB-INF/jsp/search.jsp" />
