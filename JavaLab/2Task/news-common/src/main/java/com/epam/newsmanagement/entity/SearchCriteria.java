@@ -80,4 +80,11 @@ public class SearchCriteria {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "SearchCriteria [tagIdList=" + tagIdList + ", authorId=" + authorId + "]";
+	}
+	
+	
+
 }

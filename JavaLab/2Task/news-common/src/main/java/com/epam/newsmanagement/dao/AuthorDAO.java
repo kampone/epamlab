@@ -3,9 +3,12 @@
  */
 package com.epam.newsmanagement.dao;
 
+import java.util.List;
+
 import com.epam.newsmanagement.dao.NewsManagementDAO;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.exception.DAOException;
+import com.epam.newsmanagement.exception.ServiceException;
 
 /**
  * @author Uladzislau_Kaminski
@@ -33,4 +36,11 @@ public interface AuthorDAO extends NewsManagementDAO<Author> {
 	 * @throws DAOException  if trouble with connection with database
 	 */
 	Author getAuthorByNewsId(Long newsId) throws DAOException;
+	
+	
+	/**Return all authors that can create news
+	 * @return List<Author>
+	 * @throws DAOException if trouble with connection with database
+	 */
+	List<Author> getAllAuthors() throws DAOException;	
 }

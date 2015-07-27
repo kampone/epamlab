@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+  <definition name="classic" template="/WEB-INF/jsp/templates/classic.jsp">
+    <put-attribute name="title" value="News Portal" />
+    <put-attribute name="navMenu" value="/WEB-INF/jsp/header/header.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/jsp/footer/footer.jsp" />
+  </definition>
+  
+   <definition name="news" extends="classic" template="/WEB-INF/jsp/templates/news.jsp">
+    <put-attribute name="search" value="/WEB-INF/jsp/search.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/jsp/body.jsp" />
+    <put-attribute name="pagination" value="/WEB-INF/jsp/pagination.jsp"/>
+  </definition>
+  
+   <definition name="current_news" extends="classic" template="/WEB-INF/jsp/templates/current_news.jsp">
+    <put-attribute name="backButton" value="/WEB-INF/jsp/back_button.jsp" />
+    <put-attribute name="body" value="/WEB-INF/jsp/body.jsp" />
+    <put-attribute name="prevAndNext" value="/WEB-INF/jsp/previous_next_buttons.jsp" />
+  </definition>
+  
+</tiles-definitions>

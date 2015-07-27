@@ -1,5 +1,7 @@
 package com.epam.newsmanagement.service.impl;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.epam.newsmanagement.dao.AuthorDAO;
@@ -120,6 +122,17 @@ public class AuthorServiceImpl implements AuthorService {
 		} catch (DAOException e) {
 			LOG.error(" Exception during taking Author by news id ", e);
 			throw new ServiceException(" Exception during taking Author by news id ", e);
+		}
+	}
+
+
+	@Override
+	public List<Author> getAllAuthors() throws ServiceException {
+		try {
+			return authorDAO.getAllAuthors();
+		} catch (DAOException e) {
+			LOG.error(" Exception during taking all Authors", e);
+			throw new ServiceException("  Exception during taking all Authors ", e);
 		}
 	}
 

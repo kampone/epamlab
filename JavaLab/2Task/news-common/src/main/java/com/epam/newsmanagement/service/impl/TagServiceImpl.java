@@ -146,4 +146,14 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
+	@Override
+	public List<Tag> getAllTags() throws ServiceException {
+		try {
+			return tagDAO.getAllTags();
+		} catch (DAOException e) {
+			LOG.error(" Exception during taking all Tags  " + e);
+			throw new ServiceException("Exception during taking all Tags", e);
+		}
+	}
+
 }

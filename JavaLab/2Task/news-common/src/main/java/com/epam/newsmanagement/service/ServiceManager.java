@@ -10,6 +10,7 @@ import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.NewsVO;
 import com.epam.newsmanagement.entity.SearchCriteria;
+import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.ServiceException;
 
 /**
@@ -135,4 +136,20 @@ public interface ServiceManager {
 	 *             if trouble in DAO layer
 	 */
 	NewsVO getNewsVO(Long newsId) throws ServiceException;
+	
+	
+	/**Return all authors that can create news
+	 * @return List<Author>
+	 * @throws ServiceException if trouble in DAO layer
+	 */
+	List<Author> getAllAuthors() throws ServiceException;
+	
+	
+	/**Return all tags that can be maked by news
+	 * @return List<Tag>
+	 * @throws ServiceException trouble in DAO layer
+	 */
+	List<Tag> getAllTags() throws ServiceException;
+	
+	
 }

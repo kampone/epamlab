@@ -77,6 +77,11 @@ public class NewsVO {
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "NewsVO [news=" + news + ", author=" + author + ", tagList=" + tagList + ", commentList=" + commentList
+				+ "]";
+	}
 	
 	
 	

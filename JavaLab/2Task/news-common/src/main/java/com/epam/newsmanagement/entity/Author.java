@@ -89,6 +89,11 @@ public class Author{
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Author [authorId=" + authorId + ", name=" + name + ", expired=" + expired + "]";
+	}
+
 
 
 

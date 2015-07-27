@@ -5,6 +5,7 @@ package com.epam.newsmanagement.service.impl;
 
 import java.util.List;
 
+import org.springframework.scheduling.config.Task;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.epam.newsmanagement.entity.Author;
@@ -12,12 +13,15 @@ import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.NewsVO;
 import com.epam.newsmanagement.entity.SearchCriteria;
+import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.AuthorService;
 import com.epam.newsmanagement.service.CommentService;
 import com.epam.newsmanagement.service.NewsService;
 import com.epam.newsmanagement.service.ServiceManager;
 import com.epam.newsmanagement.service.TagService;
+
+import oracle.net.aso.s;
 
 /**
  * @author Uladzislau_Kaminski
@@ -165,6 +169,19 @@ public class ServiceManagerImpl implements ServiceManager {
 		newsVO.setTagList(tagService.getNewsTags(idNews));
 		newsVO.setCommentList(commentService.getCommentsByNewsId(idNews));
 		return newsVO;
+	}
+
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#getAllAuthors()
+	 */
+	@Override
+	public List<Author> getAllAuthors() throws ServiceException {
+		return authorService.getAllAuthors();
+	}
+
+	@Override
+	public List<Tag> getAllTags() throws ServiceException {
+		return tagService.getAllTags();
 	}
 
 }

@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -28,7 +30,8 @@ public class AuthorDAOImpl implements AuthorDAO {
 	private static final String SQL_DELETE_AUTHOR_BY_ID_QUERY = "UPDATE authors a SET EXPIRED = SYSDATE WHERE a.AUTHOR_ID = ?";
 	private static final String SQL_INSERT_NEWS_AUTHOR_QUERY = "INSERT INTO news_authors na (na.news_id, na.author_id) VALUES (?, ?)";
 	private static final String SQL_DELETE_NEWS_AUTHOR_QUERY = "DELETE FROM news_authors na WHERE na.news_id = ?";
-	private static final String SQL_READ_AUTHOR_BY_NEWS_ID_QUERY = "SELECT a.author_id, a.author_name, a.expired FROM authors a INNER JOIN news_authors na ON na.author_id = a.author_id  WHERE na.news_id = ?";;
+	private static final String SQL_READ_AUTHOR_BY_NEWS_ID_QUERY = "SELECT a.author_id, a.author_name, a.expired FROM authors a INNER JOIN news_authors na ON na.author_id = a.author_id  WHERE na.news_id = ?";
+	private static final String SQL_READ_ALL_AUTHOR_QUERY = "SELECT a.author_id, a.author_name, a.expired FROM authors a";;
 	
 	private DataSource dataSource;
 
@@ -47,7 +50,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		try {
-			connection = DataSourceUtils.doGetConnection(dataSource);
+			connection = dataSource.getConnection();
 			statement = connection.prepareStatement(SQL_CREATE_NEW_AUTHOR_QUERY, new String[] { "AUTHOR_ID" });
 			String name = entity.getName();
 			statement.setString(1, name);
@@ -215,6 +218,37 @@ public class AuthorDAOImpl implements AuthorDAO {
 			closeConnection(dataSource, connection, statement, resultSet);
 		}
 		return author;
+	}
+
+
+	@Override
+	public List<Author> getAllAuthors() throws DAOException {
+		List<Author> authorList = null;
+		Author author = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			connection = DataSourceUtils.doGetConnection(dataSource);
+			statement = connection.prepareStatement(SQL_READ_ALL_AUTHOR_QUERY);
+			resultSet = statement.executeQuery();
+			authorList = new ArrayList<>();
+			while (resultSet.next()) {
+				author = new Author();
+				Long authorId = resultSet.getLong(1);
+				String name = resultSet.getString(2);
+				Timestamp expired = resultSet.getTimestamp(3);
+				author.setId(authorId);
+				author.setName(name);
+				author.setExpired(expired);
+				authorList.add(author);
+			}
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		} finally {
+			closeConnection(dataSource, connection, statement, resultSet);
+		}
+		return authorList;
 	}
 
 }

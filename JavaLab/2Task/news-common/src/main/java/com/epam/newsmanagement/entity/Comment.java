@@ -116,6 +116,12 @@ public class Comment {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Comment [commentId=" + commentId + ", newsId=" + newsId + ", text=" + text + ", creationDate="
+				+ creationDate + "]";
+	}
 	
 	
 

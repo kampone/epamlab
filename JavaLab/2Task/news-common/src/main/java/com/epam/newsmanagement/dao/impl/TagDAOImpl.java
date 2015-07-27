@@ -31,6 +31,7 @@ public class TagDAOImpl implements TagDAO {
 	private static final String SQL_INSERT_NEWS_TAG_QUERY = "INSERT INTO news_tags nt (nt.news_id, nt.tag_id) VALUES (?, ?)";
 	private static final String SQL_DELETE_NEWS_TAG_QUERY = "DELETE FROM news_tags nt WHERE nt.news_id = ?";
 	private static final String SQL_READ_TAG_BY_NEWS_ID_QUERY = "SELECT t.tag_id, t.tag_name FROM tags t JOIN news_tags nt ON t.TAG_ID = nt.TAG_ID JOIN news n ON nt.NEWS_ID = n.NEWS_ID WHERE n.NEWS_ID=?";
+	private static final String SQL_READ_ALL_TAGS_QUERY = "SELECT t.tag_id, t.tag_name FROM tags t";
 
 	private DataSource dataSource;
 
@@ -210,7 +211,7 @@ public class TagDAOImpl implements TagDAO {
 			for (Long tagId : tagIdList) {
 				statement.setLong(2, tagId);
 				statement.addBatch();
-			}
+			} 
 			statement.executeBatch();
 		} catch (SQLException e) {
 			throw new DAOException(e);
@@ -234,6 +235,35 @@ public class TagDAOImpl implements TagDAO {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_READ_TAG_BY_NEWS_ID_QUERY);
 			statement.setLong(1, newsId);
+			resultSet = statement.executeQuery();
+			tagList = new ArrayList<>();
+			while (resultSet.next()) {
+				tag = new Tag();
+				Long tagId = resultSet.getLong(1);
+				String name = resultSet.getString(2);
+				tag.setId(tagId);
+				tag.setName(name);
+				tagList.add(tag);
+			}
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		} finally {
+			closeConnection(dataSource, connection, statement, resultSet);
+		}
+		return tagList;
+	}
+
+
+	@Override
+	public List<Tag> getAllTags() throws DAOException  {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		List<Tag> tagList = null;
+		Tag tag = null;
+		try {
+			connection = DataSourceUtils.doGetConnection(dataSource);
+			statement = connection.prepareStatement(SQL_READ_ALL_TAGS_QUERY);
 			resultSet = statement.executeQuery();
 			tagList = new ArrayList<>();
 			while (resultSet.next()) {
