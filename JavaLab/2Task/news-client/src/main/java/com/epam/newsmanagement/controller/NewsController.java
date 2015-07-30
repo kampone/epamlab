@@ -28,14 +28,8 @@ public class NewsController {
 		model.addAttribute("authors",service.getAllAuthors());
 		model.addAttribute("tags", service.getAllTags());
 		page = page == null ? 1 : page;
-		System.out.println("Page:="+page);
 		int startIndex = (page-1) * NUMBER_OF_NEWS_ON_PAGE+1;
 		int lastIndex = startIndex + NUMBER_OF_NEWS_ON_PAGE-1; 
-		
-		System.out.println("start index:="+startIndex);
-		System.out.println("last  index:="+lastIndex);
-		System.out.println("news       :="+service.getNews(searchCriteria, startIndex, lastIndex));
-
 		model.addAttribute("newsList", service.getNews(searchCriteria, startIndex, lastIndex));
 		return "news";
 	}

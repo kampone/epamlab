@@ -29,9 +29,7 @@
 		</tr>
 
 		<tr>
-			<td align="center"> <c:forEach var="news" items="${newsList}">
-<h3>${news}</h3>				
-</c:forEach>
+			<td align="center"> 
 			<tiles:insertAttribute name="body" /></td>
 		</tr>
 

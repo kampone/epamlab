@@ -8,6 +8,7 @@ import java.util.List;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.NewsPageVO;
 import com.epam.newsmanagement.entity.NewsVO;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.entity.Tag;
@@ -126,30 +127,46 @@ public interface ServiceManager {
 	 *             if trouble in DAO layer
 	 */
 	void deleteCommentsByNewsId(Long newsId) throws ServiceException;
-	
-	
+
 	/**
-	 * Get News ValueObject with author, tags, comments 
-	 * @param newsId id of News
+	 * Get News ValueObject with author, tags, comments
+	 * 
+	 * @param newsId
+	 *            id of News
 	 * @return NewsVO
 	 * @throws ServiceException
 	 *             if trouble in DAO layer
 	 */
 	NewsVO getNewsVO(Long newsId) throws ServiceException;
-	
-	
-	/**Return all authors that can create news
+
+	/**
+	 * Get News ValueObject with author, tags, comments
+	 * 
+	 * @param newsId
+	 *            id of News
+	 * @return NewsVO
+	 * @throws ServiceException
+	 *             if trouble in DAO layer
+	 */
+	List<NewsVO> getNewsVO(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException;
+
+
+	/**
+	 * Return all authors that can create news
+	 * 
 	 * @return List<Author>
-	 * @throws ServiceException if trouble in DAO layer
+	 * @throws ServiceException
+	 *             if trouble in DAO layer
 	 */
 	List<Author> getAllAuthors() throws ServiceException;
-	
-	
-	/**Return all tags that can be maked by news
+
+	/**
+	 * Return all tags that can be maked by news
+	 * 
 	 * @return List<Tag>
-	 * @throws ServiceException trouble in DAO layer
+	 * @throws ServiceException
+	 *             trouble in DAO layer
 	 */
 	List<Tag> getAllTags() throws ServiceException;
-	
-	
+
 }

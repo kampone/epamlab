@@ -8,6 +8,7 @@ public class NewsVO {
 	private Author author;
 	private List<Tag> tagList;
 	private List<Comment> commentList;
+	
 	public NewsVO() {
 		tagList = new ArrayList<>();
 		commentList = new ArrayList<>();

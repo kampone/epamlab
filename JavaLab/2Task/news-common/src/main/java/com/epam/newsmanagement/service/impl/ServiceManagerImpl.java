@@ -3,6 +3,7 @@
  */
 package com.epam.newsmanagement.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.scheduling.config.Task;
@@ -183,5 +184,22 @@ public class ServiceManagerImpl implements ServiceManager {
 	public List<Tag> getAllTags() throws ServiceException {
 		return tagService.getAllTags();
 	}
+
+	@Override
+	public List<NewsVO> getNewsVO(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException {
+		List<NewsVO> newsVOList = new ArrayList<>();
+		NewsVO newsVO = null;
+		List<News> newsList = newsService.getNews(searchCriteria, startIndex, lastIndex);
+		for (News news : newsList) {
+			newsVO = new NewsVO();
+			Long idNews = news.getId();
+			newsVO.setAuthor(authorService.getAuthorByNewsId(idNews));
+			newsVO.setTagList(tagService.getNewsTags(idNews));
+			newsVO.setCommentList(commentService.getCommentsByNewsId(idNews));
+			newsVOList.add(newsVO);
+		}
+		return newsVOList;
+	}
+
 
 }

@@ -12,7 +12,7 @@
   
    <definition name="news" extends="classic" template="/WEB-INF/jsp/templates/news.jsp">
     <put-attribute name="search" value="/WEB-INF/jsp/search.jsp"/>
-    <put-attribute name="body" value="/WEB-INF/jsp/body.jsp" />
+    <put-attribute name="body" value="/WEB-INF/jsp/news_list.jsp" />
     <put-attribute name="pagination" value="/WEB-INF/jsp/pagination.jsp"/>
   </definition>
   

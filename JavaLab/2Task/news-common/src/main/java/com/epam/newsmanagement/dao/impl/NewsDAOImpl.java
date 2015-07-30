@@ -30,17 +30,21 @@ public class NewsDAOImpl implements NewsDAO {
 	private static final String SQL_READ_NEWS_BY_ID_QUERY = "SELECT n.news_id, n.title, n.short_text, n.full_text, n.creation_date, n.modification_date FROM news n WHERE n.news_id = ?";
 	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news n SET n.title = ?, n.short_text = ?, n.full_text = ?, n.modification_date = SYSDATE WHERE n.news_id = ? ";
 	private static final String SQL_DELETE_NEWS_BY_ID_QUERY = "DELETE FROM news n WHERE n.news_id = ?";
-	private static final String SQL_READ_ALL_NEWS_QUERY = "SELECT DISTINCT  res.news_id, res.title, res.short_text, res.full_text, res.creation_date, res.modification_date "
-			+ "FROM ( SELECT row_number() OVER (ORDER BY nc.comments_count DESC, nc.modification_date) rn, nc.* "
-			+ "FROM (SELECT n.news_id , n.title , n.short_text ,n.full_text , n.creation_date , n.modification_date, COUNT(c.news_id) AS comments_count "
+	private static final String SQL_READ_ALL_NEWS_QUERY = "SELECT news_id,title,short_text,full_text,creation_date,modification_date,rn FROM( "
+			+ "SELECT tmp.news_id,tmp.title,tmp.short_text,tmp.full_text,tmp.creation_date,tmp.modification_date,tmp.cnt,ROWNUM rn "
+			+ "FROM ( SELECT n.news_id,title,short_text,full_text,n.creation_date,n.modification_date,COUNT(DISTINCT c.comment_id) cnt "
 			+ "FROM news n "
-			+ "LEFT JOIN comments c ON n.news_id=c.news_id GROUP BY n.news_id, n.title , n.short_text ,n.full_text , n.creation_date , n.modification_date) nc "
-			+ ") res  " + "WHERE res.rn  BETWEEN ? AND ?  ";
-	private static final String SQL_ADD_SEARCH_CRITERIA_QUERY = "LEFT JOIN (SELECT na.author_id, na.news_id, nt.tag_id FROM news_tags nt "
-			+ "LEFT JOIN news_authors na ON na.news_id = nt.news_id) links ON links.news_id = nc.news_id ";
-	private static final String SQL_WHERE_AUTHOR_ID_QUERY = "WHERE links.author_id=? ";
-	private static final String SQL_WHERE_TAGS_ID_QUERY = "WHERE links.tag_id IN ";
-	private static final String SQL_AND_TAGS_ID_QUERY = "AND links.tag_id IN ";
+			+ "LEFT JOIN comments c ON n.news_id = c.news_id "
+			+ " %s "
+			+ "GROUP BY n.news_id,title,short_text,full_text,n.creation_date,modification_date "
+			+ "ORDER BY cnt DESC NULLS LAST,n.modification_date DESC )"
+			+ "tmp ) "
+			+ "WHERE rn BETWEEN ? AND ?";
+	private static final String SQL_ADD_SEARCH_CRITERIA_QUERY = "LEFT JOIN NEWS_TAGS nt ON nt.NEWS_ID = n.NEWS_ID "
+			+ "LEFT JOIN NEWS_AUTHORS na ON na.NEWS_ID = n.NEWS_ID ";
+	private static final String SQL_WHERE_AUTHOR_ID_QUERY = " WHERE na.author_id=? ";
+	private static final String SQL_WHERE_TAGS_ID_QUERY = " WHERE nt.tag_id IN ";
+	private static final String SQL_AND_TAGS_ID_QUERY = " AND nt.tag_id IN ";
 
 	private DataSource dataSource;
 
@@ -169,13 +173,13 @@ public class NewsDAOImpl implements NewsDAO {
 	}
 
 	private String createQuery(SearchCriteria searchCriteria) {
-		StringBuilder sbAllNews = new StringBuilder(SQL_READ_ALL_NEWS_QUERY);
-
+		
 		if (searchCriteria != null) {
-			int lastIndex = sbAllNews.lastIndexOf(")");
-			sbAllNews.insert(lastIndex, createQueryWithSearchCriteria(searchCriteria));
+			return String.format(SQL_READ_ALL_NEWS_QUERY, createQueryWithSearchCriteria(searchCriteria));
+		}else{
+			return String.format(SQL_READ_ALL_NEWS_QUERY, " ");
 		}
-		return sbAllNews.toString();
+		
 	}
 
 	private String createQueryWithSearchCriteria(SearchCriteria searchCriteria) {
