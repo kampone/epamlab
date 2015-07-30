@@ -14,7 +14,7 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#"><spring:message
+						<a class="navbar-brand news_logo" href="#"><spring:message
 								code="label.head.name" /></a>
 					</div>
 
@@ -23,18 +23,19 @@
 						id="bs-example-navbar-collapse-1">
 						<ul class="navbar-form navbar-right">
 							<a href="?lang=ru"><button type="button"
-									class="btn btn-default">
+									class="btn btn-default news_button" >
 									<spring:message code="label.button.ru" />
 								</button></a>
 							<a href="?lang=en"><button type="button"
-									class="btn btn-default">
+									class="btn btn-default news_button">
 									<spring:message code="label.button.en" />
 								</button></a>
 						</ul>
+						<%--Need to be added to admin application 
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="#"><spring:message code="label.head.logout" /></a></li>
-						</ul>
-					</div>
+						</ul> 
+ --%>					</div>
 				</div>
 			</nav>
 

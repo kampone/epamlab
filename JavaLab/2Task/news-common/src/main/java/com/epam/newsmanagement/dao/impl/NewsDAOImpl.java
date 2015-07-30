@@ -33,13 +33,13 @@ public class NewsDAOImpl implements NewsDAO {
 	private static final String SQL_READ_ALL_NEWS_QUERY = "SELECT news_id,title,short_text,full_text,creation_date,modification_date,rn FROM( "
 			+ "SELECT tmp.news_id,tmp.title,tmp.short_text,tmp.full_text,tmp.creation_date,tmp.modification_date,tmp.cnt,ROWNUM rn "
 			+ "FROM ( SELECT n.news_id,title,short_text,full_text,n.creation_date,n.modification_date,COUNT(DISTINCT c.comment_id) cnt "
-			+ "FROM news n "
-			+ "LEFT JOIN comments c ON n.news_id = c.news_id "
-			+ " %s "
+			+ "FROM news n " + "LEFT JOIN comments c ON n.news_id = c.news_id " + " %s "
 			+ "GROUP BY n.news_id,title,short_text,full_text,n.creation_date,modification_date "
-			+ "ORDER BY cnt DESC NULLS LAST,n.modification_date DESC )"
-			+ "tmp ) "
-			+ "WHERE rn BETWEEN ? AND ?";
+			+ "ORDER BY cnt DESC NULLS LAST,n.modification_date DESC )" + "tmp ) " + "WHERE rn BETWEEN ? AND ?";
+	private static final String SQL_READ_NUMBER_OF_NEWS_QUERY = "  SELECT DISTINCT total_amount " + "FROM ("
+			+ "SELECT COUNT(n.news_id) over() total_amount " + "FROM news n "
+			+ "LEFT JOIN comments c ON n.news_id = c.news_id " + "%s "
+			+ "GROUP BY n.news_id,title,short_text,full_text,n.creation_date,modification_date ) ";
 	private static final String SQL_ADD_SEARCH_CRITERIA_QUERY = "LEFT JOIN NEWS_TAGS nt ON nt.NEWS_ID = n.NEWS_ID "
 			+ "LEFT JOIN NEWS_AUTHORS na ON na.NEWS_ID = n.NEWS_ID ";
 	private static final String SQL_WHERE_AUTHOR_ID_QUERY = " WHERE na.author_id=? ";
@@ -172,19 +172,22 @@ public class NewsDAOImpl implements NewsDAO {
 		}
 	}
 
-	private String createQuery(SearchCriteria searchCriteria) {
-		
+	private String createQuery(SearchCriteria searchCriteria, String query) {
+
 		if (searchCriteria != null) {
-			return String.format(SQL_READ_ALL_NEWS_QUERY, createQueryWithSearchCriteria(searchCriteria));
-		}else{
-			return String.format(SQL_READ_ALL_NEWS_QUERY, " ");
+			System.out.println(String.format(query, createQueryWithSearchCriteria(searchCriteria)));
+			return String.format(query, createQueryWithSearchCriteria(searchCriteria));
+		} else {
+			System.out.println(String.format(query, " "));
+
+			return String.format(query, " ");
 		}
-		
+
 	}
 
 	private String createQueryWithSearchCriteria(SearchCriteria searchCriteria) {
 		StringBuilder sbSearchCriteria = new StringBuilder(SQL_ADD_SEARCH_CRITERIA_QUERY);
-		if (searchCriteria.getAuthorId() != null) { 
+		if (searchCriteria.getAuthorId() != null) {
 			sbSearchCriteria.append(SQL_WHERE_AUTHOR_ID_QUERY);
 		}
 		if (!searchCriteria.getTagIdList().isEmpty()) {
@@ -231,6 +234,25 @@ public class NewsDAOImpl implements NewsDAO {
 		return ps;
 	}
 
+	private PreparedStatement insertParametres(SearchCriteria sc, PreparedStatement ps) throws DAOException {
+		try {
+			int i = 1;
+			if (sc != null) {
+				if (sc.getAuthorId() != null) {
+					ps.setLong(i, sc.getAuthorId());
+					++i;
+				}
+				for (Long id : sc.getTagIdList()) {
+					ps.setLong(i, id);
+					++i;
+				}
+			}
+		} catch (SQLException e) {
+			throw new DAOException(System.lineSeparator() + " Problem during inserting parametrs ", e);
+		}
+		return ps;
+	}
+
 	/**
 	 * @see com.epam.newsmanagement.dao.NewsDAO#getNews(com.epam.newsmanagement.entity.SearchCriteria,
 	 *      int, int)
@@ -245,7 +267,7 @@ public class NewsDAOImpl implements NewsDAO {
 		newsList = new ArrayList<>();
 		try {
 			connection = DataSourceUtils.doGetConnection(dataSource);
-			statement = connection.prepareStatement(createQuery(searchCriteria));
+			statement = connection.prepareStatement(createQuery(searchCriteria, SQL_READ_ALL_NEWS_QUERY));
 			resultSet = insertParametres(searchCriteria, statement, startIndex, lastIndex).executeQuery();
 			while (resultSet.next()) {
 				news = new News();
@@ -269,6 +291,28 @@ public class NewsDAOImpl implements NewsDAO {
 			closeConnection(dataSource, connection, statement, resultSet);
 		}
 		return newsList;
+	}
+
+	@Override
+	public int getNewsNumber(SearchCriteria searchCriteria) throws DAOException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		int number = 0;
+		try {
+			connection = DataSourceUtils.doGetConnection(dataSource);
+			statement = connection.prepareStatement(createQuery(searchCriteria, SQL_READ_NUMBER_OF_NEWS_QUERY));
+			resultSet = insertParametres(searchCriteria, statement).executeQuery();
+			while (resultSet.next()) {
+				number = resultSet.getInt(1);
+			}
+		} catch (SQLException e) {
+			throw new DAOException(System.lineSeparator() + " Problem during reading number of news ", e);
+		} finally {
+			closeConnection(dataSource, connection, statement, resultSet);
+		}
+		return number;
+
 	}
 
 }

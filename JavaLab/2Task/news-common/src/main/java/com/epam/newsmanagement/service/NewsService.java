@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.SearchCriteria;
+import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.NewsManagementService;
 
@@ -26,4 +27,14 @@ public interface NewsService extends NewsManagementService<News> {
 	 *             if trouble with connection in DAO layer	 
 	 */             
 	List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException;
+	
+	/**
+	 * Return number of news which satisfy search criteria
+	 * @param searchCriteria {@link SearchCriteria}
+	 * @return number of {@link News}
+	 * @throws DAOException 
+	 * @throws ServiceException 
+	 */
+	int getNewsNumber(SearchCriteria searchCriteria) throws ServiceException;
+
 }

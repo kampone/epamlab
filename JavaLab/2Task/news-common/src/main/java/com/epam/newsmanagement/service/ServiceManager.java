@@ -168,5 +168,13 @@ public interface ServiceManager {
 	 *             trouble in DAO layer
 	 */
 	List<Tag> getAllTags() throws ServiceException;
+	
+	/**
+	 * Return number of news which satisfy Search Criteria 
+	 * @param searchCriteria {@link SearchCriteria}
+	 * @return number of {@link News}
+	 * @throws ServiceException
+	 */
+	int getNumberOfNews(SearchCriteria searchCriteria) throws ServiceException;
 
 }

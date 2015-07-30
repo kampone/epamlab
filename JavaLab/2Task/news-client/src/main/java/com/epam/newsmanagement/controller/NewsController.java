@@ -25,12 +25,17 @@ public class NewsController {
 	@RequestMapping("/news")
 	public String addAttrbutes(HttpSession session, Model model, @RequestParam(value="page", required=false) Integer page) throws ServiceException {
 		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
-		model.addAttribute("authors",service.getAllAuthors());
-		model.addAttribute("tags", service.getAllTags());
+		
 		page = page == null ? 1 : page;
 		int startIndex = (page-1) * NUMBER_OF_NEWS_ON_PAGE+1;
-		int lastIndex = startIndex + NUMBER_OF_NEWS_ON_PAGE-1; 
-		model.addAttribute("newsList", service.getNews(searchCriteria, startIndex, lastIndex));
+		int lastIndex = startIndex + NUMBER_OF_NEWS_ON_PAGE-1;
+		int pages = (int) Math.ceil(service.getNumberOfNews(searchCriteria)/NUMBER_OF_NEWS_ON_PAGE);
+		
+		model.addAttribute("authors",service.getAllAuthors());
+		model.addAttribute("tags", service.getAllTags());
+		model.addAttribute("newsVOList", service.getNewsVO(searchCriteria, startIndex, lastIndex));
+		model.addAttribute("pages", pages);
+		model.addAttribute("numberOfNews", Math.ceil(service.getNumberOfNews(searchCriteria)));
 		return "news";
 	}
 	

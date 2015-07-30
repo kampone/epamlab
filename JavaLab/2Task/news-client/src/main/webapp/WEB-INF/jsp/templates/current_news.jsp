@@ -7,12 +7,8 @@
 <head>
 <title><tiles:getAsString name="title" /></title>
 <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
-<link href="<c:url value="/css/bootstrap-theme.min.css" />"
-	rel="stylesheet">
-<link href="<c:url value="/css/bootstrap-select.min.css" />"
-	rel="stylesheet">
-<link href="<c:url value="/css/style.css" />" rel="stylesheet">
-<link href="<c:url value="/css/buttons.css" />" rel="stylesheet">
+<link href="<c:url value="/css/bootstrap-theme.min.css" />"	rel="stylesheet">
+<link href="<c:url value="/css/style.css" />"	rel="stylesheet">
 
 </head>
 <body>

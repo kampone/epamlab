@@ -193,12 +193,18 @@ public class ServiceManagerImpl implements ServiceManager {
 		for (News news : newsList) {
 			newsVO = new NewsVO();
 			Long idNews = news.getId();
+			newsVO.setNews(news);
 			newsVO.setAuthor(authorService.getAuthorByNewsId(idNews));
 			newsVO.setTagList(tagService.getNewsTags(idNews));
 			newsVO.setCommentList(commentService.getCommentsByNewsId(idNews));
 			newsVOList.add(newsVO);
 		}
 		return newsVOList;
+	}
+
+	@Override
+	public int getNumberOfNews(SearchCriteria searchCriteria) throws ServiceException {
+		return newsService.getNewsNumber(searchCriteria);
 	}
 
 

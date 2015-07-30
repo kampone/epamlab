@@ -113,4 +113,14 @@ public class NewsServiceImpl implements NewsService {
 		}
 	}
 
+	@Override
+	public int getNewsNumber(SearchCriteria searchCriteria) throws ServiceException {
+		try {
+			return newsDAO.getNewsNumber(searchCriteria);
+		} catch (DAOException e) {
+			LOG.error(" Exception during getting number of News with SearchCriteria ", e);
+			throw new ServiceException(" Exception during getting number of News with SearchCriteria ", e);
+		}
+	}
+
 }

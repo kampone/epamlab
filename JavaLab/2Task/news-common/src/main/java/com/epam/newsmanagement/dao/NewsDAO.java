@@ -24,4 +24,7 @@ public interface NewsDAO extends NewsManagementDAO<News> {
 	 * @throws DAOException if trouble with connection with database 
 	 */
 	List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws DAOException;
+	
+	int getNewsNumber(SearchCriteria searchCriteria) throws DAOException;
+
 }

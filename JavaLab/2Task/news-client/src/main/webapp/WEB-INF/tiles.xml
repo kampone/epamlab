@@ -18,7 +18,7 @@
   
    <definition name="current_news" extends="classic" template="/WEB-INF/jsp/templates/current_news.jsp">
     <put-attribute name="backButton" value="/WEB-INF/jsp/back_button.jsp" />
-    <put-attribute name="body" value="/WEB-INF/jsp/body.jsp" />
+    <put-attribute name="body" value="/WEB-INF/jsp/current_news_body.jsp" />
     <put-attribute name="prevAndNext" value="/WEB-INF/jsp/previous_next_buttons.jsp" />
   </definition>
   
