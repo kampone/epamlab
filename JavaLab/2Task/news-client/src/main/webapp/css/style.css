@@ -18,6 +18,25 @@
 	font-family: cursive;
 }
 
-.news_comment_size { "Courier New", Courier, monospace
-	
+.news_comment_size {
+	font-faminly: "Courier New", Courier, monospace
+}
+
+.news_current_body {
+	margin-left: 6.15%;
+}
+
+.news_current_title {
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-size: xx-large;
+}
+
+.news_info_message {
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-decoration: underline;
+	color: red;
+}
+
+.news_current_date{
+	text-decoration: underline;
 }

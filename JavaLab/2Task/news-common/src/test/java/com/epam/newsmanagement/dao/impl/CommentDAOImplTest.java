@@ -59,7 +59,7 @@ public class CommentDAOImplTest extends DBTestCase{
 		String commentText = "comment";
 		Comment comment = new Comment();
 		comment.setText(commentText);
-		comment.setIdNews(idNews);
+		comment.setNewsId(idNews);
 		Long idComment = commentDAO.create(comment);
 		assertEquals(idComment, commentDAO.read(idComment).getId());
 		assertEquals(commentText, commentDAO.read(idComment).getText());
@@ -73,7 +73,7 @@ public class CommentDAOImplTest extends DBTestCase{
 		String creationDate = "2013-11-20 12:20:10.0";
 		Comment comment = commentDAO.read(idComment);
 		assertEquals(idComment, comment.getId());
-		assertEquals(idNews, comment.getIdNews());
+		assertEquals(idNews, comment.getNewsId());
 		assertEquals(commentText, comment.getText());
 		assertEquals(creationDate, comment.getCreationDate().toString());
 		
@@ -86,12 +86,12 @@ public class CommentDAOImplTest extends DBTestCase{
 		String commentText = "hello comment1";
 		Comment comment = new Comment();
 		comment.setId(idComment);
-		comment.setIdNews(idNews);
+		comment.setNewsId(idNews);
 		comment.setText(commentText);
 		commentDAO.update(comment);
 		Comment actualComment = commentDAO.read(idComment);
 		assertEquals(idComment, actualComment.getId());
-		assertEquals(idNews, actualComment.getIdNews());
+		assertEquals(idNews, actualComment.getNewsId());
 		assertEquals(commentText, actualComment.getText());
 	}
 
@@ -134,7 +134,7 @@ public class CommentDAOImplTest extends DBTestCase{
 		Comment  comment = new Comment();
 		List<Comment> commentList = new ArrayList<>();
 		comment.setText("text");
-		comment.setIdNews(idNews);
+		comment.setNewsId(idNews);
 		commentList.add(comment);
 		commentDAO.addCommentsForNews(commentList);
 		assertEquals(size, commentDAO.getCommentsByNewsId(idNews).size());

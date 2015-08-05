@@ -29,7 +29,7 @@ public class CommentDAOImpl implements CommentDAO {
 	private static final String SQL_UPDATE_COMMENT_BY_ID_QUERY = "UPDATE comments c SET  c.comment_text = ?, c.news_id = ? WHERE c.comment_id = ? ";
 	private static final String SQL_DELETE_COMMENT_BY_ID_QUERY = "DELETE FROM comments c WHERE c.comment_id = ?";
 	private static final String SQL_DELETE_COMMENT_BY_NEWS_ID_QUERY = "DELETE FROM comments c WHERE c.news_id = ?";
-	private static final String SQL_READ_COMMENTS_BY_NEWS_ID_QUERY = "SELECT c.comment_id, c.comment_text, c.creation_date FROM comments c WHERE c.news_id = ?";
+	private static final String SQL_READ_COMMENTS_BY_NEWS_ID_QUERY = "SELECT c.comment_id, c.comment_text, c.creation_date FROM comments c WHERE c.news_id = ? ORDER BY c.creation_date DESC";
 	
 	private DataSource dataSource;
 
@@ -52,7 +52,7 @@ public class CommentDAOImpl implements CommentDAO {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_CREATE_COMMENT_QUERY, new String[] { "COMMENT_ID" });
 			String text = entity.getText();
-			Long newsId = entity.getIdNews();
+			Long newsId = entity.getNewsId();
 			statement.setString(1, text);
 			statement.setLong(2, newsId);
 			statement.executeUpdate();
@@ -93,7 +93,7 @@ public class CommentDAOImpl implements CommentDAO {
 				String text = resultSet.getString(3);
 				Timestamp creationDate = resultSet.getTimestamp(4);
 				comment.setId(commentId);
-				comment.setIdNews(newsId);
+				comment.setNewsId(newsId);
 				comment.setText(text);
 				comment.setCreationDate(creationDate);
 			}
@@ -117,7 +117,7 @@ public class CommentDAOImpl implements CommentDAO {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_UPDATE_COMMENT_BY_ID_QUERY);
 			statement.setString(1, entity.getText());
-			statement.setLong(2, entity.getIdNews());
+			statement.setLong(2, entity.getNewsId());
 			statement.setLong(3, entity.getId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
@@ -151,7 +151,7 @@ public class CommentDAOImpl implements CommentDAO {
 				String text = resultSet.getString(2);
 				Timestamp creationDate = resultSet.getTimestamp(3);
 				comment.setId(commentId);
-				comment.setIdNews(newsId);
+				comment.setNewsId(newsId);
 				comment.setText(text);
 				comment.setCreationDate(creationDate);
 				commentList.add(comment);
@@ -225,7 +225,7 @@ public class CommentDAOImpl implements CommentDAO {
 			statement = connection.prepareStatement(SQL_CREATE_COMMENT_QUERY);
 			for (Comment comment : commentList) {
 				statement.setString(1, comment.getText());
-				statement.setLong(2, comment.getIdNews());
+				statement.setLong(2, comment.getNewsId());
 				statement.addBatch();
 			}
 			statement.executeBatch();

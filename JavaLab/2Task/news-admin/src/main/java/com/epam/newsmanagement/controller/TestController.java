@@ -23,8 +23,6 @@ public class TestController {
 	public String test( Model model) throws ServiceException {
 		Author author = new Author();
 		List<News> news = service.getNews(null, Integer.MAX_VALUE, Integer.MIN_VALUE);
-		System.out.println(news);
-		System.out.println(getListVO(news));
 		model.addAttribute("message", service.getNewsVO(1L));
 		return "profile";
 		

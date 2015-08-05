@@ -176,5 +176,13 @@ public interface ServiceManager {
 	 * @throws ServiceException
 	 */
 	int getNumberOfNews(SearchCriteria searchCriteria) throws ServiceException;
+	
+	/**
+	 * Create comment
+	 * @param comment {@link Comment}
+	 * @return id of {@link Comment}
+	 * @throws ServiceException
+	 */
+	Long createComment(Comment comment) throws ServiceException;
 
 }

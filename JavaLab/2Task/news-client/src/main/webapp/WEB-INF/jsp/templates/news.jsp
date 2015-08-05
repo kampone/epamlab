@@ -7,8 +7,10 @@
 <html>
 <head>
 <title><tiles:getAsString name="title" /></title>
+<link href="<c:url value="/css/multiple-select.css" />"	rel="stylesheet">
 <link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
 <link href="<c:url value="/css/bootstrap-theme.min.css" />"	rel="stylesheet">
+
 <link href="<c:url value="/css/style.css" />"	rel="stylesheet">
 
 </head>

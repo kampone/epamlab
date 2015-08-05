@@ -113,6 +113,7 @@ public class NewsDAOImpl implements NewsDAO {
 				news.setFullText(fullText);
 				news.setCreationDate(creationDate);
 				news.setModificationDate(modificationDate);
+				
 			}
 		} catch (SQLException e) {
 			throw new DAOException(System.lineSeparator() + " Problem during reading comment ", e);
@@ -175,11 +176,8 @@ public class NewsDAOImpl implements NewsDAO {
 	private String createQuery(SearchCriteria searchCriteria, String query) {
 
 		if (searchCriteria != null) {
-			System.out.println(String.format(query, createQueryWithSearchCriteria(searchCriteria)));
 			return String.format(query, createQueryWithSearchCriteria(searchCriteria));
 		} else {
-			System.out.println(String.format(query, " "));
-
 			return String.format(query, " ");
 		}
 

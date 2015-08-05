@@ -207,5 +207,10 @@ public class ServiceManagerImpl implements ServiceManager {
 		return newsService.getNewsNumber(searchCriteria);
 	}
 
+	@Override
+	public Long createComment(Comment comment) throws ServiceException {
+		return commentService.create(comment);
+	}
+
 
 }

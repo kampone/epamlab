@@ -5,14 +5,21 @@ package com.epam.newsmanagement.entity;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Size;
+
 /**
  * @author Uladzislau_Kaminski
  *
  */
 public class Comment {
+	
 	private Long commentId;
+	
 	private Long newsId;
+	
+	@Size(min=5, max =100)
 	private String text;
+	
 	private Timestamp creationDate;
 
 	public Comment() {
@@ -35,14 +42,14 @@ public class Comment {
 	/**
 	 * @return the idNews
 	 */
-	public Long getIdNews() {
+	public Long getNewsId() {
 		return newsId;
 	}
 
 	/**
 	 * @param idNews the idNews to set
 	 */
-	public void setIdNews(Long idNews) {
+	public void setNewsId(Long idNews) {
 		this.newsId = idNews;
 	}
 
