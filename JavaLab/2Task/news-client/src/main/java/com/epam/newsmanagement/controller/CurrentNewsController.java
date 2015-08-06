@@ -30,7 +30,8 @@ public class CurrentNewsController {
 	public String getCurrentNews(HttpSession session, Model model, @PathVariable("index") Integer index)
 			throws ServiceException {
 		session.setAttribute("index", index);
-		return "redirect:/current/see";
+		prepareNewsByIndex(session, model);
+		return "current_news";
 	}
 
 	@RequestMapping("/next")
@@ -67,18 +68,21 @@ public class CurrentNewsController {
 		return "current_news";
 	}
 
-	@RequestMapping(value="/add-comment", method=RequestMethod.POST)
+	@RequestMapping(value = "/add-comment", method = RequestMethod.POST)
 	public String addComment(HttpSession session, Model model, @Valid Comment comment, BindingResult bindingResult)
 			throws ServiceException {
 		if (!bindingResult.hasErrors()) {
 			service.createComment(comment);
+			prepareNewsById(comment.getNewsId(), model);
+		}else{
+			prepareNewsByIndex(session, model);
 		}
-		prepareNewsByIndex(session, model);
+
 		return "current_news";
 	}
-	
-	@RequestMapping(value="/add-comment", method=RequestMethod.GET)
-	public String ingore(HttpSession session, Model model) throws ServiceException{
+
+	@RequestMapping(value = "/add-comment", method = RequestMethod.GET)
+	public String ingore(HttpSession session, Model model) throws ServiceException {
 		prepareNewsByIndex(session, model);
 		return "current_news";
 	}
@@ -89,14 +93,8 @@ public class CurrentNewsController {
 		model.addAttribute("newsVO", service.getNewsVO(searchCriteria, index, index).get(0));
 	}
 
-	@RequestMapping("/see")
-	public String watchNews(HttpSession session, Model model) throws ServiceException {
-		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
-		int index = (int) session.getAttribute("index");
-		model.addAttribute("newsVO", service.getNewsVO(searchCriteria, index, index).get(0));
-		return "current_news";
+	private void prepareNewsById(Long newsId, Model model) throws ServiceException {
+		model.addAttribute("newsVO", service.getNewsVO(newsId));
 	}
-	
-	
 
 }

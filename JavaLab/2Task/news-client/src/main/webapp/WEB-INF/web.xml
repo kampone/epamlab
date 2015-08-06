@@ -19,6 +19,10 @@
    <param-value>true</param-value>
   </init-param>
  </filter>
+ <error-page>
+ 	<error-code>404</error-code>
+ 	<location>/error</location>
+ </error-page>
     <servlet>
       <servlet-name>news</servlet-name>
       <servlet-class>

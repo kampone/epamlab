@@ -9,6 +9,6 @@
 
 </head>
 <body>
-<c:redirect url="/news/all"/>
+<c:redirect url="/news/watch"/>
 </body>
 </html>

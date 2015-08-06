@@ -23,7 +23,7 @@ public class NewsController {
 	@Autowired
 	private ServiceManager service;
 
-	@RequestMapping("/all")
+	@RequestMapping("/watch")
 	public String getAllNews(HttpSession session, Model model, @RequestParam(value = "page", required=false) Integer page)
 			throws ServiceException {
 		setParametres(session, model, page);
@@ -33,13 +33,13 @@ public class NewsController {
 	@RequestMapping("/setSearchCriteria")
 	public String setSearchCriteriaToSession(HttpSession session, SearchCriteria searchCriteria )			throws ServiceException {
 		session.setAttribute("searchCriteria", searchCriteria);
-		return "redirect:/news/all";
+		return "redirect:/news/watch";
 	}
 
 	@RequestMapping("/reset")
 	public String resetSearchCriteria(HttpSession session) {
 		session.setAttribute("searchCriteria", null);
-		return "redirect:/news/all";
+		return "redirect:/news/watch";
 	}
 
 	@RequestMapping("/page/{page}")
@@ -53,7 +53,9 @@ public class NewsController {
 		page = page == null ? 1 : page;
 		int startIndex = (page - 1) * NUMBER_OF_NEWS_ON_PAGE + 1;
 		int lastIndex = startIndex + NUMBER_OF_NEWS_ON_PAGE - 1;
-		int pages = Double.valueOf(Math.ceil((double)service.getNumberOfNews(searchCriteria) / NUMBER_OF_NEWS_ON_PAGE)).intValue();
+		int numberOfNews = service.getNumberOfNews(searchCriteria);
+		int pages = Double.valueOf(Math.ceil((double)numberOfNews / NUMBER_OF_NEWS_ON_PAGE)).intValue();
+		model.addAttribute("numberOfNews", numberOfNews);
 		model.addAttribute("index", startIndex);
 		model.addAttribute("authors", service.getAllAuthors());
 		model.addAttribute("tags", service.getAllTags());
