@@ -8,7 +8,6 @@ import java.util.List;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
-import com.epam.newsmanagement.entity.NewsPageVO;
 import com.epam.newsmanagement.entity.NewsVO;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.entity.Tag;

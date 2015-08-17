@@ -8,7 +8,6 @@ import java.util.List;
 import com.epam.newsmanagement.dao.NewsManagementDAO;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.exception.DAOException;
-import com.epam.newsmanagement.exception.ServiceException;
 
 /**
  * @author Uladzislau_Kaminski

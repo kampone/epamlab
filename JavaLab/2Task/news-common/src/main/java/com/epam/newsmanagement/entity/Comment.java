@@ -5,6 +5,7 @@ package com.epam.newsmanagement.entity;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -16,7 +17,7 @@ public class Comment {
 	private Long commentId;
 	
 	private Long newsId;
-	
+	@NotNull
 	@Size(min=5, max =100)
 	private String text;
 	

@@ -7,19 +7,22 @@
 	<select name="authorId">
 		<option value=""><spring:message code="label.select.author" /></option>
 		<c:forEach var="author" items="${authors}">
-			<option value="${author.id}">${author.name}</option>
+			<option
+				<c:if test="${author.id eq searchCriteria.authorId }">selected="selected"</c:if>
+				value="${author.id}">${author.name}</option>
 		</c:forEach>
 	</select>
+	
 	<select multiple name="tagIdList">
 		<option value=""><spring:message code="label.select.taglist" /></option>
 		<c:forEach var="tag" items="${tags}">
-			<option value="${tag.id}">${tag.name}</option>
+		<c:set var="contains" value="false" />
+			<c:forEach var="sc_tagId" items="${searchCriteria.tagIdList}">
+				<c:if test="${tag.id eq sc_tagId }"><c:set var="contains" value="true" /></c:if>
+			</c:forEach>
+			<option <c:if test="${contains}">selected</c:if> value="${tag.id}">${tag.name}</option>
 		</c:forEach>
-	</select>		
-	<script src="<c:url value="/js/jquery.multiple.select.js"/>"></script>
-	<script>
-		$('select').multipleSelect();
-	</script>
+	</select>
 	<input type="submit" name="filter"
 		value=<spring:message code="label.button.filter"/>
 		class="btn btn-default" />

@@ -8,26 +8,27 @@
 </div>
 <c:forEach var="newsVO" items="${newsVOList}">
 	<input type="hidden" name="index" value="${index}">
-	<c:set var="index" value="${index+1}"></c:set>
+	<c:set var="index" value="${index+1}"/>
 
 	<div class="panel panel-default">
 
 		<div class="panel-heading">
-			<h3 align="left" class="panel-title news_title">${newsVO.news.title}</h3>
-			<h5 align="left" class="news_author">(by ${newsVO.author.name})</h5>
+			<h3 align="left" class="panel-title news_title"><c:out value="${newsVO.news.title}"/></h3>
+			<h5 align="left" class="news_author">(by <c:out value="${newsVO.author.name}"/>)</h5>
 		</div>
 
 		<div class="panel-body news_short_text">
-			<div align="left">${newsVO.news.shortText}</div>
+		
+			<div align="left"><c:out value="${newsVO.news.shortText}"/></div>
 			<hr>
 			<div align="left">
 				<c:forEach var="tag" items="${newsVO.tagList}">
-					<span class="label label-primary">${tag.name}</span>
+					<span class="label label-primary"><c:out value="${tag.name}"/></span>
 				</c:forEach>
 			</div>
 			<div align="right" class="news_comment_size">
 				<spring:message code="label.message.comments" />
-				<span class="badge"> ${fn:length(newsVO.commentList)} </span>
+				<span class="badge"><c:out value="${fn:length(newsVO.commentList)}"/> </span>
 			</div>
 			<h6 align="left" class="news_current_date">
 				<fmt:formatDate type="date" value="${newsVO.news.modificationDate}" />

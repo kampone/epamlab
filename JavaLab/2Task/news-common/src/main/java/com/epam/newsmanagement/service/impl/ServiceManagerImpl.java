@@ -6,7 +6,6 @@ package com.epam.newsmanagement.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.scheduling.config.Task;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.epam.newsmanagement.entity.Author;
@@ -21,8 +20,6 @@ import com.epam.newsmanagement.service.CommentService;
 import com.epam.newsmanagement.service.NewsService;
 import com.epam.newsmanagement.service.ServiceManager;
 import com.epam.newsmanagement.service.TagService;
-
-import oracle.net.aso.s;
 
 /**
  * @author Uladzislau_Kaminski
