@@ -4,26 +4,54 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
-  <definition name="classic" template="/WEB-INF/jsp/templates/classic.jsp">
-    <put-attribute name="title" value="News Portal" />
-    <put-attribute name="navMenu" value="/WEB-INF/jsp/header/header.jsp" />
-    <put-attribute name="footer" value="/WEB-INF/jsp/footer/footer.jsp" />
-  </definition>
-  
-   <definition name="news" extends="classic" template="/WEB-INF/jsp/templates/news.jsp">
-    <put-attribute name="search" value="/WEB-INF/jsp/tiles/search.jsp"/>
-    <put-attribute name="body" value="/WEB-INF/jsp/tiles/news_list.jsp" />
-    <put-attribute name="pagination" value="/WEB-INF/jsp/tiles/pagination.jsp"/>
-  </definition>
-  	
-   <definition name="current_news" extends="classic" template="/WEB-INF/jsp/templates/current_news.jsp">
-    <put-attribute name="backButton" value="/WEB-INF/jsp/tiles/back_button.jsp" />
-    <put-attribute name="body" value="/WEB-INF/jsp/tiles/current_news_body.jsp" />
-    <put-attribute name="prevAndNext" value="/WEB-INF/jsp/tiles/previous_next_buttons.jsp" />
-  </definition>
-  
-   <definition name="error" extends="classic" template="/WEB-INF/jsp/templates/error.jsp">
-    
-  </definition>
-  
+	<definition name="classic" template="/WEB-INF/jsp/templates/classic.jsp">
+		<put-attribute name="title" value="News Portal" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="navMenu" value="/WEB-INF/jsp/header/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/tiles/menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/footer/footer.jsp" />
+	</definition>
+
+	<definition name="news" extends="classic"
+		template="/WEB-INF/jsp/templates/classic.jsp">
+		<put-attribute name="body" value="news_body" />
+	</definition>
+
+	<definition name="current_news" extends="classic"
+		template="/WEB-INF/jsp/templates/classic.jsp">
+		<put-attribute name="body" value="current_news_body" />
+	</definition>
+
+	<definition name="author" extends="classic"
+		template="/WEB-INF/jsp/templates/classic.jsp">
+		<put-attribute name="body" value="author_body" />
+	</definition>
+	
+	<definition name="tag" extends="classic"
+		template="/WEB-INF/jsp/templates/classic.jsp">
+		<put-attribute name="body" value="tag_body" />
+	</definition>
+	
+	<definition name="error" extends="classic"
+		template="/WEB-INF/jsp/templates/error.jsp">
+	</definition>
+
+
+	<definition name="news_body" template="/WEB-INF/jsp/templates/news.jsp">
+		<put-attribute name="search" value="/WEB-INF/jsp/tiles/search.jsp" />
+		<put-attribute name="list" value="/WEB-INF/jsp/tiles/news_list.jsp" />
+		<put-attribute name="pagination" value="/WEB-INF/jsp/tiles/pagination.jsp" />
+	</definition>
+
+	<definition name="current_news_body" template="/WEB-INF/jsp/templates/current_news.jsp">
+		<put-attribute name="backButton" value="/WEB-INF/jsp/tiles/back_button.jsp" />
+		<put-attribute name="current"
+			value="/WEB-INF/jsp/tiles/current_news_body.jsp" />
+		<put-attribute name="prevAndNext"
+			value="/WEB-INF/jsp/tiles/previous_next_buttons.jsp" />
+	</definition>
+	
+	<definition name="author_body" template="/WEB-INF/jsp/tiles/author.jsp"/>
+	
+	<definition name="tag_body" template="/WEB-INF/jsp/tiles/tag.jsp"/>
 </tiles-definitions>

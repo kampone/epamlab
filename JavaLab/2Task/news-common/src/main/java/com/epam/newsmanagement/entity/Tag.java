@@ -1,11 +1,15 @@
 package com.epam.newsmanagement.entity;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * @author Uladzislau_Kaminski
  *
  */
 public class Tag {
 	private Long tagId;
+	@Size(min=1, max=30)
 	private String name;
 
 	/**

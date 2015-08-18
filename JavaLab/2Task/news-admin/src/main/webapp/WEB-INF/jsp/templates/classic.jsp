@@ -1,39 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <title><tiles:getAsString name="title" /></title>
-<link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
-<link href="<c:url value="/css/bootstrap-theme.min.css" />"
+<link href="<c:url value="/resources/css/bootstrap.min.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/css/bootstrap-select.min.css" />"
+<link href="<c:url value="/resources/css/bootstrap-theme.min.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/css/style.css" />" rel="stylesheet">
-<link href="<c:url value="/css/buttons.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap-select.min.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap-multiselect.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/button.css" />"
+	rel="stylesheet">
+<script type="text/javascript"
+	src="<c:url value="/resources/js/jquery.min.js" />"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/bootstrap-multiselect.js"/>"></script>
 
 </head>
 <body>
-	<!-- Header -->
 	<tiles:insertAttribute name="navMenu" />
-	<table width="1200px" align="center">
-		<tr>
-			<!-- Personal Menu -->
-			<td width="20%" align="center" rowspan="3"><tiles:insertAttribute
-					name="menu" /></td>
-			<!-- Current Profile -->
-			
-			<td width="80%" align="center"><tiles:insertAttribute
-					name="search" /></td>
-		</tr>
-		<tr>
-			<!-- The Body of Page -->
-			<td align="center"><tiles:insertAttribute name="body" /></td>
-		</tr>
-	</table>
-
-	<!-- Footer -->
+	<div id="leftcol">
+		<tiles:insertAttribute name="menu" />
+	</div>
+	<div id="rightcol">
+		<tiles:insertAttribute name="body" />
+	</div>
 	<tiles:insertAttribute name="footer" />
 </body>
 </html>

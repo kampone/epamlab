@@ -4,8 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <div class="container">
-	<form:form commandName="comment"
-		action="/news-client/current/add-comment">
+	<form:form commandName="comment" action="/news-client/current/add-comment" method="post">
 		<input type="hidden" name="newsId" value="${newsVO.news.id}" />
 		<h3 align="left" class="news_current_title">
 			<c:out value="${newsVO.news.title}" />
@@ -29,12 +28,12 @@
 			</div>
 
 		</div>
-		<c:forEach var="comment" items="${newsVO.commentList}">
+		<c:forEach var="current_comment" items="${newsVO.commentList}">
 			<div align="left">
-				<fmt:formatDate type="date" value="${comment.creationDate}" />
+				<fmt:formatDate type="date" value="${current_comment.creationDate}" />
 			</div>
 			<p align="left" class="bg-info">
-				<c:out value="${comment.text}" />
+				<c:out value="${current_comment.text}" />
 			</p>
 		</c:forEach>
 		<div align="left" class="form-group">

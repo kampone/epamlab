@@ -23,8 +23,8 @@
 }
 
 .news_current_body {
-	margin-left: 6.15%;
-}
+	width: 1000px;
+	}
 
 .news_current_title {
 	font-family: "Comic Sans MS", cursive, sans-serif;
@@ -37,6 +37,31 @@
 	color: red;
 }
 
-.news_current_date{
+.news_current_date {
 	text-decoration: underline;
 }
+
+.news_delete_comment_button{
+	height:10px;
+    width:10px;
+}
+.news_form_inline{
+	margin-left: 35%;
+}
+
+#leftcol { 
+  margin-left: 5%; 
+  float: left; 
+  width: 10%; 
+}
+#rightcol { 
+  margin-left: 15%; 
+  width : 80%;
+  margin-right: 5%; 
+  
+}
+
+#accord{
+	width : 50%;
+}
+

@@ -209,5 +209,46 @@ public class ServiceManagerImpl implements ServiceManager {
 		return commentService.create(comment);
 	}
 
+	@Override
+	public int findIndex(SearchCriteria searchCriteria, Long newsId) throws ServiceException {
+		return newsService.findIndex(searchCriteria, newsId);
+	}
+
+	@Override
+	public void deleteComment(Long commentId) throws ServiceException {
+		commentService.delete(commentId);
+	}
+
+	@Override
+	public Comment readComment(Long commentId) throws ServiceException {
+		return commentService.read(commentId);
+	}
+
+	@Override
+	public void addNewTag(Tag tag) throws ServiceException {
+		tagService.create(tag);
+	}
+
+	@Override
+	public void updateTag(Tag tag) throws ServiceException {
+		tagService.update(tag);
+	}
+
+	@Override
+	public void updateAuthor(Author author) throws ServiceException {
+		authorService.update(author);
+	}
+
+	@Override
+	public void deleteAuthor(Long idAuthor) throws ServiceException {
+		authorService.delete(idAuthor);
+	}
+
+	@Override
+	public void deleteTag(Long idTag) throws ServiceException {
+		tagService.detachTag(idTag);
+		tagService.delete(idTag);
+	}
+
 
 }

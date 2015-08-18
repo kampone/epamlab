@@ -68,4 +68,6 @@ public interface TagService extends NewsManagementService<Tag> {
 	 */
 	List<Tag> getAllTags() throws ServiceException;
 
+	void detachTag(Long idTag) throws ServiceException;
+
 }

@@ -113,7 +113,7 @@ public class NewsDAOImpl implements NewsDAO {
 				news.setFullText(fullText);
 				news.setCreationDate(creationDate);
 				news.setModificationDate(modificationDate);
-				
+
 			}
 		} catch (SQLException e) {
 			throw new DAOException(System.lineSeparator() + " Problem during reading comment ", e);
@@ -313,4 +313,27 @@ public class NewsDAOImpl implements NewsDAO {
 
 	}
 
+	@Override
+	public int findIndex(SearchCriteria searchCriteria, Long newsId) throws DAOException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			connection = DataSourceUtils.doGetConnection(dataSource);
+			statement = connection.prepareStatement(createQuery(searchCriteria, SQL_READ_ALL_NEWS_QUERY));
+			resultSet = insertParametres(searchCriteria, statement, Integer.MIN_VALUE, Integer.MAX_VALUE).executeQuery();
+			while (resultSet.next()) {
+				Long actualNewsId = resultSet.getLong(1);
+				if (actualNewsId == newsId) {
+					return resultSet.getInt(7);
+				}
+			}
+		} catch (SQLException e) {
+			throw new DAOException(System.lineSeparator() + " Problem during reading index of news ", e);
+		} finally {
+			closeConnection(dataSource, connection, statement, resultSet);
+		}
+		return 0;
+
+}
 }

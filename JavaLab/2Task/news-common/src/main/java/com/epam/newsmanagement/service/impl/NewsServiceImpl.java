@@ -123,4 +123,14 @@ public class NewsServiceImpl implements NewsService {
 		}
 	}
 
+	@Override
+	public int findIndex(SearchCriteria searchCriteria, Long newsId) throws ServiceException {
+		try {
+			return newsDAO.findIndex(searchCriteria, newsId);
+		} catch (DAOException e) {
+			LOG.error(" Exception during getting index of News ", e);
+			throw new ServiceException(" Exception during getting index of News ", e);
+		}
+	}
+
 }

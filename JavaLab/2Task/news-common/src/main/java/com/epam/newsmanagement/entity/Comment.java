@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 public class Comment {
 	
 	private Long commentId;
-	
+	@NotNull
 	private Long newsId;
 	@NotNull
 	@Size(min=5, max =100)

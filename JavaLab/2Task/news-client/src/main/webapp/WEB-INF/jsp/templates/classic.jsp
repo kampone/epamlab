@@ -6,12 +6,17 @@
 <html>
 <head>
 <title><tiles:getAsString name="title" /></title>
-<link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
-<link href="<c:url value="/css/bootstrap-theme.min.css" />"
+<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap-theme.min.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/css/bootstrap-select.min.css" />"
+<link href="<c:url value="/resources/css/bootstrap-select.min.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/css/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap-multiselect.css" />"
+	rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<script type="text/javascript" src="<c:url value="/resources/js/jquery.min.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/bootstrap-multiselect.js"/>"></script>
 
 </head>
 <body>

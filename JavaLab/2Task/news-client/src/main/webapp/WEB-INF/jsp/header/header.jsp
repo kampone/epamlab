@@ -14,7 +14,7 @@
 								class="icon-bar"></span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand news_logo" href="/news-client/"><spring:message
+						<a class="navbar-brand news_logo" href="/news-client/news/reset"><spring:message
 								code="label.head.name" /></a>
 					</div>
 

@@ -50,7 +50,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		try {
-			connection = dataSource.getConnection();
+			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_CREATE_NEW_AUTHOR_QUERY, new String[] { "AUTHOR_ID" });
 			String name = entity.getName();
 			statement.setString(1, name);

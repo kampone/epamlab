@@ -36,5 +36,7 @@ public interface NewsService extends NewsManagementService<News> {
 	 * @throws ServiceException 
 	 */
 	int getNewsNumber(SearchCriteria searchCriteria) throws ServiceException;
+	
+	int findIndex(SearchCriteria searchCriteria, Long newsId) throws ServiceException;
 
 }

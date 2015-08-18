@@ -1,6 +1,5 @@
 package com.epam.newsmanagement.controller;
 
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -10,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.SearchCriteria;
@@ -29,29 +29,33 @@ public class CurrentNewsController {
 		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
 		index = processIndex(searchCriteria, index, model);
 		model.addAttribute("index", index);
-		prepareNewsByIndex(session, model, index);
+		model.addAttribute("newsVO", service.getNewsVO(searchCriteria, index, index).get(0));
 		return "current_news";
 	}
 
+	@RequestMapping("/delete_comment/{commentId}")
+	public String deleteComment(HttpSession session,@PathVariable("commentId") Long commentId) throws ServiceException{
+		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
+		Comment comment = service.readComment(commentId);
+		service.deleteComment(commentId);
+		return "redirect:/current/news/" + findIndex(searchCriteria, comment.getNewsId());
+	}
+	
 	@RequestMapping(value = "/add-comment")
-	public String addComment(HttpSession session, Model model, @Valid Comment comment, BindingResult bindingResult)
+	public String addComment(HttpSession session,Model model,RedirectAttributes redirectAttributes,@Valid Comment comment, BindingResult bindingResult)
 			throws ServiceException {
+		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
 		if (!bindingResult.hasErrors()) {
 			service.createComment(comment);
+			redirectAttributes.addFlashAttribute("comment", new Comment());
+		} else {
+			redirectAttributes.addFlashAttribute("comment", comment);
+		    redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.comment", bindingResult);
 		}
-		prepareNewsById(comment.getNewsId(), model);
-		return "current_news";
-	}
+		return "redirect:/current/news/" + findIndex(searchCriteria, comment.getNewsId());
 
-	private void prepareNewsByIndex(HttpSession session, Model model, Integer index) throws ServiceException {
-		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
-		model.addAttribute("newsVO", service.getNewsVO(searchCriteria, index, index).get(0));
 	}
-
-	private void prepareNewsById(Long newsId, Model model) throws ServiceException {
-		model.addAttribute("newsVO", service.getNewsVO(newsId));
-	}
-
+	
 	private int processIndex(SearchCriteria searchCriteria, int index, Model model) throws ServiceException {
 		int number = service.getNumberOfNews(searchCriteria);
 		if (index > number) {
@@ -61,9 +65,13 @@ public class CurrentNewsController {
 			if (index < 1) {
 				model.addAttribute("errorMessage", "Nothing else");
 				index = 1;
-			} 
+			}
 		}
 		return index;
+	}
+
+	private int findIndex(SearchCriteria searchCriteria, Long newsId) throws ServiceException {
+		return service.findIndex(searchCriteria, newsId);
 	}
 
 }

@@ -32,6 +32,7 @@ public class TagDAOImpl implements TagDAO {
 	private static final String SQL_DELETE_NEWS_TAG_QUERY = "DELETE FROM news_tags nt WHERE nt.news_id = ?";
 	private static final String SQL_READ_TAG_BY_NEWS_ID_QUERY = "SELECT t.tag_id, t.tag_name FROM tags t JOIN news_tags nt ON t.TAG_ID = nt.TAG_ID JOIN news n ON nt.NEWS_ID = n.NEWS_ID WHERE n.NEWS_ID=?";
 	private static final String SQL_READ_ALL_TAGS_QUERY = "SELECT t.tag_id, t.tag_name FROM tags t";
+	private static final String SQL_DELETE_TAG_NEWS_QUERY = "DELETE FROM news_tags nt WHERE nt.tag_id = ?";
 
 	private DataSource dataSource;
 
@@ -280,5 +281,23 @@ public class TagDAOImpl implements TagDAO {
 			closeConnection(dataSource, connection, statement, resultSet);
 		}
 		return tagList;
+	}
+
+
+	@Override
+	public void detachTag(Long idTag) throws DAOException {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+			connection = DataSourceUtils.doGetConnection(dataSource);
+			statement = connection.prepareStatement(SQL_DELETE_TAG_NEWS_QUERY);
+			statement.setLong(1, idTag);
+			statement.execute();
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		} finally {
+			closeConnection(dataSource, connection, statement);
+		}
+		
 	}
 }

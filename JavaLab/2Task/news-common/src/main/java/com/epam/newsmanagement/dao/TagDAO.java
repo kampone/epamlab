@@ -67,4 +67,6 @@ public interface TagDAO extends NewsManagementDAO<Tag> {
 	 */
 	List<Tag> getAllTags() throws DAOException;
 
+	void detachTag(Long idTag) throws DAOException;
+
 }

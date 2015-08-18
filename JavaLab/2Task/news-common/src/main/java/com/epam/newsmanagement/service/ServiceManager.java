@@ -149,7 +149,6 @@ public interface ServiceManager {
 	 */
 	List<NewsVO> getNewsVO(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException;
 
-
 	/**
 	 * Return all authors that can create news
 	 * 
@@ -167,21 +166,40 @@ public interface ServiceManager {
 	 *             trouble in DAO layer
 	 */
 	List<Tag> getAllTags() throws ServiceException;
-	
+
 	/**
-	 * Return number of news which satisfy Search Criteria 
-	 * @param searchCriteria {@link SearchCriteria}
+	 * Return number of news which satisfy Search Criteria
+	 * 
+	 * @param searchCriteria
+	 *            {@link SearchCriteria}
 	 * @return number of {@link News}
 	 * @throws ServiceException
 	 */
 	int getNumberOfNews(SearchCriteria searchCriteria) throws ServiceException;
-	
+
 	/**
 	 * Create comment
-	 * @param comment {@link Comment}
+	 * 
+	 * @param comment
+	 *            {@link Comment}
 	 * @return id of {@link Comment}
 	 * @throws ServiceException
 	 */
 	Long createComment(Comment comment) throws ServiceException;
 
+	int findIndex(SearchCriteria searchCriteria, Long newsId) throws ServiceException;
+	
+	void deleteComment(Long commentId) throws ServiceException;
+	
+	Comment readComment(Long commentId) throws ServiceException;
+	
+	void addNewTag(Tag tag) throws ServiceException;
+	
+	void updateTag(Tag tag) throws ServiceException;
+	
+	void updateAuthor(Author author) throws ServiceException;
+	
+	void deleteAuthor(Long idAuthor) throws ServiceException;
+	
+	void deleteTag(Long idTag) throws ServiceException;
 }
