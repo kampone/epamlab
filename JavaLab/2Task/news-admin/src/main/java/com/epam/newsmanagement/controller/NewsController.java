@@ -41,6 +41,12 @@ public class NewsController {
 		return "redirect:/news/watch";
 	}
 
+	@RequestMapping("/delete/{newsId}")
+	public String changePage(@PathVariable("newsId") Long newsId) throws ServiceException {
+		service.deleteNews(newsId);
+		return "redirect:/news/watch";
+	}
+	
 	@RequestMapping("/page/{page}")
 	public String changePage(HttpSession session, Model model, @PathVariable("page") Integer page) throws ServiceException {
 		setParametres(session, model, page);

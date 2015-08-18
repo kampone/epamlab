@@ -2,45 +2,53 @@ package com.epam.newsmanagement.entity;
 
 import java.util.List;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 public class NewsPageVO {
+	@Valid
 	private News news;
-	private Author author;
-	private List<Tag> tags;
-	private int commentCount;
+	@NotNull
+	private Long authorId;
+	private List<Long> tagIdList;
+
+	public NewsPageVO() {
+	}
+
 	public News getNews() {
 		return news;
 	}
+
 	public void setNews(News news) {
 		this.news = news;
 	}
-	public Author getAuthor() {
-		return author;
+
+	public Long getAuthorId() {
+		return authorId;
 	}
-	public void setAuthor(Author author) {
-		this.author = author;
+
+	public void setAuthorId(Long authorId) {
+		this.authorId = authorId;
 	}
-	public List<Tag> getTags() {
-		return tags;
+
+	public List<Long> getTagIdList() {
+		return tagIdList;
 	}
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
+
+	public void setTagIdList(List<Long> tagIdList) {
+		this.tagIdList = tagIdList;
 	}
-	public int getCommentCount() {
-		return commentCount;
-	}
-	public void setCommentCount(int commentCount) {
-		this.commentCount = commentCount;
-	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((author == null) ? 0 : author.hashCode());
-		result = prime * result + commentCount;
+		result = prime * result + ((authorId == null) ? 0 : authorId.hashCode());
 		result = prime * result + ((news == null) ? 0 : news.hashCode());
-		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
+		result = prime * result + ((tagIdList == null) ? 0 : tagIdList.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -50,29 +58,30 @@ public class NewsPageVO {
 		if (getClass() != obj.getClass())
 			return false;
 		NewsPageVO other = (NewsPageVO) obj;
-		if (author == null) {
-			if (other.author != null)
+		if (authorId == null) {
+			if (other.authorId != null)
 				return false;
-		} else if (!author.equals(other.author))
-			return false;
-		if (commentCount != other.commentCount)
+		} else if (!authorId.equals(other.authorId))
 			return false;
 		if (news == null) {
 			if (other.news != null)
 				return false;
 		} else if (!news.equals(other.news))
 			return false;
-		if (tags == null) {
-			if (other.tags != null)
+		if (tagIdList == null) {
+			if (other.tagIdList != null)
 				return false;
-		} else if (!tags.equals(other.tags))
+		} else if (!tagIdList.equals(other.tagIdList))
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "NewsPageVO [news=" + news + ", authorId=" + authorId + ", tagIdList=" + tagIdList + "]";
+	}
 	
 	
-	
-	
-	
+
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.NewsPageVO;
 import com.epam.newsmanagement.entity.NewsVO;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.entity.Tag;
@@ -248,6 +249,37 @@ public class ServiceManagerImpl implements ServiceManager {
 	public void deleteTag(Long idTag) throws ServiceException {
 		tagService.detachTag(idTag);
 		tagService.delete(idTag);
+	}
+
+	@Override
+	public Long createNewsPageVO(NewsPageVO newsPageVO) throws ServiceException {
+		Long newsId = newsService.create(newsPageVO.getNews());
+		tagService.attachListTagsToNews(newsId, newsPageVO.getTagIdList());
+		authorService.attachAuthorToNews(newsId, newsPageVO.getAuthorId());
+		return newsId;
+	}
+
+	@Override
+	public void updateNewsPageVO(NewsPageVO newsPageVO) throws ServiceException {
+		Long newsId = newsPageVO.getNews().getId();
+		tagService.detachTagsFromNews(newsId);
+		authorService.detachAuthorFromNews(newsId);
+		newsService.update(newsPageVO.getNews());
+		tagService.attachListTagsToNews(newsId, newsPageVO.getTagIdList());
+		authorService.attachAuthorToNews(newsId, newsPageVO.getAuthorId());
+	}
+
+	@Override
+	public NewsPageVO readNewsPageVO(Long newsId) throws ServiceException {
+		NewsPageVO newsPageVO = new NewsPageVO();
+		List<Long> idTagList = new ArrayList<>();
+		for (Tag tag : tagService.getNewsTags(newsId)) {
+			idTagList.add(tag.getId());
+		}
+		newsPageVO.setNews(newsService.read(newsId));
+		newsPageVO.setTagIdList(idTagList);
+		newsPageVO.setAuthorId(authorService.getAuthorByNewsId(newsId).getId());
+		return newsPageVO;
 	}
 
 

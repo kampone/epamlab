@@ -15,8 +15,6 @@
 <link href="<c:url value="/resources/css/bootstrap-multiselect.css" />"
 	rel="stylesheet">
 <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/button.css" />"
-	rel="stylesheet">
 <script type="text/javascript"
 	src="<c:url value="/resources/js/jquery.min.js" />"></script>
 <script type="text/javascript"

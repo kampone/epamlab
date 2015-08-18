@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.epam.newsmanagement.dao.NewsManagementDAO;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.NewsPageVO;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.exception.DAOException;
 
@@ -34,5 +35,7 @@ public interface NewsDAO extends NewsManagementDAO<News> {
 	int getNewsNumber(SearchCriteria searchCriteria) throws DAOException;
 
 	int findIndex(SearchCriteria searchCriteria, Long newsId) throws DAOException;
+	
+	
 
 }

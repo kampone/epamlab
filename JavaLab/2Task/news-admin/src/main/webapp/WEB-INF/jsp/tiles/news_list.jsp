@@ -13,6 +13,7 @@
 	<div class="panel panel-default">
 
 		<div class="panel-heading">
+			<h6 align="right"><a href="/news-admin/news/delete/${newsVO.news.id}">x</a></h6>
 			<h3 align="left" class="panel-title news_title"><c:out value="${newsVO.news.title}"/></h3>
 			<h5 align="left" class="news_author">(by <c:out value="${newsVO.author.name}"/>)</h5>
 		</div>
@@ -35,6 +36,10 @@
 			</h6>
 
 			<div align="right">
+				<a href="/news-admin/edit_news/edit/${newsVO.news.id}"><input
+					type="button" name="edit"
+					value=<spring:message code="label.button.edit"/>
+					class="btn btn-default news_button" /></a>
 				<a href="/news-admin/current/news/${index-1}"><input
 					type="button" name="read"
 					value=<spring:message code="label.button.read"/>

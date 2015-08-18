@@ -36,11 +36,9 @@ public class TagDAOImpl implements TagDAO {
 
 	private DataSource dataSource;
 
-
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
-
 
 	/**
 	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#create(java.lang.Object)
@@ -71,7 +69,6 @@ public class TagDAOImpl implements TagDAO {
 		return id;
 	}
 
-	
 	/**
 	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#read(java.lang.Long)
 	 */
@@ -105,7 +102,6 @@ public class TagDAOImpl implements TagDAO {
 		return tag;
 	}
 
-	
 	/**
 	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#update(java.lang.Object)
 	 */
@@ -126,7 +122,6 @@ public class TagDAOImpl implements TagDAO {
 		}
 	}
 
-
 	/**
 	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Long)
 	 */
@@ -146,7 +141,6 @@ public class TagDAOImpl implements TagDAO {
 		}
 	}
 
-
 	/**
 	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Object)
 	 */
@@ -155,9 +149,9 @@ public class TagDAOImpl implements TagDAO {
 		this.delete(entity.getId());
 	}
 
-
 	/**
-	 * @see com.epam.newsmanagement.dao.TagDAO#attachTagsToNews(java.lang.Long, java.lang.Long)
+	 * @see com.epam.newsmanagement.dao.TagDAO#attachTagsToNews(java.lang.Long,
+	 *      java.lang.Long)
 	 */
 	@Override
 	public void attachTagsToNews(Long newsId, Long tagId) throws DAOException {
@@ -177,7 +171,6 @@ public class TagDAOImpl implements TagDAO {
 		}
 	}
 
-	
 	/**
 	 * @see com.epam.newsmanagement.dao.TagDAO#detachTagsFromNews(java.lang.Long)
 	 */
@@ -199,7 +192,8 @@ public class TagDAOImpl implements TagDAO {
 	}
 
 	/**
-	 * @see com.epam.newsmanagement.dao.TagDAO#attachListTagsToNews(java.lang.Long, java.util.List)
+	 * @see com.epam.newsmanagement.dao.TagDAO#attachListTagsToNews(java.lang.Long,
+	 *      java.util.List)
 	 */
 	@Override
 	public void attachListTagsToNews(Long newsId, List<Long> tagIdList) throws DAOException {
@@ -209,11 +203,13 @@ public class TagDAOImpl implements TagDAO {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_INSERT_NEWS_TAG_QUERY);
 			statement.setLong(1, newsId);
-			for (Long tagId : tagIdList) {
-				statement.setLong(2, tagId);
-				statement.addBatch();
-			} 
-			statement.executeBatch();
+			if (tagIdList != null) {
+				for (Long tagId : tagIdList) {
+					statement.setLong(2, tagId);
+					statement.addBatch();
+				}
+				statement.executeBatch();
+			}
 		} catch (SQLException e) {
 			throw new DAOException(e);
 		} finally {
@@ -254,9 +250,8 @@ public class TagDAOImpl implements TagDAO {
 		return tagList;
 	}
 
-
 	@Override
-	public List<Tag> getAllTags() throws DAOException  {
+	public List<Tag> getAllTags() throws DAOException {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -283,7 +278,6 @@ public class TagDAOImpl implements TagDAO {
 		return tagList;
 	}
 
-
 	@Override
 	public void detachTag(Long idTag) throws DAOException {
 		Connection connection = null;
@@ -298,6 +292,6 @@ public class TagDAOImpl implements TagDAO {
 		} finally {
 			closeConnection(dataSource, connection, statement);
 		}
-		
+
 	}
 }

@@ -26,12 +26,17 @@
 		template="/WEB-INF/jsp/templates/classic.jsp">
 		<put-attribute name="body" value="author_body" />
 	</definition>
-	
+
 	<definition name="tag" extends="classic"
 		template="/WEB-INF/jsp/templates/classic.jsp">
 		<put-attribute name="body" value="tag_body" />
 	</definition>
-	
+
+	<definition name="edit_news" extends="classic"
+		template="/WEB-INF/jsp/templates/classic.jsp">
+		<put-attribute name="body" value="edit_news_body" />
+	</definition>
+
 	<definition name="error" extends="classic"
 		template="/WEB-INF/jsp/templates/error.jsp">
 	</definition>
@@ -50,8 +55,12 @@
 		<put-attribute name="prevAndNext"
 			value="/WEB-INF/jsp/tiles/previous_next_buttons.jsp" />
 	</definition>
-	
-	<definition name="author_body" template="/WEB-INF/jsp/tiles/author.jsp"/>
-	
-	<definition name="tag_body" template="/WEB-INF/jsp/tiles/tag.jsp"/>
+
+	<definition name="author_body" template="/WEB-INF/jsp/tiles/author.jsp" />
+
+	<definition name="tag_body" template="/WEB-INF/jsp/tiles/tag.jsp" />
+
+	<definition name="edit_news_body" template="/WEB-INF/jsp/tiles/edit_news.jsp"/>
+
+
 </tiles-definitions>

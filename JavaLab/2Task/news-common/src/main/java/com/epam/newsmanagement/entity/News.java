@@ -3,14 +3,20 @@ package com.epam.newsmanagement.entity;
 import java.sql.Date;
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Size;
+
 /**
  * @author Uladzislau_Kaminski
  *
  */
 public class News {
+	
 	private Long newsId;
+	@Size(min=1, max=30)
 	private String title;
+	@Size(min=1, max=100)
 	private String shortText;
+	@Size(min=1, max=2000)
 	private String fullText;
 	private Timestamp creationDate;
 	private Date modificationDate;

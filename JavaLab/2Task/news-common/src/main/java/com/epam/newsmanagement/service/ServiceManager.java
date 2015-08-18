@@ -8,9 +8,11 @@ import java.util.List;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.NewsPageVO;
 import com.epam.newsmanagement.entity.NewsVO;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.entity.Tag;
+import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 
 /**
@@ -202,4 +204,10 @@ public interface ServiceManager {
 	void deleteAuthor(Long idAuthor) throws ServiceException;
 	
 	void deleteTag(Long idTag) throws ServiceException;
+	
+	Long createNewsPageVO(NewsPageVO newsPageVO) throws ServiceException;
+	
+	void updateNewsPageVO(NewsPageVO newsPageVO) throws ServiceException;
+	
+	NewsPageVO readNewsPageVO(Long newsId) throws ServiceException;
 }
