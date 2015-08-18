@@ -21,6 +21,9 @@
 	src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
 <script type="text/javascript"
 	src="<c:url value="/resources/js/bootstrap-multiselect.js"/>"></script>
+<script type="text/javascript"
+	src="<c:url value="/resources/js/style.js"/>"></script>
+
 
 </head>
 <body>
@@ -32,5 +35,6 @@
 		<tiles:insertAttribute name="body" />
 	</div>
 	<tiles:insertAttribute name="footer" />
+
 </body>
 </html>

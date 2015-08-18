@@ -3,14 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+
 <form:form commandName="searchCriteria"
 	action="/news-client/news/setSearchCriteria">
-<script type="text/javascript">
-		$(document).ready(function() {
-			$('#select-author').multiselect();
-			$('#select-tag').multiselect();
-		});
-	</script>
+
 		<select id="select-author" name="authorId">
 			<option value=""><spring:message code="label.select.author" /></option>
 			<c:forEach var="author" items="${authors}">

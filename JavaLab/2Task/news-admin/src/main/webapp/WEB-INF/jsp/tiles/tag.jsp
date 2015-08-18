@@ -3,19 +3,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <link rel="stylesheet"
 	href="<c:url value="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>">
-<script src="<c:url value="http://code.jquery.com/jquery-1.10.2.js"/>"></script>
+<script src="<c:url value="http://code.jquery.com/jquery-1.10.3.js"/>"></script>
 <script
 	src="<c:url value="http://code.jquery.com/ui/1.11.4/jquery-ui.js"/>"></script>
+	<script type="text/javascript" src="<c:url value="/resources/js/accord.js"/>"></script>
 
-<script>
-	$(function() {
-		$("#accordion").accordion({
-			header : "h3",
-			collapsible : true,
-			active : false
-		});
-	});
-</script>
 
 <div align="left" id="accordion">
 	<c:forEach var="tag" items="${tagList}">

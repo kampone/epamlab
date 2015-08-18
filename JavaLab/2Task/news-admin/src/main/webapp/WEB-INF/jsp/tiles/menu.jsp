@@ -7,12 +7,4 @@
  	<li role="presentation" onclick="toggleClass(this)"> <a href="/news-admin/authors/view"><spring:message code="label.menu.editauthors"/></a></li>
  	<li role="presentation" onclick="toggleClass(this)"><a href="/news-admin/tags/view"><spring:message code="label.menu.edittags"/></a></li>
 </ul>
-<script>
-function toggleClass(el){
-	if(el.className == ""){
-		el.className = "active";
-	} else {
-		el.className = "";
-	}
-}
-</script>
+

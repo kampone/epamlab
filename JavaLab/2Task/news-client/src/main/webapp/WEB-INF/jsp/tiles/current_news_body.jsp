@@ -3,7 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<div class="container">
+<div class="container" id="rightcol">
 	<form:form commandName="comment" action="/news-client/current/add-comment" method="post">
 		<input type="hidden" name="newsId" value="${newsVO.news.id}" />
 		<h3 align="left" class="news_current_title">

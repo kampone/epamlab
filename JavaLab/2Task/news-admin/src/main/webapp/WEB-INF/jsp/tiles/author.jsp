@@ -6,17 +6,8 @@
 <script src="<c:url value="http://code.jquery.com/jquery-1.10.2.js"/>"></script>
 <script
 	src="<c:url value="http://code.jquery.com/ui/1.11.4/jquery-ui.js"/>"></script>
-
-<script>
-	$(function() {
-		$("#accordion").accordion({
-			header : "h3",
-			collapsible : true,
-			active : false
-		});
-	});
-</script>
-
+<script type="text/javascript"
+	src="<c:url value="/resources/js/accord.js"/>"></script>
 <div id="accordion">
 	<c:forEach var="author" items="${authorList}">
 		<h3>${author.name}<c:if test="${author.expired != null}">
@@ -29,7 +20,6 @@
 			<form:form commandName="author" action="/news-admin/authors/update">
 				<form:errors class="alert alert-danger" path="name" />
 				<input type="hidden" name="id" value="${author.id}">
-
 				<p>
 					<input type="text" name="name" value="${author.name}">
 				</p>
@@ -51,6 +41,7 @@
 </div>
 <br>
 <br>
+
 <form:form commandName="author" class="form-inline"
 	action="/news-admin/authors/add">
 	<form:errors class="alert alert-danger" path="name" />

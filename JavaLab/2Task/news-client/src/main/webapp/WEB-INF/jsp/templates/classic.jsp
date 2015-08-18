@@ -23,5 +23,7 @@
 	<tiles:insertAttribute name="navMenu" />
 	<tiles:insertAttribute name="body" />
 	<tiles:insertAttribute name="footer" />
+	<script type="text/javascript" src="<c:url value="/resources/js/style.js"/>"></script>
+	
 </body>
 </html>

@@ -5,11 +5,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<link rel="stylesheet"
-	href="<c:url value="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>">
-<script src="<c:url value="http://code.jquery.com/jquery-1.10.2.js"/>"></script>
-<script
-	src="<c:url value="http://code.jquery.com/ui/1.11.4/jquery-ui.js"/>"></script>
 
 
 
@@ -31,16 +26,14 @@
 			class="form-control" name="news.title"
 			value="${newsPageVO.news.title}" id="title">
 	</div>
-	<script>
-		$(function date() {
-			$("#datepicker").datepicker();
-		});
-	</script>
+
 	<div class="form-group">
-		<label for="date">Date:</label><p> <input id="datepicker" type="text"
-			class="form-control"
-			value='<fmt:formatDate value="${newsPageVO.news.creationDate}"/>'
-			id="date"></p>
+		<label for="date">Date:</label>
+		<p>
+			<input id="datepicker" type="text" class="form-control"
+				value='<fmt:formatDate value="${newsPageVO.news.creationDate}"/>'
+				id="date">
+		</p>
 	</div>
 	<div class="form-group">
 		<label for="short">Brief:</label>
@@ -51,12 +44,8 @@
 		<label for="full">Content:</label>
 		<textarea rows="6" name="news.fullText" class="form-control" id="full">${newsPageVO.news.fullText}</textarea>
 	</div>
-	<script type="text/javascript">
-		$(document).ready(function  multisel() {
-			$('#select-author').multiselect();
-			$('#select-tag').multiselect();
-		});
-	</script>
+	<script type="text/javascript"
+		src="<c:url value="/resources/js/style.js"/>"></script>
 	<select id="select-author" name="authorId">
 		<option value=""><spring:message code="label.select.author" /></option>
 		<c:forEach var="author" items="${authors}">

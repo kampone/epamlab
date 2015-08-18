@@ -5,13 +5,13 @@
 <html>
 <head>
 <title><tiles:getAsString name="title" /></title>
-<link href="<c:url value="/css/bootstrap.min.css" />" rel="stylesheet">
-<link href="<c:url value="/css/bootstrap-theme.min.css" />"
+<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/bootstrap-theme.min.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/css/bootstrap-select.min.css" />"
+<link href="<c:url value="/resources/css/bootstrap-select.min.css" />"
 	rel="stylesheet">
-<link href="<c:url value="/css/style.css" />" rel="stylesheet">
-<link href="<c:url value="/css/buttons.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/buttons.css" />" rel="stylesheet">
 
 </head>
 <body>
