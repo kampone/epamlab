@@ -7,8 +7,8 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 /**
  * @author Uladzislau_Kaminski
@@ -18,9 +18,8 @@ public class News {
 	
 	@NotNull
     @Future
-    @DateTimeFormat(pattern="dd.MM.yy")
-	private Date modificationDate;
-	
+    @DateTimeFormat()
+    private Date modificationDate;
 	private Long newsId;
 	@Size(min=1, max=30)
 	private String title;

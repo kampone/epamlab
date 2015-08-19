@@ -15,8 +15,8 @@
 			access="hasAnyRole('ROLE_ANONYMOUS','ROLE_USER')" />
 		<intercept-url pattern="/resources/**" access="permitAll" />
 		<form-login login-page="/login" username-parameter="username"
-			password-parameter="password" default-target-url="/adminStartPage"
-			authentication-failure-url="/login?authfailed" />
+			password-parameter="password" default-target-url="/news/watch"
+			authentication-failure-url="/login/authfailed" />
 		<logout logout-success-url="/login" />
 	</http>
 
