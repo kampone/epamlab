@@ -24,10 +24,7 @@ public class NewsController {
 	@Autowired
 	private ServiceManager service;
 
-	@ModelAttribute
-	public SearchCriteria getSearchCriteria(){
-		return new SearchCriteria();
-	}
+
 	@RequestMapping("/watch")
 	public String getAllNews(HttpSession session, Model model, @RequestParam(value = "page", required=false) Integer page)
 			throws ServiceException {
@@ -38,7 +35,7 @@ public class NewsController {
 	@RequestMapping("/setSearchCriteria")
 	public String setSearchCriteriaToSession(HttpSession session, SearchCriteria searchCriteria )			throws ServiceException {
 		session.setAttribute("searchCriteria", searchCriteria);
-		return "redirect:/news/watch";
+		return "redirect:/news/watch";	
 	}
 
 	@RequestMapping("/reset")

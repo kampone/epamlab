@@ -33,7 +33,6 @@ public class NewsUtil {
 	}
 	
 	public static void setPreparedParametres(ServiceManager service, HttpSession session, Model model, Integer page) throws ServiceException {
-System.out.println(model == null);
 		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
 		page = page == null ? 1 : page;
 		int startIndex = (page - 1) * NUMBER_OF_NEWS_ON_PAGE + 1;

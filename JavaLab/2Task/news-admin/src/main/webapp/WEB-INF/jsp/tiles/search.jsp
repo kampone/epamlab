@@ -3,19 +3,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+
 <form:form commandName="searchCriteria"
 	action="/news-admin/news/setSearchCriteria">
-	<select id="select-author" name="authorId">
-		<option value=""><spring:message code="label.select.author" /></option>
-		<c:forEach var="author" items="${authors}">
-			<option
-				<c:if test="${author.id eq searchCriteria.authorId }">selected="selected"</c:if>
-				value="${author.id}">${author.name}</option>
-		</c:forEach>
 
-	</select>
-	
-	<select id="select-tag" multiple="multiple" name="tagIdList">
+		<select id="select-author" name="authorId">
+			<option value=""><spring:message code="label.select.author" /></option>
+			<c:forEach var="author" items="${authors}">
+				<option
+					<c:if test="${author.id eq searchCriteria.authorId }">selected="selected"</c:if>
+					value="${author.id}">${author.name}</option>
+			</c:forEach>
+
+		</select>
+
+	<select  id="select-tag" multiple="multiple" name="tagIdList">
 		<c:forEach var="tag" items="${tags}">
 			<c:set var="contains" value="false" />
 			<c:forEach var="sc_tagId" items="${searchCriteria.tagIdList}">

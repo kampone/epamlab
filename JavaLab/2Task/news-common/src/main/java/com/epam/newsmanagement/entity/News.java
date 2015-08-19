@@ -18,7 +18,7 @@ public class News {
 	
 	@NotNull
     @Future
-    @DateTimeFormat(pattern="dd.MM.yyyy")
+    @DateTimeFormat(pattern="dd.MM.yy")
 	private Date modificationDate;
 	
 	private Long newsId;
