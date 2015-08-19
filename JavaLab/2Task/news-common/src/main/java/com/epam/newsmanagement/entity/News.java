@@ -1,15 +1,25 @@
 package com.epam.newsmanagement.entity;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 /**
  * @author Uladzislau_Kaminski
  *
  */
 public class News {
+	
+	@NotNull
+    @Future
+    @DateTimeFormat(pattern="dd.MM.yyyy")
+	private Date modificationDate;
 	
 	private Long newsId;
 	@Size(min=1, max=30)
@@ -19,7 +29,7 @@ public class News {
 	@Size(min=1, max=2000)
 	private String fullText;
 	private Timestamp creationDate;
-	private Date modificationDate;
+	
 
 	public News() {
 	}

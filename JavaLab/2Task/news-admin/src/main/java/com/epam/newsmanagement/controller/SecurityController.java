@@ -8,7 +8,6 @@ public class SecurityController {
 	
 	@RequestMapping("/login")
 	public String login(){
-		System.out.println("Hello, world!");
 		return "login";
 	}
 }

@@ -1,5 +1,7 @@
 package com.epam.newsmanagement.controller;
 
+import static com.epam.newsmanagement.util.NewsUtil.findIndex;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -15,6 +17,7 @@ import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.ServiceManager;
+import com.epam.newsmanagement.util.NewsUtil;
 
 @Controller
 @RequestMapping("/current")
@@ -27,7 +30,7 @@ public class CurrentNewsController {
 	public String getCurrentNews(HttpSession session, Model model, @PathVariable("index") Integer index)
 			throws ServiceException {
 		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
-		index = processIndex(searchCriteria, index, model);
+		index = NewsUtil.processIndex(service, searchCriteria, index, model);
 		model.addAttribute("index", index);
 		model.addAttribute("newsVO", service.getNewsVO(searchCriteria, index, index).get(0));
 		return "current_news";
@@ -38,7 +41,7 @@ public class CurrentNewsController {
 		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
 		Comment comment = service.readComment(commentId);
 		service.deleteComment(commentId);
-		return "redirect:/current/news/" + findIndex(searchCriteria, comment.getNewsId());
+		return "redirect:/current/news/" + findIndex(service, searchCriteria, comment.getNewsId());
 	}
 	
 	@RequestMapping(value = "/add-comment")
@@ -52,26 +55,12 @@ public class CurrentNewsController {
 			redirectAttributes.addFlashAttribute("comment", comment);
 		    redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.comment", bindingResult);
 		}
-		return "redirect:/current/news/" + findIndex(searchCriteria, comment.getNewsId());
+		return "redirect:/current/news/" + findIndex(service, searchCriteria, comment.getNewsId());
 
 	}
 	
-	private int processIndex(SearchCriteria searchCriteria, int index, Model model) throws ServiceException {
-		int number = service.getNumberOfNews(searchCriteria);
-		if (index > number) {
-			model.addAttribute("errorMessage", "Nothing else");
-			index = number;
-		} else {
-			if (index < 1) {
-				model.addAttribute("errorMessage", "Nothing else");
-				index = 1;
-			}
-		}
-		return index;
-	}
+	
 
-	private int findIndex(SearchCriteria searchCriteria, Long newsId) throws ServiceException {
-		return service.findIndex(searchCriteria, newsId);
-	}
+	
 
 }

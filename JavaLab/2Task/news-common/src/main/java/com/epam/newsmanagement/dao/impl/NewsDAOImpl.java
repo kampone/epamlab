@@ -28,7 +28,7 @@ import com.epam.newsmanagement.exception.DAOException;
 public class NewsDAOImpl implements NewsDAO {
 	private static final String SQL_CREATE_NEW_NEWS_QUERY = "INSERT INTO news n (n.title, n.short_text, n.full_text, n.creation_date, n.modification_date, n.news_id) VALUES (?,?,?,SYSDATE,SYSDATE,news_news_id_seq.nextval)";
 	private static final String SQL_READ_NEWS_BY_ID_QUERY = "SELECT n.news_id, n.title, n.short_text, n.full_text, n.creation_date, n.modification_date FROM news n WHERE n.news_id = ?";
-	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news n SET n.title = ?, n.short_text = ?, n.full_text = ?, n.modification_date = SYSDATE WHERE n.news_id = ? ";
+	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news n SET n.title = ?, n.short_text = ?, n.full_text = ?, n.modification_date = ? WHERE n.news_id = ? ";
 	private static final String SQL_DELETE_NEWS_BY_ID_QUERY = "DELETE FROM news n WHERE n.news_id = ?";
 	private static final String SQL_READ_ALL_NEWS_QUERY = "SELECT news_id,title,short_text,full_text,creation_date,modification_date,rn FROM( "
 			+ "SELECT tmp.news_id,tmp.title,tmp.short_text,tmp.full_text,tmp.creation_date,tmp.modification_date,tmp.cnt,ROWNUM rn "
@@ -137,7 +137,8 @@ public class NewsDAOImpl implements NewsDAO {
 			statement.setString(1, entity.getTitle());
 			statement.setString(2, entity.getShortText());
 			statement.setString(3, entity.getFullText());
-			statement.setLong(4, entity.getId());
+			statement.setLong(5, entity.getId());
+			statement.setDate(4, new Date(entity.getModificationDate().getTime()));
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DAOException(e);

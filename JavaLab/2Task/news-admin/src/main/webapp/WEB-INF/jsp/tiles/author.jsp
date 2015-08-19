@@ -10,7 +10,7 @@
 	src="<c:url value="/resources/js/accord.js"/>"></script>
 <div id="accordion">
 	<c:forEach var="author" items="${authorList}">
-		<h3>${author.name}<c:if test="${author.expired != null}">
+		<h3><c:out value="${author.name}"/><c:if test="${author.expired != null}">
 				<b style="color: red">(<spring:message
 						code="label.message.expired" />)
 				</b>
@@ -19,9 +19,9 @@
 		<div>
 			<form:form commandName="author" action="/news-admin/authors/update">
 				<form:errors class="alert alert-danger" path="name" />
-				<input type="hidden" name="id" value="${author.id}">
+				<input type="hidden" name="id" value="<c:out value="${author.id}"/>">
 				<p>
-					<input type="text" name="name" value="${author.name}">
+					<input type="text" name="name" value="<c:out value="${author.name}"/>">
 				</p>
 				<p>
 					<input type="submit" class="btn btn-default"
@@ -48,7 +48,7 @@
 	<div class="form-group">
 		<label for="add-author"><spring:message
 				code="label.text.add_author" />:</label> <input name="name"
-			value="${author.name}" type="text" class="form-control"
+			value="<c:out value="${author.name}"/>" type="text" class="form-control"
 			id="add-author">
 	</div>
 	<button type="submit" class="btn btn-default">

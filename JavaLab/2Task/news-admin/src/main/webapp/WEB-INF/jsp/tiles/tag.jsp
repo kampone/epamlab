@@ -11,7 +11,7 @@
 
 <div align="left" id="accordion">
 	<c:forEach var="tag" items="${tagList}">
-		<h3>${tag.name}</h3>
+		<h3><c:out value="${tag.name}"/></h3>
 		<div>
 			<form:form commandName="tag" action="/news-admin/tags/update">
 				<form:errors class="alert alert-danger" path="name" />
@@ -19,7 +19,7 @@
 				<input type="hidden" name="id" value="${tag.id}">
 
 				<p>
-					<input type="text" name="name" value="${tag.name}">
+					<input type="text" name="name" value="<c:out value="${tag.name}"/>">
 				</p>
 				<p>
 					<input type="submit" class="btn btn-default"
@@ -44,7 +44,7 @@
 	<form:errors class="alert alert-danger" path="name" />
 	<div class="form-group">
 		<label for="add-tag"><spring:message code="label.text.add_tag" />:</label>
-		<input name="name" value="${tag.name}" type="text"
+		<input name="name" value="<c:out value="${tag.name}"/>" type="text"
 			class="form-control" id="add-tag">
 	</div>
 	<button type="submit" class="btn btn-default">

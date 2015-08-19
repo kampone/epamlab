@@ -13,6 +13,8 @@
 
 	<form:errors cssStyle="color: red" path="news.title" />
 	<br>
+	<form:errors cssStyle="color: red" path="news.modificationDate" />
+	<br>
 	<form:errors cssStyle="color: red" path="news.shortText" />
 	<br>
 	<form:errors cssStyle="color: red" path="news.fullText" />
@@ -20,38 +22,38 @@
 	<form:errors cssStyle="color: red" path="authorId" />
 	<br>
 
-	<input type="hidden" name="news.id" value="${newsPageVO.news.id}" />
+	<input type="hidden" name="news.id" value="<c:out value="${newsPageVO.news.id}"/>" />
 	<div class="form-group">
-		<label for="title">Title:</label> <input type="text"
+		<label for="title"><spring:message code="lavel.text.title"/>:</label> <input type="text"
 			class="form-control" name="news.title"
-			value="${newsPageVO.news.title}" id="title">
+			value="<c:out value="${newsPageVO.news.title}"/>" id="title">
 	</div>
 
 	<div class="form-group">
-		<label for="date">Date:</label>
+		<label for="date"><spring:message code="lavel.text.date"/>:</label>
 		<p>
-			<input id="datepicker" type="text" class="form-control"
-				value='<fmt:formatDate value="${newsPageVO.news.creationDate}"/>'
-				id="date">
+			<input id="datepicker" name="news.modificationDate" type="text" class="form-control"
+				value="<fmt:formatDate value="${newsPageVO.news.modificationDate}"/>"
+				id="date"/>
 		</p>
 	</div>
 	<div class="form-group">
-		<label for="short">Brief:</label>
+		<label for="short"><spring:message code="lavel.text.brief"/>:</label>
 		<textarea rows="3" name="news.shortText" class="form-control"
-			id="short">${newsPageVO.news.shortText}</textarea>
+			id="short"><c:out value="${newsPageVO.news.shortText}"/></textarea>
 	</div>
 	<div class="form-group">
-		<label for="full">Content:</label>
-		<textarea rows="6" name="news.fullText" class="form-control" id="full">${newsPageVO.news.fullText}</textarea>
+		<label for="full"><spring:message code="lavel.text.content"/>:</label>
+		<textarea rows="6" name="news.fullText" class="form-control" id="full"><c:out value="${newsPageVO.news.fullText}"/></textarea>
 	</div>
 	<script type="text/javascript"
-		src="<c:url value="/resources/js/style.js"/>"></script>
+		src="<c:url value="/resources/js/style.js" 	/>"></script>
 	<select id="select-author" name="authorId">
 		<option value=""><spring:message code="label.select.author" /></option>
 		<c:forEach var="author" items="${authors}">
 			<option
 				<c:if test="${author.id eq newsPageVO.authorId }">selected="selected"</c:if>
-				value="${author.id}">${author.name}</option>
+				value="${author.id}"><c:out value="${author.name}"/></option>
 		</c:forEach>
 
 	</select>
@@ -67,5 +69,5 @@
 			<option <c:if test="${contains}">selected</c:if> value="${tag.id}">${tag.name}</option>
 		</c:forEach>
 	</select>
-	<input type="submit" class="btn btn-default" value="Submit">
+	<input type="submit" class="btn btn-default" value="<spring:message code="label.button.save"/>">
 </form:form>

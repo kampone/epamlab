@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-public class ErrorController extends RuntimeException {
+public class ErrorController {
 	
 	@RequestMapping("/error")
 	public String error(Model model, HttpStatus httpStatus) {
