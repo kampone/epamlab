@@ -1,4 +1,5 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <table align="center" width="90%">
 	<tr>
 		<td>
@@ -24,7 +25,7 @@
 						</ul>
 
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#"><spring:message code="label.head.logout" /></a></li>
+							<li><a href="/news-admin/j_spring_security_logout"><spring:message code="label.head.logout" /></a></li>
 						</ul>
 					</div>
 				</div>
