@@ -41,6 +41,11 @@
 		template="/WEB-INF/jsp/templates/error.jsp">
 	</definition>
 
+	<definition name="login" extends="classic"
+		template="/WEB-INF/jsp/templates/classic.jsp">
+		<put-attribute name="body" value="login_body" />
+	</definition>
+
 
 	<definition name="news_body" template="/WEB-INF/jsp/templates/news.jsp">
 		<put-attribute name="search" value="/WEB-INF/jsp/tiles/search.jsp" />
@@ -60,7 +65,8 @@
 
 	<definition name="tag_body" template="/WEB-INF/jsp/tiles/tag.jsp" />
 
-	<definition name="edit_news_body" template="/WEB-INF/jsp/tiles/edit_news.jsp"/>
+	<definition name="edit_news_body" template="/WEB-INF/jsp/tiles/edit_news.jsp" />
+	<definition name="login_body" template="/WEB-INF/jsp/tiles/login_body.jsp" />
 
 
 </tiles-definitions>

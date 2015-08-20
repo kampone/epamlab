@@ -1,5 +1,7 @@
 package com.epam.newsmanagement.controller;
 
+import java.util.Locale;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,8 @@ public class EditNewsController {
 
 	@Autowired
 	private ServiceManager service;
-
+	
+	
 	@ModelAttribute
 	public NewsPageVO getNewsPageVO() {
 		return new NewsPageVO();
@@ -43,7 +46,7 @@ public class EditNewsController {
 
 	@RequestMapping("/save")
 	public String saveNews(RedirectAttributes redirectAttributes, @Valid NewsPageVO newsPageVO,
-			BindingResult bindingResult) throws ServiceException {
+			 BindingResult bindingResult) throws ServiceException{
 		if (!bindingResult.hasErrors()) {
 			if (newsPageVO.getNews().getId() == null) {
 				service.createNewsPageVO(newsPageVO);

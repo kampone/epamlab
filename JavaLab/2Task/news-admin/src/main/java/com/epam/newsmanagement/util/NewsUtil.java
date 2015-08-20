@@ -1,7 +1,13 @@
 package com.epam.newsmanagement.util;
 
+import java.util.Date;
+import java.util.Locale;
+
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.ui.Model;
 
 import com.epam.newsmanagement.entity.SearchCriteria;
@@ -11,6 +17,8 @@ import com.epam.newsmanagement.service.ServiceManager;
 public class NewsUtil {
 	public static final int DEFAULT_PAGE = 1;
 	public static final int NUMBER_OF_NEWS_ON_PAGE = 3;
+	private static final String ENGLIS_PATTERN = "MMM dd, yyyy";
+	private static final String RUSSIAN_PATTERN = "dd.MM.yyyy"; 
 	
 	
 	
@@ -46,4 +54,23 @@ public class NewsUtil {
 		model.addAttribute("newsVOList", service.getNewsVO(searchCriteria, startIndex, lastIndex));
 		model.addAttribute("pages", pages);
 	}
+
+	public static String getPattern(MessageSource messageSource, Locale locale) {
+		return messageSource.getMessage("label.date.pattern", null, locale);
+	}
+
+
+	
+	public static String getPattern(Locale locale){
+		if ("en".equals(locale.toString())) {
+			return ENGLIS_PATTERN;
+		}else{
+			if ("ru".equals(locale.toString())) {
+				return RUSSIAN_PATTERN;
+			}
+		}
+		return null;
+	}
+
+	
 }

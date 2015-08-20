@@ -8,6 +8,7 @@
 	src="<c:url value="http://code.jquery.com/ui/1.11.4/jquery-ui.js"/>"></script>
 <script type="text/javascript"
 	src="<c:url value="/resources/js/accord.js"/>"></script>
+
 <div id="accordion">
 	<c:forEach var="author" items="${authorList}">
 		<h3><c:out value="${author.name}"/><c:if test="${author.expired != null}">

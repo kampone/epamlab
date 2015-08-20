@@ -26,7 +26,7 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public class NewsDAOImpl implements NewsDAO {
-	private static final String SQL_CREATE_NEW_NEWS_QUERY = "INSERT INTO news n (n.title, n.short_text, n.full_text, n.creation_date, n.modification_date, n.news_id) VALUES (?,?,?,SYSDATE,SYSDATE,news_news_id_seq.nextval)";
+	private static final String SQL_CREATE_NEW_NEWS_QUERY = "INSERT INTO news n (n.title, n.short_text, n.full_text, n.creation_date, n.modification_date, n.news_id) VALUES (?,?,?,SYSDATE,?,news_news_id_seq.nextval)";
 	private static final String SQL_READ_NEWS_BY_ID_QUERY = "SELECT n.news_id, n.title, n.short_text, n.full_text, n.creation_date, n.modification_date FROM news n WHERE n.news_id = ?";
 	private static final String SQL_UPDATE_NEWS_BY_ID_QUERY = "UPDATE news n SET n.title = ?, n.short_text = ?, n.full_text = ?, n.modification_date = ? WHERE n.news_id = ? ";
 	private static final String SQL_DELETE_NEWS_BY_ID_QUERY = "DELETE FROM news n WHERE n.news_id = ?";
@@ -67,9 +67,11 @@ public class NewsDAOImpl implements NewsDAO {
 			String title = entity.getTitle();
 			String shortText = entity.getShortText();
 			String fullText = entity.getFullText();
+			Date modificationDate = new Date(entity.getModificationDate().getTime());
 			statement.setString(1, title);
 			statement.setString(2, shortText);
 			statement.setString(3, fullText);
+			statement.setDate(4, modificationDate);
 			statement.executeUpdate();
 			resultSet = statement.getGeneratedKeys();
 			if (resultSet != null && resultSet.next()) {
