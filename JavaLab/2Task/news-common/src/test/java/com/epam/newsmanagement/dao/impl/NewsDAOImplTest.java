@@ -1,5 +1,7 @@
 package com.epam.newsmanagement.dao.impl;
 
+import java.sql.Date;
+
 import org.dbunit.DBTestCase;
 import org.dbunit.IDatabaseTester;
 import org.dbunit.dataset.IDataSet;
@@ -58,9 +60,11 @@ public class NewsDAOImplTest extends DBTestCase {
 		String title = "test_title";
 		String shortText = "short text";
 		String fullText = "full text";
+		Date date = new Date(423423);
 		news.setTitle(title);
 		news.setShortText(shortText);
 		news.setFullText(fullText);
+		news.setModificationDate(date);
 		Long idNews = newsDAO.create(news);
 		News actualNews = newsDAO.read(idNews);
 		assertEquals(title, actualNews.getTitle());

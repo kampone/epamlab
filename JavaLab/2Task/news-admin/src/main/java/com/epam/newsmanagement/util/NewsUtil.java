@@ -1,13 +1,10 @@
 package com.epam.newsmanagement.util;
 
-import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.ui.Model;
 
 import com.epam.newsmanagement.entity.SearchCriteria;
