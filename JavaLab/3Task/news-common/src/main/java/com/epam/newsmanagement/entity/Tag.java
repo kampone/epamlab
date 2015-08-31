@@ -22,6 +22,7 @@ public class Tag {
 	@Column(name = "TAG_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TAGS_TAG_ID_SEQ")
 	private Long tagId;
+	
 	@Size(min=1, max=30)
 	@Column(name = "TAG_NAME")
 	private String name;

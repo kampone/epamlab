@@ -2,11 +2,13 @@ package com.epam.newsmanagement.dao.impl.hibernate;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.epam.newsmanagement.dao.TagDAO;
 import com.epam.newsmanagement.entity.Author;
+import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;
 
@@ -32,14 +34,15 @@ public class TagDAOImpl implements TagDAO {
 
 	@Override
 	public void delete(Tag entity) throws DAOException {
-		// TODO Auto-generated method stub
-
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(entity);
 	}
 
 	@Override
 	public void delete(Long id) throws DAOException {
-		// TODO Auto-generated method stub
-
+		Session session = sessionFactory.getCurrentSession();
+		Tag tag = session.load(Tag.class, id);
+		session.delete(tag);
 	}
 
 	@Override
@@ -62,14 +65,13 @@ public class TagDAOImpl implements TagDAO {
 
 	@Override
 	public List<Tag> getNewsTags(Long idNews) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		return session.load(News.class, idNews).getTagList();
 	}
 
 	@Override
 	public List<Tag> getAllTags() throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		return sessionFactory.getCurrentSession().createCriteria(Tag.class).list();
 	}
 
 	@Override

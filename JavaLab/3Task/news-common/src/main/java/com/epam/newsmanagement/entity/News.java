@@ -1,70 +1,89 @@
 package com.epam.newsmanagement.entity;
 
-import java.util.Date;
 import java.sql.Timestamp;
+import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.springframework.format.annotation.DateTimeFormat;
-
-/**
- * @author Uladzislau_Kaminski
- *
- */
 @Entity
 @Table(name = "NEWS")
 @SequenceGenerator(name = "NEWS_NEWS_ID_SEQ", sequenceName = "NEWS_NEWS_ID_SEQ", allocationSize = 1)
 public class News {
-	
 
 	@Id
 	@Column(name = "NEWS_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "NEWS_NEWS_ID_SEQ")
 	private Long newsId;
+	
 	@Size(min=1, max=30)
 	@Column(name = "TITLE")
 	private String title;
+	
 	@Size(min=1, max=100)
 	@Column(name = "SHORT_TEXT")
 	private String shortText;
+	
 	@Size(min=1, max=2000)
 	@Column(name = "FULL_TEXT")
 	private String fullText;
+	
 	@Column(name = "CREATION_DATE")
 	private Timestamp creationDate;
+	
 	@NotNull
     @Future
     @DateTimeFormat()
 	@Column(name = "MODIFICATION_DATE")
     private Date modificationDate;
-
 	
+	@ManyToOne(optional=false)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JoinTable(name="NEWS_AUTHORS", joinColumns=@JoinColumn(name="NEWS_ID"), inverseJoinColumns=@JoinColumn(name="AUTHOR_ID"))
+	private Author author;
+	
+	@ManyToMany
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@JoinTable(name="NEWS_TAGS", joinColumns=@JoinColumn(name="NEWS_ID"), inverseJoinColumns=@JoinColumn(name="TAG_ID"))
+	private List<Tag> tagList;
+	
+	@OneToMany(cascade=CascadeType.REMOVE, fetch = FetchType.LAZY, mappedBy = "news")
+	 private List<Comment> comments;
 
 	public News() {
 	}
 
 	/**
-	 * @return the id
+	 * @return the newsId
 	 */
-	public Long getId() {
+	public Long getNewsId() {
 		return newsId;
 	}
 
 	/**
-	 * @param id
-	 *            the id to set
+	 * @param newsId the newsId to set
 	 */
-	public void setId(Long id) {
-		this.newsId = id;
+	public void setNewsId(Long newsId) {
+		this.newsId = newsId;
 	}
 
 	/**
@@ -75,8 +94,7 @@ public class News {
 	}
 
 	/**
-	 * @param title
-	 *            the title to set
+	 * @param title the title to set
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -90,8 +108,7 @@ public class News {
 	}
 
 	/**
-	 * @param shortText
-	 *            the shortText to set
+	 * @param shortText the shortText to set
 	 */
 	public void setShortText(String shortText) {
 		this.shortText = shortText;
@@ -105,8 +122,7 @@ public class News {
 	}
 
 	/**
-	 * @param fullText
-	 *            the fullText to set
+	 * @param fullText the fullText to set
 	 */
 	public void setFullText(String fullText) {
 		this.fullText = fullText;
@@ -120,8 +136,7 @@ public class News {
 	}
 
 	/**
-	 * @param creationDate
-	 *            the creationDate to set
+	 * @param creationDate the creationDate to set
 	 */
 	public void setCreationDate(Timestamp creationDate) {
 		this.creationDate = creationDate;
@@ -135,11 +150,52 @@ public class News {
 	}
 
 	/**
-	 * @param modificationDate
-	 *            the modificationDate to set
+	 * @param modificationDate the modificationDate to set
 	 */
 	public void setModificationDate(Date modificationDate) {
 		this.modificationDate = modificationDate;
+	}
+
+	/**
+	 * @return the author
+	 */
+	public Author getAuthor() {
+		return author;
+	}
+
+	/**
+	 * @param author the author to set
+	 */
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+
+	/**
+	 * @return the tagList
+	 */
+	public List<Tag> getTagList() {
+		return tagList;
+	}
+
+	/**
+	 * @param tagList the tagList to set
+	 */
+	public void setTagList(List<Tag> tagList) {
+		this.tagList = tagList;
+	}
+
+	/**
+	 * @return the comments
+	 */
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	/**
+	 * @param comments the comments to set
+	 */
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 	/* (non-Javadoc)
@@ -149,11 +205,14 @@ public class News {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((author == null) ? 0 : author.hashCode());
+		result = prime * result + ((comments == null) ? 0 : comments.hashCode());
 		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
 		result = prime * result + ((fullText == null) ? 0 : fullText.hashCode());
-		result = prime * result + ((newsId == null) ? 0 : newsId.hashCode());
 		result = prime * result + ((modificationDate == null) ? 0 : modificationDate.hashCode());
+		result = prime * result + ((newsId == null) ? 0 : newsId.hashCode());
 		result = prime * result + ((shortText == null) ? 0 : shortText.hashCode());
+		result = prime * result + ((tagList == null) ? 0 : tagList.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
@@ -170,6 +229,16 @@ public class News {
 		if (getClass() != obj.getClass())
 			return false;
 		News other = (News) obj;
+		if (author == null) {
+			if (other.author != null)
+				return false;
+		} else if (!author.equals(other.author))
+			return false;
+		if (comments == null) {
+			if (other.comments != null)
+				return false;
+		} else if (!comments.equals(other.comments))
+			return false;
 		if (creationDate == null) {
 			if (other.creationDate != null)
 				return false;
@@ -180,20 +249,25 @@ public class News {
 				return false;
 		} else if (!fullText.equals(other.fullText))
 			return false;
-		if (newsId == null) {
-			if (other.newsId != null)
-				return false;
-		} else if (!newsId.equals(other.newsId))
-			return false;
 		if (modificationDate == null) {
 			if (other.modificationDate != null)
 				return false;
 		} else if (!modificationDate.equals(other.modificationDate))
 			return false;
+		if (newsId == null) {
+			if (other.newsId != null)
+				return false;
+		} else if (!newsId.equals(other.newsId))
+			return false;
 		if (shortText == null) {
 			if (other.shortText != null)
 				return false;
 		} else if (!shortText.equals(other.shortText))
+			return false;
+		if (tagList == null) {
+			if (other.tagList != null)
+				return false;
+		} else if (!tagList.equals(other.tagList))
 			return false;
 		if (title == null) {
 			if (other.title != null)
@@ -203,11 +277,16 @@ public class News {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return System.lineSeparator()+"News [idNews=" + newsId + ", title=" + title + ", shortText=" + shortText + ", fullText=" + fullText
-				+ ", creationDate=" + creationDate + ", modificationDate=" + modificationDate + "]";
+		return "News [newsId=" + newsId + ", title=" + title + ", shortText=" + shortText + ", fullText=" + fullText
+				+ ", creationDate=" + creationDate + ", modificationDate=" + modificationDate + ", author=" + author
+				+ ", tagList=" + tagList + ", comments=" + comments + "]";
 	}
 
+	
 	
 }

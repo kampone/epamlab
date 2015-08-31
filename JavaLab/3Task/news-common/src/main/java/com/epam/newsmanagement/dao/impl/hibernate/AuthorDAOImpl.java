@@ -1,14 +1,15 @@
 package com.epam.newsmanagement.dao.impl.hibernate;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.epam.newsmanagement.dao.AuthorDAO;
 import com.epam.newsmanagement.entity.Author;
+import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.exception.DAOException;
 
 public class AuthorDAOImpl implements AuthorDAO {
@@ -23,7 +24,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 
 	@Override
 	public Author read(Long id) throws DAOException {
-		return sessionFactory.getCurrentSession().get(Author.class, id);
+		return sessionFactory.getCurrentSession().load(Author.class, id);
 	}
 
 	@Override
@@ -40,25 +41,28 @@ public class AuthorDAOImpl implements AuthorDAO {
 	@Override
 	public void delete(Long id) throws DAOException {
 		Author author = sessionFactory.getCurrentSession().load(Author.class, id);
-		author.setExpired(new Timestamp(new Date().getTime()));
+		author.setExpired(new Timestamp(System.currentTimeMillis()));
 	}
 
 	@Override
 	public void attachAuthorToNews(Long newsId, Long authorId) throws DAOException {
-		// TODO Auto-generated method stub
-		
+		Session session = sessionFactory.getCurrentSession();
+		News news = session.load(News.class, newsId);		
+		Author author = session.load(Author.class, authorId);
+		news.setAuthor(author);
 	}
 
 	@Override
 	public void detachAuthorFromNews(Long newsId) throws DAOException {
-		// TODO Auto-generated method stub
-		
+		Session session = sessionFactory.getCurrentSession();
+		News news = session.load(News.class, newsId);		
+		news.setAuthor(null);		
 	}
 
 	@Override
 	public Author getAuthorByNewsId(Long newsId) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		return session.load(News.class, newsId).getAuthor();
 	}
 
 	@Override

@@ -20,9 +20,11 @@ public class Author {
 	@Column(name = "AUTHOR_ID")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AUTHORS_AUTHOR_ID_SEQ")
 	private Long authorId;
+	
 	@Column(name = "AUTHOR_NAME")
 	@Size(min = 1, max = 30)
 	private String name;
+	
 	@Column(name = "EXPIRED")	
 	private Timestamp expired;
 

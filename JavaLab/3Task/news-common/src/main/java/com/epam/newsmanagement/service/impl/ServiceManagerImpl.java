@@ -12,7 +12,7 @@ import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.NewsPageVO;
-import com.epam.newsmanagement.entity.NewsVO;
+import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.ServiceException;
@@ -161,8 +161,8 @@ public class ServiceManagerImpl implements ServiceManager {
 	 * @see com.epam.newsmanagement.service.ServiceManager#getNewsVO(java.lang.Long)
 	 */
 	@Override
-	public NewsVO getNewsVO(Long idNews) throws ServiceException {
-		NewsVO newsVO = new NewsVO();
+	public News getNewsVO(Long idNews) throws ServiceException {
+		News newsVO = new News();
 		newsVO.setNews(newsService.read(idNews));
 		newsVO.setAuthor(authorService.getAuthorByNewsId(idNews));
 		newsVO.setTagList(tagService.getNewsTags(idNews));
@@ -184,12 +184,12 @@ public class ServiceManagerImpl implements ServiceManager {
 	}
 
 	@Override
-	public List<NewsVO> getNewsVO(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException {
-		List<NewsVO> newsVOList = new ArrayList<>();
-		NewsVO newsVO = null;
+	public List<News> getNewsVO(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException {
+		List<News> newsVOList = new ArrayList<>();
+		News newsVO = null;
 		List<News> newsList = newsService.getNews(searchCriteria, startIndex, lastIndex);
 		for (News news : newsList) {
-			newsVO = new NewsVO();
+			newsVO = new News();
 			Long idNews = news.getId();
 			newsVO.setNews(news);
 			newsVO.setAuthor(authorService.getAuthorByNewsId(idNews));

@@ -9,7 +9,7 @@ import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.NewsPageVO;
-import com.epam.newsmanagement.entity.NewsVO;
+import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.ServiceException;
@@ -137,7 +137,7 @@ public interface ServiceManager {
 	 * @throws ServiceException
 	 *             if trouble in DAO layer
 	 */
-	NewsVO getNewsVO(Long newsId) throws ServiceException;
+	News getNewsVO(Long newsId) throws ServiceException;
 
 	/**
 	 * Get News ValueObject with author, tags, comments
@@ -148,7 +148,7 @@ public interface ServiceManager {
 	 * @throws ServiceException
 	 *             if trouble in DAO layer
 	 */
-	List<NewsVO> getNewsVO(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException;
+	List<News> getNewsVO(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException;
 
 	/**
 	 * Return all authors that can create news
