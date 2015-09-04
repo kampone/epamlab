@@ -48,16 +48,6 @@ public interface TagService extends NewsManagementService<Tag> {
 	 */
 	void detachTagsFromNews(Long newsId) throws ServiceException;
 
-	/**
-	 * Return List of tags by news id
-	 * 
-	 * @param newsId
-	 *            News id
-	 * @return List<Tag> by news id
-	 * @throws ServiceException
-	 *             if trouble in DAO layer
-	 */
-	List<Tag> getNewsTags(Long newsId) throws ServiceException;
 
 	/**
 	 * Return all tags that can be maked by news

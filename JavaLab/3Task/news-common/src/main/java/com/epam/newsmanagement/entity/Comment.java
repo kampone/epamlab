@@ -35,7 +35,7 @@ public class Comment {
 	private Long commentId;
 	
 	@NotNull
-	@ManyToOne(cascade=CascadeType.MERGE,fetch = FetchType.LAZY)
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name = "NEWS_ID", nullable = false)
 	private News news;
 	
@@ -160,10 +160,10 @@ public class Comment {
 	 */
 	@Override
 	public String toString() {
-		return "Comment [commentId=" + commentId + ", news=" + news + ", text=" + text + ", creationDate="
+		return "Comment [commentId=" + commentId + ", text=" + text + ", creationDate="
 				+ creationDate + "]";
 	}
-
+	
 	
 
 }

@@ -56,15 +56,7 @@ public interface TagDAO extends NewsManagementDAO<Tag> {
 	 * @throws DAOException
 	 *             if trouble with connection with database
 	 */
-	List<Tag> getNewsTags(Long idNews) throws DAOException;
-
-	/**
-	 * Return all tags from database
-	 * 
-	 * @return List<Tag>
-	* @throws DAOException
-	 *             if trouble with connection with database
-	 */
+	
 	List<Tag> getAllTags() throws DAOException;
 
 	void detachTag(Long idTag) throws DAOException;

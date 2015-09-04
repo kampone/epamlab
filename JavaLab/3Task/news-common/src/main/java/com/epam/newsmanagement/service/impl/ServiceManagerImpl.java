@@ -11,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
-import com.epam.newsmanagement.entity.NewsPageVO;
-import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.ServiceException;
@@ -87,11 +85,11 @@ public class ServiceManagerImpl implements ServiceManager {
 	 */
 	@Override
 	public void updateNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException {
-		tagService.detachTagsFromNews(news.getId());
-		authorService.detachAuthorFromNews(news.getId());
+		tagService.detachTagsFromNews(news.getNewsId());
+		authorService.detachAuthorFromNews(news.getNewsId());
 		newsService.update(news);
-		authorService.attachAuthorToNews(news.getId(), idAuthor);
-		tagService.attachListTagsToNews(news.getId(), idTagList);
+		authorService.attachAuthorToNews(news.getNewsId(), idAuthor);
+		tagService.attachListTagsToNews(news.getNewsId(), idTagList);
 
 	}
 
@@ -157,18 +155,6 @@ public class ServiceManagerImpl implements ServiceManager {
 		commentService.deleteCommentsByNewsId(idNews);
 	}
 
-	/**
-	 * @see com.epam.newsmanagement.service.ServiceManager#getNewsVO(java.lang.Long)
-	 */
-	@Override
-	public News getNewsVO(Long idNews) throws ServiceException {
-		News newsVO = new News();
-		newsVO.setNews(newsService.read(idNews));
-		newsVO.setAuthor(authorService.getAuthorByNewsId(idNews));
-		newsVO.setTagList(tagService.getNewsTags(idNews));
-		newsVO.setCommentList(commentService.getCommentsByNewsId(idNews));
-		return newsVO;
-	}
 
 	/**
 	 * @see com.epam.newsmanagement.service.ServiceManager#getAllAuthors()
@@ -183,22 +169,7 @@ public class ServiceManagerImpl implements ServiceManager {
 		return tagService.getAllTags();
 	}
 
-	@Override
-	public List<News> getNewsVO(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException {
-		List<News> newsVOList = new ArrayList<>();
-		News newsVO = null;
-		List<News> newsList = newsService.getNews(searchCriteria, startIndex, lastIndex);
-		for (News news : newsList) {
-			newsVO = new News();
-			Long idNews = news.getId();
-			newsVO.setNews(news);
-			newsVO.setAuthor(authorService.getAuthorByNewsId(idNews));
-			newsVO.setTagList(tagService.getNewsTags(idNews));
-			newsVO.setCommentList(commentService.getCommentsByNewsId(idNews));
-			newsVOList.add(newsVO);
-		}
-		return newsVOList;
-	}
+
 
 	@Override
 	public int getNumberOfNews(SearchCriteria searchCriteria) throws ServiceException {
@@ -251,36 +222,7 @@ public class ServiceManagerImpl implements ServiceManager {
 		tagService.delete(idTag);
 	}
 
-	@Override
-	public Long createNewsPageVO(NewsPageVO newsPageVO) throws ServiceException {
-		Long newsId = newsService.create(newsPageVO.getNews());
-		tagService.attachListTagsToNews(newsId, newsPageVO.getTagIdList());
-		authorService.attachAuthorToNews(newsId, newsPageVO.getAuthorId());
-		return newsId;
-	}
 
-	@Override
-	public void updateNewsPageVO(NewsPageVO newsPageVO) throws ServiceException {
-		Long newsId = newsPageVO.getNews().getId();
-		tagService.detachTagsFromNews(newsId);
-		authorService.detachAuthorFromNews(newsId);
-		newsService.update(newsPageVO.getNews());
-		tagService.attachListTagsToNews(newsId, newsPageVO.getTagIdList());
-		authorService.attachAuthorToNews(newsId, newsPageVO.getAuthorId());
-	}
-
-	@Override
-	public NewsPageVO readNewsPageVO(Long newsId) throws ServiceException {
-		NewsPageVO newsPageVO = new NewsPageVO();
-		List<Long> idTagList = new ArrayList<>();
-		for (Tag tag : tagService.getNewsTags(newsId)) {
-			idTagList.add(tag.getId());
-		}
-		newsPageVO.setNews(newsService.read(newsId));
-		newsPageVO.setTagIdList(idTagList);
-		newsPageVO.setAuthorId(authorService.getAuthorByNewsId(newsId).getId());
-		return newsPageVO;
-	}
 
 
 }

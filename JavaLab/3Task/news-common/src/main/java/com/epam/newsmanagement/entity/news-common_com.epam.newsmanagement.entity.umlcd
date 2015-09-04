@@ -1,0 +1,1228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.yattasolutions.uml.diagrams.classifier:ClassDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.yattasolutions.diagrams="http://ns.yatta-solutions.com/umllab/diagrams/1.1.0" xmlns:com.yattasolutions.uml.diagrams.classifier="http://ns.yatta-solutions.com/umllab/diagrams/classifier/1.1.0" xmi:id="_FnrdIFFcEeWOTqcxo9BVuw">
+  <modelElement href="news-common.uml#_FRNd4FFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F4JiEVFcEeWOTqcxo9BVuw" targetItem="_F4TTEFFcEeWOTqcxo9BVuw" sourceItem="_F4JiEFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_F4Rd4FFcEeWOTqcxo9BVuw" sourceAnchor="0.0,62.0" targetAnchor="246.0,46.0" target="_F4TTEFFcEeWOTqcxo9BVuw" source="_F7HWgFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeNYEFFcEeWOTqcxo9BVuw"/>
+    <visualProperties xmi:id="_F7uagFFcEeWOTqcxo9BVuw" position="150.0,150.0"/>
+    <nameVisual xmi:id="_F4SE8FFcEeWOTqcxo9BVuw" text="">
+      <visualProperties xmi:id="_Gf8h4FFcEeWOTqcxo9BVuw" position="-10.0,-19.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_F4SE8VFcEeWOTqcxo9BVuw" aggregationKind="NONE" name="author" navigable="true">
+      <modelElement href="news-common.uml#_Fcm1kFFcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_Gf760FFcEeWOTqcxo9BVuw" position="-66.0,2.0"/>
+      <visibility xmi:id="_F4SE8lFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4SE81FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_F4SE9FFcEeWOTqcxo9BVuw" aggregationKind="NONE" name="">
+      <modelElement href="news-common.uml#_FeNYEVFcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_Gf8h4VFcEeWOTqcxo9BVuw" position="12.0,2.0"/>
+      <visibility xmi:id="_F4SE9VFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4SE9lFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_F4SsAFFcEeWOTqcxo9BVuw" sourceAnchor="100.0,92.0" targetAnchor="123.0,0.0" target="_F7g_IFFcEeWOTqcxo9BVuw" source="_F4TTEFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_Fefr8FFcEeWOTqcxo9BVuw"/>
+    <visualProperties xmi:id="_F7vBkFFcEeWOTqcxo9BVuw" position="170.0,170.0"/>
+    <stereotypes xmi:id="_F4SsAVFcEeWOTqcxo9BVuw" name="Reference">
+      <modelElement href="news-common.uml#_FelLgFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_F4SsAlFcEeWOTqcxo9BVuw" text="">
+      <visualProperties xmi:id="_Gfw7sFFcEeWOTqcxo9BVuw" position="2.0,-38.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_F4SsA1FcEeWOTqcxo9BVuw" aggregationKind="NONE" name="">
+      <modelElement href="news-common.uml#_Fefr8VFcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_GfvGgFFcEeWOTqcxo9BVuw" position="2.0,29.0"/>
+      <visibility xmi:id="_F4SsBFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4SsBVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_F4SsBlFcEeWOTqcxo9BVuw" aggregationKind="NONE" name="tagList" navigable="true">
+      <modelElement href="news-common.uml#_FclncFFcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_GfxiwFFcEeWOTqcxo9BVuw" position="-52.0,-61.0"/>
+      <visibility xmi:id="_F4SsB1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4SsCFFcEeWOTqcxo9BVuw" label="1..*" max="-1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F4bO4VFcEeWOTqcxo9BVuw" targetItem="_F4mOAFFcEeWOTqcxo9BVuw" sourceItem="_F4bO4FFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F4cdAVFcEeWOTqcxo9BVuw" targetItem="_F4mOJ1FcEeWOTqcxo9BVuw" sourceItem="_F4cdAFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F4drIVFcEeWOTqcxo9BVuw" targetItem="_F4mOLVFcEeWOTqcxo9BVuw" sourceItem="_F4drIFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F4e5QFFcEeWOTqcxo9BVuw" targetItem="_F4mOQVFcEeWOTqcxo9BVuw" sourceItem="_F4eSMFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F4fgUVFcEeWOTqcxo9BVuw" targetItem="_F4mOSFFcEeWOTqcxo9BVuw" sourceItem="_F4fgUFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_F4jxwFFcEeWOTqcxo9BVuw" sourceAnchor="0.0,196.0" targetAnchor="310.0,134.0" target="_F4mOAFFcEeWOTqcxo9BVuw" source="_F5MD4FFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_Fe24UVFcEeWOTqcxo9BVuw"/>
+    <visualProperties xmi:id="_F7vooVFcEeWOTqcxo9BVuw" position="-59.0,332.0"/>
+    <stereotypes xmi:id="_F4jxwVFcEeWOTqcxo9BVuw" name="Reference">
+      <modelElement href="news-common.uml#_Fe-NEFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_F4jxwlFcEeWOTqcxo9BVuw" text="">
+      <visualProperties xmi:id="_Gf10MFFcEeWOTqcxo9BVuw" position="-3.0,2.000000000000057"/>
+    </nameVisual>
+    <sourceRole xmi:id="_F4jxw1FcEeWOTqcxo9BVuw" aggregationKind="NONE" name="">
+      <modelElement href="news-common.uml#_Fe3fYFFcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_Gf0mEFFcEeWOTqcxo9BVuw" position="-31.0,-47.0"/>
+      <visibility xmi:id="_F4jxxFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4jxxVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_F4jxxlFcEeWOTqcxo9BVuw" aggregationKind="NONE" name="comments" navigable="true">
+      <modelElement href="news-common.uml#_FdlF81FcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_Gf10MVFcEeWOTqcxo9BVuw" position="52.99999999999994,-46.99999999999994"/>
+      <stereotypes xmi:id="_F4jxx1FcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FdltAFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4jxyFFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FdltAVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4jxyVFcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F4jxylFcEeWOTqcxo9BVuw" label="1..*" max="-1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_F4lm8FFcEeWOTqcxo9BVuw" sourceAnchor="310.0,176.0" targetAnchor="0.0,238.0" target="_F5MD4FFcEeWOTqcxo9BVuw" source="_F4mOAFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FelykFFcEeWOTqcxo9BVuw"/>
+    <visualProperties xmi:id="_F7vBkVFcEeWOTqcxo9BVuw" position="-59.0,332.0"/>
+    <stereotypes xmi:id="_F4lm8VFcEeWOTqcxo9BVuw" name="Reference">
+      <modelElement href="news-common.uml#_FeqrEFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_F4lm8lFcEeWOTqcxo9BVuw" text="">
+      <visualProperties xmi:id="_GfzX8FFcEeWOTqcxo9BVuw" position="-35.0,2.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_F4lm81FcEeWOTqcxo9BVuw" aggregationKind="NONE" name="">
+      <modelElement href="news-common.uml#_FelykVFcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_GfyJ0FFcEeWOTqcxo9BVuw" position="15.0,2.0"/>
+      <visibility xmi:id="_F4lm9FFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4lm9VFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_F4lm9lFcEeWOTqcxo9BVuw" aggregationKind="NONE" name="news" navigable="true">
+      <modelElement href="news-common.uml#_FcvYcFFcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_GfzX8VFcEeWOTqcxo9BVuw" position="-78.0,2.0"/>
+      <visibility xmi:id="_F4lm91FcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F4lm-FFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_F45wAFFcEeWOTqcxo9BVuw" sourceAnchor="167.0,0.0" targetAnchor="125.0,268.0" target="_F7HWgFFcEeWOTqcxo9BVuw" source="_F5MD4FFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeqrEVFcEeWOTqcxo9BVuw"/>
+    <visualProperties xmi:id="_F7vBklFcEeWOTqcxo9BVuw" position="210.0,210.0"/>
+    <stereotypes xmi:id="_F5FWMlFcEeWOTqcxo9BVuw" name="Reference">
+      <modelElement href="news-common.uml#_FewKoFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_F5EvIFFcEeWOTqcxo9BVuw" text="">
+      <visualProperties xmi:id="_Gf4QcFFcEeWOTqcxo9BVuw" position="2.0,-16.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_F5FWMFFcEeWOTqcxo9BVuw" aggregationKind="NONE" name="">
+      <modelElement href="news-common.uml#_FeqrElFcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_Gf3CUFFcEeWOTqcxo9BVuw" position="-17.0,-48.0"/>
+      <visibility xmi:id="_F5JnoFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5JAkFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_F5FWMVFcEeWOTqcxo9BVuw" aggregationKind="NONE" name="author" navigable="true">
+      <modelElement href="news-common.uml#_FdhbllFcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_Gf4QcVFcEeWOTqcxo9BVuw" position="-91.0,1.0"/>
+      <visibility xmi:id="_F5JnolFcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F5JnoVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.uml.diagrams.classifier:AssociationVisual" xmi:id="_F45wAVFcEeWOTqcxo9BVuw" sourceAnchor="0.0,15.0" targetAnchor="246.0,136.0" target="_F7g_IFFcEeWOTqcxo9BVuw" source="_F5MD4FFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FewKoVFcEeWOTqcxo9BVuw"/>
+    <visualProperties xmi:id="_F7vooFFcEeWOTqcxo9BVuw" position="230.0,230.0"/>
+    <stereotypes xmi:id="_F5F9QVFcEeWOTqcxo9BVuw" name="Reference">
+      <modelElement href="news-common.uml#_Fe24UFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <nameVisual xmi:id="_F5FWM1FcEeWOTqcxo9BVuw" text="">
+      <visualProperties xmi:id="_Gf6ssFFcEeWOTqcxo9BVuw" position="-25.0,2.0"/>
+    </nameVisual>
+    <sourceRole xmi:id="_F5FWNFFcEeWOTqcxo9BVuw" aggregationKind="NONE" name="">
+      <modelElement href="news-common.uml#_FewKolFcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_Gf5ekFFcEeWOTqcxo9BVuw" position="-26.0,-47.0"/>
+      <visibility xmi:id="_F5KOsVFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5KOsFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+    </sourceRole>
+    <targetRole xmi:id="_F5F9QFFcEeWOTqcxo9BVuw" aggregationKind="NONE" name="tagList" navigable="true">
+      <modelElement href="news-common.uml#_FdjQwlFcEeWOTqcxo9BVuw"/>
+      <visualProperties xmi:id="_Gf6ssVFcEeWOTqcxo9BVuw" position="1.0,41.0"/>
+      <visibility xmi:id="_F5KOs1FcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F5KOslFcEeWOTqcxo9BVuw" label="1..*" max="-1" min="1"/>
+    </targetRole>
+  </edges>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F47lMVFcEeWOTqcxo9BVuw" targetItem="_F5MrF1FcEeWOTqcxo9BVuw" sourceItem="_F47lMFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F48MQVFcEeWOTqcxo9BVuw" targetItem="_F5MrHVFcEeWOTqcxo9BVuw" sourceItem="_F48MQFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F48zUVFcEeWOTqcxo9BVuw" targetItem="_F5MrJFFcEeWOTqcxo9BVuw" sourceItem="_F48zUFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F49aYVFcEeWOTqcxo9BVuw" targetItem="_F5MrKlFcEeWOTqcxo9BVuw" sourceItem="_F49aYFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F4-BcVFcEeWOTqcxo9BVuw" targetItem="_F5MrMFFcEeWOTqcxo9BVuw" sourceItem="_F4-BcFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F4-Bc1FcEeWOTqcxo9BVuw" targetItem="_F5MrNlFcEeWOTqcxo9BVuw" sourceItem="_F4-BclFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F4-ogVFcEeWOTqcxo9BVuw" targetItem="_F5MrPFFcEeWOTqcxo9BVuw" sourceItem="_F4-ogFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F4_2oVFcEeWOTqcxo9BVuw" targetItem="_F5MrUFFcEeWOTqcxo9BVuw" sourceItem="_F4_2oFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F5AdsFFcEeWOTqcxo9BVuw" targetItem="_F5MrV1FcEeWOTqcxo9BVuw" sourceItem="_F4_2olFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F5AdslFcEeWOTqcxo9BVuw" targetItem="_F5MrXlFcEeWOTqcxo9BVuw" sourceItem="_F5AdsVFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F5Br0FFcEeWOTqcxo9BVuw" targetItem="_F5MrZVFcEeWOTqcxo9BVuw" sourceItem="_F5BEwFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F5CS4FFcEeWOTqcxo9BVuw" targetItem="_F5MrbFFcEeWOTqcxo9BVuw" sourceItem="_F5Br0VFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F7CeAFFcEeWOTqcxo9BVuw" targetItem="_F7H9r1FcEeWOTqcxo9BVuw" sourceItem="_F7B28FFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F7DFEVFcEeWOTqcxo9BVuw" targetItem="_F7H9tVFcEeWOTqcxo9BVuw" sourceItem="_F7DFEFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F7E6QFFcEeWOTqcxo9BVuw" targetItem="_F7H9yVFcEeWOTqcxo9BVuw" sourceItem="_F7ETMFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F7E6QlFcEeWOTqcxo9BVuw" targetItem="_F7H90FFcEeWOTqcxo9BVuw" sourceItem="_F7E6QVFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F7cGoVFcEeWOTqcxo9BVuw" targetItem="_F7g_IFFcEeWOTqcxo9BVuw" sourceItem="_F7cGoFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F7dUwVFcEeWOTqcxo9BVuw" targetItem="_F7g_MlFcEeWOTqcxo9BVuw" sourceItem="_F7dUwFFcEeWOTqcxo9BVuw"/>
+  <edges xsi:type="com.yattasolutions.diagrams:ConnectionVisual" xmi:id="_F7ei4VFcEeWOTqcxo9BVuw" targetItem="_F7g_RlFcEeWOTqcxo9BVuw" sourceItem="_F7ei4FFcEeWOTqcxo9BVuw"/>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F4JiEFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F4JiEVFcEeWOTqcxo9BVuw" text="@author Uladzislau_Kaminski&#xD;&#xA; *" item="_F4TTEFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeMJ8FFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F4bO4FFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F4bO4VFcEeWOTqcxo9BVuw" text="@author Uladzislau_Kaminski&#xD;&#xA; *" item="_F4mOAFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeN_IFFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F4cdAFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F4cdAVFcEeWOTqcxo9BVuw" text="@return the news" item="_F4mOJ1FcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeOmMlFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F4drIFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F4drIVFcEeWOTqcxo9BVuw" text="@return the creationDate" item="_F4mOLVFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FePNQVFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F4eSMFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F4e5QFFcEeWOTqcxo9BVuw" text="@param news the news to set" item="_F4mOQVFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FePNQFFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F4fgUFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F4fgUVFcEeWOTqcxo9BVuw" text="@param creationDate the creationDate to set" item="_F4mOSFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FePNQlFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F47lMFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F47lMVFcEeWOTqcxo9BVuw" text="@return the title" item="_F5MrF1FcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRCclFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F48MQFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F48MQVFcEeWOTqcxo9BVuw" text="@param title the title to set" item="_F5MrHVFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRCc1FcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F48zUFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F48zUVFcEeWOTqcxo9BVuw" text="@return the creationDate" item="_F5MrJFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRCdFFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F49aYFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F49aYVFcEeWOTqcxo9BVuw" text="@return the modificationDate" item="_F5MrKlFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRCdlFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F4-BcFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F4-BcVFcEeWOTqcxo9BVuw" text="@return the author" item="_F5MrMFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRpgVFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F4-BclFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F4-Bc1FcEeWOTqcxo9BVuw" text="@return the tagList" item="_F5MrNlFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRpg1FcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F4-ogFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F4-ogVFcEeWOTqcxo9BVuw" text="@return the comments" item="_F5MrPFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRphVFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F4_2oFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F4_2oVFcEeWOTqcxo9BVuw" text="@param author the author to set" item="_F5MrUFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRpglFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F4_2olFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F5AdsFFcEeWOTqcxo9BVuw" text="@param creationDate the creationDate to set" item="_F5MrV1FcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRCdVFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F5AdsVFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F5AdslFcEeWOTqcxo9BVuw" text="@param modificationDate the modificationDate to set" item="_F5MrXlFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRpgFFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F5BEwFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F5Br0FFcEeWOTqcxo9BVuw" text="@param tagList the tagList to set" item="_F5MrZVFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRphFFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F5Br0VFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F5CS4FFcEeWOTqcxo9BVuw" text="@param comments the comments to set" item="_F5MrbFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeRphlFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F7B28FFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F7CeAFFcEeWOTqcxo9BVuw" text="@return the id" item="_F7H9r1FcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeSQkVFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F7DFEFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F7DFEVFcEeWOTqcxo9BVuw" text="@return the expired" item="_F7H9tVFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeSQk1FcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F7ETMFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F7E6QFFcEeWOTqcxo9BVuw" text="@param id&#xD;&#xA;&#x9; *            the id to set" item="_F7H9yVFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeSQklFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F7E6QVFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F7E6QlFcEeWOTqcxo9BVuw" text="@param expired&#xD;&#xA;&#x9; *            the expired to set" item="_F7H90FFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeSQlFFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F7cGoFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F7cGoVFcEeWOTqcxo9BVuw" text="@author Uladzislau_Kaminski&#xD;&#xA; *" item="_F7g_IFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeSQlVFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F7dUwFFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F7dUwVFcEeWOTqcxo9BVuw" text="@return the id" item="_F7g_MlFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeS3o1FcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.diagrams:CommentVisual" xmi:id="_F7ei4FFcEeWOTqcxo9BVuw" sourceConnectionVisual="_F7ei4VFcEeWOTqcxo9BVuw" text="@param id&#xD;&#xA;&#x9; *            the id to set" item="_F7g_RlFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FeS3pFFcEeWOTqcxo9BVuw"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_F7HWgFFcEeWOTqcxo9BVuw" name="Author" associationsIn="_F45wAFFcEeWOTqcxo9BVuw" associationsOut="_F4Rd4FFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FUVDUFFcEeWOTqcxo9BVuw"/>
+    <visualProperties xmi:id="_F7H9kFFcEeWOTqcxo9BVuw" position="524.0,-183.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_F7H9kVFcEeWOTqcxo9BVuw" name="Table">
+      <modelElement href="news-common.uml#_FUc_IFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <stereotypes xmi:id="_F7H9klFcEeWOTqcxo9BVuw" name="SequenceGenerator">
+      <modelElement href="news-common.uml#_FUdmMFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <stereotypes xmi:id="_F7H9k1FcEeWOTqcxo9BVuw" name="JPA1StyledElement">
+      <modelElement href="news-common.uml#_FUeNQFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <visibility xmi:id="_F7H9lFFcEeWOTqcxo9BVuw" label="+"/>
+    <attributes xmi:id="_F7H9lVFcEeWOTqcxo9BVuw" name="authorId">
+      <modelElement href="news-common.uml#_FdoJQFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7H9llFcEeWOTqcxo9BVuw" name="PrimaryKey">
+        <modelElement href="news-common.uml#_FdoJQVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7H9l1FcEeWOTqcxo9BVuw" name="Column">
+        <modelElement href="news-common.uml#_Fdto0FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7H9mFFcEeWOTqcxo9BVuw" name="GeneratedValueMapping">
+        <modelElement href="news-common.uml#_FduP4FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7H9mVFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7H9mlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F7H9m1FcEeWOTqcxo9BVuw" name="Long">
+        <modelElement href="news-common.uml#_Fby9QFFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F7H9nFFcEeWOTqcxo9BVuw" name="name">
+      <modelElement href="news-common.uml#_Fdu28FFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7H9nVFcEeWOTqcxo9BVuw" name="Column">
+        <modelElement href="news-common.uml#_Fd1koFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7H9nlFcEeWOTqcxo9BVuw" name="Size">
+        <modelElement href="news-common.uml#_Fd1koVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7H9n1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7H9oFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F7H9oVFcEeWOTqcxo9BVuw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F7H9olFcEeWOTqcxo9BVuw" name="expired">
+      <modelElement href="news-common.uml#_Fd2ywFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7H9o1FcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_Fd2ywVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7H9pFFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_Fd3Z0FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7H9pVFcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F7H9plFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F7H9p1FcEeWOTqcxo9BVuw" name="Timestamp">
+        <modelElement href="news-common.uml#_FYiN4FFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_F7H9qFFcEeWOTqcxo9BVuw" name="Author">
+      <modelElement href="news-common.uml#_FUfbYFFcEeWOTqcxo9BVuw"/>
+      <keywords xmi:id="_F7H9qVFcEeWOTqcxo9BVuw" keyword="create"/>
+      <stereotypes xmi:id="_F7H9qlFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FUgCcFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7H9q1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7H9rFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F7H9rVFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FUgCcVFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F7H9rlFcEeWOTqcxo9BVuw" name="Author">
+          <modelElement href="news-common.uml#_FUVDUFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F7H9r1FcEeWOTqcxo9BVuw" comments="_F7B28FFcEeWOTqcxo9BVuw" targetConnectionVisual="_F7CeAFFcEeWOTqcxo9BVuw" name="getId">
+      <modelElement href="news-common.uml#_FUgpgFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7H9sFFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FUhQkFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7H9sVFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7H9slFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F7H9s1FcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FcW98FFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F7H9tFFcEeWOTqcxo9BVuw" name="Long">
+          <modelElement href="news-common.uml#_Fby9QFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F7H9tVFcEeWOTqcxo9BVuw" comments="_F7DFEFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F7DFEVFcEeWOTqcxo9BVuw" name="getExpired">
+      <modelElement href="news-common.uml#_FUh3oFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7H9tlFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FUh3oVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7H9t1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7H9uFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F7H9uVFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FcYzIFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F7H9ulFcEeWOTqcxo9BVuw" name="Timestamp">
+          <modelElement href="news-common.uml#_FYiN4FFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F7H9u1FcEeWOTqcxo9BVuw" name="hashCode">
+      <modelElement href="news-common.uml#_FUiesFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7H9vFFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FUjFwVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7H9vVFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FUjs0FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7H9vlFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7H9v1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F7H9wFFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FUjFwFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F7H9wVFcEeWOTqcxo9BVuw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F7H9wlFcEeWOTqcxo9BVuw" name="toString">
+      <modelElement href="news-common.uml#_FUkT4FFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7H9w1FcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FUk68VFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7H9xFFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FUliAFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7H9xVFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7H9xlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F7H9x1FcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FUk68FFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F7H9yFFcEeWOTqcxo9BVuw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F7H9yVFcEeWOTqcxo9BVuw" comments="_F7ETMFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F7E6QFFcEeWOTqcxo9BVuw" name="setId">
+      <modelElement href="news-common.uml#_FcW98VFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7H9ylFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FcXlAVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7H9y1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7H9zFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_F7H9zVFcEeWOTqcxo9BVuw" name="id">
+        <modelElement href="news-common.uml#_FcXlAFFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F7H9zlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F7H9z1FcEeWOTqcxo9BVuw" name="Long">
+          <modelElement href="news-common.uml#_Fby9QFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_F7H90FFcEeWOTqcxo9BVuw" comments="_F7E6QVFcEeWOTqcxo9BVuw" targetConnectionVisual="_F7E6QlFcEeWOTqcxo9BVuw" name="setExpired">
+      <modelElement href="news-common.uml#_FcZaMFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7H90VFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FcaBQFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7H90lFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7H901FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_F7H91FFcEeWOTqcxo9BVuw" name="expired">
+        <modelElement href="news-common.uml#_FcZaMVFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F7H91VFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F7H91lFcEeWOTqcxo9BVuw" name="Timestamp">
+          <modelElement href="news-common.uml#_FYiN4FFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_F7H911FcEeWOTqcxo9BVuw" name="equals">
+      <modelElement href="news-common.uml#_FcaoUFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7H92FFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_Fcb2cFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7H92VFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_Fcb2cVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7H92lFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7H921FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F7H93FFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FcbPYVFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F7H93VFcEeWOTqcxo9BVuw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_F7H93lFcEeWOTqcxo9BVuw" name="obj">
+        <modelElement href="news-common.uml#_FcbPYFFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F7H931FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F7H94FFcEeWOTqcxo9BVuw" name="Object">
+          <modelElement href="news-common.uml#_FbqaYVFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_F4TTEFFcEeWOTqcxo9BVuw" comments="_F4JiEFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F4JiEVFcEeWOTqcxo9BVuw" name="SearchCriteria" associationsIn="_F4Rd4FFcEeWOTqcxo9BVuw" associationsOut="_F4SsAFFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FS5f8FFcEeWOTqcxo9BVuw"/>
+    <visualProperties xmi:id="_F4TTEVFcEeWOTqcxo9BVuw" position="183.0,-167.0" size="-1.0,-1.0"/>
+    <visibility xmi:id="_F4TTElFcEeWOTqcxo9BVuw" label="+"/>
+    <attributes xmi:id="_F4TTE1FcEeWOTqcxo9BVuw" name="tagList">
+      <modelElement href="news-common.uml#_FclncFFcEeWOTqcxo9BVuw"/>
+      <visibility xmi:id="_F4TTFFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4TTFVFcEeWOTqcxo9BVuw" label="1..*" max="-1" min="1"/>
+      <type xmi:id="_F4TTFlFcEeWOTqcxo9BVuw" name="Tag">
+        <modelElement href="news-common.uml#_FUrooFFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F4TTF1FcEeWOTqcxo9BVuw" name="author">
+      <modelElement href="news-common.uml#_Fcm1kFFcEeWOTqcxo9BVuw"/>
+      <visibility xmi:id="_F4TTGFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4TTGVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F4TTGlFcEeWOTqcxo9BVuw" name="Author">
+        <modelElement href="news-common.uml#_FUVDUFFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_F4TTG1FcEeWOTqcxo9BVuw" name="hashCode">
+      <modelElement href="news-common.uml#_FS9xYFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4TTHFFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FS_mkFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4TTHVFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FTANoFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4TTHlFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4TTH1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F4TTIFFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FS-YcFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F4TTIVFcEeWOTqcxo9BVuw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F4TTIlFcEeWOTqcxo9BVuw" name="toString">
+      <modelElement href="news-common.uml#_FTA0sFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4TTI1FcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FTCC0FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4TTJFFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FTCC0VFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4TTJVFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4TTJlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F4TTJ1FcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FTBbwFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F4TTKFFcEeWOTqcxo9BVuw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F4TTKVFcEeWOTqcxo9BVuw" name="equals">
+      <modelElement href="news-common.uml#_FbwhAVFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4TTKlFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FbxIEVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4TTK1FcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FbxvIFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4TTLFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4TTLVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F4TTLlFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FbxIEFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F4TTL1FcEeWOTqcxo9BVuw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_F4TTMFFcEeWOTqcxo9BVuw" name="obj">
+        <modelElement href="news-common.uml#_FbwhAlFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F4TTMVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F4TTMlFcEeWOTqcxo9BVuw" name="Object">
+          <modelElement href="news-common.uml#_FbqaYVFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_F7g_IFFcEeWOTqcxo9BVuw" comments="_F7cGoFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F7cGoVFcEeWOTqcxo9BVuw" name="Tag" associationsIn="_F4SsAFFcEeWOTqcxo9BVuw _F45wAVFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FUrooFFcEeWOTqcxo9BVuw"/>
+    <visualProperties xmi:id="_F7g_IVFcEeWOTqcxo9BVuw" position="160.0,15.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_F7g_IlFcEeWOTqcxo9BVuw" name="Table">
+      <modelElement href="news-common.uml#_FVIUkFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <stereotypes xmi:id="_F7g_I1FcEeWOTqcxo9BVuw" name="SequenceGenerator">
+      <modelElement href="news-common.uml#_FVI7oFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <stereotypes xmi:id="_F7g_JFFcEeWOTqcxo9BVuw" name="JPA1StyledElement">
+      <modelElement href="news-common.uml#_FVJisFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <visibility xmi:id="_F7g_JVFcEeWOTqcxo9BVuw" label="+"/>
+    <attributes xmi:id="_F7g_JlFcEeWOTqcxo9BVuw" name="tagId">
+      <modelElement href="news-common.uml#_Fd3Z01FcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7g_J1FcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_Fd4A4FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7g_KFFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_Fd4A4VFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7g_KVFcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F7g_KlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F7g_K1FcEeWOTqcxo9BVuw" name="Long">
+        <modelElement href="news-common.uml#_Fby9QFFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F7g_LFFcEeWOTqcxo9BVuw" name="name">
+      <modelElement href="news-common.uml#_Fd4n9VFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7g_LVFcEeWOTqcxo9BVuw" name="Size">
+        <modelElement href="news-common.uml#_Fd5PAFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7g_LlFcEeWOTqcxo9BVuw" name="Column">
+        <modelElement href="news-common.uml#_Fd-ukFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7g_L1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7g_MFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F7g_MVFcEeWOTqcxo9BVuw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_F7g_MlFcEeWOTqcxo9BVuw" comments="_F7dUwFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F7dUwVFcEeWOTqcxo9BVuw" name="getId">
+      <modelElement href="news-common.uml#_FVLX4FFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7g_M1FcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FVLX4VFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7g_NFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7g_NVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F7g_NlFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FceSsFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F7g_N1FcEeWOTqcxo9BVuw" name="Long">
+          <modelElement href="news-common.uml#_Fby9QFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F7g_OFFcEeWOTqcxo9BVuw" name="hashCode">
+      <modelElement href="news-common.uml#_FVL-8FFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7g_OVFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FVMmAVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7g_OlFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FVN0IFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7g_O1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7g_PFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F7g_PVFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FVMmAFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F7g_PlFcEeWOTqcxo9BVuw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F7g_P1FcEeWOTqcxo9BVuw" name="toString">
+      <modelElement href="news-common.uml#_FVObMVFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7g_QFFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FVPCQVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7g_QVFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FVPpUFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7g_QlFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7g_Q1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F7g_RFFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FVPCQFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F7g_RVFcEeWOTqcxo9BVuw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F7g_RlFcEeWOTqcxo9BVuw" comments="_F7ei4FFcEeWOTqcxo9BVuw" targetConnectionVisual="_F7ei4VFcEeWOTqcxo9BVuw" name="setId">
+      <modelElement href="news-common.uml#_FceSsVFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7g_R1FcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_Fce5wVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7g_SFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7g_SVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_F7g_SlFcEeWOTqcxo9BVuw" name="id">
+        <modelElement href="news-common.uml#_Fce5wFFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F7g_S1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F7g_TFFcEeWOTqcxo9BVuw" name="Long">
+          <modelElement href="news-common.uml#_Fby9QFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_F7g_TVFcEeWOTqcxo9BVuw" name="equals">
+      <modelElement href="news-common.uml#_Fcfg0FFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F7g_TlFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FcgH4FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F7g_T1FcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_Fcgu8FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F7g_UFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F7g_UVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F7g_UlFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_Fcfg0lFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F7g_U1FcEeWOTqcxo9BVuw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_F7g_VFFcEeWOTqcxo9BVuw" name="obj">
+        <modelElement href="news-common.uml#_Fcfg0VFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F7g_VVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F7g_VlFcEeWOTqcxo9BVuw" name="Object">
+          <modelElement href="news-common.uml#_FbqaYVFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_F5MD4FFcEeWOTqcxo9BVuw" name="News" associationsIn="_F4lm8FFcEeWOTqcxo9BVuw" associationsOut="_F4jxwFFcEeWOTqcxo9BVuw _F45wAFFcEeWOTqcxo9BVuw _F45wAVFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FTbEYFFcEeWOTqcxo9BVuw"/>
+    <visualProperties xmi:id="_F5MD4VFcEeWOTqcxo9BVuw" position="482.0,136.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_F5MD4lFcEeWOTqcxo9BVuw" name="Table">
+      <modelElement href="news-common.uml#_FT2iMFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <stereotypes xmi:id="_F5MD41FcEeWOTqcxo9BVuw" name="SequenceGenerator">
+      <modelElement href="news-common.uml#_FT3JQFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <stereotypes xmi:id="_F5MD5FFcEeWOTqcxo9BVuw" name="JPA1StyledElement">
+      <modelElement href="news-common.uml#_FT4XYFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <visibility xmi:id="_F5MD5VFcEeWOTqcxo9BVuw" label="+"/>
+    <attributes xmi:id="_F5MD5lFcEeWOTqcxo9BVuw" name="newsId">
+      <modelElement href="news-common.uml#_Fc7lsFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MD51FcEeWOTqcxo9BVuw" name="PrimaryKey">
+        <modelElement href="news-common.uml#_Fc8MwFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5MD6FFcEeWOTqcxo9BVuw" name="Column">
+        <modelElement href="news-common.uml#_FdC6cFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5MD6VFcEeWOTqcxo9BVuw" name="GeneratedValueMapping">
+        <modelElement href="news-common.uml#_FdC6cVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MD6lFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MD61FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F5MD7FFcEeWOTqcxo9BVuw" name="Long">
+        <modelElement href="news-common.uml#_Fby9QFFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F5MD7VFcEeWOTqcxo9BVuw" name="title">
+      <modelElement href="news-common.uml#_FdEIkFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MD7lFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FdFWsFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5MD71FcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FdF9wFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MD8FFcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F5MD8VFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F5MD8lFcEeWOTqcxo9BVuw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F5MD81FcEeWOTqcxo9BVuw" name="shortText">
+      <modelElement href="news-common.uml#_FdGk0VFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MD9FFcEeWOTqcxo9BVuw" name="Size">
+        <modelElement href="news-common.uml#_FdGk0lFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5MD9VFcEeWOTqcxo9BVuw" name="Column">
+        <modelElement href="news-common.uml#_FdNSgFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MD9lFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MD91FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F5MD-FFcEeWOTqcxo9BVuw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F5MD-VFcEeWOTqcxo9BVuw" name="fullText">
+      <modelElement href="news-common.uml#_FdOgoFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MD-lFcEeWOTqcxo9BVuw" name="Size">
+        <modelElement href="news-common.uml#_FdOgoVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5Mq8FFcEeWOTqcxo9BVuw" name="Column">
+        <modelElement href="news-common.uml#_FddxMFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5Mq8VFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5Mq8lFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F5Mq81FcEeWOTqcxo9BVuw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F5Mq9FFcEeWOTqcxo9BVuw" name="creationDate">
+      <modelElement href="news-common.uml#_FdeYQFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5Mq9VFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FdfmYFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5Mq9lFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FdgNcFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5Mq91FcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F5Mq-FFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F5Mq-VFcEeWOTqcxo9BVuw" name="Timestamp">
+        <modelElement href="news-common.uml#_FYiN4FFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F5Mq-lFcEeWOTqcxo9BVuw" name="modificationDate">
+      <modelElement href="news-common.uml#_FdgNc1FcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5Mq-1FcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_Fdg0gFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5Mq_FFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FdhbkFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5Mq_VFcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F5Mq_lFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F5Mq_1FcEeWOTqcxo9BVuw" name="Date">
+        <modelElement href="news-common.uml#_FaeHkFFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F5MrAFFcEeWOTqcxo9BVuw" name="author">
+      <modelElement href="news-common.uml#_FdhbllFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrAVFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FdiCoFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5MrAlFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FdiCoVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrA1FcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F5MrBFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F5MrBVFcEeWOTqcxo9BVuw" name="Author">
+        <modelElement href="news-common.uml#_FUVDUFFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F5MrBlFcEeWOTqcxo9BVuw" name="tagList">
+      <modelElement href="news-common.uml#_FdjQwlFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrB1FcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_Fdj30FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5MrCFFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_Fdke4FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrCVFcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F5MrClFcEeWOTqcxo9BVuw" label="1..*" max="-1" min="1"/>
+      <type xmi:id="_F5MrC1FcEeWOTqcxo9BVuw" name="Tag">
+        <modelElement href="news-common.uml#_FUrooFFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F5MrDFFcEeWOTqcxo9BVuw" name="comments">
+      <modelElement href="news-common.uml#_FdlF81FcEeWOTqcxo9BVuw"/>
+      <visibility xmi:id="_F5MrDVFcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F5MrDlFcEeWOTqcxo9BVuw" label="1..*" max="-1" min="1"/>
+      <type xmi:id="_F5MrD1FcEeWOTqcxo9BVuw" name="Comment">
+        <modelElement href="news-common.uml#_FTFtMFFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_F5MrEFFcEeWOTqcxo9BVuw" name="News">
+      <modelElement href="news-common.uml#_FT7asFFcEeWOTqcxo9BVuw"/>
+      <keywords xmi:id="_F5MrEVFcEeWOTqcxo9BVuw" keyword="create"/>
+      <stereotypes xmi:id="_F5MrElFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FT8BwFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrE1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrFFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F5MrFVFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FT8BwVFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F5MrFlFcEeWOTqcxo9BVuw" name="News">
+          <modelElement href="news-common.uml#_FTbEYFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F5MrF1FcEeWOTqcxo9BVuw" comments="_F47lMFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F47lMVFcEeWOTqcxo9BVuw" name="getTitle">
+      <modelElement href="news-common.uml#_FT8BwlFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrGFFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FT8o0VFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrGVFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrGlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F5MrG1FcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FT8o0FFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F5MrHFFcEeWOTqcxo9BVuw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F5MrHVFcEeWOTqcxo9BVuw" comments="_F48MQFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F48MQVFcEeWOTqcxo9BVuw" name="setTitle">
+      <modelElement href="news-common.uml#_FT9P4FFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrHlFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FT9P4lFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrH1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrIFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_F5MrIVFcEeWOTqcxo9BVuw" name="title">
+        <modelElement href="news-common.uml#_FT9P4VFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F5MrIlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F5MrI1FcEeWOTqcxo9BVuw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_F5MrJFFcEeWOTqcxo9BVuw" comments="_F48zUFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F48zUVFcEeWOTqcxo9BVuw" name="getCreationDate">
+      <modelElement href="news-common.uml#_FT928FFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrJVFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FT928VFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrJlFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrJ1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F5MrKFFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_Fb_xkFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F5MrKVFcEeWOTqcxo9BVuw" name="Timestamp">
+          <modelElement href="news-common.uml#_FYiN4FFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F5MrKlFcEeWOTqcxo9BVuw" comments="_F49aYFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F49aYVFcEeWOTqcxo9BVuw" name="getModificationDate">
+      <modelElement href="news-common.uml#_FT_FEFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrK1FcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FT_FEVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrLFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrLVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F5MrLlFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FcA_sVFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F5MrL1FcEeWOTqcxo9BVuw" name="Date">
+          <modelElement href="news-common.uml#_FaeHkFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F5MrMFFcEeWOTqcxo9BVuw" comments="_F4-BcFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F4-BcVFcEeWOTqcxo9BVuw" name="getAuthor">
+      <modelElement href="news-common.uml#_FUATMFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrMVFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FUA6QFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrMlFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrM1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F5MrNFFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FbPjoFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F5MrNVFcEeWOTqcxo9BVuw" name="Author">
+          <modelElement href="news-common.uml#_FUVDUFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F5MrNlFcEeWOTqcxo9BVuw" comments="_F4-BclFcEeWOTqcxo9BVuw" targetConnectionVisual="_F4-Bc1FcEeWOTqcxo9BVuw" name="getTagList">
+      <modelElement href="news-common.uml#_FUBhUFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrN1FcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FUCvcFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrOFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrOVFcEeWOTqcxo9BVuw" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_F5MrOlFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FUBhUVFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F5MrO1FcEeWOTqcxo9BVuw" name="Tag">
+          <modelElement href="news-common.uml#_FUrooFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F5MrPFFcEeWOTqcxo9BVuw" comments="_F4-ogFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F4-ogVFcEeWOTqcxo9BVuw" name="getComments">
+      <modelElement href="news-common.uml#_FUDWgFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrPVFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FUD9kFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrPlFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrP1FcEeWOTqcxo9BVuw" label="1..*" max="-1" min="1"/>
+      <outParameters xmi:id="_F5MrQFFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FUDWgVFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F5MrQVFcEeWOTqcxo9BVuw" name="Comment">
+          <modelElement href="news-common.uml#_FTFtMFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F5MrQlFcEeWOTqcxo9BVuw" name="hashCode">
+      <modelElement href="news-common.uml#_FUEkoFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrQ1FcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FUFLsFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5MrRFFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FUFywFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrRVFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrRlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F5MrR1FcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FUEkoVFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F5MrSFFcEeWOTqcxo9BVuw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F5MrSVFcEeWOTqcxo9BVuw" name="toString">
+      <modelElement href="news-common.uml#_FUGZ0FFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrSlFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FUHA4FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5MrS1FcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FUHA4VFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrTFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrTVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F5MrTlFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FUGZ0VFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F5MrT1FcEeWOTqcxo9BVuw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F5MrUFFcEeWOTqcxo9BVuw" comments="_F4_2oFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F4_2oVFcEeWOTqcxo9BVuw" name="setAuthor">
+      <modelElement href="news-common.uml#_FbPjoVFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrUVFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FbQKsFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrUlFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrU1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_F5MrVFFcEeWOTqcxo9BVuw" name="author">
+        <modelElement href="news-common.uml#_FbPjolFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F5MrVVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F5MrVlFcEeWOTqcxo9BVuw" name="Author">
+          <modelElement href="news-common.uml#_FUVDUFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_F5MrV1FcEeWOTqcxo9BVuw" comments="_F4_2olFcEeWOTqcxo9BVuw" targetConnectionVisual="_F5AdsFFcEeWOTqcxo9BVuw" name="setCreationDate">
+      <modelElement href="news-common.uml#_FcAYoFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrWFFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FcA_sFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrWVFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrWlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_F5MrW1FcEeWOTqcxo9BVuw" name="creationDate">
+        <modelElement href="news-common.uml#_FcAYoVFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F5MrXFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F5MrXVFcEeWOTqcxo9BVuw" name="Timestamp">
+          <modelElement href="news-common.uml#_FYiN4FFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_F5MrXlFcEeWOTqcxo9BVuw" comments="_F5AdsVFcEeWOTqcxo9BVuw" targetConnectionVisual="_F5AdslFcEeWOTqcxo9BVuw" name="setModificationDate">
+      <modelElement href="news-common.uml#_FcBmwFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrX1FcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FcCN0VFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrYFFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MrYVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_F5MrYlFcEeWOTqcxo9BVuw" name="modificationDate">
+        <modelElement href="news-common.uml#_FcCN0FFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F5MrY1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F5MrZFFcEeWOTqcxo9BVuw" name="Date">
+          <modelElement href="news-common.uml#_FaeHkFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_F5MrZVFcEeWOTqcxo9BVuw" comments="_F5BEwFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F5Br0FFcEeWOTqcxo9BVuw" name="setTagList">
+      <modelElement href="news-common.uml#_FcC04FFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrZlFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FcDb8FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrZ1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5MraFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_F5MraVFcEeWOTqcxo9BVuw" name="tagList">
+        <modelElement href="news-common.uml#_FcC04VFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F5MralFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F5Mra1FcEeWOTqcxo9BVuw" name="List">
+          <modelElement href="news-common.uml#_FYYc4FFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_F5MrbFFcEeWOTqcxo9BVuw" comments="_F5Br0VFcEeWOTqcxo9BVuw" targetConnectionVisual="_F5CS4FFcEeWOTqcxo9BVuw" name="setComments">
+      <modelElement href="news-common.uml#_FcJikFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrbVFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FcKJoFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrblFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5Mrb1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_F5MrcFFcEeWOTqcxo9BVuw" name="comments">
+        <modelElement href="news-common.uml#_FcJikVFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F5MrcVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F5MrclFcEeWOTqcxo9BVuw" name="List">
+          <modelElement href="news-common.uml#_FYYc4FFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_F5Mrc1FcEeWOTqcxo9BVuw" name="equals">
+      <modelElement href="news-common.uml#_FcQQQVFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F5MrdFFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FcQ3UlFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F5MrdVFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FcReYFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F5MrdlFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F5Mrd1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F5MreFFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FcQ3UVFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F5MreVFcEeWOTqcxo9BVuw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_F5MrelFcEeWOTqcxo9BVuw" name="obj">
+        <modelElement href="news-common.uml#_FcQ3UFFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F5Mre1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F5MrfFFcEeWOTqcxo9BVuw" name="Object">
+          <modelElement href="news-common.uml#_FbqaYVFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_F4mOAFFcEeWOTqcxo9BVuw" comments="_F4bO4FFcEeWOTqcxo9BVuw" targetConnectionVisual="_F4bO4VFcEeWOTqcxo9BVuw" name="Comment" associationsIn="_F4jxwFFcEeWOTqcxo9BVuw" associationsOut="_F4lm8FFcEeWOTqcxo9BVuw">
+    <modelElement href="news-common.uml#_FTFtMFFcEeWOTqcxo9BVuw"/>
+    <visualProperties xmi:id="_F4mOAVFcEeWOTqcxo9BVuw" position="-214.0,198.0" size="-1.0,-1.0"/>
+    <stereotypes xmi:id="_F4mOAlFcEeWOTqcxo9BVuw" name="Table">
+      <modelElement href="news-common.uml#_FTIJcFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <stereotypes xmi:id="_F4mOA1FcEeWOTqcxo9BVuw" name="SequenceGenerator">
+      <modelElement href="news-common.uml#_FTIJcVFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <stereotypes xmi:id="_F4mOBFFcEeWOTqcxo9BVuw" name="JPA1StyledElement">
+      <modelElement href="news-common.uml#_FTJXkFFcEeWOTqcxo9BVuw"/>
+    </stereotypes>
+    <visibility xmi:id="_F4mOBVFcEeWOTqcxo9BVuw" label="+"/>
+    <attributes xmi:id="_F4mOBlFcEeWOTqcxo9BVuw" name="commentId">
+      <modelElement href="news-common.uml#_FcncoFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4mOB1FcEeWOTqcxo9BVuw" name="PrimaryKey">
+        <modelElement href="news-common.uml#_FcoDsFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4mOCFFcEeWOTqcxo9BVuw" name="Column">
+        <modelElement href="news-common.uml#_FcuKUFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4mOCVFcEeWOTqcxo9BVuw" name="GeneratedValueMapping">
+        <modelElement href="news-common.uml#_FcuKUVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mOClFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4mOC1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F4mODFFcEeWOTqcxo9BVuw" name="Long">
+        <modelElement href="news-common.uml#_Fby9QFFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F4mODVFcEeWOTqcxo9BVuw" name="news">
+      <modelElement href="news-common.uml#_FcvYcFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4mODlFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FcvYcVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4mOD1FcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_Fcv_gFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mOEFFcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F4mOEVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F4mOElFcEeWOTqcxo9BVuw" name="News">
+        <modelElement href="news-common.uml#_FTbEYFFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F4mOE1FcEeWOTqcxo9BVuw" name="text">
+      <modelElement href="news-common.uml#_FcxNoVFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4mOFFFcEeWOTqcxo9BVuw" name="NotNull">
+        <modelElement href="news-common.uml#_FcxNolFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4mOFVFcEeWOTqcxo9BVuw" name="Size">
+        <modelElement href="news-common.uml#_Fcx0sFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4mOFlFcEeWOTqcxo9BVuw" name="Column">
+        <modelElement href="news-common.uml#_Fc3UQFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mOF1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4mOGFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F4mOGVFcEeWOTqcxo9BVuw" name="String">
+        <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </type>
+    </attributes>
+    <attributes xmi:id="_F4mOGlFcEeWOTqcxo9BVuw" name="creationDate">
+      <modelElement href="news-common.uml#_Fc37UFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4mOG1FcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_Fc4iYFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4mOHFFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_Fc4iYVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mOHVFcEeWOTqcxo9BVuw" label="-"/>
+      <cardinality xmi:id="_F4mOHlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <type xmi:id="_F4mOH1FcEeWOTqcxo9BVuw" name="Timestamp">
+        <modelElement href="news-common.uml#_FYiN4FFcEeWOTqcxo9BVuw"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_F4mOIFFcEeWOTqcxo9BVuw" name="Comment">
+      <modelElement href="news-common.uml#_FTLMwFFcEeWOTqcxo9BVuw"/>
+      <keywords xmi:id="_F4mOIVFcEeWOTqcxo9BVuw" keyword="create"/>
+      <stereotypes xmi:id="_F4mOIlFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FTLz0lFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mOI1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4mOJFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F4mOJVFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FTMa4FFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F4mOJlFcEeWOTqcxo9BVuw" name="Comment">
+          <modelElement href="news-common.uml#_FTFtMFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F4mOJ1FcEeWOTqcxo9BVuw" comments="_F4cdAFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F4cdAVFcEeWOTqcxo9BVuw" name="getNews">
+      <modelElement href="news-common.uml#_FTMa4VFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4mOKFFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FTNB8FFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mOKVFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4mOKlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F4mOK1FcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FaRTQFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F4mOLFFcEeWOTqcxo9BVuw" name="News">
+          <modelElement href="news-common.uml#_FTbEYFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F4mOLVFcEeWOTqcxo9BVuw" comments="_F4drIFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F4drIVFcEeWOTqcxo9BVuw" name="getCreationDate">
+      <modelElement href="news-common.uml#_FTOQEFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4mOLlFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FTOQEVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mOL1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4mOMFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F4mOMVFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_Fb5q8FFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F4mOMlFcEeWOTqcxo9BVuw" name="Timestamp">
+          <modelElement href="news-common.uml#_FYiN4FFcEeWOTqcxo9BVuw"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F4mOM1FcEeWOTqcxo9BVuw" name="hashCode">
+      <modelElement href="news-common.uml#_FTPeMFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4mONFFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FTQFQFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4mONVFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FTQFQVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mONlFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4mON1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F4mOOFFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FTPeMVFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F4mOOVFcEeWOTqcxo9BVuw" name="int">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F4mOOlFcEeWOTqcxo9BVuw" name="toString">
+      <modelElement href="news-common.uml#_FTRTYFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4mOO1FcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_FTR6cVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4mOPFFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_FTShgFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mOPVFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4mOPlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F4mOP1FcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_FTR6cFFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F4mOQFFcEeWOTqcxo9BVuw" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+    </operations>
+    <operations xmi:id="_F4mOQVFcEeWOTqcxo9BVuw" comments="_F4eSMFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F4e5QFFcEeWOTqcxo9BVuw" name="setNews">
+      <modelElement href="news-common.uml#_FaR6UFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4mOQlFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_FaShYFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mOQ1FcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4mORFFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_F4mORVFcEeWOTqcxo9BVuw" name="news">
+        <modelElement href="news-common.uml#_FaR6UVFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F4mORlFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F4mOR1FcEeWOTqcxo9BVuw" name="News">
+          <modelElement href="news-common.uml#_FTbEYFFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_F4mOSFFcEeWOTqcxo9BVuw" comments="_F4fgUFFcEeWOTqcxo9BVuw" targetConnectionVisual="_F4fgUVFcEeWOTqcxo9BVuw" name="setCreationDate">
+      <modelElement href="news-common.uml#_Fb6SAFFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4mOSVFcEeWOTqcxo9BVuw" name="StyledElement">
+        <modelElement href="news-common.uml#_Fb65EFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mOSlFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4mOS1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <parameters xmi:id="_F4mOTFFcEeWOTqcxo9BVuw" name="creationDate">
+        <modelElement href="news-common.uml#_Fb6SAVFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F4mOTVFcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F4mOTlFcEeWOTqcxo9BVuw" name="Timestamp">
+          <modelElement href="news-common.uml#_FYiN4FFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_F4mOT1FcEeWOTqcxo9BVuw" name="equals">
+      <modelElement href="news-common.uml#_Fb65EVFcEeWOTqcxo9BVuw"/>
+      <stereotypes xmi:id="_F4mOUFFcEeWOTqcxo9BVuw" name="LegacyStyledElement">
+        <modelElement href="news-common.uml#_Fb8HMFFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <stereotypes xmi:id="_F4mOUVFcEeWOTqcxo9BVuw" name="Annotations">
+        <modelElement href="news-common.uml#_Fb8HMVFcEeWOTqcxo9BVuw"/>
+      </stereotypes>
+      <visibility xmi:id="_F4mOUlFcEeWOTqcxo9BVuw" label="+"/>
+      <cardinality xmi:id="_F4mOU1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+      <outParameters xmi:id="_F4mOVFFcEeWOTqcxo9BVuw">
+        <modelElement href="news-common.uml#_Fb7gIVFcEeWOTqcxo9BVuw"/>
+        <type xmi:id="_F4mOVVFcEeWOTqcxo9BVuw" name="boolean">
+          <modelElement href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_F4mOVlFcEeWOTqcxo9BVuw" name="obj">
+        <modelElement href="news-common.uml#_Fb7gIFFcEeWOTqcxo9BVuw"/>
+        <cardinality xmi:id="_F4mOV1FcEeWOTqcxo9BVuw" label="1" max="1" min="1"/>
+        <type xmi:id="_F4mOWFFcEeWOTqcxo9BVuw" name="Object">
+          <modelElement href="news-common.uml#_FbqaYVFcEeWOTqcxo9BVuw"/>
+        </type>
+      </parameters>
+    </operations>
+  </nodes>
+</com.yattasolutions.uml.diagrams.classifier:ClassDiagram>

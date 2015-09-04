@@ -5,17 +5,17 @@
 
 <div class="container" id="rightcol">
 	<form:form commandName="comment" action="/news-client/current/add-comment" method="post">
-		<input type="hidden" name="newsId" value="${newsVO.news.id}" />
+		<input type="hidden" name="newsId" value="${news.id}" />
 		<h3 align="left" class="news_current_title">
-			<c:out value="${newsVO.news.title}" />
+			<c:out value="${news.title}" />
 		</h3>
 		<h5 align="left" class="news_author">
 			(by
-			<c:out value="${newsVO.author.name}" />
+			<c:out value="${news.author.name}" />
 			)
 		</h5>
 		<h6 align="right" class="news_current_date">
-			<fmt:formatDate type="date" value="${newsVO.news.modificationDate}" />
+			<fmt:formatDate type="date" value="${news.modificationDate}" />
 		</h6>
 		<c:if test="${errorMessage!=null}">
 			<div align="left" class="alert alert-danger	">	
@@ -24,11 +24,11 @@
 		</c:if>
 		<div class="panel panel-primary">
 			<div class="panel-body" align="left">
-				<c:out value="${newsVO.news.fullText}" />
+				<c:out value="${news.fullText}" />
 			</div>
 
 		</div>
-		<c:forEach var="current_comment" items="${newsVO.commentList}">
+		<c:forEach var="current_comment" items="${news.commentList}">
 			<div align="left">
 				<fmt:formatDate type="date" value="${current_comment.creationDate}" />
 			</div>

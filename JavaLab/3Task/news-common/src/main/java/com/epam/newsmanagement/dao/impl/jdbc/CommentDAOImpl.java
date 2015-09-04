@@ -52,7 +52,7 @@ public class CommentDAOImpl implements CommentDAO {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_CREATE_COMMENT_QUERY, new String[] { "COMMENT_ID" });
 			String text = entity.getText();
-			Long newsId = entity.getNewsId();
+			Long newsId = entity.getNews().getNewsId();
 			statement.setString(1, text);
 			statement.setLong(2, newsId);
 			statement.executeUpdate();
@@ -117,7 +117,7 @@ public class CommentDAOImpl implements CommentDAO {
 			connection = DataSourceUtils.doGetConnection(dataSource);
 			statement = connection.prepareStatement(SQL_UPDATE_COMMENT_BY_ID_QUERY);
 			statement.setString(1, entity.getText());
-			statement.setLong(2, entity.getNewsId());
+			statement.setLong(2, entity.getNews());
 			statement.setLong(3, entity.getId());
 			statement.executeUpdate();
 		} catch (SQLException e) {
@@ -225,7 +225,7 @@ public class CommentDAOImpl implements CommentDAO {
 			statement = connection.prepareStatement(SQL_CREATE_COMMENT_QUERY);
 			for (Comment comment : commentList) {
 				statement.setString(1, comment.getText());
-				statement.setLong(2, comment.getNewsId());
+				statement.setLong(2, comment.getNews());
 				statement.addBatch();
 			}
 			statement.executeBatch();

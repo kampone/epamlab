@@ -41,7 +41,7 @@ public class CurrentNewsController {
 		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
 		Comment comment = service.readComment(commentId);
 		service.deleteComment(commentId);
-		return "redirect:/current/news/" + findIndex(service, searchCriteria, comment.getNewsId());
+		return "redirect:/current/news/" + findIndex(service, searchCriteria, comment.getNews().getNewsId());
 	}
 	
 	@RequestMapping(value = "/add-comment")
@@ -55,7 +55,7 @@ public class CurrentNewsController {
 			redirectAttributes.addFlashAttribute("comment", comment);
 		    redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.comment", bindingResult);
 		}
-		return "redirect:/current/news/" + findIndex(service, searchCriteria, comment.getNewsId());
+		return "redirect:/current/news/" + findIndex(service, searchCriteria, comment.getNews().getNewsId());
 
 	}
 	

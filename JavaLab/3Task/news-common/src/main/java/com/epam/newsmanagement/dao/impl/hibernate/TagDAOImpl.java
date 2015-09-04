@@ -4,19 +4,22 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.epam.newsmanagement.dao.TagDAO;
-import com.epam.newsmanagement.entity.Author;
-import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;
 
 public class TagDAOImpl implements TagDAO {
 
-	@Autowired
 	private SessionFactory sessionFactory;
+
 	
+	/**
+	 * @param sessionFactory the sessionFactory to set
+	 */
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
 	@Override
 	public Long create(Tag entity) throws DAOException {
 		return (Long) sessionFactory.getCurrentSession().save(entity);
@@ -24,7 +27,7 @@ public class TagDAOImpl implements TagDAO {
 
 	@Override
 	public Tag read(Long id) throws DAOException {
-		return sessionFactory.getCurrentSession().get(Tag.class, id);
+		return (Tag) sessionFactory.getCurrentSession().get(Tag.class, id);
 	}
 
 	@Override
@@ -41,7 +44,7 @@ public class TagDAOImpl implements TagDAO {
 	@Override
 	public void delete(Long id) throws DAOException {
 		Session session = sessionFactory.getCurrentSession();
-		Tag tag = session.load(Tag.class, id);
+		Tag tag = (Tag) session.load(Tag.class, id);
 		session.delete(tag);
 	}
 
@@ -61,12 +64,6 @@ public class TagDAOImpl implements TagDAO {
 	public void detachTagsFromNews(Long newsId) throws DAOException {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public List<Tag> getNewsTags(Long idNews) throws DAOException {
-		Session session = sessionFactory.getCurrentSession();
-		return session.load(News.class, idNews).getTagList();
 	}
 
 	@Override

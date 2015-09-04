@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -17,16 +19,30 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
-				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
-				<prop key="hibernate.connection.driver_class">${db_driver}</prop>
-				<prop key="hibernate.connection.username">${user}</prop>
-				<prop key="hibernate.connection.password">${password}</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</prop>
+				<prop key="hibernate.connection.username">NewsManagement</prop>
+				<prop key="hibernate.connection.password">root</prop>
 			</props>
 		</property>
 		<property name="dataSource">
 			<ref bean="dataSource" />
 		</property>
+	</bean>
+	<bean id="tagDAO" class="com.epam.newsmanagement.dao.impl.hibernate.TagDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="commentDAO"
+		class="com.epam.newsmanagement.dao.impl.hibernate.CommentDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="authorDAO"
+		class="com.epam.newsmanagement.dao.impl.hibernate.AuthorDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="newsDAO" class="com.epam.newsmanagement.dao.impl.hibernate.NewsDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	<context:property-placeholder location="classpath:hibernate.properties" />
 </beans>

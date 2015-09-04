@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.epam.newsmanagement.dao.CommentDAO;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
@@ -13,9 +11,16 @@ import com.epam.newsmanagement.exception.DAOException;
 
 public class CommentDAOImpl implements CommentDAO {
 
-	@Autowired
 	private SessionFactory sessionFactory;
 	
+	
+	/**
+	 * @param sessionFactory the sessionFactory to set
+	 */
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
 	@Override
 	public Long create(Comment entity) throws DAOException {
 		return (Long) sessionFactory.getCurrentSession().save(entity);
@@ -24,7 +29,7 @@ public class CommentDAOImpl implements CommentDAO {
 	@Override
 	public Comment read(Long id) throws DAOException {
 		Session session = sessionFactory.getCurrentSession();
-		return session.load(Comment.class, id);
+		return (Comment) session.load(Comment.class, id);
 	}
 
 	@Override
@@ -41,21 +46,16 @@ public class CommentDAOImpl implements CommentDAO {
 	@Override
 	public void delete(Long id) throws DAOException {
 		Session session = sessionFactory.getCurrentSession();
-		Comment comment = session.load(Comment.class, id);
+		Comment comment = (Comment) session.load(Comment.class, id);
 		session.delete(comment);
 	}
 
-	@Override
-	public List<Comment> getCommentsByNewsId(Long newsId) throws DAOException {
-		Session session = sessionFactory.getCurrentSession();
-		News news = session.load(News.class, newsId);
-		return news.getComments();
-	}
+	
 
 	@Override
 	public void deleteCommentsByNewsId(Long newsId) throws DAOException {
 		Session session = sessionFactory.getCurrentSession();
-		News news = session.load(News.class, newsId);
+		News news = (News) session.load(News.class, newsId);
 		news.setComments(null);
 	}
 

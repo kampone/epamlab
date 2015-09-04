@@ -8,8 +8,6 @@ import java.util.List;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
-import com.epam.newsmanagement.entity.NewsPageVO;
-import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.ServiceException;
@@ -32,7 +30,7 @@ public interface ServiceManager {
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	Long addNews(News news, Long authorId, List<Long> tagIdList) throws ServiceException;
+	Long addNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException;
 
 	/**
 	 * Update news in transaction
@@ -46,7 +44,7 @@ public interface ServiceManager {
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	void updateNews(News news, Long authorId, List<Long> tagIdList) throws ServiceException;
+	void updateNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException;
 
 	/**
 	 * Delete news and its comments and detach author and tags by id
@@ -137,26 +135,8 @@ public interface ServiceManager {
 	 * @throws ServiceException
 	 *             if trouble in DAO layer
 	 */
-	News getNewsVO(Long newsId) throws ServiceException;
 
-	/**
-	 * Get News ValueObject with author, tags, comments
-	 * 
-	 * @param newsId
-	 *            id of News
-	 * @return NewsVO
-	 * @throws ServiceException
-	 *             if trouble in DAO layer
-	 */
-	List<News> getNewsVO(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException;
 
-	/**
-	 * Return all authors that can create news
-	 * 
-	 * @return List<Author>
-	 * @throws ServiceException
-	 *             if trouble in DAO layer
-	 */
 	List<Author> getAllAuthors() throws ServiceException;
 
 	/**
@@ -203,10 +183,6 @@ public interface ServiceManager {
 	void deleteAuthor(Long idAuthor) throws ServiceException;
 	
 	void deleteTag(Long idTag) throws ServiceException;
+
 	
-	Long createNewsPageVO(NewsPageVO newsPageVO) throws ServiceException;
-	
-	void updateNewsPageVO(NewsPageVO newsPageVO) throws ServiceException;
-	
-	NewsPageVO readNewsPageVO(Long newsId) throws ServiceException;
 }

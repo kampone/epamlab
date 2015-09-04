@@ -14,34 +14,31 @@ public class SearchCriteria {
 
 	private List<Long> tagIdList;
 	private Long authorId;
-
-	public SearchCriteria() {
-		tagIdList = new ArrayList<>();
-	}
-
+	/**
+	 * @return the tagIdList
+	 */
 	public List<Long> getTagIdList() {
 		return tagIdList;
 	}
-
-	public void setTagIdList(List<Long> idTagList) {
-		this.tagIdList = idTagList;
+	/**
+	 * @param tagIdList the tagIdList to set
+	 */
+	public void setTagIdList(List<Long> tagIdList) {
+		this.tagIdList = tagIdList;
 	}
-
+	/**
+	 * @return the authorId
+	 */
 	public Long getAuthorId() {
 		return authorId;
 	}
-
-	public void setAuthorId(Long idAuthor) {
-		this.authorId = idAuthor;
+	/**
+	 * @param authorId the authorId to set
+	 */
+	public void setAuthorId(Long authorId) {
+		this.authorId = authorId;
 	}
-
-	public boolean addTag(Long idTag) {
-		return tagIdList.add(idTag);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -52,10 +49,7 @@ public class SearchCriteria {
 		result = prime * result + ((tagIdList == null) ? 0 : tagIdList.hashCode());
 		return result;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -79,12 +73,12 @@ public class SearchCriteria {
 			return false;
 		return true;
 	}
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "SearchCriteria [tagIdList=" + tagIdList + ", authorId=" + authorId + "]";
 	}
-	
-	
 
 }

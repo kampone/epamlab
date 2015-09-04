@@ -133,18 +133,7 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
-	/**
-	 * @see com.epam.newsmanagement.service.TagService#getNewsTags(java.lang.Long)
-	 */
-	@Override
-	public List<Tag> getNewsTags(Long idNews) throws ServiceException {
-		try {
-			return tagDAO.getNewsTags(idNews);
-		} catch (DAOException e) {
-			LOG.error(" Exception during taking list Tag by news id " + e);
-			throw new ServiceException("Exception during taking list Tag by news id", e);
-		}
-	}
+	
 
 	@Override
 	public List<Tag> getAllTags() throws ServiceException {

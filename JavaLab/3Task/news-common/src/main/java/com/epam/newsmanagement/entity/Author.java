@@ -76,16 +76,36 @@ public class Author {
 		this.expired = expired;
 	}
 
+	/**
+	 * @return the authorId
+	 */
+	public Long getAuthorId() {
+		return authorId;
+	}
+
+	/**
+	 * @param authorId the authorId to set
+	 */
+	public void setAuthorId(Long authorId) {
+		this.authorId = authorId;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((expired == null) ? 0 : expired.hashCode());
 		result = prime * result + ((authorId == null) ? 0 : authorId.hashCode());
+		result = prime * result + ((expired == null) ? 0 : expired.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -95,15 +115,15 @@ public class Author {
 		if (getClass() != obj.getClass())
 			return false;
 		Author other = (Author) obj;
-		if (expired == null) {
-			if (other.expired != null)
-				return false;
-		} else if (!expired.equals(other.expired))
-			return false;
 		if (authorId == null) {
 			if (other.authorId != null)
 				return false;
 		} else if (!authorId.equals(other.authorId))
+			return false;
+		if (expired == null) {
+			if (other.expired != null)
+				return false;
+		} else if (!expired.equals(other.expired))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -113,9 +133,17 @@ public class Author {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "Author [authorId=" + authorId + ", name=" + name + ", expired=" + expired + "]";
 	}
+
+	
+	
+
+	
 
 }

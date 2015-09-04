@@ -29,7 +29,7 @@ public class CurrentNewsController {
 		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
 		index = processIndex(searchCriteria, index, model);
 		model.addAttribute("index", index);
-		model.addAttribute("newsVO", service.getNewsVO(searchCriteria, index, index).get(0));
+		model.addAttribute("newsVO", service.getNews(searchCriteria, index, index).get(0));
 		return "current_news";
 	}
 
@@ -47,10 +47,6 @@ public class CurrentNewsController {
 		return "redirect:/current/news/" + findIndex(searchCriteria, comment.getNews().getNewsId());
 
 	}
-	
-	
-	
-	
 	
 	private int processIndex(SearchCriteria searchCriteria, int index, Model model) throws ServiceException {
 		int number = service.getNumberOfNews(searchCriteria);

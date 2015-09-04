@@ -109,18 +109,6 @@ public class CommentServiceImpl implements CommentService {
 		
 	}
 
-	/**
-	 * @see com.epam.newsmanagement.service.CommentService#getCommentsByNewsId(java.lang.Long)
-	 */
-	@Override
-	public List<Comment> getCommentsByNewsId(Long idNews) throws ServiceException {
-		try {
-			return commentDAO.getCommentsByNewsId(idNews);
-		} catch (DAOException e) {
-			LOG.error(" Exception during taking Comment by news id " , e);
-			throw new ServiceException(" Exception during taking Comment by new id " , e);
-		}
-	}
 
 	/**
 	 * @see com.epam.newsmanagement.service.CommentService#addCommnetsForNews(java.util.List)
@@ -134,5 +122,6 @@ public class CommentServiceImpl implements CommentService {
 			throw new ServiceException(" Exception during adding comments fow news " , e);
 		}
 	}
+
 
 }

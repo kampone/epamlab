@@ -66,8 +66,9 @@ public class News {
 	@JoinTable(name="NEWS_TAGS", joinColumns=@JoinColumn(name="NEWS_ID"), inverseJoinColumns=@JoinColumn(name="TAG_ID"))
 	private List<Tag> tagList;
 	
-	@OneToMany(cascade=CascadeType.REMOVE, fetch = FetchType.LAZY, mappedBy = "news")
-	 private List<Comment> comments;
+	@OneToMany(cascade=CascadeType.REMOVE, mappedBy = "news")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private List<Comment> comments;
 
 	public News() {
 	}
@@ -286,6 +287,8 @@ public class News {
 				+ ", creationDate=" + creationDate + ", modificationDate=" + modificationDate + ", author=" + author
 				+ ", tagList=" + tagList + ", comments=" + comments + "]";
 	}
+
+	
 
 	
 	

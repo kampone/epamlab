@@ -14,13 +14,7 @@ import com.epam.newsmanagement.exception.DAOException;
  *
  */
 public interface CommentDAO extends NewsManagementDAO<Comment> {
-	/**
-	 * Return list of comments by idNews
-	 * @param newsId News id
-	 * @return List of comments by idNews
-	 * @throws DAOException if trouble with connection with database 
-	 */
-	 List<Comment> getCommentsByNewsId(Long newsId) throws DAOException;
+
 	/**
 	 * Delete all comments by News id
 	 * @param newsId News id
