@@ -3,7 +3,6 @@
  */
 package com.epam.newsmanagement.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -84,12 +83,12 @@ public class ServiceManagerImpl implements ServiceManager {
 	 *      java.lang.Long, java.util.List)
 	 */
 	@Override
-	public void updateNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException {
-		tagService.detachTagsFromNews(news.getNewsId());
-		authorService.detachAuthorFromNews(news.getNewsId());
+	public void updateNews(News news) throws ServiceException {
+//		tagService.detachTagsFromNews(news.getNewsId());
+//		authorService.detachAuthorFromNews(news.getNewsId());
 		newsService.update(news);
-		authorService.attachAuthorToNews(news.getNewsId(), idAuthor);
-		tagService.attachListTagsToNews(news.getNewsId(), idTagList);
+//		authorService.attachAuthorToNews(news.getNewsId(), idAuthor);
+//		tagService.attachListTagsToNews(news.getNewsId(), idTagList);
 
 	}
 

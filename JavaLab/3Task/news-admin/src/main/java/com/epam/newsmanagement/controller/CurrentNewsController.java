@@ -32,7 +32,7 @@ public class CurrentNewsController {
 		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
 		index = NewsUtil.processIndex(service, searchCriteria, index, model);
 		model.addAttribute("index", index);
-		model.addAttribute("newsVO", service.getNewsVO(searchCriteria, index, index).get(0));
+		model.addAttribute("news", service.getNews(searchCriteria, index, index).get(0));
 		return "current_news";
 	}
 

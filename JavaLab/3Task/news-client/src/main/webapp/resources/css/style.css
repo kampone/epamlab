@@ -46,16 +46,16 @@
     width:10px;
 }
 .news_form_inline{
-	margin-left: 35%;
+	margin-left: 25%;
 }
 
 #leftcol { 
   margin-left: 5%; 
   float: left; 
-  width: 10%; 
+  width: 5%; 
 }
 #rightcol { 
-  margin-left: 15%; 
+  margin-left: 5%; 
   width : 80%;
   margin-right: 5%; 
   

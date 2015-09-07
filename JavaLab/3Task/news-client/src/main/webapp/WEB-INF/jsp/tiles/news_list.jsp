@@ -28,7 +28,7 @@
 			</div>
 			<div align="right" class="news_comment_size">
 				<spring:message code="label.message.comments" />
-				<span class="badge"><c:out value="${fn:length(news.comments)}"/> </span>
+				<span class="badge"><c:out value="${fn:length(news.commentList)}"/> </span>
 			</div>
 			<h6 align="left" class="news_current_date">
 				<fmt:formatDate type="date" value="${news.modificationDate}" />

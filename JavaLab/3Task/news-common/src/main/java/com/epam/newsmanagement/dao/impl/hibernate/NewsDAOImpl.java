@@ -2,12 +2,15 @@ package com.epam.newsmanagement.dao.impl.hibernate;
 
 import java.util.List;
 
+import javax.persistence.criteria.Join;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Conjunction;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.persister.walking.spi.MetamodelGraphWalker;
 
 import com.epam.newsmanagement.dao.NewsDAO;
 import com.epam.newsmanagement.entity.News;
@@ -57,11 +60,32 @@ public class NewsDAOImpl implements NewsDAO {
 	public List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws DAOException {
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(News.class);
+		Conjunction conjunction = Restrictions.conjunction();
+
+		Long authorId = null;
+		List<Long> tagsIdList = null;
+
 		if (searchCriteria != null) {
-			for (Long tagId : searchCriteria.getTagIdList()) {
-				criteria.add(Restrictions.conjunction().add(Restrictions.eq("tagList", tagId)));
-			}
+			authorId = searchCriteria.getAuthorId();
+			tagsIdList = searchCriteria.getTagIdList();
 		}
+		if (authorId != null) {
+			criteria.createAlias("author", "author");
+			conjunction.add(Restrictions.eq("author.authorId", authorId));
+
+		}
+		if (tagsIdList != null && tagsIdList.size() != 0) {
+			criteria.createAlias("tagList", "tag");
+			conjunction.add(Restrictions.in("tag.tagId", tagsIdList));
+		}
+		criteria.add(conjunction);
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+		criteria.setFirstResult(startIndex < 0 ? 0 : startIndex - 1);
+		criteria.setMaxResults(lastIndex);
+		
+//		criteria.addOrder(Property.forName("commentsCount").desc());
+		criteria.addOrder(Property.forName("modificationDate").desc());
+
 		return criteria.list();
 	}
 
@@ -72,8 +96,8 @@ public class NewsDAOImpl implements NewsDAO {
 
 	@Override
 	public int findIndex(SearchCriteria searchCriteria, Long newsId) throws DAOException {
-		// TODO Auto-generated method stub
-		return 1;
+		News news = (News) sessionFactory.getCurrentSession().load(News.class, newsId);
+		return getNews(searchCriteria, Integer.MIN_VALUE, Integer.MAX_VALUE).indexOf(news)+1;
 	}
 
 }

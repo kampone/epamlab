@@ -4,8 +4,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <div class="container" id="rightcol">
-	<form:form commandName="comment" action="/news-client/current/add-comment" method="post">
-		<input type="hidden" name="newsId" value="${news.id}" />
+	<form:form commandName="comment"
+		action="/news-client/current/add-comment" method="post">
+		<input type="hidden" name="news.newsId" value="${news.newsId}" />
+		<input type="hidden" name="news.title" value="${news.title}" />
+		<input type="hidden" name="news.shortText" value="${news.shortText}" />
+		<input type="hidden" name="news.fullText" value="${news.fullText}" />
+<%-- 		<input type="hidden" name="news.modificationDate" value="${news.modificationDate}" />
+ --%>		<input type="hidden" name="news.creationDate" value="${news.creationDate}" />
+
 		<h3 align="left" class="news_current_title">
 			<c:out value="${news.title}" />
 		</h3>
@@ -18,7 +25,7 @@
 			<fmt:formatDate type="date" value="${news.modificationDate}" />
 		</h6>
 		<c:if test="${errorMessage!=null}">
-			<div align="left" class="alert alert-danger	">	
+			<div align="left" class="alert alert-danger	">
 				<strong><c:out value="${errorMessage}" /></strong>
 			</div>
 		</c:if>

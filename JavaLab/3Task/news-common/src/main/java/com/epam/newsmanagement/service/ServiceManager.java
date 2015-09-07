@@ -44,7 +44,7 @@ public interface ServiceManager {
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	void updateNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException;
+	void updateNews(News news) throws ServiceException;
 
 	/**
 	 * Delete news and its comments and detach author and tags by id

@@ -160,7 +160,7 @@ public class Comment {
 	 */
 	@Override
 	public String toString() {
-		return "Comment [commentId=" + commentId + ", text=" + text + ", creationDate="
+		return "Comment [commentId=" + commentId + ", news=" + news + ", text=" + text + ", creationDate="
 				+ creationDate + "]";
 	}
 	

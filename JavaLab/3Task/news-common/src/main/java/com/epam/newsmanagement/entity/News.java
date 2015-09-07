@@ -68,10 +68,11 @@ public class News {
 	
 	@OneToMany(cascade=CascadeType.REMOVE, mappedBy = "news")
 	@LazyCollection(LazyCollectionOption.FALSE)
-	private List<Comment> comments;
+	private List<Comment> commentList;
 
 	public News() {
 	}
+
 
 	/**
 	 * @return the newsId
@@ -80,12 +81,14 @@ public class News {
 		return newsId;
 	}
 
+
 	/**
 	 * @param newsId the newsId to set
 	 */
 	public void setNewsId(Long newsId) {
 		this.newsId = newsId;
 	}
+
 
 	/**
 	 * @return the title
@@ -186,19 +189,21 @@ public class News {
 	}
 
 	/**
-	 * @return the comments
+	 * @return the commentList
 	 */
-	public List<Comment> getComments() {
-		return comments;
+	public List<Comment> getCommentList() {
+		return commentList;
 	}
 
 	/**
-	 * @param comments the comments to set
+	 * @param commentList the commentList to set
 	 */
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
+	public void setCommentList(List<Comment> commentList) {
+		this.commentList = commentList;
 	}
 
+	
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -206,17 +211,15 @@ public class News {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((author == null) ? 0 : author.hashCode());
-		result = prime * result + ((comments == null) ? 0 : comments.hashCode());
 		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
 		result = prime * result + ((fullText == null) ? 0 : fullText.hashCode());
 		result = prime * result + ((modificationDate == null) ? 0 : modificationDate.hashCode());
 		result = prime * result + ((newsId == null) ? 0 : newsId.hashCode());
 		result = prime * result + ((shortText == null) ? 0 : shortText.hashCode());
-		result = prime * result + ((tagList == null) ? 0 : tagList.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		return result;
 	}
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
@@ -227,56 +230,40 @@ public class News {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (!(obj instanceof News))
 			return false;
 		News other = (News) obj;
-		if (author == null) {
-			if (other.author != null)
+		if (getFullText() == null) {
+			if (other.getFullText() != null)
 				return false;
-		} else if (!author.equals(other.author))
+		} else 
+			
+			if (!getFullText().equals(other.getFullText()))
 			return false;
-		if (comments == null) {
-			if (other.comments != null)
+		if (getModificationDate() == null) {
+			if (other.getModificationDate() != null)
 				return false;
-		} else if (!comments.equals(other.comments))
+		} else if (!getModificationDate().equals(other.getModificationDate())){
 			return false;
-		if (creationDate == null) {
-			if (other.creationDate != null)
+		}
+		if (getNewsId() == null) {
+			if (other.getNewsId() != null)
 				return false;
-		} else if (!creationDate.equals(other.creationDate))
+		} else if (!getNewsId().equals(other.getNewsId()))
 			return false;
-		if (fullText == null) {
-			if (other.fullText != null)
+		if (getShortText() == null) {
+			if (other.getShortText() != null)
 				return false;
-		} else if (!fullText.equals(other.fullText))
+		} else if (!getShortText().equals(other.getShortText()))
 			return false;
-		if (modificationDate == null) {
-			if (other.modificationDate != null)
+		if (getTitle() == null) {
+			if (other.getTitle() != null)
 				return false;
-		} else if (!modificationDate.equals(other.modificationDate))
-			return false;
-		if (newsId == null) {
-			if (other.newsId != null)
-				return false;
-		} else if (!newsId.equals(other.newsId))
-			return false;
-		if (shortText == null) {
-			if (other.shortText != null)
-				return false;
-		} else if (!shortText.equals(other.shortText))
-			return false;
-		if (tagList == null) {
-			if (other.tagList != null)
-				return false;
-		} else if (!tagList.equals(other.tagList))
-			return false;
-		if (title == null) {
-			if (other.title != null)
-				return false;
-		} else if (!title.equals(other.title))
+		} else if (!getTitle().equals(other.getTitle()))
 			return false;
 		return true;
 	}
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -285,10 +272,8 @@ public class News {
 	public String toString() {
 		return "News [newsId=" + newsId + ", title=" + title + ", shortText=" + shortText + ", fullText=" + fullText
 				+ ", creationDate=" + creationDate + ", modificationDate=" + modificationDate + ", author=" + author
-				+ ", tagList=" + tagList + ", comments=" + comments + "]";
+				+ ", tagList=" + tagList ;
 	}
-
-	
 
 	
 	

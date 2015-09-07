@@ -48,7 +48,7 @@ public class NewsUtil {
 		model.addAttribute("index", startIndex);
 		model.addAttribute("authors", service.getAllAuthors());
 		model.addAttribute("tags", service.getAllTags());
-		model.addAttribute("newsVOList", service.getNews(searchCriteria, startIndex, lastIndex));
+		model.addAttribute("newsList", service.getNews(searchCriteria, startIndex, lastIndex));
 		model.addAttribute("pages", pages);
 	}
 

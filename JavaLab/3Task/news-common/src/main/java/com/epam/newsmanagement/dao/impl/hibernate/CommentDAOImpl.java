@@ -1,9 +1,12 @@
 package com.epam.newsmanagement.dao.impl.hibernate;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
+
 import com.epam.newsmanagement.dao.CommentDAO;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
@@ -23,7 +26,12 @@ public class CommentDAOImpl implements CommentDAO {
 
 	@Override
 	public Long create(Comment entity) throws DAOException {
-		return (Long) sessionFactory.getCurrentSession().save(entity);
+		Session session = sessionFactory.getCurrentSession();
+		News news = (News) session.load(News.class, entity.getNews().getNewsId());
+		news.getCommentList().add(entity);
+		entity.setCreationDate(new Timestamp(System.currentTimeMillis()));
+		session.save(entity);
+		return entity.getCommentId();
 	}
 
 	@Override
@@ -56,7 +64,7 @@ public class CommentDAOImpl implements CommentDAO {
 	public void deleteCommentsByNewsId(Long newsId) throws DAOException {
 		Session session = sessionFactory.getCurrentSession();
 		News news = (News) session.load(News.class, newsId);
-		news.setComments(null);
+		news.setCommentList(null);
 	}
 
 	@Override
