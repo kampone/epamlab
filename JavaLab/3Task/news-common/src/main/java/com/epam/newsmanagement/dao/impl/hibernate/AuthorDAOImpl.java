@@ -40,7 +40,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 
 	@Override
 	public void delete(Author entity) throws DAOException {
-		sessionFactory.getCurrentSession().delete(entity);		
+		entity.setExpired(new Timestamp(System.currentTimeMillis()));
 	}
 
 	
@@ -52,17 +52,17 @@ public class AuthorDAOImpl implements AuthorDAO {
 
 	@Override
 	public void attachAuthorToNews(Long newsId, Long authorId) throws DAOException {
-		Session session = sessionFactory.getCurrentSession();
+		/*Session session = sessionFactory.getCurrentSession();
 		News news = (News) session.load(News.class, newsId);		
 		Author author = (Author) session.load(Author.class, authorId);
-		news.setAuthor(author);
+		news.setAuthor(author);*/
 	}
 
 	@Override
 	public void detachAuthorFromNews(Long newsId) throws DAOException {
-		Session session = sessionFactory.getCurrentSession();
+	/*	Session session = sessionFactory.getCurrentSession();
 		News news = (News) session.load(News.class, newsId);		
-		news.setAuthor(null);		
+		news.setAuthor(null);	*/	
 	}
 
 	@Override

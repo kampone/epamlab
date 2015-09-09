@@ -37,7 +37,7 @@ public class NewsDAOImpl implements NewsDAO {
 
 	@Override
 	public News read(Long id) throws DAOException {
-		return (News) sessionFactory.getCurrentSession().load(News.class, id);
+		return (News) sessionFactory.getCurrentSession().get(News.class, id);
 	}
 
 	@Override
@@ -61,7 +61,6 @@ public class NewsDAOImpl implements NewsDAO {
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(News.class);
 		Conjunction conjunction = Restrictions.conjunction();
-
 		Long authorId = null;
 		List<Long> tagsIdList = null;
 

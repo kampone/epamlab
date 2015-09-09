@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.epam.newsmanagement.entity.Comment;
+import com.epam.newsmanagement.entity.News;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.ServiceManager;
@@ -40,8 +41,9 @@ public class CurrentNewsController {
 	public String deleteComment(HttpSession session,@PathVariable("commentId") Long commentId) throws ServiceException{
 		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
 		Comment comment = service.readComment(commentId);
+		News news = comment.getNews();
 		service.deleteComment(commentId);
-		return "redirect:/current/news/" + findIndex(service, searchCriteria, comment.getNews().getNewsId());
+		return "redirect:/current/news/" + findIndex(service, searchCriteria, news.getNewsId());
 	}
 	
 	@RequestMapping(value = "/add-comment")

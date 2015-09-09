@@ -8,12 +8,10 @@ import java.sql.Timestamp;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -106,6 +104,41 @@ public class Comment {
 		this.creationDate = creationDate;
 	}
 
+
+
+	/*
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Comment other = (Comment) obj;
+		if (getCommentId() == null) {
+			if (other.getCommentId() != null)
+				return false;
+		} else if (!getCommentId().equals(other.getCommentId()))
+			return false;
+		if (getCreationDate() == null) {
+			if (other.getCreationDate() != null)
+				return false;
+		} else if (!getCreationDate().equals(other.getCreationDate()))
+			return false;
+		if (getNews() == null) {
+			if (other.news != null)
+				return false;
+		} else if (!getNews().equals(other.getNews()))
+			return false;
+		if (getText() == null) {
+			if (other.text != null)
+				return false;
+		} else if (!getText().equals(other.getText()))
+			return false;
+		return true;
+	}*/
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -115,7 +148,6 @@ public class Comment {
 		int result = 1;
 		result = prime * result + ((commentId == null) ? 0 : commentId.hashCode());
 		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
-		result = prime * result + ((news == null) ? 0 : news.hashCode());
 		result = prime * result + ((text == null) ? 0 : text.hashCode());
 		return result;
 	}
@@ -132,25 +164,20 @@ public class Comment {
 		if (getClass() != obj.getClass())
 			return false;
 		Comment other = (Comment) obj;
-		if (commentId == null) {
-			if (other.commentId != null)
+		if (getCommentId() == null) {
+			if (other.getCommentId() != null)
 				return false;
-		} else if (!commentId.equals(other.commentId))
+		} else if (!getCommentId().equals(other.getCommentId()))
 			return false;
-		if (creationDate == null) {
-			if (other.creationDate != null)
+		if (getCreationDate() == null) {
+			if (other.getCreationDate() != null)
 				return false;
-		} else if (!creationDate.equals(other.creationDate))
+		} else if (!getCreationDate().equals(other.getCreationDate()))
 			return false;
-		if (news == null) {
-			if (other.news != null)
+		if (getText() == null) {
+			if (other.getText() != null)
 				return false;
-		} else if (!news.equals(other.news))
-			return false;
-		if (text == null) {
-			if (other.text != null)
-				return false;
-		} else if (!text.equals(other.text))
+		} else if (!getText().equals(other.getText()))
 			return false;
 		return true;
 	}
@@ -160,7 +187,7 @@ public class Comment {
 	 */
 	@Override
 	public String toString() {
-		return "Comment [commentId=" + commentId + ", news=" + news + ", text=" + text + ", creationDate="
+		return "Comment [commentId=" + commentId + ",    text=	" +  text + ", creationDate="
 				+ creationDate + "]";
 	}
 	

@@ -70,10 +70,8 @@ public class ServiceManagerImpl implements ServiceManager {
 	 *      java.lang.Long, java.util.List)
 	 */
 	@Override
-	public Long addNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException {
+	public Long addNews(News news) throws ServiceException {
 		Long idNews = newsService.create(news);
-		tagService.attachListTagsToNews(idNews, idTagList);
-		authorService.attachAuthorToNews(idNews, idAuthor);
 		return idNews;
 
 	}

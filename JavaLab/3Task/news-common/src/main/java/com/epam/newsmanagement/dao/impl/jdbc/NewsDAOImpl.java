@@ -260,6 +260,8 @@ public class NewsDAOImpl implements NewsDAO {
 	 */
 	@Override
 	public List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws DAOException {
+		System.out.println("jdbc");
+
 		List<News> newsList = null;
 		News news = null;
 		Connection connection = null;

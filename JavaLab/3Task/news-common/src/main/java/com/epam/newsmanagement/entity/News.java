@@ -51,8 +51,6 @@ public class News {
 	private Timestamp creationDate;
 	
 	@NotNull
-    @Future
-    @DateTimeFormat()
 	@Column(name = "MODIFICATION_DATE")
     private Date modificationDate;
 	
@@ -271,10 +269,14 @@ public class News {
 	@Override
 	public String toString() {
 		return "News [newsId=" + newsId + ", title=" + title + ", shortText=" + shortText + ", fullText=" + fullText
-				+ ", creationDate=" + creationDate + ", modificationDate=" + modificationDate + ", author=" + author
-				+ ", tagList=" + tagList ;
+				+ ", creationDate=" + creationDate + ", modificationDate=" + modificationDate + ", commentList="
+				+ commentList + "]";
 	}
 
-	
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+
 	
 }

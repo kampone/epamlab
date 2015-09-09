@@ -49,8 +49,9 @@ public class CurrentNewsController {
 	public String addComment(HttpSession session,Model model,RedirectAttributes redirectAttributes,@Valid Comment comment, BindingResult bindingResult)
 			throws ServiceException {
 		SearchCriteria searchCriteria = (SearchCriteria) session.getAttribute("searchCriteria");
+		
+		
 		if (!bindingResult.hasErrors()) {
-			News news = service.getSingleNews(comment.getNews().getNewsId());
 			service.createComment(comment);
 			redirectAttributes.addFlashAttribute("comment", new Comment());
 		} else {

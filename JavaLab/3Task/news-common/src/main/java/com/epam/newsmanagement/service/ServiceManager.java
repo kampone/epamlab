@@ -22,15 +22,11 @@ public interface ServiceManager {
 	 * 
 	 * @param news
 	 *            that will be created
-	 * @param authorId
-	 *            of news
-	 * @param tagIdList
-	 *            id list of news tags
 	 * @return id of news
 	 * @throws ServiceException
 	 *             if trouble with connection in DAO layer
 	 */
-	Long addNews(News news, Long idAuthor, List<Long> idTagList) throws ServiceException;
+	Long addNews(News news) throws ServiceException;
 
 	/**
 	 * Update news in transaction

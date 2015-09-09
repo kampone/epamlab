@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.web.servlet.theme.ThemeChangeInterceptor;
-
 import com.epam.newsmanagement.dao.CommentDAO;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
@@ -37,7 +35,7 @@ public class CommentDAOImpl implements CommentDAO {
 	@Override
 	public Comment read(Long id) throws DAOException {
 		Session session = sessionFactory.getCurrentSession();
-		return (Comment) session.load(Comment.class, id);
+		return (Comment) session.get(Comment.class, id);
 	}
 
 	@Override
@@ -48,13 +46,15 @@ public class CommentDAOImpl implements CommentDAO {
 
 	@Override
 	public void delete(Comment entity) throws DAOException {
-		sessionFactory.getCurrentSession().delete(entity);
+		
+		Session session = sessionFactory.getCurrentSession();
+		session.delete(entity);
 	}
 
 	@Override
 	public void delete(Long id) throws DAOException {
 		Session session = sessionFactory.getCurrentSession();
-		Comment comment = (Comment) session.load(Comment.class, id);
+		Comment comment = (Comment) session.get(Comment.class, id);
 		session.delete(comment);
 	}
 

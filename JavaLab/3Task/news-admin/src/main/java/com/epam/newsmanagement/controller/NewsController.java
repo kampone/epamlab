@@ -31,7 +31,7 @@ public class NewsController {
 	}
 
 	@RequestMapping("/setSearchCriteria")
-	public String setSearchCriteriaToSession(HttpSession session, SearchCriteria searchCriteria )			throws ServiceException {
+	public String setSearchCriteriaToSession(HttpSession session, SearchCriteria searchCriteria) throws ServiceException {
 		session.setAttribute("searchCriteria", searchCriteria);
 		return "redirect:/news/watch";	
 	}
