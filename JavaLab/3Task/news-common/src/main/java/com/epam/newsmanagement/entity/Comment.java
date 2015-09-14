@@ -33,7 +33,7 @@ public class Comment {
 	private Long commentId;
 	
 	@NotNull
-	@ManyToOne(cascade=CascadeType.MERGE)
+	@ManyToOne(cascade=CascadeType.DETACH)
 	@JoinColumn(name = "NEWS_ID", nullable = false)
 	private News news;
 	

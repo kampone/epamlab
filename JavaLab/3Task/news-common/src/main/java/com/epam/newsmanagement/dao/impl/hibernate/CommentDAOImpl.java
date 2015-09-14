@@ -26,6 +26,7 @@ public class CommentDAOImpl implements CommentDAO {
 	public Long create(Comment entity) throws DAOException {
 		Session session = sessionFactory.getCurrentSession();
 		News news = (News) session.load(News.class, entity.getNews().getNewsId());
+		entity.setNews(news);
 		news.getCommentList().add(entity);
 		entity.setCreationDate(new Timestamp(System.currentTimeMillis()));
 		session.save(entity);
@@ -46,7 +47,6 @@ public class CommentDAOImpl implements CommentDAO {
 
 	@Override
 	public void delete(Comment entity) throws DAOException {
-		
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(entity);
 	}
