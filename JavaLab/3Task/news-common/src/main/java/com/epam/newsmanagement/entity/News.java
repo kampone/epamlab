@@ -1,13 +1,13 @@
 package com.epam.newsmanagement.entity;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,15 +16,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "NEWS")
 @SequenceGenerator(name = "NEWS_NEWS_ID_SEQ", sequenceName = "NEWS_NEWS_ID_SEQ", allocationSize = 1)
@@ -66,9 +65,13 @@ public class News {
 	
 	@OneToMany(cascade=CascadeType.REMOVE, mappedBy = "news")
 	@LazyCollection(LazyCollectionOption.FALSE)
+	@OrderBy("creationDate")
 	private List<Comment> commentList;
 
 	public News() {
+		tagList = new ArrayList<>();
+		commentList = new ArrayList<>();
+		
 	}
 
 

@@ -13,7 +13,7 @@
 	<div class="panel panel-default">
 
 		<div class="panel-heading">
-			<h6 align="right"><a href="/news-admin/news/delete/${news.newsId}"></a></h6>
+			<h6 align="right"><a href="/news-admin/news/delete/${news.newsId}">x	</a></h6>
 			<h3 align="left" class="panel-title news_title"><c:out value="${news.title}"/></h3>
 			<h5 align="left" class="news_author">(by <c:out value="${news.author.name}"/>)</h5>
 		</div>

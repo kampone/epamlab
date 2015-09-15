@@ -42,12 +42,15 @@ public class NewsUtil {
 		page = page == null ? 1 : page;
 		int startIndex = (page - 1) * NUMBER_OF_NEWS_ON_PAGE + 1;
 		int lastIndex = startIndex + NUMBER_OF_NEWS_ON_PAGE - 1;
-		int numberOfNews = service.getNumberOfNews(searchCriteria);
-		int pages = Double.valueOf(Math.ceil((double)numberOfNews / NUMBER_OF_NEWS_ON_PAGE)).intValue();
-		model.addAttribute("numberOfNews", numberOfNews);
+	
 		model.addAttribute("index", startIndex);
 		model.addAttribute("authors", service.getAllAuthors());
 		model.addAttribute("tags", service.getAllTags());
+
+		int numberOfNews = service.getNumberOfNews(searchCriteria);
+		model.addAttribute("numberOfNews", numberOfNews);
+		int pages = Double.valueOf(Math.ceil((double)numberOfNews / NUMBER_OF_NEWS_ON_PAGE)).intValue();
+
 		model.addAttribute("newsList", service.getNews(searchCriteria, startIndex, lastIndex));
 		model.addAttribute("pages", pages);
 	}

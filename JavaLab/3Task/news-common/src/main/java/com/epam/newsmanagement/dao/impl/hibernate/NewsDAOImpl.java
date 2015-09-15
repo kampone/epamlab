@@ -1,19 +1,20 @@
 package com.epam.newsmanagement.dao.impl.hibernate;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.criteria.Join;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Conjunction;
-import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 
 import com.epam.newsmanagement.dao.NewsDAO;
+import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.NewsPage;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;
@@ -47,7 +48,9 @@ public class NewsDAOImpl implements NewsDAO {
 
 	@Override
 	public void delete(News entity) throws DAOException {
-		sessionFactory.getCurrentSession().update(entity);
+		entity.setCommentList(null);
+		sessionFactory.getCurrentSession().merge(entity);
+		sessionFactory.getCurrentSession().delete(entity);
 	}
 
 	@Override
@@ -81,8 +84,8 @@ public class NewsDAOImpl implements NewsDAO {
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		criteria.setFirstResult(startIndex < 0 ? 0 : startIndex - 1);
 		criteria.setMaxResults(lastIndex);
-		
-//		criteria.addOrder(Property.forName("commentsCount").desc());
+
+		// criteria.addOrder(Property.forName("commentsCount").desc());
 		criteria.addOrder(Property.forName("modificationDate").desc());
 
 		return criteria.list();
@@ -96,7 +99,50 @@ public class NewsDAOImpl implements NewsDAO {
 	@Override
 	public int findIndex(SearchCriteria searchCriteria, Long newsId) throws DAOException {
 		News news = (News) sessionFactory.getCurrentSession().load(News.class, newsId);
-		return getNews(searchCriteria, Integer.MIN_VALUE, Integer.MAX_VALUE).indexOf(news)+1;
+		return getNews(searchCriteria, Integer.MIN_VALUE, Integer.MAX_VALUE).indexOf(news) + 1;
+	}
+
+	@Override
+	public NewsPage getNewsPage(Long newsId) {
+		News news = (News) sessionFactory.getCurrentSession().load(News.class, newsId);
+		NewsPage newsPage = new NewsPage();
+		List<Long> tagIdList = new ArrayList<>();
+		newsPage.setTitle(news.getTitle());
+		newsPage.setNewsId(news.getNewsId());
+		newsPage.setShortText(news.getShortText());
+		newsPage.setFullText(news.getFullText());
+		newsPage.setAuthorId(news.getAuthor().getAuthorId());
+		newsPage.setModificationDate(news.getModificationDate());
+		newsPage.setCreationDate(news.getCreationDate());
+		for (Tag tag : news.getTagList()) {
+			tagIdList.add(tag.getId());
+		}
+		newsPage.setTagIdList(tagIdList);
+		return newsPage;
+	}
+
+	@Override
+	public News getNews(NewsPage newsPage) {
+		Session session = sessionFactory.getCurrentSession();
+		News news = null;
+		if (newsPage.getNewsId() != null) {
+			news = (News) session.load(News.class, newsPage.getNewsId());
+		} else {
+			news = new News();
+			news.setCreationDate(new Timestamp(System.currentTimeMillis()));
+		}
+		Author author = (Author) session.load(Author.class, newsPage.getAuthorId());
+		List<Tag> tagList = new ArrayList<>();
+		news.setAuthor(author);
+		news.setTitle(newsPage.getTitle());
+		news.setShortText(newsPage.getShortText());
+		news.setFullText(newsPage.getFullText());
+		news.setModificationDate(newsPage.getModificationDate());
+		for (Long tagId : newsPage.getTagIdList()) {
+			tagList.add((Tag) session.load(Tag.class, tagId));
+		}
+		news.setTagList(tagList);
+		return news;
 	}
 
 }

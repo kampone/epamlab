@@ -5,8 +5,11 @@ package com.epam.newsmanagement.dao;
 
 import java.util.List;
 
+import org.hibernate.validator.internal.util.privilegedactions.GetAnnotationParameter;
+
 import com.epam.newsmanagement.dao.NewsManagementDAO;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.NewsPage;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.exception.DAOException;
 
@@ -35,6 +38,9 @@ public interface NewsDAO extends NewsManagementDAO<News> {
 
 	int findIndex(SearchCriteria searchCriteria, Long newsId) throws DAOException;
 	
+	NewsPage getNewsPage(Long newsId) throws DAOException;
+	
+	News getNews(NewsPage newsPage) throws DAOException;
 	
 
 }

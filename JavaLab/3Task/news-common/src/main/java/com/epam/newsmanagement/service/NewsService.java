@@ -6,6 +6,7 @@ package com.epam.newsmanagement.service;
 import java.util.List;
 
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.NewsPage;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
@@ -19,24 +20,36 @@ import com.epam.newsmanagement.service.NewsManagementService;
 public interface NewsService extends NewsManagementService<News> {
 	/**
 	 * Return news which satisfy search criteria
-	 * @param searchCriteria  search criteria
-	 * @param startIndex Start index of news
-	 * @param lastIndex Last index of news to return(to return all news you can use {@link java.lang.Integer.MAX_VALUE} and {@link java.lang.Integer.MAX_VALUE} )
+	 * 
+	 * @param searchCriteria
+	 *            search criteria
+	 * @param startIndex
+	 *            Start index of news
+	 * @param lastIndex
+	 *            Last index of news to return(to return all news you can use
+	 *            {@link java.lang.Integer.MAX_VALUE} and
+	 *            {@link java.lang.Integer.MAX_VALUE} )
 	 * @return list of news
 	 * @throws ServiceException
-	 *             if trouble with connection in DAO layer	 
-	 */             
+	 *             if trouble with connection in DAO layer
+	 */
 	List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws ServiceException;
-	
+
 	/**
 	 * Return number of news which satisfy search criteria
-	 * @param searchCriteria {@link SearchCriteria}
+	 * 
+	 * @param searchCriteria
+	 *            {@link SearchCriteria}
 	 * @return number of {@link News}
-	 * @throws DAOException 
-	 * @throws ServiceException 
+	 * @throws DAOException
+	 * @throws ServiceException
 	 */
 	int getNewsNumber(SearchCriteria searchCriteria) throws ServiceException;
-	
+
 	int findIndex(SearchCriteria searchCriteria, Long newsId) throws ServiceException;
+
+	NewsPage getNewsPage(Long newsId) throws ServiceException;
+
+	News getNews(NewsPage newsPage) throws ServiceException;
 
 }

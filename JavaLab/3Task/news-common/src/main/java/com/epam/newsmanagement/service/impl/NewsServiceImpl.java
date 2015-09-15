@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 
 import com.epam.newsmanagement.dao.NewsDAO;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.NewsPage;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
@@ -130,6 +131,27 @@ public class NewsServiceImpl implements NewsService {
 		} catch (DAOException e) {
 			LOG.error(" Exception during getting index of News ", e);
 			throw new ServiceException(" Exception during getting index of News ", e);
+		}
+	}
+
+	@Override
+	public NewsPage getNewsPage(Long newsId) throws ServiceException {
+		
+		try {
+			return newsDAO.getNewsPage(newsId);
+		} catch (DAOException e) {
+			LOG.error(" Exception during getting newsPage ", e);
+			throw new ServiceException(" Exception during getting index of News ", e);
+		}
+	}
+
+	@Override
+	public News getNews(NewsPage newsPage) throws ServiceException {
+		try {
+			return newsDAO.getNews(newsPage);
+		} catch (DAOException e) {
+			LOG.error(" Exception during getting News ", e);
+			throw new ServiceException(" Exception during getting News ", e);
 		}
 	}
 

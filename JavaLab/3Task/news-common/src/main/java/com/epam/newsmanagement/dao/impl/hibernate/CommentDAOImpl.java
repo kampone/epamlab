@@ -64,7 +64,9 @@ public class CommentDAOImpl implements CommentDAO {
 	public void deleteCommentsByNewsId(Long newsId) throws DAOException {
 		Session session = sessionFactory.getCurrentSession();
 		News news = (News) session.load(News.class, newsId);
-		news.setCommentList(null);
+		for (Comment comment : news.getCommentList()) {
+			session.delete(comment);
+		}
 	}
 
 	@Override

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.NewsPage;
 import com.epam.newsmanagement.exception.ServiceException;
 import com.epam.newsmanagement.service.ServiceManager;
 
@@ -31,26 +32,25 @@ public class EditNewsController {
 	@RequestMapping("/edit/{newsId}")
 	public String editNews(RedirectAttributes redirectAttributes, @PathVariable("newsId") Long newsId)
 			throws ServiceException {
-		redirectAttributes.addFlashAttribute("news", service.getSingleNews(newsId));
+		redirectAttributes.addFlashAttribute("newsPage", service.getNewsPage(newsId));
 		return "redirect:/edit_news/view";
 	}
 
 	@RequestMapping("/save")
-	public String saveNews(RedirectAttributes redirectAttributes, @Valid News news, BindingResult bindingResult)
+	public String saveNews(RedirectAttributes redirectAttributes, @Valid NewsPage newsPage, BindingResult bindingResult)
 			throws ServiceException {
 		if (!bindingResult.hasErrors()) {
-
-			if (news.getNewsId() == null) {
+			News news = service.getNews(newsPage);
+			if(news.getNewsId() == null){
 				service.addNews(news);
-			} else {
-				service.updateNews(news);
+			}else {
+				service.updateNews(news);	
 			}
-
 			return "redirect:/news/watch";
 		} else {
 			System.out.println(bindingResult.getAllErrors());
-			redirectAttributes.addFlashAttribute("news", news);
-			redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.news", bindingResult);
+			redirectAttributes.addFlashAttribute("newsPage", newsPage);
+			redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.newsPage", bindingResult);
 			return "redirect:/edit_news/view";
 		}
 	}

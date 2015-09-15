@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.epam.newsmanagement.entity.Author;
 import com.epam.newsmanagement.entity.Comment;
 import com.epam.newsmanagement.entity.News;
+import com.epam.newsmanagement.entity.NewsPage;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.ServiceException;
@@ -95,8 +96,8 @@ public class ServiceManagerImpl implements ServiceManager {
 	 */
 	@Override
 	public void deleteNews(Long idNews) throws ServiceException {
-		tagService.detachTagsFromNews(idNews);
-		authorService.detachAuthorFromNews(idNews);
+		//tagService.detachTagsFromNews(idNews);
+		//authorService.detachAuthorFromNews(idNews);
 		commentService.deleteCommentsByNewsId(idNews);
 		newsService.delete(idNews);
 
@@ -217,6 +218,16 @@ public class ServiceManagerImpl implements ServiceManager {
 	public void deleteTag(Long idTag) throws ServiceException {
 		tagService.detachTag(idTag);
 		tagService.delete(idTag);
+	}
+
+	@Override
+	public NewsPage getNewsPage(Long newsId) throws ServiceException {
+		return newsService.getNewsPage(newsId);
+	}
+
+	@Override
+	public News getNews(NewsPage newsPage) throws ServiceException {
+		return newsService.getNews(newsPage);
 	}
 
 
