@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,12 +17,16 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.eclipse.persistence.annotations.BatchFetch;
+import org.eclipse.persistence.annotations.BatchFetchType;
+import org.hibernate.annotations.BatchSize;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 @Entity
@@ -54,20 +59,38 @@ public class News {
     private Date modificationDate;
 	
 	@ManyToOne(optional=false)
-	@LazyCollection(LazyCollectionOption.FALSE)
+	@BatchFetch(value = BatchFetchType.JOIN)
+	@LazyCollection(LazyCollectionOption.FALSE)	
 	@JoinTable(name="NEWS_AUTHORS", joinColumns=@JoinColumn(name="NEWS_ID"), inverseJoinColumns=@JoinColumn(name="AUTHOR_ID"))
 	private Author author;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.REFRESH)
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@JoinTable(name="NEWS_TAGS", joinColumns=@JoinColumn(name="NEWS_ID"), inverseJoinColumns=@JoinColumn(name="TAG_ID"))
+	@BatchFetch(value = BatchFetchType.IN)
+	@BatchSize(size=100)
 	private List<Tag> tagList;
 	
 	@OneToMany(cascade=CascadeType.REMOVE, mappedBy = "news")
 	@LazyCollection(LazyCollectionOption.FALSE)
+	@BatchFetch(value = BatchFetchType.IN)
+	@BatchSize(size=100)
 	@OrderBy("creationDate")
 	private List<Comment> commentList;
 
+	@OneToOne
+	@JoinColumn(name="NEWS_ID",referencedColumnName="VIEW_NEWS_ID", insertable = false, updatable = false)
+	@BatchFetch(value = BatchFetchType.JOIN)
+	private CommentCountView commentCountView;
+	
+	public void setCommentCountView(CommentCountView commentCountView) {
+		this.commentCountView = commentCountView;
+	}
+
+	public CommentCountView getCommentCountView() {
+		return commentCountView;
+	}
+	
 	public News() {
 		tagList = new ArrayList<>();
 		commentList = new ArrayList<>();

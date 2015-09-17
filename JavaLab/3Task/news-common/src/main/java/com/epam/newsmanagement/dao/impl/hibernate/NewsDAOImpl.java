@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Conjunction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 
@@ -81,6 +82,8 @@ public class NewsDAOImpl implements NewsDAO {
 			conjunction.add(Restrictions.in("tag.tagId", tagsIdList));
 		}
 		criteria.add(conjunction);
+		criteria = criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).createAlias("commentCountView", "count");		
+		criteria = criteria.addOrder(Order.desc("count.commentCount")).addOrder(Order.desc("modificationDate"));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		criteria.setFirstResult(startIndex < 0 ? 0 : startIndex - 1);
 		criteria.setMaxResults(lastIndex);

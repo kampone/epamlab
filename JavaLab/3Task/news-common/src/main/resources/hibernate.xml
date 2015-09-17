@@ -15,6 +15,7 @@
 				<value>com.epam.newsmanagement.entity.Author</value>
 				<value>com.epam.newsmanagement.entity.Comment</value>
 				<value>com.epam.newsmanagement.entity.News</value>
+				<value>com.epam.newsmanagement.entity.CommentCountView</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

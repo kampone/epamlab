@@ -1,10 +1,14 @@
 package com.epam.newsmanagement.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -26,6 +30,9 @@ public class Tag {
 	@Size(min=1, max=30)
 	@Column(name = "TAG_NAME")
 	private String name;
+	
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "tagList")
+	private List<News> newsList;
 
 	/**
 	 * @return the id
