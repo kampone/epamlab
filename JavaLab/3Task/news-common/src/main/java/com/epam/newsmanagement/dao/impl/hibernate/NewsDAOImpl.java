@@ -4,7 +4,9 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Conjunction;
@@ -21,6 +23,7 @@ import com.epam.newsmanagement.entity.Tag;
 import com.epam.newsmanagement.exception.DAOException;
 
 public class NewsDAOImpl implements NewsDAO {
+	private final static Logger LOG = Logger.getLogger(NewsDAOImpl.class);
 
 	private SessionFactory sessionFactory;
 
@@ -32,36 +35,78 @@ public class NewsDAOImpl implements NewsDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#create(java.lang.Object)
+	 */
 	@Override
 	public Long create(News entity) throws DAOException {
-		return (Long) sessionFactory.getCurrentSession().save(entity);
+		LOG.debug("Creating news");
+
+		try {
+			return (Long) sessionFactory.getCurrentSession().save(entity);
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#read(java.lang.Long)
+	 */
 	@Override
 	public News read(Long id) throws DAOException {
-		return (News) sessionFactory.getCurrentSession().get(News.class, id);
+		LOG.debug("Reading News");
+
+		try {
+			return (News) sessionFactory.getCurrentSession().get(News.class, id);
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#update(java.lang.Object)
+	 */
 	@Override
 	public void update(News entity) throws DAOException {
-		sessionFactory.getCurrentSession().update(entity);
+		LOG.debug("Updating News");
+
+		try {
+			sessionFactory.getCurrentSession().update(entity);
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Object)
+	 */
 	@Override
 	public void delete(News entity) throws DAOException {
-		entity.setCommentList(null);
-		sessionFactory.getCurrentSession().merge(entity);
-		sessionFactory.getCurrentSession().delete(entity);
+		delete(entity.getNewsId());
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.NewsManagementDAO#delete(java.lang.Long)
+	 */
 	@Override
 	public void delete(Long id) throws DAOException {
-		News news = (News) sessionFactory.getCurrentSession().load(News.class, id);
-		sessionFactory.getCurrentSession().delete(news);
+		LOG.debug("Deleting News");
+
+		try {
+			News news = (News) sessionFactory.getCurrentSession().load(News.class, id);
+			sessionFactory.getCurrentSession().delete(news);
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.NewsDAO#getNews(com.epam.newsmanagement.entity.SearchCriteria,
+	 *      int, int)
+	 */
 	@Override
 	public List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws DAOException {
+		LOG.debug("Getting News with SearchCriteria");
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(News.class);
 		Conjunction conjunction = Restrictions.conjunction();
@@ -73,41 +118,71 @@ public class NewsDAOImpl implements NewsDAO {
 			tagsIdList = searchCriteria.getTagIdList();
 		}
 		if (authorId != null) {
-			criteria.createAlias("author", "author");
-			conjunction.add(Restrictions.eq("author.authorId", authorId));
+			try {
+				criteria.createAlias("author", "author");
+				conjunction.add(Restrictions.eq("author.authorId", authorId));
+			} catch (HibernateException e) {
+				throw new DAOException(e);
+			}
 
 		}
 		if (tagsIdList != null && tagsIdList.size() != 0) {
-			criteria.createAlias("tagList", "tag");
-			conjunction.add(Restrictions.in("tag.tagId", tagsIdList));
+			try {
+				criteria.createAlias("tagList", "tag");
+				conjunction.add(Restrictions.in("tag.tagId", tagsIdList));
+			} catch (HibernateException e) {
+				throw new DAOException(e);
+			}
 		}
 		criteria.add(conjunction);
-		criteria = criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).createAlias("commentCountView", "count");		
+		criteria = criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).createAlias("commentCountView",
+				"count");
 		criteria = criteria.addOrder(Order.desc("count.commentCount")).addOrder(Order.desc("modificationDate"));
 		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		criteria.setFirstResult(startIndex < 0 ? 0 : startIndex - 1);
 		criteria.setMaxResults(lastIndex);
-
-		// criteria.addOrder(Property.forName("commentsCount").desc());
 		criteria.addOrder(Property.forName("modificationDate").desc());
 
 		return criteria.list();
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.NewsDAO#getNewsNumber(com.epam.newsmanagement.entity.SearchCriteria)
+	 */
 	@Override
 	public int getNewsNumber(SearchCriteria searchCriteria) throws DAOException {
 		return getNews(searchCriteria, Integer.MIN_VALUE, Integer.MAX_VALUE).size();
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.dao.NewsDAO#findIndex(com.epam.newsmanagement.entity.SearchCriteria,
+	 *      java.lang.Long)
+	 */
 	@Override
 	public int findIndex(SearchCriteria searchCriteria, Long newsId) throws DAOException {
-		News news = (News) sessionFactory.getCurrentSession().load(News.class, newsId);
+		LOG.debug("Getting News Index");
+		News news = null;
+		try {
+			news = (News) sessionFactory.getCurrentSession().load(News.class, newsId);
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
 		return getNews(searchCriteria, Integer.MIN_VALUE, Integer.MAX_VALUE).indexOf(news) + 1;
 	}
 
+	/**
+	 * @throws DAOException
+	 * @see com.epam.newsmanagement.dao.NewsDAO#getNewsPage(java.lang.Long)
+	 */
 	@Override
-	public NewsPage getNewsPage(Long newsId) {
-		News news = (News) sessionFactory.getCurrentSession().load(News.class, newsId);
+	public NewsPage getNewsPage(Long newsId) throws DAOException {
+		LOG.debug("Getting NewsPage");
+		News news = null;
+		try {
+			news = (News) sessionFactory.getCurrentSession().load(News.class, newsId);
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
 		NewsPage newsPage = new NewsPage();
 		List<Long> tagIdList = new ArrayList<>();
 		newsPage.setTitle(news.getTitle());
@@ -124,9 +199,19 @@ public class NewsDAOImpl implements NewsDAO {
 		return newsPage;
 	}
 
+	/**
+	 * @throws DAOException 
+	 * @see com.epam.newsmanagement.dao.NewsDAO#getNews(com.epam.newsmanagement.entity.NewsPage)
+	 */
 	@Override
-	public News getNews(NewsPage newsPage) {
-		Session session = sessionFactory.getCurrentSession();
+	public News getNews(NewsPage newsPage) throws DAOException {
+		LOG.debug("Getting NewsPage from News");
+		Session session;
+		try {
+			session = sessionFactory.getCurrentSession();
+		} catch (HibernateException e) {
+			throw new DAOException(e);
+		}
 		News news = null;
 		if (newsPage.getNewsId() != null) {
 			news = (News) session.load(News.class, newsPage.getNewsId());

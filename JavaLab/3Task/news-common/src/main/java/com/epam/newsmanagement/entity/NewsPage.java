@@ -1,0 +1,229 @@
+package com.epam.newsmanagement.entity;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+public class NewsPage {
+	private Long newsId;
+
+	@Size(min=1, max=30)
+	private String title;
+	@Size(min=1, max=100)
+	private String shortText;
+	@Size(min=1, max=2000)
+	private String fullText;
+	private Timestamp creationDate;
+    private Date modificationDate;
+    @NotNull
+	private Long authorId;
+	private List<Long> tagIdList;
+	
+	public NewsPage() {
+		tagIdList = new ArrayList<>();
+	}
+
+	/**
+	 * @return the newsId
+	 */
+	public Long getNewsId() {
+		return newsId;
+	}
+
+	/**
+	 * @param newsId the newsId to set
+	 */
+	public void setNewsId(Long newsId) {
+		this.newsId = newsId;
+	}
+
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	/**
+	 * @return the shortText
+	 */
+	public String getShortText() {
+		return shortText;
+	}
+
+	/**
+	 * @param shortText the shortText to set
+	 */
+	public void setShortText(String shortText) {
+		this.shortText = shortText;
+	}
+
+	/**
+	 * @return the fullText
+	 */
+	public String getFullText() {
+		return fullText;
+	}
+
+	/**
+	 * @param fullText the fullText to set
+	 */
+	public void setFullText(String fullText) {
+		this.fullText = fullText;
+	}
+
+	/**
+	 * @return the creationDate
+	 */
+	public Timestamp getCreationDate() {
+		return creationDate;
+	}
+
+	/**
+	 * @param creationDate the creationDate to set
+	 */
+	public void setCreationDate(Timestamp creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	/**
+	 * @return the modificationDate
+	 */
+	public Date getModificationDate() {
+		return modificationDate;
+	}
+
+	/**
+	 * @param modificationDate the modificationDate to set
+	 */
+	public void setModificationDate(Date modificationDate) {
+		this.modificationDate = modificationDate;
+	}
+
+	/**
+	 * @return the authorId
+	 */
+	public Long getAuthorId() {
+		return authorId;
+	}
+
+	/**
+	 * @param authorId the authorId to set
+	 */
+	public void setAuthorId(Long authorId) {
+		this.authorId = authorId;
+	}
+
+	/**
+	 * @return the tagIdList
+	 */
+	public List<Long> getTagIdList() {
+		return tagIdList;
+	}
+
+	/**
+	 * @param tagIdList the tagIdList to set
+	 */
+	public void setTagIdList(List<Long> tagIdList) {
+		this.tagIdList = tagIdList;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((authorId == null) ? 0 : authorId.hashCode());
+		result = prime * result + ((creationDate == null) ? 0 : creationDate.hashCode());
+		result = prime * result + ((fullText == null) ? 0 : fullText.hashCode());
+		result = prime * result + ((modificationDate == null) ? 0 : modificationDate.hashCode());
+		result = prime * result + ((newsId == null) ? 0 : newsId.hashCode());
+		result = prime * result + ((shortText == null) ? 0 : shortText.hashCode());
+		result = prime * result + ((tagIdList == null) ? 0 : tagIdList.hashCode());
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NewsPage other = (NewsPage) obj;
+		if (authorId == null) {
+			if (other.authorId != null)
+				return false;
+		} else if (!authorId.equals(other.authorId))
+			return false;
+		if (creationDate == null) {
+			if (other.creationDate != null)
+				return false;
+		} else if (!creationDate.equals(other.creationDate))
+			return false;
+		if (fullText == null) {
+			if (other.fullText != null)
+				return false;
+		} else if (!fullText.equals(other.fullText))
+			return false;
+		if (modificationDate == null) {
+			if (other.modificationDate != null)
+				return false;
+		} else if (!modificationDate.equals(other.modificationDate))
+			return false;
+		if (newsId == null) {
+			if (other.newsId != null)
+				return false;
+		} else if (!newsId.equals(other.newsId))
+			return false;
+		if (shortText == null) {
+			if (other.shortText != null)
+				return false;
+		} else if (!shortText.equals(other.shortText))
+			return false;
+		if (tagIdList == null) {
+			if (other.tagIdList != null)
+				return false;
+		} else if (!tagIdList.equals(other.tagIdList))
+			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "NewsPage [newsId=" + newsId + ", title=" + title + ", shortText=" + shortText + ", fullText=" + fullText
+				+ ", creationDate=" + creationDate + ", modificationDate=" + modificationDate + ", authorId=" + authorId
+				+ ", tagIdList=" + tagIdList + "]";
+	}
+	
+	
+	
+	
+
+}
