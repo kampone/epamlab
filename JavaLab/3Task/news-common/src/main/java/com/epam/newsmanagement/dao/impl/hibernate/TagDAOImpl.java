@@ -126,11 +126,6 @@ public class TagDAOImpl implements TagDAO {
 		}
 	}
 
-	/**
-	 * Does't need in this implementation
-	 */
-	@Override
-	public void detachTag(Long idTag) throws DAOException {
-	}
+
 
 }

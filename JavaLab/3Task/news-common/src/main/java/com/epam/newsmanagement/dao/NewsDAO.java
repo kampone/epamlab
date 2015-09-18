@@ -34,12 +34,37 @@ public interface NewsDAO extends NewsManagementDAO<News> {
 	 */
 	List<News> getNews(SearchCriteria searchCriteria, int startIndex, int lastIndex) throws DAOException;
 
+	/** 
+	 * Return number of News satisfied SearchCriteria
+	 * @param searchCriteria 
+	 * @return number of News satisfied SearchCriteria
+	 * @throws DAOException 
+	 */
 	int getNewsNumber(SearchCriteria searchCriteria) throws DAOException;
 
+	/**
+	 * Return index of news according list of news satisfied SearchCriteria
+	 * @param searchCriteria
+	 * @param newsId
+	 * @return index of news according list of news satisfied SearchCriteria
+	 * @throws DAOException
+	 */
 	int findIndex(SearchCriteria searchCriteria, Long newsId) throws DAOException;
 	
+	/**
+	 * Return NewsPage by Id
+	 * @param newsId
+	 * @return NewsPage by Id
+	 * @throws DAOException
+	 */
 	NewsPage getNewsPage(Long newsId) throws DAOException;
 	
+	/**
+	 * Return News from NewsPage
+	 * @param newsPage
+	 * @return News from NewsPage
+	 * @throws DAOException
+	 */
 	News getNews(NewsPage newsPage) throws DAOException;
 	
 

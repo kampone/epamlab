@@ -46,10 +46,32 @@ public interface NewsService extends NewsManagementService<News> {
 	 */
 	int getNewsNumber(SearchCriteria searchCriteria) throws ServiceException;
 
+	/**
+	 * Return index of news according list of news satisfied SearchCriteria
+	 * 
+	 * @param searchCriteria
+	 * @param newsId
+	 * @return index of news according list of news satisfied SearchCriteria
+	 * @throws ServiceException
+	 */
 	int findIndex(SearchCriteria searchCriteria, Long newsId) throws ServiceException;
 
+	/**
+	 * Return NewsPage by Id
+	 * 
+	 * @param newsId
+	 * @return NewsPage by Id
+	 * @throws ServiceException
+	 */
 	NewsPage getNewsPage(Long newsId) throws ServiceException;
 
+	/**
+	 * Return News from NewsPage
+	 * 
+	 * @param newsPage
+	 * @return News from NewsPage
+	 * @throws ServiceException
+	 */
 	News getNews(NewsPage newsPage) throws ServiceException;
 
 }

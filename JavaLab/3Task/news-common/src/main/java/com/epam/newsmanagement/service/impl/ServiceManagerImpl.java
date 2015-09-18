@@ -83,12 +83,7 @@ public class ServiceManagerImpl implements ServiceManager {
 	 */
 	@Override
 	public void updateNews(News news) throws ServiceException {
-//		tagService.detachTagsFromNews(news.getNewsId());
-//		authorService.detachAuthorFromNews(news.getNewsId());
 		newsService.update(news);
-//		authorService.attachAuthorToNews(news.getNewsId(), idAuthor);
-//		tagService.attachListTagsToNews(news.getNewsId(), idTagList);
-
 	}
 
 	/**
@@ -96,9 +91,6 @@ public class ServiceManagerImpl implements ServiceManager {
 	 */
 	@Override
 	public void deleteNews(Long idNews) throws ServiceException {
-		//tagService.detachTagsFromNews(idNews);
-		//authorService.detachAuthorFromNews(idNews);
-		commentService.deleteCommentsByNewsId(idNews);
 		newsService.delete(idNews);
 
 	}
@@ -162,6 +154,9 @@ public class ServiceManagerImpl implements ServiceManager {
 		return authorService.getAllAuthors();
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#getAllTags()
+	 */
 	@Override
 	public List<Tag> getAllTags() throws ServiceException {
 		return tagService.getAllTags();
@@ -169,62 +164,97 @@ public class ServiceManagerImpl implements ServiceManager {
 
 
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#getNumberOfNews(com.epam.newsmanagement.entity.SearchCriteria)
+	 */
 	@Override
 	public int getNumberOfNews(SearchCriteria searchCriteria) throws ServiceException {
 		return newsService.getNewsNumber(searchCriteria);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#createComment(com.epam.newsmanagement.entity.Comment)
+	 */
 	@Override
 	public Long createComment(Comment comment) throws ServiceException {
 		return commentService.create(comment);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#findIndex(com.epam.newsmanagement.entity.SearchCriteria, java.lang.Long)
+	 */
 	@Override
 	public int findIndex(SearchCriteria searchCriteria, Long newsId) throws ServiceException {
 		return newsService.findIndex(searchCriteria, newsId);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#deleteComment(java.lang.Long)
+	 */
 	@Override
 	public void deleteComment(Long commentId) throws ServiceException {
 		commentService.delete(commentId);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#readComment(java.lang.Long)
+	 */
 	@Override
 	public Comment readComment(Long commentId) throws ServiceException {
 		return commentService.read(commentId);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#addNewTag(com.epam.newsmanagement.entity.Tag)
+	 */
 	@Override
 	public void addNewTag(Tag tag) throws ServiceException {
 		tagService.create(tag);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#updateTag(com.epam.newsmanagement.entity.Tag)
+	 */
 	@Override
 	public void updateTag(Tag tag) throws ServiceException {
 		tagService.update(tag);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#updateAuthor(com.epam.newsmanagement.entity.Author)
+	 */
 	@Override
 	public void updateAuthor(Author author) throws ServiceException {
 		authorService.update(author);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#deleteAuthor(java.lang.Long)
+	 */
 	@Override
 	public void deleteAuthor(Long idAuthor) throws ServiceException {
 		authorService.delete(idAuthor);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#deleteTag(java.lang.Long)
+	 */
 	@Override
 	public void deleteTag(Long idTag) throws ServiceException {
-		tagService.detachTag(idTag);
 		tagService.delete(idTag);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#getNewsPage(java.lang.Long)
+	 */
 	@Override
 	public NewsPage getNewsPage(Long newsId) throws ServiceException {
 		return newsService.getNewsPage(newsId);
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.ServiceManager#getNews(com.epam.newsmanagement.entity.NewsPage)
+	 */
 	@Override
 	public News getNews(NewsPage newsPage) throws ServiceException {
 		return newsService.getNews(newsPage);

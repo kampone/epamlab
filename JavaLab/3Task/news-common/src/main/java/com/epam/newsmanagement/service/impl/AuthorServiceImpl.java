@@ -126,6 +126,9 @@ public class AuthorServiceImpl implements AuthorService {
 	}
 
 
+	/**
+	 * @see com.epam.newsmanagement.service.AuthorService#getAllAuthors()
+	 */
 	@Override
 	public List<Author> getAllAuthors() throws ServiceException {
 		try {

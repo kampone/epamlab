@@ -165,24 +165,78 @@ public interface ServiceManager {
 	 */
 	Long createComment(Comment comment) throws ServiceException;
 
+	/**
+	 * Return index of news according list of news satisfied SearchCriteria
+	 * @param searchCriteria
+	 * @param newsId
+	 * @return index of news according list of news satisfied SearchCriteria
+	 * @throws ServiceException
+	 */
 	int findIndex(SearchCriteria searchCriteria, Long newsId) throws ServiceException;
 	
+	/**
+	 * Delete comment with Id
+	 * @param commentId Id
+	 * @throws ServiceException
+	 */
 	void deleteComment(Long commentId) throws ServiceException;
 	
+	/**
+	 * Return comment from DB with Id
+	 * @param commentId Id
+	 * @return comment from DB with Id
+	 * @throws ServiceException
+	 */
 	Comment readComment(Long commentId) throws ServiceException;
 	
+	/**
+	 * Create new Tag
+	 * @param tag Tag
+	 * @throws ServiceException
+	 */
 	void addNewTag(Tag tag) throws ServiceException;
 	
+	/**
+	 * Update Tag
+	 * @param tag Tag
+	 * @throws ServiceException
+	 */
 	void updateTag(Tag tag) throws ServiceException;
 	
+	/**
+	 * Update Author
+	 * @param author Author
+	 * @throws ServiceException
+	 */
 	void updateAuthor(Author author) throws ServiceException;
 	
+	/**
+	 * Delete Author with Id
+	 * @param idAuthor Id
+	 * @throws ServiceException
+	 */
 	void deleteAuthor(Long idAuthor) throws ServiceException;
 	
+	/**
+	 * Delete Tag with Id
+	 * @param idTag Id
+	 * @throws ServiceException
+	 */
 	void deleteTag(Long idTag) throws ServiceException;
 	
+	/**
+	 * Return NewsPage by Id
+	 * @param newsId
+	 * @return NewsPage by Id
+	 * @throws ServiceException
+	 */
 	NewsPage getNewsPage(Long newsId) throws ServiceException;
-
+	/**
+	 * Return News from NewsPage
+	 * @param newsPage
+	 * @return News from NewsPage
+	 * @throws ServiceException
+	 */
 	News getNews(NewsPage newsPage) throws ServiceException;
 
 	

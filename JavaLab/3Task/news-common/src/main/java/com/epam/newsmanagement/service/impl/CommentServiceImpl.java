@@ -98,6 +98,9 @@ public class CommentServiceImpl implements CommentService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.CommentService#deleteCommentsByNewsId(java.lang.Long)
+	 */
 	@Override
 	public void deleteCommentsByNewsId(Long idNews) throws ServiceException {
 		try {

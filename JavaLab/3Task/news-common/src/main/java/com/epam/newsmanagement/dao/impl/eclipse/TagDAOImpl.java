@@ -31,7 +31,6 @@ public class TagDAOImpl implements TagDAO {
 			entityManager.persist(entity);
 		} catch (PersistenceException e) {
 			throw new DAOException(e);
-
 		}
 		return entity.getId();
 	}
@@ -111,11 +110,6 @@ public class TagDAOImpl implements TagDAO {
 			throw new DAOException(e);
 		}
 	}
-	/**
-	 * Does't need in this implementation
-	 */
-	@Override
-	public void detachTag(Long idTag) throws DAOException {
-	}
+
 
 }

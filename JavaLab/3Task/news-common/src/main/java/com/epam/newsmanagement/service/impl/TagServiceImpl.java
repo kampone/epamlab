@@ -135,6 +135,9 @@ public class TagServiceImpl implements TagService {
 
 	
 
+	/**
+	 * @see com.epam.newsmanagement.service.TagService#getAllTags()
+	 */
 	@Override
 	public List<Tag> getAllTags() throws ServiceException {
 		try {
@@ -145,14 +148,6 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
-	@Override
-	public void detachTag(Long idTag) throws ServiceException {
-		try {
-			 tagDAO.detachTag(idTag);
-		} catch (DAOException e) {
-			LOG.error(" Exception during detach tag  " + e);
-			throw new ServiceException("Exception during detach tag", e);
-		}
-	}
+
 
 }

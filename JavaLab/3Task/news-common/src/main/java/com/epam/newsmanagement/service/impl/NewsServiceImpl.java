@@ -124,6 +124,9 @@ public class NewsServiceImpl implements NewsService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.NewsService#findIndex(com.epam.newsmanagement.entity.SearchCriteria, java.lang.Long)
+	 */
 	@Override
 	public int findIndex(SearchCriteria searchCriteria, Long newsId) throws ServiceException {
 		try {
@@ -134,6 +137,9 @@ public class NewsServiceImpl implements NewsService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.NewsService#getNewsPage(java.lang.Long)
+	 */
 	@Override
 	public NewsPage getNewsPage(Long newsId) throws ServiceException {
 		
@@ -145,6 +151,9 @@ public class NewsServiceImpl implements NewsService {
 		}
 	}
 
+	/**
+	 * @see com.epam.newsmanagement.service.NewsService#getNews(com.epam.newsmanagement.entity.NewsPage)
+	 */
 	@Override
 	public News getNews(NewsPage newsPage) throws ServiceException {
 		try {
