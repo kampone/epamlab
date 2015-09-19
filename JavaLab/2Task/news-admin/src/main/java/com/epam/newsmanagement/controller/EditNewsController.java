@@ -1,7 +1,5 @@
 package com.epam.newsmanagement.controller;
 
-import java.util.Locale;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;

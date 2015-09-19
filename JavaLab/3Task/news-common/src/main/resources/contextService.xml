@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="tagService" class="com.epam.newsmanagement.service.impl.TagServiceImpl">
+		<property name="tagDAO" ref="tagDAO" />
+	</bean>
+
+	<bean id="commentService" class="com.epam.newsmanagement.service.impl.CommentServiceImpl">
+		<property name="commentDAO" ref="commentDAO" />
+	</bean>
+	
+	<bean id="authorService" class="com.epam.newsmanagement.service.impl.AuthorServiceImpl">
+		<property name="authorDAO" ref="authorDAO" />
+	</bean>
+
+	<bean id="newsService" class="com.epam.newsmanagement.service.impl.NewsServiceImpl">
+		<property name="newsDAO" ref="newsDAO" />
+	</bean>
+	
+	<bean id="serviceManager" class="com.epam.newsmanagement.service.impl.ServiceManagerImpl">
+		<property name="tagService" ref="tagService"/>
+		<property name="commentService" ref="commentService"/>
+		<property name="authorService" ref="authorService"/>
+		<property name="newsService" ref="newsService"/>
+	</bean>
+
+</beans>

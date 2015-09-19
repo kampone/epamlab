@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<authors author_id="1" author_name="Vasja" />
+	<authors author_id="2" author_name="Petia" />
+	<authors author_id="3" author_name="Sasha" />
+	<authors author_id="4" author_name="Alex" />
+	<news news_id="1" title="test_title" short_text="short text"
+		full_text="full text" creation_date="2012-12-20 12:20:10"
+		modification_date="2013-12-20" />
+	<news news_id="2" title="test_title" short_text="short text"
+		full_text="full text" creation_date="2012-12-20 12:21:10"
+		modification_date="2013-12-20" />
+	<news news_id="3" title="test_title" short_text="short text"
+		full_text="full text" creation_date="2012-12-20 12:22:10"
+		modification_date="2013-12-20" />
+	<news_authors news_id="3" author_id="2" />
+	<news_authors news_id="2" author_id="3" />
+</dataset>

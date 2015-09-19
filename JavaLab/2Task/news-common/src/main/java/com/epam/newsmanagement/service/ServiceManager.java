@@ -12,7 +12,6 @@ import com.epam.newsmanagement.entity.NewsPageVO;
 import com.epam.newsmanagement.entity.NewsVO;
 import com.epam.newsmanagement.entity.SearchCriteria;
 import com.epam.newsmanagement.entity.Tag;
-import com.epam.newsmanagement.exception.DAOException;
 import com.epam.newsmanagement.exception.ServiceException;
 
 /**
